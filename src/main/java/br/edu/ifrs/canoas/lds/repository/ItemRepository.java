@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import br.edu.ifrs.canoas.lds.domain.Item;
 
-public interface ItemRepository extends CrudRepository<Item, Integer> {
+public interface ItemRepository extends CrudRepository<Item, Long> {
 	
 	@Query("SELECT i FROM Item i WHERE i.checked=true")
 	List<Item> findChecked();

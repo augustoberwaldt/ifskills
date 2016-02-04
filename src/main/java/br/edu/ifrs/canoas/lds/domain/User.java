@@ -19,6 +19,7 @@ import org.apache.tomcat.util.codec.binary.Base64;
 import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.util.Base64Utils;
 
 
 @Entity
@@ -96,10 +97,7 @@ public class User {
 	}
 	
 	public String getPictureBase64(){
-		StringBuilder sb = new StringBuilder();
-		sb.append("data:image/png;base64,");
-		sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(picture, false)));
-		return sb.toString();
+		return "data:image/png;base64,"+ Base64Utils.encodeToString(picture);
 	}
 
 	public void setPicture(byte[] picture) {

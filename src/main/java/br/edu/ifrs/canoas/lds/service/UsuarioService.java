@@ -8,12 +8,12 @@ import br.edu.ifrs.canoas.lds.domain.User;
 import br.edu.ifrs.canoas.lds.repository.UserRepository;
 
 @Service
-public class ManterUsuarioService {
+public class UsuarioService {
 	
 	private UserRepository repo;
 	
 	@Autowired
-	public ManterUsuarioService(UserRepository usuarioRepository) {
+	public UsuarioService(UserRepository usuarioRepository) {
 		this.repo = usuarioRepository;
 	}
 	

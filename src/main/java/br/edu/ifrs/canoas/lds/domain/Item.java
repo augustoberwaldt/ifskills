@@ -9,7 +9,7 @@ public class Item {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	private String name;
 	private String description;
 	private Boolean checked;
@@ -31,10 +31,10 @@ public class Item {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Boolean isChecked() {
