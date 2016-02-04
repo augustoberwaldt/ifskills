@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+	<title>User Profile</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="side-body">
+			<div class="page-title">
+				<span class="title">Perfil do Usuário</span>
+				<div class="description">Uma descrição do usuário, com suas principais características, etc.</div>
+			</div>
+			<div class="row">
+                        <div class="col-xs-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <div class="title">Informações Básicas</div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                
+                                    <form th:object="${user}" th:action="@{/user/save}"  method="post" 
+                                    		id="frmProfile"  enctype="multipart/form-data">
+                                    		
+                                    	
+                                    	<input type="hidden" th:field="*{id}" />
+                                        <div class="form-group">
+                                            <label for="exampleInputFullName">Nome Completo:</label>
+                                            <input type="text" class="form-control" id="userProfileFullName" 
+                                            		th:field="*{fullName}" placeholder="Informe o nome completo"/>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail">Email:</label>
+                                            <input type="email" class="form-control" id="userProfileEmail" 
+                                            		th:field="*{email}" placeholder="Informe o email"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword">Senha:</label>
+                                            <input type="password" class="form-control" id="userProfilePassword" 
+                                            		th:field="*{password}" placeholder="Informe a senha"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">Foto:</label>
+                                            <input type="file" id="userProfilePic" name="userProfilePic"/>
+                                            <p class="help-block">Foto do perfil.</p>
+                                        </div>
+                                        <li class="profile-img"><img  th:src="*{pictureBase64}" 
+											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
+											class="profile-img" alt=""/></li>
+                                        <button type="submit" class="btn btn-default" 
+                                        	onclick="document.getElementById('frmProfile').submit(); return false;">
+                                        	Salvar
+                                        </button>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+		</div>
+
+	</div>
+</body>
+
+</html>
