@@ -13,6 +13,7 @@ hs_err_pid*
 /target/
 
 # eclipse specific git ignore
+##############################
 *.pydevproject
 .metadata
 bin/**
@@ -28,6 +29,22 @@ local.properties
 .loadpath
 .tern-project
 .project
+
+# IDEA specific git ignore
+##########################
+# User-specific stuff:
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+gen/
+.idea_modules/
+idea-gitignore.jar
+resources/templates.list
+build/
+build.properties
+junit*.properties
 
 # External tool builders
 .externalToolBuilders/
@@ -80,3 +97,5 @@ Thumbs.db
 # Logs and databases #
 ######################
 *.log
+
+
