@@ -29,6 +29,8 @@ local.properties
 .loadpath
 .tern-project
 .project
+# Locally stored "Eclipse launch configurations"
+*.launch
 
 # IDEA specific git ignore
 ##########################
@@ -49,8 +51,7 @@ junit*.properties
 # External tool builders
 .externalToolBuilders/
 
-# Locally stored "Eclipse launch configurations"
-*.launch
+
 
 # OS generated files #
 ######################
