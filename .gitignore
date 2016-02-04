@@ -27,6 +27,7 @@ local.properties
 .settings/
 .loadpath
 .tern-project
+.project
 
 # External tool builders
 .externalToolBuilders/
