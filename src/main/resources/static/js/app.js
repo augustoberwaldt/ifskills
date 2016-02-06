@@ -34,3 +34,7 @@ $(function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });
 });
+
+$('.delete').click(function () {
+    return confirm("Are you sure?");
+});

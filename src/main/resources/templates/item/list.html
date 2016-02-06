@@ -9,26 +9,10 @@
 	<div layout:fragment="content">
 
 		<!-- BREADCRUMB -->
-		<div class="row content-container">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-top">
-				<div class="container-fluid">
-					<div class="navbar-header"  layout:fragment="custom-navbar-header">
-						<button type="button" class="navbar-expand-toggle">
-							<i class="fa fa-bars icon"></i>
-						</button>
-						<ol class="breadcrumb navbar-breadcrumb">
-							<li>CRUD Example</li>
-							<li class="active">Items</li>
-						</ol>
-						<button type="button"
-							class="navbar-right-expand-toggle pull-right visible-xs">
-							<i class="fa fa-th icon"></i>
-						</button>
-					</div>
-				</div>
-			</nav>
-		</div>
-
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li>CRUD Example</li>
+			<li class="active">Items</li>
+		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
@@ -53,29 +37,44 @@
 						
 						<!-- CONTENT -->
 						<div class="card-body">
-							<table class="table table-hover">
+							<div th:if="*{param.delete}" class="alert alert-success"> 
+								<p th:text="|Item '${param.delete[0]}' deleted!|"></p>
+				            </div>
+							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th>ID</th>
 										<th>Name</th>
 										<th>Description</th>
-										<th>Checked</th>
+										<th>Active</th>
+										<th>Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="item : ${items}">
-										<th scope="row" th:text="${item.id}">1</th>
-										<td><a href="#" th:href="@{|/item/view/${item.id}|}"
-											th:text="|${item.name}|">Mary Smith</a></td>
-										<td th:text="${item.description}">Some description</td>
-										<td th:text="${item.checked}">True</td>
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}"
+												th:text="|${item.name}|">Mary Smith</a>
+										</td>
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}"
+												 th:text="|${item.description}|">Some description</a>
+										</td>
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}"
+												 th:text="|${item.active}|">True</a>
+										</td>
+										<td>
+											<a th:href="@{/item/edit/}+${item.id}">
+												<span class="badge">Edit</span></a>
+											<a th:href="@{/item/delete/}+${item.id}" class="delete">
+												<span class="badge">Delete</span></a>
+										</td>
 									</tr>
 								</tbody>
 							</table>
-							
-							<button type="button" class="btn btn-primary"
-								onclick="@{/admin/post/create">New Item</button>
-								
+
+							<a th:href="@{/item/create/}" class="btn btn-success">New Item</a>
+															
 						</div>
 
 					</div>

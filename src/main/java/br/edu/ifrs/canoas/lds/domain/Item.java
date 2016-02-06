@@ -1,8 +1,11 @@
 package br.edu.ifrs.canoas.lds.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Item {
@@ -10,14 +13,13 @@ public class Item {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@NotEmpty
 	private String name;
+	@Column(length = 255)
 	private String description;
-	private Boolean checked;
-	
-//	public Item(String name, String description){
-//		this.name = name;
-//		this.description = description;
-//	}
+	//@NotEmpty
+	@Column(columnDefinition = "boolean default true")
+	private Boolean active;
 	
 	public String getName() {
 		return name;
@@ -37,12 +39,13 @@ public class Item {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Boolean isChecked() {
-		return checked;
+	public Boolean getActive() {
+		return active;
 	}
-	public void setChecked(Boolean checked) {
-		this.checked = checked;
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
+	
 	
 	
 }

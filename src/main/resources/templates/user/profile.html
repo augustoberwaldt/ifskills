@@ -2,88 +2,70 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-	<title>User Profile</title>
+<title>User Profile</title>
 </head>
 <body>
 	<div layout:fragment="content">
-	
-	
-		<!-- BREADCRUMB -->
-		<!-- <div class="row content-container">
-			<nav class="navbar navbar-default navbar-fixed-top navbar-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-expand-toggle">
-							<i class="fa fa-bars icon"></i>
-						</button>
-						<ol class="breadcrumb navbar-breadcrumb">
-							<li>Profile</li>
-						</ol>
-						<button type="button"
-							class="navbar-right-expand-toggle pull-right visible-xs">
-							<i class="fa fa-th icon"></i>
-						</button>
-					</div>
-				</div>
-			</nav>
-		</div> -->
-	
-	
-	
+
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li>Profile</li>
+		</ol>
+
+
 		<div class="side-body">
 			<div class="page-title">
 				<span class="title">User Profile</span>
-				<div class="description">Here you will find all relevant user information</div>
+				<div class="description">Here you will find all relevant user
+					information</div>
 			</div>
 			<div class="row">
-                        <div class="col-xs-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="card-title">
-                                        <div class="title">Informações Básicas</div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                
-                                    <form th:object="${user}" th:action="@{/user/save}"  method="post" 
-                                    		id="frmProfile"  enctype="multipart/form-data">
-                                    		
-                                    	
-                                    	<input type="hidden" th:field="*{id}" />
-                                        <div class="form-group">
-                                            <label for="exampleInputFullName">Nome Completo:</label>
-                                            <input type="text" class="form-control" id="userProfileFullName" 
-                                            		th:field="*{fullName}" placeholder="Informe o nome completo"/>
-                                            
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail">Email:</label>
-                                            <input type="email" class="form-control" id="userProfileEmail" 
-                                            		th:field="*{email}" placeholder="Informe o email"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword">Senha:</label>
-                                            <input type="password" class="form-control" id="userProfilePassword" 
-                                            		th:field="*{password}" placeholder="Informe a senha"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputFile">Foto:</label>
-                                            <input type="file" id="userProfilePic" name="userProfilePic"/>
-                                            <p class="help-block">Foto do perfil.</p>
-                                        </div>
-                                        <li class="profile-img"><img  th:src="*{pictureBase64}" 
-											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
-											class="profile-img" alt=""/></li>
-                                        <button type="submit" class="btn btn-default" 
-                                        	onclick="document.getElementById('frmProfile').submit(); return false;">
-                                        	Salvar
-                                        </button>
-                                        
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title">Basic User Information</div>
+							</div>
+						</div>
+						<div class="card-body">
+
+							<form th:object="${user}" th:action="@{/user/save}" method="post"
+								id="frmProfile" enctype="multipart/form-data">
+
+
+								<input type="hidden" th:field="*{id}" />
+								<div class="form-group">
+									<label for="exampleInputFullName">Full Name:</label> <input
+										type="text" class="form-control" id="userProfileFullName"
+										th:field="*{fullName}" placeholder="Informe o nome completo" />
+
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail">Email:</label> <input
+										type="email" class="form-control" id="userProfileEmail"
+										th:field="*{email}" placeholder="Informe o email" />
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword">Password:</label> <input
+										type="password" class="form-control" id="userProfilePassword"
+										th:field="*{password}" placeholder="Informe a senha" />
+								</div>
+								<div class="form-group">
+									<label for="exampleInputFile">Picture:</label> <input
+										type="file" id="userProfilePic" name="userProfilePic" />
+									<p class="help-block">Update profile picture</p>
+								</div>
+								<li class="profile-img"><img th:src="*{pictureBase64}"
+									src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
+									class="profile-img" alt="" /></li>
+								<button type="submit" class="btn btn-primary"
+									onclick="document.getElementById('frmProfile').submit(); return false;">
+									Save</button>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 	</div>

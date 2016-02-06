@@ -9,7 +9,7 @@ import br.edu.ifrs.canoas.lds.domain.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
 	
-	@Query("SELECT i FROM Item i WHERE i.checked=true")
+	@Query("SELECT i FROM Item i WHERE i.active=true")
 	List<Item> findChecked();
 
 }

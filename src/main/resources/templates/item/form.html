@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title>Manage Items</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li>CRUD Example</li>
+			<li class="active">Items</li>
+		</ol>
+
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title">Items</span>
+				<div class="description">This is an example of how to manage
+					items using the basic CREATE, RETRIEVE, UPDATE and DELETE
+					operations.</div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="${readonly}?'View Item':'Edit Item'"/>
+							</div>
+						</div>
+						<div class="card-body">
+							<div th:if="*{param.success}" class="alert alert-success"> 
+				                Item saved
+				            </div>	
+							<form th:object="${item}" th:action="@{/item/save}" method="post" id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+								
+								<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+									<label for="exampleInputFullName"><span class="required">*</span>Name: </label> 
+									<input type="text" class="form-control" id="ItemName"
+										th:field="*{name}" placeholder="Item name" 
+										th:readonly="${readonly}"/>
+									<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="help-block">Name Errors</span>
+
+								</div>
+								<div class="form-group">
+									<label for="exampleInputEmail">Description:</label> 
+									<input class="form-control" id="itemDescription"
+										th:field="*{description}" placeholder="Item description" 
+										th:readonly="${readonly}"/>
+								</div>
+
+				                <div class="checkbox1 checkbox-light">
+                                    <input type="checkbox" id="checkbox-1"
+										th:field="*{active}" th:disabled="${readonly}"/>
+                                    <label for="checkbox-1">
+                                      Active
+                                    </label>
+                                </div>
+
+								<button type="submit" class="btn btn-success" th:if="${!readonly}" 
+									onclick="document.getElementById('mainForm').submit(); return false;">
+									Save</button>
+								
+								<a th:href="@{/item/edit/}+${id}" class="btn btn-info" th:if="${readonly}" >
+									Edit</a>
+								
+								<a th:href="@{/item/list/}" class="btn btn-danger" th:if="!${param.success}" >
+									<span th:text="${readonly}?Back:Cancel"/>
+								</a>
+								
+								<a th:href="@{/item/list/}" class="btn btn-default" th:if="${param.success}" >
+									List
+								</a>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

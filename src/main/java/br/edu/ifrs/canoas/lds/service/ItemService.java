@@ -9,19 +9,27 @@ import br.edu.ifrs.canoas.lds.repository.ItemRepository;
 @Service
 public class ItemService {
 
-	private ItemRepository repo;
+	private ItemRepository itemRepository;
 	
 	@Autowired
 	public ItemService(ItemRepository repo) {
-		this.repo = repo;
+		this.itemRepository = repo;
 	}
 	
 	public Iterable<Item> list() {
-		return repo.findAll();
+		return itemRepository.findAll();
 	}
 
-	public Object get(Long id) {
-		return repo.findOne(id);
+	public Item get(Long id) {
+		return itemRepository.findOne(id);
+	}
+
+	public Item save(Item item) {
+		return itemRepository.save(item);
+	}
+
+	public void delete(Long id) {
+		itemRepository.delete(id);
 	}
 
 }
