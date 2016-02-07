@@ -45,6 +45,7 @@
 									<tr>
 										<th>Name</th>
 										<th>Description</th>
+										<th>Date</th>
 										<th>Active</th>
 										<th>Action</th>
 									</tr>
@@ -59,13 +60,22 @@
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.description}|">Some description</a>
 										</td>
+
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}" 
+												th:text="${{item.date}}">
+												date</a>
+										</td>
+
 										<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.active}|">True</a>
 										</td>
+																				
 										<td>
 											<a th:href="@{/item/edit/}+${item.id}">
 												<span class="badge">Edit</span></a>
+												
 											<a th:href="@{/item/delete/}+${item.id}" class="delete">
 												<span class="badge">Delete</span></a>
 										</td>

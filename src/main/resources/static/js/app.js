@@ -38,3 +38,14 @@ $(function() {
 $('.delete').click(function () {
     return confirm("Are you sure?");
 });
+
+
+$('.datepicker').datepicker({
+    format: "dd/mm/yyyy",
+    maxViewMode: 1,
+    todayBtn: true,
+    clearBtn: true,
+    autoclose: true,
+    todayHighlight: true,
+    toggleActive: true
+});

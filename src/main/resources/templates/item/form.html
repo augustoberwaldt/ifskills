@@ -42,20 +42,33 @@
 								<input type="hidden" th:field="*{id}" />
 								
 								<div class="form-group" th:classappend="${#fields.hasErrors('name')}? 'has-error'">
-									<label for="exampleInputFullName"><span class="required">*</span>Name: </label> 
+									<label for="ItemName"><span class="required">*</span>Name: </label> 
 									<input type="text" class="form-control" id="ItemName"
 										th:field="*{name}" placeholder="Item name" 
 										th:readonly="${readonly}"/>
 									<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:class="help-block">Name Errors</span>
 
 								</div>
-								<div class="form-group">
-									<label for="exampleInputEmail">Description:</label> 
-									<input class="form-control" id="itemDescription"
+								<div class="form-group" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+									<label for="itemDescription">Description:</label> 
+									<input class="form-control" id="itemDescription" 
 										th:field="*{description}" placeholder="Item description" 
 										th:readonly="${readonly}"/>
+									<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" th:class="help-block">Name Errors</span>
 								</div>
-
+                                
+                                <div class="form-group" th:classappend="${#fields.hasErrors('date')}? 'has-error'">
+									<label for="itemDate">Date:</label> 
+									<input type="text" class="form-control datepicker" id="itemDate"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{date}}" 
+										th:readonly="${readonly}"/>
+										
+									
+									<span th:if="${#fields.hasErrors('date')}" 
+										th:errors="*{{date}}" th:class="help-block">Date Errors</span>
+								</div>
+								
 				                <div class="checkbox1 checkbox-light">
                                     <input type="checkbox" id="checkbox-1"
 										th:field="*{active}" th:disabled="${readonly}"/>
@@ -68,6 +81,9 @@
 									onclick="document.getElementById('mainForm').submit(); return false;">
 									Save</button>
 								
+								<a th:href="@{/item/create/}" class="btn btn-success" th:if="${readonly}" >
+									New</a>
+
 								<a th:href="@{/item/edit/}+${id}" class="btn btn-info" th:if="${readonly}" >
 									Edit</a>
 								
