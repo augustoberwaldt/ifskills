@@ -2,28 +2,27 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title>User Profile</title>
+<title th:text="#{user.header}">User Profile</title>
 </head>
 <body>
 	<div layout:fragment="content">
 
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li>Profile</li>
+			<li th:text="#{user.breadcrumb-1}">Profile</li>
 		</ol>
 
 
 		<div class="side-body">
 			<div class="page-title">
-				<span class="title">User Profile</span>
-				<div class="description">Here you will find all relevant user
-					information</div>
+				<span class="title" th:text="#{user.title}">User Profile</span>
+				<div class="description" th:text="#{user.title.description}">Here you will find all relevant user information</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="card">
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title">Basic User Information</div>
+								<div class="title" th:text="#{user.profile}">Basic User Information</div>
 							</div>
 						</div>
 						<div class="card-body">
@@ -34,31 +33,32 @@
 
 								<input type="hidden" th:field="*{id}" />
 								<div class="form-group">
-									<label for="exampleInputFullName">Full Name:</label> <input
+									<label for="exampleInputFullName" th:text="#{user.fullname}">Full Name:</label> <input
 										type="text" class="form-control" id="userProfileFullName"
 										th:field="*{fullName}" placeholder="Informe o nome completo" />
 
 								</div>
 								<div class="form-group">
-									<label for="exampleInputEmail">Email:</label> <input
+									<label for="exampleInputEmail" th:text="#{user.email}">Email:</label> <input
 										type="email" class="form-control" id="userProfileEmail"
 										th:field="*{email}" placeholder="Informe o email" />
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword">Password:</label> <input
+									<label for="exampleInputPassword" th:text="#{user.password}">Password:</label> <input
 										type="password" class="form-control" id="userProfilePassword"
 										th:field="*{password}" placeholder="Informe a senha" />
 								</div>
 								<div class="form-group">
-									<label for="exampleInputFile">Picture:</label> <input
+									<label for="exampleInputFile" th:text="#{user.picture}">Picture:</label> <input
 										type="file" id="userProfilePic" name="userProfilePic" />
-									<p class="help-block">Update profile picture</p>
+									<p class="help-block" th:text="#{user.picture.description}">Update profile picture</p>
 								</div>
 								<li class="profile-img"><img th:src="*{pictureBase64}"
 									src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 									class="profile-img" alt="" /></li>
 								<button type="submit" class="btn btn-primary"
-									onclick="document.getElementById('frmProfile').submit(); return false;">
+									onclick="document.getElementById('frmProfile').submit(); return false;"
+									 th:text="#{crud.action.save}">
 									Save</button>
 
 							</form>

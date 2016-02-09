@@ -15,10 +15,6 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
-import br.edu.ifrs.canoas.lds.util.calendar.JsonDateSerializer;
-
 @Entity
 public class Item {
 
@@ -65,14 +61,11 @@ public class Item {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
-	@JsonSerialize(using=JsonDateSerializer.class) 
 	public Date getDate() {
 		return date;
 	}
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
 	
 }

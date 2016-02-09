@@ -1,4 +1,6 @@
-spring: 
+
+spring:
+#  mvc.locale: pt_BR 
   thymeleaf:
     cache: false
   h2.console:

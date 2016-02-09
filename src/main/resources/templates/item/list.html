@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title>Manage Items</title>
+<title th:text="#{item.header}"/>
 </head>
 
 <body>
@@ -10,17 +10,15 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li>CRUD Example</li>
-			<li class="active">Items</li>
+			<li th:text="#{item.breadcrumb-1}"/>
+			<li class="active"  th:text="#{item.breadcrumb-2}"/>
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title">Items</span>
-				<div class="description">This is an example of how to manage
-					items using the basic CREATE, RETRIEVE, UPDATE and DELETE
-					operations.</div>
+				<span class="title" th:text="#{item.title}"/>
+				<div class="description" th:text="#{item.title.description}"></div>
 			</div>
 
 			<!--  BODY -->
@@ -31,59 +29,60 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title">List Items</div>
+								<div class="title" th:text="#{item.list}"/>
 							</div>
 						</div>
 						
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="*{param.delete}" class="alert alert-success"> 
-								<p th:text="|Item '${param.delete[0]}' deleted!|"></p>
+							<div th:if="${message}" class="alert alert-success"> 
+								<p th:text="${message}"/>
 				            </div>
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Date</th>
-										<th>Active</th>
-										<th>Action</th>
+										<th th:text="#{item.name}"/>
+										<th th:text="#{item.description}"/>
+										<th th:text="#{item.date}"/>
+										<th th:text="#{item.active}"/>
+										<th th:text="#{crud.action}"/>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="item : ${items}">
 										<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												th:text="|${item.name}|">Mary Smith</a>
+												th:text="|${item.name}|"/>
 										</td>
 										<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${item.description}|">Some description</a>
+												 th:text="|${item.description}|"/>
 										</td>
 
 										<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}" 
-												th:text="${{item.date}}">
-												date</a>
+												th:text="${{item.date}}"/>
 										</td>
 
 										<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${item.active}|">True</a>
+												 th:text="|${item.active}|"/>
 										</td>
 																				
 										<td>
 											<a th:href="@{/item/edit/}+${item.id}">
-												<span class="badge">Edit</span></a>
+												<span class="badge" th:text="#{crud.action.edit}"/>
+											</a>
 												
 											<a th:href="@{/item/delete/}+${item.id}" class="delete">
-												<span class="badge">Delete</span></a>
+												<span class="badge" th:text="#{crud.action.delete}"/>
+											</a>
 										</td>
 									</tr>
 								</tbody>
 							</table>
 
-							<a th:href="@{/item/create/}" class="btn btn-success">New Item</a>
+							<a th:href="@{/item/create/}" class="btn btn-success" th:text="#{crud.action.new}"/>
 															
 						</div>
 
