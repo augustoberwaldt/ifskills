@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>br.edu.ifrs.canoas.lds</groupId>
-	<artifactId>boot-base</artifactId>
+	<groupId>br.edu.ifrs.canoas.lds.ifskills</groupId>
+	<artifactId>ifskills</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>boot-base</name>
-	<description>Projeto Base para Spring Boot</description>
+	<name>ifskills</name>
+	<description>IFSkills - Infinity Skill Community</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
