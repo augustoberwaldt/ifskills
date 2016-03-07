@@ -68,8 +68,7 @@ public class ItemController {
 						item.getName()));
 		
 		return "redirect:/item/list";
-	}
-	
+	}	
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Item item, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs, Locale locale) {
@@ -83,7 +82,6 @@ public class ItemController {
 		}
 		model.addAttribute("readonly", false);
 		return "/item/form";
-	}
-	
+	}	
 	
 }
