@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{profile.header}"/>
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{profile.breadcrumb-1}"/>
+			<li class="active"  th:text="#{profile.breadcrumb-2}"/>
+		</ol>
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{profile.title}"/>
+				<div class="description" th:text="#{profile.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="#{profile.list}"/>
+							</div>
+						</div>
+						
+						<!-- CONTENT -->
+						<div class="card-body">
+							<div th:if="${message}" class="alert alert-success"> 
+								<p th:text="${message}"/>
+				            </div>
+							<table class="datatable table table-striped">
+								<thead>
+									<tr>
+										<th th:text="#{item.name}"/>
+									<!-- 	<th th:text="#{item.description}"/>
+										<th th:text="#{item.date}"/>
+										<th th:text="#{item.active}"/>
+										<th th:text="#{crud.action}"/> -->
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="user : ${users}">
+										<td>
+											<a href="#" th:href="@{|/item/view/${user.id}|}"
+												th:text="|${user.fullName}|"/>
+										</td>
+										<!-- <td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}"
+												 th:text="|${user.description}|"/>
+										</td>
+
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}" 
+												th:text="${{item.date}}"/>
+										</td>
+
+										<td>
+											<a href="#" th:href="@{|/item/view/${item.id}|}"
+												 th:text="|${item.active}|"/>
+										</td>
+																				
+										<td>
+											<a th:href="@{/item/edit/}+${item.id}">
+												<span class="badge" th:text="#{crud.action.edit}"/>
+											</a>
+												
+											<a th:href="@{/item/delete/}+${item.id}" class="delete">
+												<span class="badge" th:text="#{crud.action.delete}"/>
+											</a>
+										</td> -->
+									</tr>
+								</tbody>
+							</table> 
+
+							
+															
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
