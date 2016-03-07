@@ -8,20 +8,20 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 
 @Service
-public class UsuarioService {
+public class ManageUserService {
 	
 	private UserRepository repo;
 	
 	@Autowired
-	public UsuarioService(UserRepository usuarioRepository) {
+	public ManageUserService(UserRepository usuarioRepository) {
 		this.repo = usuarioRepository;
 	}
 	
-	public Iterable<User> lista(){
+	public Iterable<User> list(){
 		return repo.findAll();
 	}
 	
-	public User buscaPorEmail(String email){
+	public User findByEmail(String email){
 		return repo.findByEmail(email);
 	}
 
