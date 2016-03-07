@@ -10,4 +10,5 @@ public class IFSkillsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IFSkillsApplication.class, args);
 	}
+	
 }

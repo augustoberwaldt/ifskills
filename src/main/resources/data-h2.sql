@@ -29,4 +29,6 @@ insert into roles(id, role) values (2, 'ROLE_ADMIN');
 insert into users_roles (user_id, role_id) values (1, 1);
 insert into users_roles (user_id, role_id) values (1, 2);
 
-insert into item(id, name, description, active, date) values (1, 'Item name', 'some description...', true, sysdate);
+insert into item(id, name, description, active, date) values (1, 'Celular', 'Dispositivo de comunicação', true, sysdate);
+insert into item(id, name, description, active, date) values (2, 'Caneta', 'Dispositivo de escrita manual a base de tinta', true, sysdate);
+insert into item(id, name, description, active, date) values (3, 'Lápis', 'Dispositivo de escrita manual a base de grafite', false, sysdate);
