@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{item.header}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{alert.title}" />
+				<div class="description" th:text="#{alert.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="#{alert.title}" />
+							</div>
+						</div>
+
+						<!-- CONTENT -->
+						<div class="card-body">
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<td th:text="#{alert.text.key}">Key</td>
+										<td th:text="#{alert.text.value}">Value</td>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td th:text="#{alert.text.timestamp}">TimeStamp</td>
+										<td th:text="${timestamp}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{alert.text.status}">Status</td>
+										<td th:text="${status}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{alert.text.message}">Message</td>
+										<td th:text="${message}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{alert.text.error}">Error</td>
+										<td th:text="${error}"></td>
+									</tr>
+									<tr>
+										<td th:text="#{alert.text.path}">Path</td>
+										<td th:text="${path}"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
