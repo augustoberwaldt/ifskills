@@ -32,3 +32,7 @@ insert into users_roles (user_id, role_id) values (1, 2);
 insert into item(id, name, description, active, date) values (1, 'Celular', 'Dispositivo de comunicação', true, sysdate);
 insert into item(id, name, description, active, date) values (2, 'Caneta', 'Dispositivo de escrita manual a base de tinta', true, sysdate);
 insert into item(id, name, description, active, date) values (3, 'Lápis', 'Dispositivo de escrita manual a base de grafite', false, sysdate);
+insert into item(id, name, description, active, date) values (4, 'Cadeira', 'Assento para uma só pessoa, comumente portátil, com quatro pernas e espaldar, com ou sem braçose', true, sysdate);
+insert into item(id, name, description, active, date) values (5, 'Software', ' é uma sequência de instruções escritas para serem interpretadas por um computador com o objetivo de executar tarefas específicas', true, sysdate);
+insert into item(id, name, description, active, date) values (6, 'Hardware', 'é a parte física de um computador', true, sysdate);
+insert into item(id, name, description, active, date) values (7, 'Mesa', 'Em geral de madeira, formado por uma tábua horizontalmente assentada em um ou mais pés', true, sysdate);
