@@ -19,12 +19,12 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UsuarioService;
 
 @Controller
 @RequestMapping("/user")
-public class ManterUsuarioController {
+public class UserController {
 	
 	private UsuarioService service;
 	
 	@Autowired
-	public ManterUsuarioController(UsuarioService service) {
+	public UserController(UsuarioService service) {
 		this.service=service;
 	}
 	
