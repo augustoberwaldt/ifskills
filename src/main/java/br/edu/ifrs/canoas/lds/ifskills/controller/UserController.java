@@ -15,16 +15,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
-import br.edu.ifrs.canoas.lds.ifskills.service.UsuarioService;
+import br.edu.ifrs.canoas.lds.ifskills.service.ManageUserService;
 
 @Controller
 @RequestMapping("/user")
-public class ManterUsuarioController {
+public class UserController {
 	
-	private UsuarioService service;
+	private ManageUserService service;
 	
 	@Autowired
-	public ManterUsuarioController(UsuarioService service) {
+	public UserController(ManageUserService service) {
 		this.service=service;
 	}
 	

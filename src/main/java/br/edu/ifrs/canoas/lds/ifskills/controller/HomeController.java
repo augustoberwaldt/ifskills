@@ -7,15 +7,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.edu.ifrs.canoas.lds.ifskills.service.UsuarioService;
+import br.edu.ifrs.canoas.lds.ifskills.service.ManageUserService;
 
 @Controller
 public class HomeController {
 	
-	private UsuarioService service;
+	private ManageUserService service;
 	
 	@Autowired
-	public HomeController(UsuarioService service) {
+	public HomeController(ManageUserService service) {
 		this.service=service;
 	}
 	
