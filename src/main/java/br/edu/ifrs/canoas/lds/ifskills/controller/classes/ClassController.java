@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/class")
 public class ClassController {
 
-		@Autowired
+//		@Autowired
 		public ClassController() {
 		}
 		
