@@ -13,10 +13,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.apache.tomcat.util.codec.binary.Base64;
-import org.apache.tomcat.util.codec.binary.StringUtils;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.Base64Utils;
@@ -26,7 +25,8 @@ import org.springframework.util.Base64Utils;
 @Table( name="users" )
 public class User {
 
-	@Id @GeneratedValue
+	@Id 
+	@GeneratedValue
 	private Long id;
 	
 	@Column( unique=true, nullable=false )
@@ -42,6 +42,11 @@ public class User {
 	@Lob @Column(name="PIC")
 	private byte[] picture;
 	
+	@OneToOne
+	@JoinColumn(name="id_place")
+	private Place place;
+	
+
 	@ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
 	@JoinTable( 
 		name = "users_roles", 
@@ -103,6 +108,15 @@ public class User {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
+	
+	public Place getPlace() {
+		return place;
+	}
+
+	public void setPlace(Place place) {
+		this.place = place;
+	}
+
 
 	@Override
 	public String toString() {

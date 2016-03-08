@@ -1,23 +1,32 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+
 
 @Entity
 public class Course {
 
 @Id
+@Column (name = "id_course")
 @GeneratedValue
 private Long id;
 
@@ -29,8 +38,10 @@ private String name;
 @Size(min = 1, max = 255)
 private String description;
 
+
 //Trainer names (multiple selection from a list) ??????????
 //***Find this option (multiple section list) on template?***
+
 
 @Temporal(TemporalType.DATE)
 @DateTimeFormat (pattern="dd/MM/yyyy")
@@ -40,27 +51,43 @@ private Date startDate;
 @DateTimeFormat (pattern="dd/MM/yyyy")
 private Date endDate;	
 
-//This type is temporary. It has to be HTML.
-@Column
-private String venueName;
 
-@Column
-private String venueAddress;
+//DON'T KNOW IF (instructor) AND (contact) ARE THE SAME PERSON; I ASSUMED THEY'RE. 
 
-//Not sure if those attributes have to be created in this way.
-@Column
-@NotEmpty
-private String contactName;
+//PLACE+CONTACT INFO = USER ATTRIBUTES.
+@OneToOne 
+@JoinColumn (name = "contact_id")
+private User contactInfo;
 
-@Column 
-private String contactPhone;
-
-@Column
-@Email
-private String contactEmail;
+//DID'NT FIND THE ENTITY "ATTENDEE", SO I PUT IN THIS WAY:
+@ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+@JoinTable( 
+	name = "course_attendees", 
+	joinColumns = {@JoinColumn(name="user_id")}, 
+	inverseJoinColumns = {@JoinColumn(name="id_course")}  
+)
+private Set<User> attendees = new HashSet<User>();
 
 public Long getId() {
 	return id;
+}
+
+
+public User getContactInfo() {
+	return contactInfo;
+}
+
+public void setContactInfo(User contactInfo) {
+	this.contactInfo = contactInfo;
+}
+
+
+public Set<User> getAttendees() {
+	return attendees;
+}
+
+public void setAttendees(Set<User> attendees) {
+	this.attendees = attendees;
 }
 
 public void setId(Long id) {
@@ -97,46 +124,6 @@ public Date getEndDate() {
 
 public void setEndDate(Date endDate) {
 	this.endDate = endDate;
-}
-
-public String getVenueName() {
-	return venueName;
-}
-
-public void setVenueName(String venueName) {
-	this.venueName = venueName;
-}
-
-public String getVenueAddress() {
-	return venueAddress;
-}
-
-public void setVenueAddress(String venueAddress) {
-	this.venueAddress = venueAddress;
-}
-
-public String getContactName() {
-	return contactName;
-}
-
-public void setContactName(String contactName) {
-	this.contactName = contactName;
-}
-
-public String getContactPhone() {
-	return contactPhone;
-}
-
-public void setContactPhone(String contactPhone) {
-	this.contactPhone = contactPhone;
-}
-
-public String getContactEmail() {
-	return contactEmail;
-}
-
-public void setContactEmail(String contactEmail) {
-	this.contactEmail = contactEmail;
 }
 
 }
