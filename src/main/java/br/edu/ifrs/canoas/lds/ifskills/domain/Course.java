@@ -59,5 +59,84 @@ private String contactPhone;
 @Email
 private String contactEmail;
 
-	
+public Long getId() {
+	return id;
+}
+
+public void setId(Long id) {
+	this.id = id;
+}
+
+public String getName() {
+	return name;
+}
+
+public void setName(String name) {
+	this.name = name;
+}
+
+public String getDescription() {
+	return description;
+}
+
+public void setDescription(String description) {
+	this.description = description;
+}
+
+public Date getStartDate() {
+	return startDate;
+}
+
+public void setStartDate(Date startDate) {
+	this.startDate = startDate;
+}
+
+public Date getEndDate() {
+	return endDate;
+}
+
+public void setEndDate(Date endDate) {
+	this.endDate = endDate;
+}
+
+public String getVenueName() {
+	return venueName;
+}
+
+public void setVenueName(String venueName) {
+	this.venueName = venueName;
+}
+
+public String getVenueAddress() {
+	return venueAddress;
+}
+
+public void setVenueAddress(String venueAddress) {
+	this.venueAddress = venueAddress;
+}
+
+public String getContactName() {
+	return contactName;
+}
+
+public void setContactName(String contactName) {
+	this.contactName = contactName;
+}
+
+public String getContactPhone() {
+	return contactPhone;
+}
+
+public void setContactPhone(String contactPhone) {
+	this.contactPhone = contactPhone;
+}
+
+public String getContactEmail() {
+	return contactEmail;
+}
+
+public void setContactEmail(String contactEmail) {
+	this.contactEmail = contactEmail;
+}
+
 }
