@@ -29,7 +29,7 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{profile.list}"/>
+								<div class="title" th:text="#{profile.list}"/>							
 							</div>
 						</div>
 						
@@ -41,30 +41,28 @@
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{item.name}"/>
-									<!-- 	<th th:text="#{item.description}"/>
-										<th th:text="#{item.date}"/>
-										<th th:text="#{item.active}"/>
-										<th th:text="#{crud.action}"/> -->
+										<th th:text="#{user.fullName}"/>
+									 	<th th:text="#{user.email}"/>
+										<th th:text="#{user.picture}"/>
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="user : ${users}">
 										<td>
-											<a href="#" th:href="@{|/item/view/${user.id}|}"
+											<a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|"/>
 										</td>
-										<!-- <td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${user.description}|"/>
+										 <td>
+											<a href="#" th:href="@{|/profile/view/${user.id}|}"
+												 th:text="|${user.email}|"/>
 										</td>
 
 										<td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}" 
-												th:text="${{item.date}}"/>
+											<a href="#" th:href="@{|/profile/view/${user.id}|}" 
+												th:text="${{user.picture}}"/>
 										</td>
 
-										<td>
+										<!--<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.active}|"/>
 										</td>
