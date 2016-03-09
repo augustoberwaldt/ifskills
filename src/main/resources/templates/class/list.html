@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{class.header}"/>
+<title th:text="#{class.header}" />
 </head>
 
 <body>
@@ -10,14 +10,14 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{class.breadcrumb-1}"/>
-			<li class="active"  th:text="#{class.breadcrumb-2}"/>
+			<li th:text="#{class.breadcrumb-1}" />
+			<li class="active" th:text="#{class.breadcrumb-2}" />
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{class.title}"/>
+				<span class="title" th:text="#{class.title}" />
 				<div class="description" th:text="#{class.title.description}"></div>
 			</div>
 
@@ -29,40 +29,34 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{class.list}"/>							
+								<div class="title" th:text="#{class.list}" />
 							</div>
 						</div>
-						
+
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="${message}" class="alert alert-success"> 
-								<p th:text="${message}"/>
-				            </div>
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{class.name}"/>
-									 	<th th:text="#{class.type}"/>
-										<th th:text="#{class.description}"/>
-										<th th:text="#{class.startDate}"/>
-										<th th:text="#{class.endDate}"/>
+										<th th:text="#{class.name}" />
+										<th th:text="#{class.type}" />
+										<th th:text="#{class.description}" />
+										<th th:text="#{class.startDate}" />
+										<th th:text="#{class.endDate}" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="class : ${classes}">
-										<td>
-											<a href="#" th:href="@{|/class/view/${class.id}|}"
-												th:text="|${class.name}|"/>
-										</td>
-										 <td>
-											<a href="#" th:href="@{|/class/view/${class.id}|}"
-												 th:text="|${class.type}|"/>
-										</td>
+										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
+											th:text="|${class.name}|" /></td>
+										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
+											th:text="|${class.type}|" /></td>
 
-										<td>
-											<a href="#" th:href="@{|/class/view/${class.id}|}" 
-												th:text="${{class.description}}"/>
-										</td>
+										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
+											th:text="${{class.description}}" /></td>
 
 										<!--<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
@@ -78,14 +72,11 @@
 												<span class="badge" th:text="#{crud.action.delete}"/>
 											</a>
 										</td> -->
+
 									</tr>
 								</tbody>
-							</table> 
-
-							
-															
+							</table>
 						</div>
-
 					</div>
 				</div>
 			</div>

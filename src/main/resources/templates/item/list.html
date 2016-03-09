@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{item.header}"/>
+<title th:text="#{item.header}" />
 </head>
 
 <body>
@@ -10,14 +10,14 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{item.breadcrumb-1}"/>
-			<li class="active"  th:text="#{item.breadcrumb-2}"/>
+			<li th:text="#{item.breadcrumb-1}" />
+			<li class="active" th:text="#{item.breadcrumb-2}" />
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{item.title}"/>
+				<span class="title" th:text="#{item.title}" />
 				<div class="description" th:text="#{item.title.description}"></div>
 			</div>
 
@@ -29,61 +29,50 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{item.list}"/>
+								<div class="title" th:text="#{item.list}" />
 							</div>
 						</div>
-						
+
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="${message}" class="alert alert-success"> 
-								<p th:text="${message}"/>
-				            </div>
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{item.name}"/>
-										<th th:text="#{item.description}"/>
-										<th th:text="#{item.date}"/>
-										<th th:text="#{item.active}"/>
-										<th th:text="#{crud.action}"/>
+										<th th:text="#{item.name}" />
+										<th th:text="#{item.description}" />
+										<th th:text="#{item.date}" />
+										<th th:text="#{item.active}" />
+										<th th:text="#{crud.action}" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="item : ${items}">
-										<td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												th:text="|${item.name}|"/>
-										</td>
-										<td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${item.description}|"/>
-										</td>
+										<td><a href="#" th:href="@{|/item/view/${item.id}|}"
+											th:text="|${item.name}|" /></td>
+										<td><a href="#" th:href="@{|/item/view/${item.id}|}"
+											th:text="|${item.description}|" /></td>
 
-										<td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}" 
-												th:text="${{item.date}}"/>
-										</td>
+										<td><a href="#" th:href="@{|/item/view/${item.id}|}"
+											th:text="${{item.date}}" /></td>
 
-										<td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${item.active}|"/>
-										</td>
-																				
-										<td>
-											<a th:href="@{/item/edit/}+${item.id}">
-												<span class="badge" th:text="#{crud.action.edit}"/>
-											</a>
-												
-											<a th:href="@{/item/delete/}+${item.id}" class="delete">
-												<span class="badge" th:text="#{crud.action.delete}"/>
-											</a>
-										</td>
+										<td><a href="#" th:href="@{|/item/view/${item.id}|}"
+											th:text="|${item.active}|" /></td>
+
+										<td><a th:href="@{/item/edit/}+${item.id}"> <span
+												class="badge" th:text="#{crud.action.edit}" />
+										</a> <a th:href="@{/item/delete/}+${item.id}" class="delete">
+												<span class="badge" th:text="#{crud.action.delete}" />
+										</a></td>
 									</tr>
 								</tbody>
 							</table>
 
-							<a th:href="@{/item/create/}" class="btn btn-success" th:text="#{crud.action.new}"/>
-															
+							<a th:href="@{/item/create/}" class="btn btn-success"
+								th:text="#{crud.action.new}" />
+
 						</div>
 
 					</div>

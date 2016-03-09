@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{profile.header}"/>
+<title th:text="#{profile.header}" />
 </head>
 
 <body>
@@ -10,14 +10,14 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{profile.breadcrumb-1}"/>
-			<li class="active"  th:text="#{profile.breadcrumb-2}"/>
+			<li th:text="#{profile.breadcrumb-1}" />
+			<li class="active" th:text="#{profile.breadcrumb-2}" />
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{profile.title}"/>
+				<span class="title" th:text="#{profile.title}" />
 				<div class="description" th:text="#{profile.title.description}"></div>
 			</div>
 
@@ -29,40 +29,35 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{profile.list}"/>							
+								<div class="title" th:text="#{profile.list}" />
 							</div>
 						</div>
-						
+
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="${message}" class="alert alert-success"> 
-								<p th:text="${message}"/>
-				            </div>
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{user.fullName}"/>
-									 	<th th:text="#{user.email}"/>
-										<th th:text="#{user.picture}"/>
-										<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{crud.action}"/>
+										<th th:text="#{user.fullName}" />
+										<th th:text="#{user.email}" />
+										<th th:text="#{user.picture}" />
+										<th sec:authorize="hasRole('ROLE_ADMIN')"
+											th:text="#{crud.action}" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="user : ${users}">
-										<td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}"
-												th:text="|${user.fullName}|"/>
-										</td>
-										
-										 <td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}"
-												 th:text="|${user.email}|"/>
-										</td>
+										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+											th:text="|${user.fullName}|" /></td>
 
-										<td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}" 
-												th:text="${{user.picture}}"/>
-										</td>
+										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+											th:text="|${user.email}|" /></td>
+
+										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+											th:text="${{user.picture}}" /></td>
 
 										<!--  <td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
@@ -77,13 +72,13 @@
 												<span class="badge" th:text="#{crud.action.delete}"/>
 											</a>											
 										</td> -->
-										
+
 									</tr>
-									
+
 								</tbody>
-								
-							</table> 							
-															
+
+							</table>
+
 						</div>
 					</div>
 				</div>

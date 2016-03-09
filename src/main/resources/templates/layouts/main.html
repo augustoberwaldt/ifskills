@@ -3,28 +3,29 @@
 	xmlns:th="http://www.thymleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
-<head th:include="/fragments/scripts :: head"/>
+<head th:include="/fragments/scripts :: head" />
 
 <body class="flat-blue">
 	<div class="app-container">
 		<div class="row content-container">
-			 <nav class="navbar navbar-default navbar-fixed-top navbar-top">
+			<nav class="navbar navbar-default navbar-fixed-top navbar-top">
 				<div class="container-fluid">
-					
- 					<div class="navbar-header"  layout:fragment="custom-navbar-header">
+					<div class="navbar-header" layout:fragment="custom-navbar-header">
+
 						<button type="button" class="navbar-expand-toggle">
 							<i class="fa fa-bars icon"></i>
 						</button>
-						
-						<ol th:replace="this :: breadcrumb" class="breadcrumb navbar-breadcrumb"/>
-						
+
+						<ol th:replace="this :: breadcrumb"
+							class="breadcrumb navbar-breadcrumb" />
+
 						<button type="button"
 							class="navbar-right-expand-toggle pull-right visible-xs">
 							<i class="fa fa-th icon"></i>
 						</button>
-					</div> 
-					
-					
+
+					</div>
+
 					<ul class="nav navbar-nav navbar-right" id="navbar-section">
 						<button type="button"
 							class="navbar-right-expand-toggle pull-right visible-xs">
@@ -69,34 +70,41 @@
 							</ul></li>
 						<li class="dropdown profile"><a href="#"
 							class="dropdown-toggle" data-toggle="dropdown" role="button"
-							aria-expanded="false" sec:authentication="principal.fullName">Emily Hart <span class="caret"></span></a>
+							aria-expanded="false" sec:authentication="principal.fullName">Emily
+								Hart <span class="caret"></span>
+						</a>
 							<ul class="dropdown-menu animated fadeInDown">
-								<li class="profile-img"><img  th:src="${session.pictureBase64}" 
+								<li class="profile-img"><img
+									th:src="${session.pictureBase64}"
 									src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
-									class="profile-img" alt=""/></li>
+									class="profile-img" alt="" /></li>
 								<li>
 									<div class="profile-info">
-									
-										<h4 class="username" sec:authentication="principal.fullName">Emily Hart</h4>
+
+										<h4 class="username" sec:authentication="principal.fullName">Emily
+											Hart</h4>
 										<p sec:authentication="name">emily_hart@email.com</p>
 										<div class="btn-group margin-bottom-2x" role="group">
-											
-											<form sec:authorize="isAuthenticated()" id="frmlogout" 
-													th:action="@{/login?logout}" method="post" class="form-inline">
-									    		<button type="button" class="btn btn-default"  onclick="window.location.href='/user/profile'" >
-													<i class="fa fa-user"></i> Profile</button>
-												<button type="button" class="btn btn-default" onclick="document.getElementById('frmlogout').submit(); return false;">
-													<i class="fa fa-sign-out"></i> Logout</button>
-									    	</form>
+
+											<form sec:authorize="isAuthenticated()" id="frmlogout"
+												th:action="@{/login?logout}" method="post"
+												class="form-inline">
+												<button type="button" class="btn btn-default"
+													onclick="window.location.href='/user/profile'">
+													<i class="fa fa-user"></i> Profile
+												</button>
+												<button type="button" class="btn btn-default"
+													onclick="document.getElementById('frmlogout').submit(); return false;">
+													<i class="fa fa-sign-out"></i> Logout
+												</button>
+											</form>
 										</div>
 									</div>
 								</li>
 							</ul></li>
 					</ul>
 				</div>
-			</nav> 
-
-
+			</nav>
 
 			<div class="side-menu sidebar-inverse">
 				<nav class="navbar navbar-default" role="navigation">
@@ -118,7 +126,8 @@
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#dropdown-example"> <span
-									class="icon fa fa-coffee"></span><span class="title">CRUD Example</span>
+									class="icon fa fa-coffee"></span><span class="title">CRUD
+										Example</span>
 							</a> <!-- Dropdown level 1 -->
 								<div id="dropdown-example" class="panel-collapse collapse">
 									<div class="panel-body">
@@ -127,7 +136,7 @@
 										</ul>
 									</div>
 								</div></li>
-								<!-- Dropdown-->
+							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#dropdown-classes"> <span
 									class="icon fa fa-list"></span><span class="title">Classes</span>
@@ -140,7 +149,7 @@
 										</ul>
 									</div>
 								</div></li>
-								<!-- Dropdown-->
+							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#menu-profile"> <span
 									class="icon fa fa-user"></span><span class="title">Members</span>
@@ -249,25 +258,20 @@
 			</div>
 			<!-- Main Content -->
 			<div class="container-fluid">
-				<div layout:fragment="content">
-				</div>
+				<div layout:fragment="content"></div>
 			</div>
 		</div>
-		
-		
+
 		<footer class="app-footer">
 			<div class="wrapper">
-				<span class="pull-right"><span th:text="#{main.version}"/>
-					<a href="#">
-						<i class="fa fa-long-arrow-up"></i>
-					</a>
-				</span> 
-				<span th:text="#{main.copyright}"/>
+				<span class="pull-right"><span th:text="#{main.version}" />
+					<a href="#"> <i class="fa fa-long-arrow-up"></i>
+				</a> </span> <span th:text="#{main.copyright}" />
 			</div>
 		</footer>
-		
-  		<div th:include="/fragments/scripts :: javascripts"/>
-  		
+
+		<div th:include="/fragments/scripts :: javascripts" />
+
 	</div>
 </body>
 

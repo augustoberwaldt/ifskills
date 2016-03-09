@@ -1,6 +1,4 @@
-
 spring:
-#  mvc.locale: pt_BR 
   thymeleaf:
     cache: false
   h2.console:
@@ -10,9 +8,8 @@ spring:
   datasource:
     url: jdbc:h2:~/test;DB_CLOSE_ON_EXIT=FALSE
     platform: h2
-  jackson: 
+  jackson:
     serialization.write-dates-as-timestamps: false
-
 multipart:
   maxFileSize: 1024KB
   maxRequestSize: 1024KB
