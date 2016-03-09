@@ -23,16 +23,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-public class Classes {
+public class Course {
 
 @Id
-@Column (name = "id_class")
+@Column (name = "id_course")
 @GeneratedValue
 private Long id;
 
-@Column (name = "type_id")
-@GeneratedValue
-private String type;
+@Column (name = "type")
+private ClassType type;
 
 @NotEmpty
 private String name;
@@ -129,11 +128,4 @@ public Date getEndDate() {
 public void setEndDate(Date endDate) {
 	this.endDate = endDate;
 }
-public String getType(){
-	return type;
-}
-public void setType(String type){
-	this.type = type;
-}
-
 }
