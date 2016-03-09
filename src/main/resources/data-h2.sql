@@ -55,3 +55,8 @@ insert into item(id, name, description, active, date) values (15, 'Blá Blá Bl�
 insert into item(id, name, description, active, date) values (16, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 insert into item(id, name, description, active, date) values (17, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 insert into item(id, name, description, active, date) values (18, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
+
+insert into Class_type(id_type, type_name, description) values (1, 'Course', 'This class is a course.' );
+insert into Class_type(id_type, type_name, description) values (2, 'Event', 'This class is an event.');
+
+insert into Class (name, description, start_date, end_date, contact_id, id_type) values ('Master in English', 'This is an English course', null, null, 1, 1);
