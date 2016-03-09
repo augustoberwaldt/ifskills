@@ -44,6 +44,7 @@
 										<th th:text="#{user.fullName}"/>
 									 	<th th:text="#{user.email}"/>
 										<th th:text="#{user.picture}"/>
+										<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{crud.action}"/>
 									</tr>
 								</thead>
 								<tbody>
@@ -52,6 +53,7 @@
 											<a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|"/>
 										</td>
+										
 										 <td>
 											<a href="#" th:href="@{|/profile/view/${user.id}|}"
 												 th:text="|${user.email}|"/>
@@ -62,7 +64,7 @@
 												th:text="${{user.picture}}"/>
 										</td>
 
-										<!--<td>
+										<!--  <td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.active}|"/>
 										</td>
@@ -70,20 +72,19 @@
 										<td>
 											<a th:href="@{/item/edit/}+${item.id}">
 												<span class="badge" th:text="#{crud.action.edit}"/>
-											</a>
-												
+											</a>												
 											<a th:href="@{/item/delete/}+${item.id}" class="delete">
 												<span class="badge" th:text="#{crud.action.delete}"/>
-											</a>
+											</a>											
 										</td> -->
+										
 									</tr>
+									
 								</tbody>
-							</table> 
-
-							
+								
+							</table> 							
 															
 						</div>
-
 					</div>
 				</div>
 			</div>
