@@ -20,42 +20,40 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.Base64Utils;
 
-
 @Entity
-@Table( name="users" )
+@Table(name = "users")
 public class User {
 
-	@Id 
+	@Id
 	@GeneratedValue
 	private Long id;
-	
-	@Column( unique=true, nullable=false )
+
+	@Column(unique = true, nullable = false)
 	@Email
 	private String email;
-	
-	@Column( nullable=false )
+
+	@Column(nullable = false)
 	private String password;
 
-	@Column( nullable=false )
+	@Column(nullable = false)
 	private String fullName;
-	
-	@Lob @Column(name="PIC")
-	private byte[] picture;
-	
-	@OneToOne
-	@JoinColumn(name="id_place")
-	private Place place;
-	
 
-	@ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
-	@JoinTable( 
-		name = "users_roles", 
-		joinColumns = {@JoinColumn(name="user_id")}, 
-		inverseJoinColumns = {@JoinColumn(name="role_id")}  
-	)
+	@Lob
+	@Column(name = "PIC")
+	private byte[] picture;
+
+	@OneToOne
+	@JoinColumn(name = "id_place")
+	private Place place;
+
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "role_id") })
+
 	private Set<Role> roles = new HashSet<Role>();
-	
-	private User() {}
+
+	private User() {
+	}
 
 	public Long getId() {
 		return id;
@@ -96,19 +94,19 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
+
 	public byte[] getPicture() {
 		return picture;
 	}
-	
-	public String getPictureBase64(){
-		return "data:image/png;base64,"+ Base64Utils.encodeToString(picture);
+
+	public String getPictureBase64() {
+		return "data:image/png;base64," + Base64Utils.encodeToString(picture);
 	}
 
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-	
+
 	public Place getPlace() {
 		return place;
 	}
@@ -117,10 +115,9 @@ public class User {
 		this.place = place;
 	}
 
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
-	
+
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/adimin/user/")
 public class AdminProfileController {
-	//list
-	//public  
+	// list
+	// public
 
 }

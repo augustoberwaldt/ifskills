@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@Secured( {"ROLE_ADMIN"} )
+@Secured({ "ROLE_ADMIN" })
 @RequestMapping("/admin/user")
 public class AdminUserController {
-	
-	
+
 	@RequestMapping("/view")
 	@ResponseBody
-	public String view(Model model){
+	public String view(Model model) {
 		return "Authorized user to acess something!";
-	}	
+	}
+
 }

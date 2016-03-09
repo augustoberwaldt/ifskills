@@ -12,15 +12,15 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 public class ProfileController {
 
 	private UserProfileService userProfileService;
-	
+
 	@Autowired
 	public ProfileController(UserProfileService service) {
 		this.userProfileService = service;
 	}
-	
+
 	@RequestMapping("/search")
-	public String list(Model model){
-		model.addAttribute("users",userProfileService.list());
+	public String list(Model model) {
+		model.addAttribute("users", userProfileService.list());
 		return "/profile/list";
 	}
 

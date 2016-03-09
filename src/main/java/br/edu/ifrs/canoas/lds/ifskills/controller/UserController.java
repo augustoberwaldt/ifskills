@@ -20,40 +20,40 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+
 	private UserProfileService service;
-	
+
 	@Autowired
 	public UserController(UserProfileService service) {
-		this.service=service;
+		this.service = service;
 	}
-	
+
 	@RequestMapping("/view")
-	public String view(Model model){
+	public String view(Model model) {
 		model.addAttribute("user", service.getPrincipal().getUser());
 		return "/user/view";
 	}
-	
+
 	@RequestMapping("/profile")
-	public String profile(Model model){
+	public String profile(Model model) {
 		model.addAttribute("user", service.getPrincipal().getUser());
 		return "/user/profile";
 	}
-	
-	@RequestMapping( value = "/save", method = RequestMethod.POST )
-	public String save(@Valid User user, BindingResult bindingResult,HttpSession session, 
-			Model model, @RequestParam("userProfilePic") MultipartFile picture) throws IOException {
 
-		if( bindingResult.hasErrors() ){
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(@Valid User user, BindingResult bindingResult, HttpSession session, Model model,
+			@RequestParam("userProfilePic") MultipartFile picture) throws IOException {
+
+		if (bindingResult.hasErrors()) {
 			return "/user/profile";
 		} else {
 			user.setPicture(picture.getBytes());
 			User savedUser = service.save(user);
 			service.getPrincipal().setUser(savedUser);
 			session.setAttribute("pictureBase64", service.getPrincipal().getUser().getPictureBase64());
-			return "/user/view";			
+			return "/user/view";
 		}
 
 	}
-	
+
 }
