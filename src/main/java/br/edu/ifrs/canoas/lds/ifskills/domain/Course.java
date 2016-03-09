@@ -31,7 +31,7 @@ public class Course {
 private Long id;
 
 @Column (name = "type")
-private ClassType type;
+private int type;
 
 @NotEmpty
 private String name;
