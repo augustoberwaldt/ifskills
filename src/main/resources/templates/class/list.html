@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{profile.header}"/>
+<title th:text="#{class.header}"/>
 </head>
 
 <body>
@@ -10,15 +10,15 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{profile.breadcrumb-1}"/>
-			<li class="active"  th:text="#{profile.breadcrumb-2}"/>
+			<li th:text="#{class.breadcrumb-1}"/>
+			<li class="active"  th:text="#{class.breadcrumb-2}"/>
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{profile.title}"/>
-				<div class="description" th:text="#{profile.title.description}"></div>
+				<span class="title" th:text="#{class.title}"/>
+				<div class="description" th:text="#{class.title.description}"></div>
 			</div>
 
 			<!--  BODY -->
@@ -29,7 +29,7 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{profile.list}"/>							
+								<div class="title" th:text="#{class.list}"/>							
 							</div>
 						</div>
 						
@@ -41,25 +41,27 @@
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{user.fullName}"/>
-									 	<th th:text="#{user.email}"/>
-										<th th:text="#{user.picture}"/>
+										<th th:text="#{class.name}"/>
+									 	<th th:text="#{class.type}"/>
+										<th th:text="#{class.description}"/>
+										<th th:text="#{class.startDate}"/>
+										<th th:text="#{class.endDate}"/>
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="user : ${users}">
+									<tr th:each="class : ${classes}">
 										<td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}"
-												th:text="|${user.fullName}|"/>
+											<a href="#" th:href="@{|/class/view/${class.id}|}"
+												th:text="|${class.name}|"/>
 										</td>
 										 <td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}"
-												 th:text="|${user.email}|"/>
+											<a href="#" th:href="@{|/class/view/${class.id}|}"
+												 th:text="|${class.type}|"/>
 										</td>
 
 										<td>
-											<a href="#" th:href="@{|/profile/view/${user.id}|}" 
-												th:text="${{user.picture}}"/>
+											<a href="#" th:href="@{|/class/view/${class.id}|}" 
+												th:text="${{class.description}}"/>
 										</td>
 
 										<!--<td>
