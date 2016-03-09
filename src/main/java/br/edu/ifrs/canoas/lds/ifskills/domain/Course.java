@@ -30,6 +30,9 @@ public class Course {
 @GeneratedValue
 private Long id;
 
+@Column (name = "type")
+private int type;
+
 @NotEmpty
 private String name;
 
@@ -125,5 +128,4 @@ public Date getEndDate() {
 public void setEndDate(Date endDate) {
 	this.endDate = endDate;
 }
-
 }

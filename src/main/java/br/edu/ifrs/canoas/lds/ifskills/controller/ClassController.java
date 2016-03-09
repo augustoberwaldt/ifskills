@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.lds.ifskills.controller.classes;
+package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
