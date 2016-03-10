@@ -60,3 +60,5 @@ insert into item(id, name, description, active, date) values (18, 'Blá Blá Bl�
 --insert into Class_type(id_type, type_name, description) values (2, 'Event', 'This class is an event.');
 
 insert into Course (name, description, start_date, end_date, contact_id) values ('Master in English', 'This is an English course', null, null, 1);
+insert into Course (name, description, start_date, end_date, contact_id) values ('Introduction to Oracle Database', 'Based on the most used database', null, null, 1);
+insert into Course (name, description, start_date, end_date, contact_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
