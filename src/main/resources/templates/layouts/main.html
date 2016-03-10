@@ -139,9 +139,9 @@
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#dropdown-classes"> <span
-									class="icon glyphicon glyphicon-book"></span><span class="title">Courses</span>
-							</a>
-							<!-- Dropdown level 1 -->
+									class="icon glyphicon glyphicon-book"></span><span
+									class="title">Courses</span>
+							</a> <!-- Dropdown level 1 -->
 								<div id="dropdown-classes" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
@@ -149,9 +149,8 @@
 											<li><a href="/course/list">List Courses</a></li>
 										</ul>
 									</div>
-								</div>
-							 </li>
-							 <!-- Dropdown-->
+								</div></li>
+							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#menu-profile"> <span
 									class="icon fa fa-user"></span><span class="title">Members</span>
@@ -160,6 +159,7 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<li><a href="/profile/search">List Members</a></li>
+											<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="/profile/edit">Edit Members</a></li>
 										</ul>
 									</div>
 								</div></li>
