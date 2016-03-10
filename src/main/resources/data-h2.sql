@@ -26,7 +26,7 @@
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (1, '123@123.123', 'General User', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (2, 'admin@123.123', 'General Admin', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (3, 'admi3n@123.123', '333 Admin', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$KakiGDjWB/MpMATEuEiLLOwJ839v9LH99LWDgMCMDRHr.IB87GYkm', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PIC) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 
 insert into roles(id, role) values (1, 'ROLE_USER');
