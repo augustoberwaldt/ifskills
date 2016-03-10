@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,10 +28,6 @@ public class Course {
 @Id
 @GeneratedValue
 private Long id;
-
-@ManyToOne
-@JoinColumn (name = "id_type")
-private CourseType type;
 
 @NotEmpty
 private String name;
