@@ -38,7 +38,20 @@
 							<div th:if="${message}" class="alert alert-success">
 								<p th:text="${message}" />
 							</div>
-							<table class="datatable table table-striped">
+							
+							
+							<div class="row example">
+                                            <div class="col-xs-12 col-md-8">
+                                                <input type="text" class="form-control" placeholder="Search"/> 
+                                            </div>
+                                            <div class="col-xs-6 col-md-4">
+                                                <button type="button" class="btn btn-primary">Search</button>
+                                            </div>
+                                        </div>
+                                        
+                                        
+					
+							<!--  <table class="datatable table table-striped">
 								<thead>
 									<tr>
 										<th th:text="#{user.fullName}" />
@@ -58,7 +71,7 @@
 										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 											th:text="${{user.picture}}" /></td>
 
-										<!--  <td>
+										  <td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.active}|"/>
 										</td>
@@ -70,13 +83,13 @@
 											<a th:href="@{/item/delete/}+${item.id}" class="delete">
 												<span class="badge" th:text="#{crud.action.delete}"/>
 											</a>											
-										</td> -->
+										</td> 
 
 									</tr>
 
 								</tbody>
 
-							</table>
+							</table> -->
 
 						</div>
 					</div>
