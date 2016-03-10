@@ -44,8 +44,7 @@
 										<th th:text="#{user.fullName}" />
 										<th th:text="#{user.email}" />
 										<th th:text="#{user.picture}" />
-										<th sec:authorize="hasRole('ROLE_ADMIN')"
-											th:text="#{crud.action}" />
+										<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{crud.action}" />
 									</tr>
 								</thead>
 								<tbody>
