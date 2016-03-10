@@ -39,7 +39,6 @@ public class User {
 	private String fullName;
 
 	@Lob
-	@Column(name = "PIC")
 	private byte[] picture;
 
 	@OneToOne
