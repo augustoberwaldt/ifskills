@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{class.header}" />
+<title th:text="#{course.header}" />
 </head>
 
 <body>
@@ -10,15 +10,15 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{class.breadcrumb-1}" />
-			<li class="active" th:text="#{class.breadcrumb-2}" />
+			<li th:text="#{course.breadcrumb-1}" />
+			<li class="active" th:text="#{course.breadcrumb-2}" />
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{class.title}" />
-				<div class="description" th:text="#{class.title.description}"></div>
+				<span class="title" th:text="#{course.title}" />
+				<div class="description" th:text="#{course.title.description}"></div>
 			</div>
 
 			<!--  BODY -->
@@ -29,7 +29,7 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{class.list}" />
+								<div class="title" th:text="#{course.list}" />
 							</div>
 						</div>
 
@@ -41,23 +41,21 @@
 							<table class="datatable table table-striped">
 								<thead>
 									<tr>
-										<th th:text="#{class.name}" />
-										<th th:text="#{class.type}" />
-										<th th:text="#{class.description}" />
-										<th th:text="#{class.startDate}" />
-										<th th:text="#{class.endDate}" />
+										<th th:text="#{course.name}" />
+										<th th:text="#{course.type}" />
+										<th th:text="#{course.description}" />
+										<th th:text="#{course.startDate}" />
+										<th th:text="#{course.endDate}" />
 									</tr>
 								</thead>
 								<tbody>
-									<tr th:each="class : ${classes}">
-										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
-											th:text="|${class.name}|" /></td>
-										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
-											th:text="|${class.type}|" /></td>
-
-										<td><a href="#" th:href="@{|/class/view/${class.id}|}"
-											th:text="${{class.description}}" /></td>
-
+									<tr th:each="course : ${courses}">
+										<td><span th:text="${course.name}" /></td>
+ 										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="|${course.type}|" /></td>
+ -->
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.description}}" /></td>
 										<!--<td>
 											<a href="#" th:href="@{|/item/view/${item.id}|}"
 												 th:text="|${item.active}|"/>

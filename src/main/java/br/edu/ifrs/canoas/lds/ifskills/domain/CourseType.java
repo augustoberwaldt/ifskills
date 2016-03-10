@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 
 @Entity
-public class ClassType {
+public class CourseType {
 	
 	@Id
 	@Column (name = "id_type")
@@ -25,7 +25,7 @@ public class ClassType {
 	private String description;
 	
 	@OneToMany (mappedBy="type")
-	private Collection<Class> classes;
+	private Collection<Course> courses;
 
 	
 	public int getType() {

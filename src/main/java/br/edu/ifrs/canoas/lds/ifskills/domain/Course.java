@@ -24,16 +24,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-public class Class {
+public class Course {
 
 @Id
-@Column (name = "id_class")
 @GeneratedValue
 private Long id;
 
 @ManyToOne
 @JoinColumn (name = "id_type")
-private ClassType type;
+private CourseType type;
 
 @NotEmpty
 private String name;
