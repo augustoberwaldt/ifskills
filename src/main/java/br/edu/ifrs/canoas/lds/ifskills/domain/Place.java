@@ -1,64 +1,45 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
-@Table (name = "places")
 public class Place {
 	
-@Id
-@Column (name = "id_place")
-@GeneratedValue
-private Long id;
-
-@Column ( nullable = false )
-private String street;
-
-@Column ( nullable = false )
-private Long number;
-
-@Column 
-private String complement;
-
-@OneToOne(mappedBy="place")
-private User user;
-
-
-public Long getId() {
-	return id;
+	@Id
+	@GeneratedValue
+	private Long id;
+	private String description;
+	private String type;
+	@Enumerated(EnumType.STRING)
+	private PlaceType placeType;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public PlaceType getPlaceType() {
+		return placeType;
+	}
+	public void setPlaceType(PlaceType placeType) {
+		this.placeType = placeType;
+	}
 }
-
-public String getStreet() {
-	return street;
-}
-
-public void setStreet(String street) {
-	this.street = street;
-}
-public Long getNumber() {
-	return number;
-}
-public void setNumber(Long number) {
-	this.number = number;
-}
-public String getComplement() {
-	return complement;
-}
-public void setComplement(String complement) {
-	this.complement = complement;
-}
-public User getUser() {
-	return user;
-}
-public void setUser(User user) {
-	this.user = user;
-}
-
-
-
-}
+	
