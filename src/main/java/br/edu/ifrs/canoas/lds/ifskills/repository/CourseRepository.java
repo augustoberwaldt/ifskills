@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Class;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Course;
 
 
-public interface ClassRepository extends CrudRepository<Class, Long>{
+public interface CourseRepository extends CrudRepository<Course, Long>{
 	//para listar os Cursos apenas.
 	
-	List<Class> findClassByType_TypeName(String typeName);
+	List<Course> findClassByType_TypeName(String typeName);
 
 }

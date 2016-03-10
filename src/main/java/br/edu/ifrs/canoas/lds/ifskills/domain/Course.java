@@ -13,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,16 +23,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
-public class Class {
+public class Course {
 
 @Id
-@Column (name = "id_class")
 @GeneratedValue
 private Long id;
-
-@ManyToOne
-@JoinColumn (name = "id_type")
-private ClassType type;
 
 @NotEmpty
 private String name;

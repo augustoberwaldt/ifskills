@@ -2,21 +2,26 @@ package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
-@RequestMapping("/class")
-public class ClassController {
+import br.edu.ifrs.canoas.lds.ifskills.service.CourseService;
 
-//		@Autowired
-		public ClassController() {
+@Controller
+@RequestMapping("/course")
+public class CourseController {
+
+	private CourseService courseService;
+		@Autowired
+		public CourseController(CourseService courseService) {
+			this.courseService = courseService;
 		}
 		
-		/*@RequestMapping("/list")
+		@RequestMapping("/list")
 		public String list(Model model) {
-			model.addAttribute("items", itemService.list());
-			return "/item/list";
-		}
+			model.addAttribute("courses", courseService.list());
+			return "/course/list";
+		}/*
 		
 		@RequestMapping("/create")
 		public String create(Model model) {
