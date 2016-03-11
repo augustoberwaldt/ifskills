@@ -44,7 +44,7 @@
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('fullName')}? 'has-error'">
-									<label for="ProfileName" th:text="#{users.fullName}" /> <input
+									<label for="ProfileName" th:text="#{user.fullName}" /> <input
 										type="text" class="form-control" id="ProfileName"
 										th:field="*{fullName}" placeholder="Profile name"
 										th:readonly="${readonly}" /> <span
@@ -64,7 +64,7 @@
 
 							  	<div class="form-group"
 									th:classappend="${#fields.hasErrors('picture')}? 'has-error'">
-									<label for="profilePicture" th:text="#{item.picture}" /> <input
+									<label for="profilePicture" th:text="#{user.picture}" /> <input
 										type="text" class="form-control datepicker" id="profilePicture"
 										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
 										th:field="*{{picture}}" th:readonly="${readonly}" /> <span
