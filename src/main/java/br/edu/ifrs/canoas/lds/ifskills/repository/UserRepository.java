@@ -7,5 +7,7 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 public interface UserRepository extends CrudRepository<User, Long> {
 
 	User findByEmail(String email);
+
+	User findAllByFullNameOrEmailAllIgnoreCase(String fullName, String email);
 	
 }
