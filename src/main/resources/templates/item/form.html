@@ -39,67 +39,63 @@
 							</div>
 
 							<form th:object="${item}" th:action="@{/item/save}" method="post"
- 								id="mainForm">
- 
- 								<input type="hidden" th:field="*{id}" />
- 
- 								<div class="form-group"
- 									th:classappend="${#fields.hasErrors('name')}? 'has-error'">
- 									<label for="ItemName" th:text="#{item.name}" /> <input
- 										type="text" class="form-control" id="ItemName"
- 										th:field="*{name}" placeholder="Item name"
- 										th:readonly="${readonly}" /> <span
- 										th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
- 										th:class="help-block" />
- 								</div>
- 
- 								<div class="form-group"
- 									th:classappend="${#fields.hasErrors('description')}? 'has-error'">
- 									<label for="itemDescription" th:text="#{item.description}" />
- 									<input class="form-control" id="itemDescription"
- 										th:field="*{description}" placeholder="Item description"
- 										th:readonly="${readonly}" /> <span
- 										th:if="${#fields.hasErrors('description')}"
- 										th:errors="*{description}" th:class="help-block" />
- 								</div>
- 
- 								<div class="form-group"
- 									th:classappend="${#fields.hasErrors('date')}? 'has-error'">
- 									<label for="itemDate" th:text="#{item.date}" /> <input
- 										type="text" class="form-control datepicker" id="itemDate"
- 										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
- 										th:field="*{{date}}" th:readonly="${readonly}" /> <span
- 										th:if="${#fields.hasErrors('date')}" th:errors="*{{date}}"
- 										th:class="help-block" />
- 								</div>
- 
- 								<div class="checkbox1 checkbox-light">
- 									<input type="checkbox" id="checkbox-1" th:field="*{active}"
- 										th:disabled="${readonly}" /> <label for="checkbox-1"
- 										th:text="#{item.active}" />
- 								</div>
- 
- 								<button type="submit" class="btn btn-success"
- 									th:if="${!readonly}"
- 									onclick="document.getElementById('mainForm').submit(); return false;"
-  									th:text="#{crud.action.save}" />
-  
-  								<a th:href="@{/item/create/}" class="btn btn-success"
- 									th:if="${readonly}" th:text="#{crud.action.new}" /> <a
- 									th:href="@{/item/edit/}+${id}" class="btn btn-info"
- 									th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
- 									th:href="@{/item/list/}" class="btn btn-danger"
- 									th:if="${readonly}" th:text="#{crud.action.new}" /> 
- 								<a th:href="@{/item/edit/}+${id}" class="btn btn-info"
- 									th:if="${readonly}" th:text="#{crud.action.edit}" /> 
- 								<a th:href="@{/item/list/}" class="btn btn-danger"
-  									th:if="!${param.success}"> <span
-  									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
- 								</a> <a th:href="@{/item/list/}" class="btn btn-default"/>
- 								<a th:href="@{/item/list/}" class="btn btn-default"
-  									th:if="${param.success}" th:text="#{crud.action.list}" />
-  
-  							</form>
+								id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+									<label for="ItemName" th:text="#{item.name}" /> <input
+										type="text" class="form-control" id="ItemName"
+										th:field="*{name}" placeholder="Item name"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+										th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+									<label for="itemDescription" th:text="#{item.description}" />
+									<input class="form-control" id="itemDescription"
+										th:field="*{description}" placeholder="Item description"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('description')}"
+										th:errors="*{description}" th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('date')}? 'has-error'">
+									<label for="itemDate" th:text="#{item.date}" /> <input
+										type="text" class="form-control datepicker" id="itemDate"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{date}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('date')}" th:errors="*{{date}}"
+										th:class="help-block" />
+								</div>
+
+								<div class="checkbox1 checkbox-light">
+									<input type="checkbox" id="checkbox-1" th:field="*{active}"
+										th:disabled="${readonly}" /> <label for="checkbox-1"
+										th:text="#{item.active}" />
+								</div>
+
+								<button type="submit" class="btn btn-success"
+									th:if="${!readonly}"
+									onclick="document.getElementById('mainForm').submit(); return false;"
+									th:text="#{crud.action.save}" />
+
+								<a th:href="@{/item/create/}" class="btn btn-success"
+									th:if="${readonly}" th:text="#{crud.action.new}" /> 
+								<a th:href="@{/item/edit/}+${id}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{crud.action.edit}" /> 
+								<a th:href="@{/item/list/}" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> 
+								<a th:href="@{/item/list/}" class="btn btn-default"
+									th:if="${param.success}" th:text="#{crud.action.list}" />
+
+							</form>
 						</div>
 					</div>
 				</div>
