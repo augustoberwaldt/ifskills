@@ -85,13 +85,14 @@
 									th:text="#{crud.action.save}" />
 
 								<a th:href="@{/item/create/}" class="btn btn-success"
-									th:if="${readonly}" th:text="#{crud.action.new}" /> <a
-									th:href="@{/item/edit/}+${id}" class="btn btn-info"
-									th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
-									th:href="@{/item/list/}" class="btn btn-danger"
+									th:if="${readonly}" th:text="#{crud.action.new}" /> 
+								<a th:href="@{/item/edit/}+${id}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{crud.action.edit}" /> 
+								<a th:href="@{/item/list/}" class="btn btn-danger"
 									th:if="!${param.success}"> <span
 									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-								</a> <a th:href="@{/item/list/}" class="btn btn-default"
+									</a> 
+								<a th:href="@{/item/list/}" class="btn btn-default"
 									th:if="${param.success}" th:text="#{crud.action.list}" />
 
 							</form>

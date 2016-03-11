@@ -5,6 +5,8 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Place {
@@ -16,6 +18,9 @@ public class Place {
 	private String type;
 	@Enumerated(EnumType.STRING)
 	private PlaceType placeType;
+	@OneToOne
+	@JoinColumn(name = "parent_place_id")
+	private Place parentPlace;
 	
 	public Long getId() {
 		return id;
@@ -41,5 +46,13 @@ public class Place {
 	public void setPlaceType(PlaceType placeType) {
 		this.placeType = placeType;
 	}
+	public Place getParentPlace() {
+		return parentPlace;
+	}
+	public void setParentPlace(Place parentPlace) {
+		this.parentPlace = parentPlace;
+	}
+	
+	
 }
 	

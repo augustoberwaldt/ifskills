@@ -38,6 +38,7 @@
 							<div th:if="${message}" class="alert alert-success">
 								<p th:text="${message}" />
 							</div>
+<<<<<<< HEAD
 							<!-- Formulário  th:object="${profile}"  -->
 							<form th:action="@{/profile/search}" method="post" id="searchProfileForm">
 								  <div class="row example">
@@ -66,33 +67,64 @@
 									<tr th:each="user : ${users}">
 										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 											th:text="|${user.fullName}|" /></td>
+=======
+>>>>>>> branch 'master' of https://github.com/rodrigonoll/ifskills.git
 
-										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
-											th:text="|${user.email}|" /></td>
+							<!-- Form Search Profiles -->
+							<form th:object="${profile}" th:action="@{/profile/searchBy}"
+								method="post" id="searchProfileForm">
+								<div class="row example">
+									<div class="col-xs-12 col-md-8">
+										<input type="text" id="criteria" name="criteria" class="form-control"
+											placeholder="Search" />
+									</div>
+									<div class="col-xs-6 col-md-4">
+										<button type="submit" class="btn btn-primary"
+											onclick="document.getElementById('searchProfileForm').submit(); return false;"
+											th:text="#{crud.action.search}">Search</button>
+									</div>
 
-										<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
-											th:text="${{user.picture}}" /></td>
+								</div>
+							</form>
 
-										  <td>
-											<a href="#" th:href="@{|/item/view/${item.id}|}"
-												 th:text="|${item.active}|"/>
-										</td>
-																				
-										<td>
-											<a th:href="@{/item/edit/}+${item.id}">
-												<span class="badge" th:text="#{crud.action.edit}"/>
-											</a>												
-											<a th:href="@{/item/delete/}+${item.id}" class="delete">
-												<span class="badge" th:text="#{crud.action.delete}"/>
-											</a>											
-										</td> 
+							<div th:fragment="resultsList"
+								th:unless="${#lists.isEmpty(users)}">
+								<table class="table table table-striped">
+									<thead>
+										<tr>
+											<th th:text="#{user.fullName}" />
+											<th th:text="#{user.email}" />
+											<th th:text="#{user.picture}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{crud.action}" />
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="user : ${users}">
+											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+												th:text="|${user.fullName}|" /></td>
 
-									</tr>
+											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+												th:text="|${user.email}|" /></td>
 
-								</tbody>
+											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+												th:text="${{user.picture}}" /></td>
 
-							</table> -->
+											<!-- <td><a href="#" th:href="@{|/item/view/${item.id}|}"
+												th:text="|${item.active}|" /></td>
 
+											<td><a th:href="@{/item/edit/}+${item.id}"> <span
+													class="badge" th:text="#{crud.action.edit}" />
+											</a> <a th:href="@{/item/delete/}+${item.id}" class="delete">
+													<span class="badge" th:text="#{crud.action.delete}" />
+											</a></td> -->
+
+										</tr>
+
+									</tbody>
+
+								</table>
+							</div>
 						</div>
 					</div>
 				</div>
