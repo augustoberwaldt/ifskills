@@ -38,19 +38,19 @@
 							<div th:if="${message}" class="alert alert-success">
 								<p th:text="${message}" />
 							</div>
-							<!-- Form Search Profiles --> 
-							<form th:object="${profile}" th:action="@{/profile/search}" method="post"
-								id="searchProfileForm">
-								 <div class="row example">
+							<!-- Formulário  th:object="${profile}"  -->
+							<form th:action="@{/profile/search}" method="post" id="searchProfileForm">
+								  <div class="row example">
                                             <div class="col-xs-12 col-md-8">
-                                                <input type="text" class="form-control" placeholder="Search"/> 
+                                                <input type="text" class="form-control" placeholder="Search" id="searchProfile" /> 
                                             </div>
                                             <div class="col-xs-6 col-md-4">
-                                                <button type="submit" class="btn btn-primary" onclick="document.getElementById('searchProfileForm').submit(); return false;"
+                                                <button type="submit" class="btn btn-primary" onclick="document.getElementById('searchProfile').submit(); return false;"
 									th:text="#{crud.action.search}">Search</button>
                                             </div>
-                                  
-                                 </div>                                       
+                                            
+                                  </div>
+                                        
                               </form>          
 					
 							<!--  <table class="datatable table table-striped">
