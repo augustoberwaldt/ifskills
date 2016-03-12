@@ -70,6 +70,7 @@
 									</thead>
 									<tbody>
 										<tr th:each="user : ${users}">
+										<!-- AQUI ONDE É VIEW PRECISA VIRAR PROFILE PARA BUSCAR A PÁGINA DO PRTFIL -->
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|" /></td>
 
