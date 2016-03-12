@@ -62,9 +62,9 @@ public class ProfileController {
 			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("profile.findAllByFullNameOrEmailAllIgnoreCase", null, locale));
 			
-			return "redirect:/profile/list/";			
+			//return "redirect:/profile/list/";			
 		}
-		model.addAttribute("readonly", false);
+		//model.addAttribute("readonly", false);
 		return "/profile/list";	
 	}	
 
