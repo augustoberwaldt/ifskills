@@ -35,7 +35,7 @@
 
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="${message}" class="alert alert-success">
+							<div th:if="${message}" class="alert fresh-color alert-danger alert-dismissible fade in">
 								<p th:text="${message}" />
 							</div>
 
@@ -74,7 +74,7 @@
 									</thead>
 									<tbody>
 										<tr th:each="user : ${users}">
-										<!-- AQUI ONDE É VIEW PRECISA VIRAR PROFILE PARA BUSCAR A PÁGINA DO PRTFIL -->
+										<!-- AQUI ONDE ï¿½ VIEW PRECISA VIRAR PROFILE PARA BUSCAR A Pï¿½GINA DO PRTFIL -->
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|" /></td>
 
