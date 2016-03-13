@@ -55,21 +55,18 @@
  -->
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.description}}" /></td>
-										<td>
-											<a href="#" th:href="@{|/course/view/${course.id}|}"
-												 th:text="|${course.active}|"/>
-										</td>
+											
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.startDate}}" /></td>
+											
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.endDate}}" /></td>
 																				
-										<td>
-											<a th:href="@{/course/edit/}+${course.id}">
+										<td><a th:href="@{/course/edit/}+${course.id}">
 												<span class="badge" th:text="#{crud.action.edit}"/>
-											</a>
-												
-											<a th:href="@{/course/delete/}+${course.id}" class="delete">
+										</a><a th:href="@{/course/delete/}+${course.id}" class="delete">
 												<span class="badge" th:text="#{crud.action.delete}"/>
-											</a>
-										</td>
-
+										</a></td>
 									</tr>
 								</tbody>
 							</table>

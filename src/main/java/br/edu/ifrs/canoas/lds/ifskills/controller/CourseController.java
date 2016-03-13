@@ -25,8 +25,9 @@ public class CourseController {
 	private CourseService courseService;
 	private MessageSource messageSource;
 		@Autowired
-		public CourseController(CourseService courseService) {
+		public CourseController(CourseService courseService, MessageSource messageSource) {
 			this.courseService = courseService;
+			this.messageSource = messageSource;
 		}
 		
 		@RequestMapping("/list")

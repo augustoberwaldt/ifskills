@@ -32,5 +32,5 @@ insert into item(id, name, description, active, date) values (17, 'Blá Blá Bl�
 insert into item(id, name, description, active, date) values (18, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Master in English', 'This is an English course', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Introduction to Oracle Database', 'Based on the most used database', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Introduction to Oracle Database', 'Based on the most used database', sysdate, null, 1);
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
