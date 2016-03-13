@@ -42,6 +42,7 @@
 							<!-- Form Search Profiles -->
 							<form th:object="${profile}" th:action="@{/profile/searchBy}"
 								method="post" id="searchProfileForm">
+								
 								<div class="row example">
 									<div class="col-xs-12 col-md-8">
 										<input type="text" id="criteria" name="criteria" class="form-control"
@@ -58,7 +59,10 @@
 
 							<div th:fragment="resultsList"
 								th:unless="${#lists.isEmpty(users)}">
-								<table class="table table table-striped">
+								<div th:if="${message}" class="alert alert-success">
+									<p th:text="${message}" />
+								</div>
+								<table class="table table table-striped">								
 									<thead>
 										<tr>
 											<th th:text="#{user.fullName}" />
