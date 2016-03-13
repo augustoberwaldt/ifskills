@@ -52,7 +52,7 @@ public class ProfileController {
 	}	*/
 	
 	@RequestMapping(value = "/searchBy", method = RequestMethod.POST)
-	public String showUserList(Model model,final HttpServletRequest req, RedirectAttributes redirectAttrs, Locale locale) {
+	public String showUserList(Model model,final HttpServletRequest req, final Locale locale) {
 		List<User> users = userProfileService.list(req.getParameter("criteria"));
 		if(users.isEmpty()){
 			model.addAttribute("message", 
