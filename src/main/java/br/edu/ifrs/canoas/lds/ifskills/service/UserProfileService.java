@@ -1,5 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -42,8 +44,8 @@ public class UserProfileService {
 		return userRepository.findOne(id);
 	}
 
-	public User list(String parameter) {
-		return userRepository.findAllByFullNameOrEmailAllIgnoreCase(parameter,parameter);
+	public List<User> list(String parameter) {
+		return userRepository.findAllByFullNameContainingOrEmailContainingAllIgnoreCase(parameter,parameter);
 	}
 
 }

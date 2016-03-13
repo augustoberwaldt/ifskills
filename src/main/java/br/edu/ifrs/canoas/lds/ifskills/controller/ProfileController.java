@@ -56,11 +56,10 @@ public class ProfileController {
 	
 	@RequestMapping(value = "/searchBy", method = RequestMethod.POST)
 	public String showUserList(@Valid User user, Model model,final HttpServletRequest req, BindingResult bindingResult, RedirectAttributes redirectAttrs, Locale locale) {
-		if(!bindingResult.hasErrors()){
-			model.addAttribute("users", userProfileService.list(req.getParameter("criteria")));
-			model.addAttribute("readonly", true);
-			
-			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("profile.findAllByFullNameOrEmailAllIgnoreCase", null, locale));
+		model.addAttribute("users", userProfileService.list(req.getParameter("criteria")));
+		if(userProfileService.list(req.getParameter("criteria")).isEmpty()){
+			redirectAttrs.addFlashAttribute("message", 
+					messageSource.getMessage("profile.findAllByFullNameOrEmailAllIgnoreCase", null, locale));
 		}
 		return "/profile/list";	
 	}	
