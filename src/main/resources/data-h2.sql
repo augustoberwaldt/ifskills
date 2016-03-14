@@ -44,16 +44,16 @@ insert into item(id, name, description, active, date) values (16, 'Blá Blá Bl�
 insert into item(id, name, description, active, date) values (17, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 insert into item(id, name, description, active, date) values (18, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Master in English', 'This is an English course', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Introduction to Oracle Database', 'Based on the most used database', sysdate, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Master in English', 'This is an English course', '2016-03-01', '2016-12-15', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Introduction to Oracle Database', 'Based on the most used database', '2016-02-01', '2016-02-28', 1);
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Basic Excel', 'Excel for Beginners', '2016-03-01', '2016-03-31', 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
-insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', '2016-04-01', '2016-04-30', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced Excel 1', 'Graphics', '2016-04-01', '2016-04-30', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced Excel 2', 'Formulas', '2016-05-01', '2016-05-31', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Basic Word', 'Word for Beginners', '2016-06-01', '2016-06-30', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced Word 1', 'Layouts', '2016-07-01', '2016-07-31', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced Word 2', 'ABNT', '2016-08-01', '2016-08-31', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Basic PowerPoint', 'PowerPoint for Beginners', '2016-09-01', '2016-09-30', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced PowerPoint 1', 'Music and Video', '2016-10-01', '2016-10-31', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Advanced PowerPoint 2', 'PDF', '2016-11-01', '2016-11-30', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Java Certificated', 'This is an course Java programmers', '2016-06-01', '2016-07-30', 1);
