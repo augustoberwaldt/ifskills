@@ -46,4 +46,14 @@ insert into item(id, name, description, active, date) values (18, 'Blá Blá Bl�
 
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Master in English', 'This is an English course', null, null, 1);
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Introduction to Oracle Database', 'Based on the most used database', sysdate, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Basic Excel', 'Excel for Beginners', '2016-03-01', '2016-03-31', 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
+insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
 insert into Course (name, description, start_date, end_date, instructor_user_id) values ('Scrum Master', 'This is an course for Scrum Masters', null, null, 1);
