@@ -24,6 +24,12 @@ public class Address {
 	@JoinColumn(name = "place_id")
 	private Place place;
 	
+	public Place getPlace() {
+		return place;
+	}
+	public void setPlace(Place place) {
+		this.place = place;
+	}
 	public Long getId() {
 		return id;
 	}

@@ -41,79 +41,115 @@
 
 								<input type="hidden" th:field="*{id}" />
 
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('fullName')}? 'has-error'">
-									<label for="ProfileName" th:text="#{user.fullName}" /> <input
-										type="text" class="form-control" id="ProfileName"
-										th:field="*{fullName}" placeholder="Profile name"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('fullName')}"
-										th:errors="*{fullName}" th:class="help-block" />
-								</div>
-
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('email')}? 'has-error'">
-									<label for="profileEmail" th:text="#{profile.email}" /> <input
-										class="form-control" id="profileEmail" th:field="*{email}"
-										placeholder="Profile Email" th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-										th:class="help-block" />
-								</div>
-
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('address.street')}? 'has-error'">
-									<label for="profileStreet" th:text="#{address.street}" /> <input
-										type="text" class="form-control datepicker" id="profileStreet"
-										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-										th:field="*{{address.street}}" th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('address.street')}"
-										th:errors="*{{address.street}}" th:class="help-block" />
-								</div>
-
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
-									<label for="profileNumber" th:text="#{address.number}" /> <input
-										type="text" class="form-control datepicker" id="profileNumber"
-										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-										th:field="*{{address.number}}" th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('address.number')}"
-										th:errors="*{{address.number}}" th:class="help-block" />
-								</div>
-
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('address.complement')}? 'has-error'">
-									<label for="profileNumber" th:text="#{address.complement}" />
-									<input type="text" class="form-control datepicker"
-										id="profileComplement"
-										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-										th:field="*{{address.complement}}" th:readonly="${readonly}" />
-									<span th:if="${#fields.hasErrors('address.complement')}"
-										th:errors="*{{address.complement}}" th:class="help-block" />
-								</div>
-
 								<div class="form-group" th:if="*{picture != null}">
-									<div class="col-xs-6 col-md-4" >
-										<li class="profile-img"><img
-											th:src="*{pictureBase64}" th:height="291px" th:width="305px"
+									<div class="col-xs-6 col-md-4">
+										<li class="profile-img"><img th:src="*{pictureBase64}"
+											th:height="291px" th:width="305px"
 											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 											class="profile-img" alt="" /></li>
 									</div>
 								</div>
-								<!--  <div class="checkbox1 checkbox-light">
-									<input type="checkbox" id="checkbox-1" th:field="*{active}"
-										th:disabled="${readonly}" /> <label for="checkbox-1"
-										th:text="#{item.active}" />
-								</div> 
 
-								<button type="submit" class="btn btn-success"
-									th:if="${!readonly}"
-									onclick="document.getElementById('mainForm').submit(); return false;"
-									th:text="#{crud.action.save}" />-->
+								<div class="col-xs-12 col-md-8">
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('fullName')}? 'has-error'">
+										<label for="ProfileName" th:text="#{user.fullName}" /> <input
+											type="text" class="form-control" id="ProfileName"
+											th:field="*{fullName}" placeholder="Profile name"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('fullName')}"
+											th:errors="*{fullName}" th:class="help-block" />
+									</div>
 
-								<a th:href="@{/profile/search/}" class="btn btn-danger"
-									th:if="!${param.success}"> <span
-									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-								</a>
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('email')}? 'has-error'">
+										<label for="profileEmail" th:text="#{profile.email}" /> <input
+											class="form-control" id="profileEmail" th:field="*{email}"
+											placeholder="Profile Email" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.street')}? 'has-error'">
+										<label for="profileStreet" th:text="#{address.street}" /> <input
+											type="text" class="form-control datepicker"
+											id="profileStreet"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.street}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('address.street')}"
+											th:errors="*{{address.street}}" th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
+										<label for="profileNumber" th:text="#{address.number}" /> <input
+											type="text" class="form-control datepicker"
+											id="profileNumber"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.number}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('address.number')}"
+											th:errors="*{{address.number}}" th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.complement')}? 'has-error'">
+										<label for="profileNumber" th:text="#{address.complement}" />
+										<input type="text" class="form-control datepicker"
+											id="profileComplement"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.complement}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('address.complement')}"
+											th:errors="*{{address.complement}}" th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.place.description')}? 'has-error'">
+										<label for="profileCity"
+											th:text="#{address.place.description}" /> <input type="text"
+											class="form-control datepicker" id="profileCity"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.place.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('address.place.description')}"
+											th:errors="*{{address.place.description}}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.place.parentPlace.description')}? 'has-error'">
+										<label for="profileEstate"
+											th:text="#{address.place.parentPlace.description}" /> <input
+											type="text" class="form-control datepicker"
+											id="profileEstate"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.place.parentPlace.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('address.place.parentPlace.description')}"
+											th:errors="*{{address.place.parentPlace.description}}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}? 'has-error'">
+										<label for="profileParents"
+											th:text="#{address.place.parentPlace.parentPlace.description}" />
+										<input type="text" class="form-control datepicker"
+											id="profileParents"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{address.place.parentPlace.parentPlace.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}"
+											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
+											th:class="help-block" />
+									</div>
+									<a th:href="@{/profile/search/}" class="btn btn-danger"
+										th:if="!${param.success}"> <span
+										th:text="${readonly}?#{navigation.back}" />
+									</a>
+
+								</div>
+
 
 							</form>
 						</div>

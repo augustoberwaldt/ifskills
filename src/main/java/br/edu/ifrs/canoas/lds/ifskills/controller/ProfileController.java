@@ -42,14 +42,7 @@ public class ProfileController {
 		model.addAttribute("user", userProfileService.get(id));
 		model.addAttribute("readonly", true);
 		return "/profile/form";
-	}//tentativa 09/03
-	
-	
-	/*@RequestMapping(value = "/searchBy", method = RequestMethod.POST)
-	public String showUserList(Model model,final HttpServletRequest req) {
-		model.addAttribute("users", userProfileService.list(req.getParameter("criteria")));
-		return "/profile/list";
-	}	*/
+	}
 	
 	@RequestMapping(value = "/searchBy", method = RequestMethod.POST)
 	public String showUserList(Model model,final HttpServletRequest req, final Locale locale) {

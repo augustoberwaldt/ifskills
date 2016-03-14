@@ -35,18 +35,19 @@
 
 						<!-- CONTENT -->
 						<div class="card-body">
-							<div th:if="${message}" class="alert fresh-color alert-danger alert-dismissible fade in">
+							<div th:if="${message}"
+								class="alert fresh-color alert-danger alert-dismissible fade in">
 								<p th:text="${message}" />
 							</div>
 
 							<!-- Form Search Profiles -->
 							<form th:object="${profile}" th:action="@{/profile/searchBy}"
 								method="post" id="searchProfileForm">
-								
+
 								<div class="row example">
 									<div class="col-xs-12 col-md-8">
-										<input type="text" id="criteria" name="criteria" class="form-control"
-											placeholder="Search" />
+										<input type="text" id="criteria" name="criteria"
+											class="form-control" placeholder="Search" />
 									</div>
 									<div class="col-xs-6 col-md-4">
 										<button type="submit" class="btn btn-primary"
@@ -62,7 +63,7 @@
 								<div th:if="${message}" class="alert alert-success">
 									<p th:text="${message}" />
 								</div>
-								<table class="table table table-striped">								
+								<table class="table table table-striped">
 									<thead>
 										<tr>
 											<th th:text="#{user.fullName}" />
@@ -73,7 +74,6 @@
 									</thead>
 									<tbody>
 										<tr th:each="user : ${users}">
-										<!-- AQUI ONDE � VIEW PRECISA VIRAR PROFILE PARA BUSCAR A P�GINA DO PRTFIL -->
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|" /></td>
 
