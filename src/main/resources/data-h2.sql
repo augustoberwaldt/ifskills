@@ -1,4 +1,4 @@
-insert into place(id, place_type, description, parent_place_id) values (1, 'County', 'Brasil', null);
+insert into place(id, place_type, description, parent_place_id) values (1, 'Country', 'Brasil', null);
 insert into place(id, place_type, description, parent_place_id) values (2, 'State', 'Rio Grande do Sul', 1);
 insert into place(id, place_type, description, parent_place_id) values (3, 'State', 'Santa Catarina', 1);
 insert into place(id, place_type, description, parent_place_id) values (4, 'State', 'Parana', 1);
