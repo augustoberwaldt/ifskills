@@ -4,6 +4,11 @@ INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (3, 'admi3n@12
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (6, 'trainer@123.123', 'General Trainer', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (7, 'kalbzero.ramos@gmail.com', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (8, 'alinegandolfi5@gmail.com', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (9, 'felipe.zoltowski@gmail.com ', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (10, 'fernandobaandeira ', 'Fernando Bandeira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (11, 'henriquesilveira7@gmail.com ', 'Henrique Silveira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 
 insert into roles(id, role) values (1, 'ROLE_USER');
 insert into roles(id, role) values (2, 'ROLE_ADMIN');
@@ -14,6 +19,12 @@ insert into users_roles (user_id, role_id) values (2, 2);
 insert into users_roles (user_id, role_id) values (3, 1);
 insert into users_roles (user_id, role_id) values (4, 1);
 insert into users_roles (user_id, role_id) values (5, 1);
+insert into users_roles (user_id, role_id) values (6, 3);
+insert into users_roles (user_id, role_id) values (7, 2);
+insert into users_roles (user_id, role_id) values (8, 2);
+insert into users_roles (user_id, role_id) values (9, 2);
+insert into users_roles (user_id, role_id) values (10, 2);
+insert into users_roles (user_id, role_id) values (11, 2);
 
 insert into item(id, name, description, active, date) values (1, 'Celular', 'Dispositivo de comunicação', true, sysdate);
 insert into item(id, name, description, active, date) values (2, 'Caneta', 'Dispositivo de escrita manual a base de tinta', true, sysdate);
