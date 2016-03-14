@@ -21,7 +21,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.Base64Utils;
 
 @Entity
-@Table(name = "users")
 public class User {
 
 	@Id
@@ -41,11 +40,7 @@ public class User {
 	@Lob
 	private byte[] picture;
 
-	@OneToOne
-	@JoinColumn(name = "id_place")
-	private Place place;
-
-	//inserção do relacionemento com a classe Adress
+	//inserção do relacionamento com a classe Address
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
@@ -111,19 +106,6 @@ public class User {
 		this.picture = picture;
 	}
 
-	public Place getPlace() {
-		return place;
-	}
-
-	public void setPlace(Place place) {
-		this.place = place;
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
-	}
-	
 	public Address getAddress() {
 		return address;
 	}
@@ -132,4 +114,9 @@ public class User {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+	
 }

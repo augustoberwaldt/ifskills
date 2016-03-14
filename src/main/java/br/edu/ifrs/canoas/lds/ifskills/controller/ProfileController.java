@@ -39,7 +39,7 @@ public class ProfileController {
 	
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
-		model.addAttribute("profile", userProfileService.get(id));
+		model.addAttribute("user", userProfileService.get(id));
 		model.addAttribute("readonly", true);
 		return "/profile/form";
 	}//tentativa 09/03
