@@ -81,7 +81,18 @@
 										th:field="*{{endDate}}" th:readonly="${readonly}" /> <span
 										th:if="${#fields.hasErrors('endDate')}" th:errors="*{{endDate}}"
 										th:class="help-block" />
-								</div>								
+								</div>
+								
+                                    <div class="form-group">
+                                    <label for="Address" th:text="#{course.address}" />
+                                        <select>
+                                                <!--<option value="Ad0"><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.name}}" /></option> -->
+                                                <option value="Ad1">Address 1</option>
+                                                <option value="Ad2">Address 2</option>
+                                                <option value="Ad3">Address 3</option>
+										</select>
+									</div>																
 
 								<!-- <div class="checkbox1 checkbox-light">
 									<input type="checkbox" id="checkbox-1" th:field="*{active}"
