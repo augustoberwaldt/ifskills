@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{course.title}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{course.breadcrumb-1}" />
+			<li class="active" th:text="#{course.breadcrumb-2}" />
+		</ol>
+
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{course.title}" />
+				<div class="description" th:text="#{course.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title"
+									th:text="${readonly}?#{course.view}:#{course.create}" />
+							</div>
+						</div>
+						<div class="card-body">
+
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+
+							<form th:object="${course}" th:action="@{/course/save}" method="post"
+								id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+									<label for="CourseName" th:text="#{course.name}" /> <input
+										type="text" class="form-control" id="CourseName"
+										th:field="*{name}" placeholder="Course name"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+										th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+									<label for="CourseDescription" th:text="#{course.description}" />
+									<input class="form-control" id="courseDescription"
+										th:field="*{description}" placeholder="Course description"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('description')}"
+										th:errors="*{description}" th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('startDate')}? 'has-error'">
+									<label for="CourseStartDate" th:text="#{course.startDate}" /> <input
+										type="text" class="form-control datepicker" id="courseStartDate"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{startDate}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('startDate')}" th:errors="*{{startDate}}"
+										th:class="help-block" />
+								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('endDate')}? 'has-error'">
+									<label for="CourseEndDate" th:text="#{course.endDate}" /> <input
+										type="text" class="form-control datepicker" id="courseEndDate"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{endDate}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('endDate')}" th:errors="*{{endDate}}"
+										th:class="help-block" />
+								</div>								
+
+								<!-- <div class="checkbox1 checkbox-light">
+									<input type="checkbox" id="checkbox-1" th:field="*{active}"
+										th:disabled="${readonly}" /> <label for="checkbox-1"
+										th:text="#{item.active}" />
+								</div> -->
+
+								<button type="submit" class="btn btn-success"
+									th:if="${!readonly}"
+									onclick="document.getElementById('mainForm').submit(); return false;"
+									th:text="#{course.action.save}" />
+
+								<a th:href="@{/course/create/}" class="btn btn-success"
+									th:if="${readonly}" th:text="#{course.action.new}" /> 
+								<a th:href="@{/course/edit/}+${id}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{course.action.edit}" /> 
+								<a th:href="@{/course/list/}" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> 
+								<a th:href="@{/course/list/}" class="btn btn-default"
+									th:if="${param.success}" th:text="#{course.action.list}" />
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

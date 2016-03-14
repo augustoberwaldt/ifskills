@@ -55,7 +55,6 @@ public class Course {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-	// DID'NT FIND THE ENTITY "ATTENDEE", SO I PUT IN THIS WAY:
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "course_attendees", joinColumns = { @JoinColumn(name = "attendee_user_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "course_id") })

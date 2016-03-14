@@ -50,7 +50,7 @@ public class CourseController {
 				
 		@RequestMapping("/create")
 		public String create(Model model) {
-			model.addAttribute("class", new Course());
+			model.addAttribute("course", new Course());
 			model.addAttribute("readonly", false);
 			return "/course/form";
 		}
