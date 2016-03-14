@@ -4,11 +4,11 @@ INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (3, 'admi3n@12
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (6, 'trainer@123.123', 'General Trainer', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (7, 'kalbzero.ramos@gmail.com', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (8, 'alinegandolfi5@gmail.com', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (9, 'felipe.zoltowski@gmail.com ', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (10, 'fernandobaandeira ', 'Fernando Bandeira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
-INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (11, 'henriquesilveira7@gmail.com ', 'Henrique Silveira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (7, 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (8, 'aline.gandolfi', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (9, 'felipe.zoltowski', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (10, 'fernando.bandeira', 'Fernando Bandeira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
+INSERT INTO USERS(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE) VALUES (11, 'henrique.silveira', 'Henrique Silveira', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null);
 
 insert into roles(id, role) values (1, 'ROLE_USER');
 insert into roles(id, role) values (2, 'ROLE_ADMIN');
