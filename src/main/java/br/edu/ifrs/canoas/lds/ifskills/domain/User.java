@@ -45,6 +45,11 @@ public class User {
 	@JoinColumn(name = "id_place")
 	private Place place;
 
+	//inserção do relacionemento com a classe Adress
+	@OneToOne
+	@JoinColumn(name = "address_id")
+	private Address address;
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "users_roles", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
 			@JoinColumn(name = "role_id") })
@@ -117,6 +122,14 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 }

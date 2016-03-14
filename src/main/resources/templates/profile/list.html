@@ -67,7 +67,6 @@
 										<tr>
 											<th th:text="#{user.fullName}" />
 											<th th:text="#{user.email}" />
-											<th th:text="#{user.picture}" />
 											<th sec:authorize="hasRole('ROLE_ADMIN')"
 												th:text="#{crud.action}" />
 										</tr>
@@ -80,9 +79,6 @@
 
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.email}|" /></td>
-
-											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
-												th:text="${{user.picture}}" /></td>
 
 											<!-- <td><a href="#" th:href="@{|/item/view/${item.id}|}"
 												th:text="|${item.active}|" /></td>
