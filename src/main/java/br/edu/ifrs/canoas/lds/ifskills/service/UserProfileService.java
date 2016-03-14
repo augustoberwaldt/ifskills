@@ -48,4 +48,10 @@ public class UserProfileService {
 		return userRepository.findAllByFullNameContainingOrEmailContainingAllIgnoreCase(parameter,parameter);
 	}
 
+	public List<User> findAllTrainers() {
+		return userRepository.findAllByRoles_Id(3L);
+	}
+	
+	
+
 }

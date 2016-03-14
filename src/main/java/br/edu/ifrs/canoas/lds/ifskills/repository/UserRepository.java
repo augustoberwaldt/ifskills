@@ -12,4 +12,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 	List<User> findAllByFullNameContainingOrEmailContainingAllIgnoreCase(String fullName, String email);
 	
+	List<User> findAllByRoles_Id(Long id);
+	
 }
