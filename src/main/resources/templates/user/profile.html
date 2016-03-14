@@ -37,7 +37,7 @@
 
 								<div class="row example">
 									<div class="col-xs-6 col-md-4">
-										<li class="profile-img"><img th:src="*{pictureBase64}"
+										<li th:if="${picture != null}" class="profile-img"><img th:src="*{pictureBase64}"
 											th:height="291px" th:width="305px"
 											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 											class="profile-img" alt="" /></li>

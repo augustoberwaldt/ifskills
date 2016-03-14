@@ -28,8 +28,7 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title"
-									th:text="${readonly}?#{profile.view}" />
+								<div class="title" th:text="${readonly}?#{profile.view}" />
 							</div>
 						</div>
 						<div class="card-body">
@@ -38,7 +37,7 @@
 								<p th:text="${message}" />
 							</div>
 
-							<form th:object="${profile}" id="profileForm">
+							<form th:object="${user}" id="profileForm">
 
 								<input type="hidden" th:field="*{id}" />
 
@@ -48,30 +47,58 @@
 										type="text" class="form-control" id="ProfileName"
 										th:field="*{fullName}" placeholder="Profile name"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('fullName')}"
+										th:errors="*{fullName}" th:class="help-block" />
 								</div>
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('email')}? 'has-error'">
-									<label for="profileEmail" th:text="#{profile.email}" />
-									<input class="form-control" id="profileEmail"
-										th:field="*{email}" placeholder="Profile Email"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('email')}"
-										th:errors="*{email}" th:class="help-block" />
-								</div>
-
-							  	<div class="form-group"
-									th:classappend="${#fields.hasErrors('picture')}? 'has-error'">
-									<label for="profilePicture" th:text="#{user.picture}" /> <input
-										type="text" class="form-control datepicker" id="profilePicture"
-										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-										th:field="*{{picture}}" th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('picture')}" th:errors="*{{picture}}"
+									<label for="profileEmail" th:text="#{profile.email}" /> <input
+										class="form-control" id="profileEmail" th:field="*{email}"
+										placeholder="Profile Email" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 										th:class="help-block" />
 								</div>
 
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('address.street')}? 'has-error'">
+									<label for="profileStreet" th:text="#{address.street}" /> <input
+										type="text" class="form-control datepicker" id="profileStreet"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{address.street}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('address.street')}"
+										th:errors="*{{address.street}}" th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
+									<label for="profileNumber" th:text="#{address.number}" /> <input
+										type="text" class="form-control datepicker" id="profileNumber"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{address.number}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('address.number')}"
+										th:errors="*{{address.number}}" th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('address.complement')}? 'has-error'">
+									<label for="profileNumber" th:text="#{address.complement}" />
+									<input type="text" class="form-control datepicker"
+										id="profileComplement"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{address.complement}}" th:readonly="${readonly}" />
+									<span th:if="${#fields.hasErrors('address.complement')}"
+										th:errors="*{{address.complement}}" th:class="help-block" />
+								</div>
+
+								<div class="form-group" th:if="*{picture != null}">
+									<div class="col-xs-6 col-md-4" >
+										<li class="profile-img"><img
+											th:src="*{pictureBase64}" th:height="291px" th:width="305px"
+											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
+											class="profile-img" alt="" /></li>
+									</div>
+								</div>
 								<!--  <div class="checkbox1 checkbox-light">
 									<input type="checkbox" id="checkbox-1" th:field="*{active}"
 										th:disabled="${readonly}" /> <label for="checkbox-1"
@@ -83,9 +110,10 @@
 									onclick="document.getElementById('mainForm').submit(); return false;"
 									th:text="#{crud.action.save}" />-->
 
-								<a th:href="@{/profile/search/}" class="btn btn-danger" th:if="!${param.success}"> 
-									<span th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-								</a> 
+								<a th:href="@{/profile/search/}" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+								</a>
 
 							</form>
 						</div>
