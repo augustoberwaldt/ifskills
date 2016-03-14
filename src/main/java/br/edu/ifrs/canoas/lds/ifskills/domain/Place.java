@@ -15,7 +15,6 @@ public class Place {
 	@GeneratedValue
 	private Long id;
 	private String description;
-	private String type;
 	@Enumerated(EnumType.STRING)
 	private PlaceType placeType;
 	@OneToOne
@@ -33,12 +32,6 @@ public class Place {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public PlaceType getPlaceType() {
 		return placeType;
