@@ -25,6 +25,11 @@ insert into users_roles (user_id, role_id) values (8, 2);
 insert into users_roles (user_id, role_id) values (9, 2);
 insert into users_roles (user_id, role_id) values (10, 2);
 insert into users_roles (user_id, role_id) values (11, 2);
+insert into users_roles (user_id, role_id) values (7, 3);
+insert into users_roles (user_id, role_id) values (8, 3);
+insert into users_roles (user_id, role_id) values (9, 3);
+insert into users_roles (user_id, role_id) values (10, 3);
+insert into users_roles (user_id, role_id) values (11, 3);
 
 insert into item(id, name, description, active, date) values (1, 'Celular', 'Dispositivo de comunicação', true, sysdate);
 insert into item(id, name, description, active, date) values (2, 'Caneta', 'Dispositivo de escrita manual a base de tinta', true, sysdate);
