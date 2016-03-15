@@ -143,7 +143,7 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
-									<a th:href="@{/profile/back/}" onclick="javascript:history.go(-2)" class="btn btn-danger"
+									<a th:href="@{/profile/back/}" onclick="javascript:history.back()" class="btn btn-danger"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}" />
 									</a>
