@@ -62,6 +62,16 @@
 										th:if="${#fields.hasErrors('description')}"
 										th:errors="*{description}" th:class="help-block" />
 								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('workload')}? 'has-error'">
+									<label for="CourseWorkload" th:text="#{course.workload}" />
+									<input class="form-control" id="courseWorkload"
+										th:field="*{workload}" placeholder="Course workload"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('workload')}"
+										th:errors="*{workload}" th:class="help-block" />
+								</div>
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('startDate')}? 'has-error'">
@@ -112,7 +122,7 @@
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
-									th:text="#{course.action.save}" />
+									th:text="#{crud.action.save}" />
 
 								<a th:href="@{/course/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{course.action.new}" /> 

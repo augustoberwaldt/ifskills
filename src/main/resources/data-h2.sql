@@ -60,19 +60,19 @@ insert into item(id, name, description, active, date) values (16, 'Blá Blá Bl�
 insert into item(id, name, description, active, date) values (17, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 insert into item(id, name, description, active, date) values (18, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (1, 'Master in English', 'This is an English course', '2016-03-01', '2016-12-15', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (2, 'Introduction to Oracle Database', 'Based on the most used database', '2016-02-01', '2016-02-28', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (3, 'Basic Excel', 'Excel for Beginners', '2016-03-01', '2016-03-31', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (4, 'Scrum Master', 'This is an course for Scrum Masters', '2016-04-01', '2016-04-30', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (5, 'Advanced Excel 1', 'Graphics', '2016-04-01', '2016-04-30', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (6, 'Advanced Excel 2', 'Formulas', '2016-05-01', '2016-05-31', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (7, 'Basic Word', 'Word for Beginners', '2016-06-01', '2016-06-30', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (8, 'Advanced Word 1', 'Layouts', '2016-07-01', '2016-07-31', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (9, 'Advanced Word 2', 'ABNT', '2016-08-01', '2016-08-31', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (10, 'Basic PowerPoint', 'PowerPoint for Beginners', '2016-09-01', '2016-09-30', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (11, 'Advanced PowerPoint 1', 'Music and Video', '2016-10-01', '2016-10-31', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (12, 'Advanced PowerPoint 2', 'PDF', '2016-11-01', '2016-11-30', 1);
-insert into Course (id, name, description, start_date, end_date, instructor_user_id) values (13, 'Java Certificated', 'This is an course Java programmers', '2016-06-01', '2016-07-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (1, 'Master in English',800 , 'This is an English course', '2016-03-01', '2016-12-15', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (2, 'Introduction to Oracle Database', 120, 'Based on the most used database', '2016-02-01', '2016-02-28', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (3, 'Basic Excel', 80, 'Excel for Beginners', '2016-03-01', '2016-03-31', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (4, 'Scrum Master', 460, 'This is an course for Scrum Masters', '2016-04-01', '2016-04-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (5, 'Advanced Excel 1', 100, 'Graphics', '2016-04-01', '2016-04-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (6, 'Advanced Excel 2', 100, 'Formulas', '2016-05-01', '2016-05-31', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (7, 'Basic Word', 60, 'Word for Beginners', '2016-06-01', '2016-06-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (8, 'Advanced Word 1', 100, 'Layouts', '2016-07-01', '2016-07-31', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (9, 'Advanced Word 2', 100, 'ABNT', '2016-08-01', '2016-08-31', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (10, 'Basic PowerPoint', 80, 'PowerPoint for Beginners', '2016-09-01', '2016-09-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (11, 'Advanced PowerPoint 1', 100, 'Music and Video', '2016-10-01', '2016-10-31', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (12, 'Advanced PowerPoint 2', 100, 'PDF', '2016-11-01', '2016-11-30', 1);
+insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (13, 'Java Certificated', 460, 'This is an course Java programmers', '2016-06-01', '2016-07-30', 1);
 
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 1);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (2, 2);

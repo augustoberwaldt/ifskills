@@ -34,6 +34,9 @@ public class Course {
 	@Size(min = 1, max = 255)
 	private String description;
 	
+	@NotEmpty
+	private Long workload;
+	
 	// Trainer names (multiple selection from a list) ??????????
 	// ***Find this option (multiple section list) on template?***
 	@Temporal(TemporalType.DATE)
@@ -93,8 +96,12 @@ public class Course {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	
-	
+	public Long getWorkload() {
+		return workload;
+	}
+	public void setWorkload(Long workload) {
+		this.workload = workload;
+	}
 	public User getInstructor() {
 		return instructor;
 	}
