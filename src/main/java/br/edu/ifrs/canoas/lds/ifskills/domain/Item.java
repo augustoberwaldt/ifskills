@@ -28,7 +28,7 @@ public class Item {
 	private String description;
 	@Column(columnDefinition = "boolean default true")
 	private Boolean active;
-	@NotNull @Past
+	@Past
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private Date date;	
