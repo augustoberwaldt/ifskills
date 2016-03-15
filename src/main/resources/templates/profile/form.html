@@ -37,7 +37,7 @@
 								<p th:text="${message}" />
 							</div>
 
-							<form th:object="${user}" id="profileForm">
+							<form th:object="${user}" id="profileForm" method="get">
 
 								<input type="hidden" th:field="*{id}" />
 
@@ -143,7 +143,7 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
-									<a th:href="@{/profile/search/}" class="btn btn-danger"
+									<a th:href="@{/profile/back/}" onclick="javascript:history.go(-2)" class="btn btn-danger"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}" />
 									</a>

@@ -31,29 +31,29 @@ public class ProfileController {
 		this.messageSource = messageSource;
 	}
 
-	@RequestMapping("/search")
-	public String list(Model model){
-		model.addAttribute("users", new ArrayList());
-		return "/profile/list";
-	}
-	
+
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userProfileService.get(id));
 		model.addAttribute("readonly", true);
 		return "/profile/form";
 	}
-	
-	@RequestMapping(value = "/searchBy", method = RequestMethod.POST)
-	public String showUserList(Model model,final HttpServletRequest req, final Locale locale) {
-		List<User> users = userProfileService.list(req.getParameter("criteria"));
-		if(users.isEmpty()){
-			model.addAttribute("message", 
-					messageSource.getMessage("profile.findAllByFullNameOrEmailAllIgnoreCase", null, locale));
-		}
-		model.addAttribute("users", users);
-		return "/profile/list";	
-	}	
 
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String showUserList(Model model, final HttpServletRequest req, final Locale locale) {
+		String criteria = req.getParameter("criteria");
+		if (criteria != null && criteria.length() > 1) {
+			List<User> users = userProfileService.list(criteria);
+			if (users.isEmpty()) {
+				model.addAttribute("message",
+						messageSource.getMessage("profile.findAllByFullNameOrEmailAllIgnoreCase", null, locale));
+			}
+			model.addAttribute("users", users);
+		}
+		else {
+			model.addAttribute("users", new ArrayList<User>());
+		}
+		return "/profile/list";
+	}
 
 }
