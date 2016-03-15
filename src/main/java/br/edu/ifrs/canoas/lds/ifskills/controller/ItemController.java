@@ -61,23 +61,26 @@ public class ItemController {
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Item item = itemService.get(id);
-		itemService.delete(id);
-		
-		redirectAttrs.addFlashAttribute("message", 
-				MessageFormat.format(messageSource.getMessage("item.deleted", null, locale), 
-						item.getName()));
-		
-		return "redirect:/item/list";
+		if (item != null){
+			itemService.delete(id);
+			
+			redirectAttrs.addFlashAttribute("message", 
+					MessageFormat.format(messageSource.getMessage("item.deleted", null, locale), 
+							item.getName()));
+			
+			return "redirect:/item/list";
+		}
+		model.addAttribute("message", 
+					MessageFormat.format(messageSource.getMessage("item.deleted.failed", null, locale), 
+							id));
+		return "/item/form";
 	}	
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Item item, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		if(!bindingResult.hasErrors() ){
 			Item savedItem = itemService.save(item);
-			model.addAttribute("readonly", true);
-			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("item.saved", null, locale));
-			
 			return "redirect:/item/view/" + savedItem.getId()+"?success";		
 		}
 		model.addAttribute("readonly", false);
