@@ -105,7 +105,7 @@
 
 								<div class="form-group">
 									<label for="Address" th:text="#{course.trainers}" /> 
-									<select th:field="*{instructor}" th:remove="all-but-first" style="width: 200px">
+									<select th:field="*{instructor}" style="width: 200px">
 										<option th:each="user : ${trainers}"
 						                        th:value="${user.id}" th:text="${user.fullName}">Fulano</option>
 						            </select>
