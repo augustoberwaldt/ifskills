@@ -41,7 +41,7 @@ public class ProfileController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String showUserList(Model model, final HttpServletRequest req, final Locale locale) {
 		String criteria = req.getParameter("criteria");
-		if (criteria != null && criteria.length() > 1) {
+		if (criteria != null && !criteria.isEmpty()) {
 			List<User> users = userProfileService.list(criteria);
 			if (users.isEmpty()) {
 				model.addAttribute("message",
@@ -49,15 +49,16 @@ public class ProfileController {
 			}
 			model.addAttribute("users", users);
 		}
-		else {
-			model.addAttribute("users", new ArrayList<User>());
+		else if (criteria != null && criteria.isEmpty()){
 			//Eu queria disparar uma mensagem ao usuário, caso ele 
 			//clique no botão search do form, sem antes ter escrito algo no campo de busca!
 			//Fiquei em dúvida porque já tem um evento "onclick" no botão do form.
 			//Gostaria de saber que outras validações poderia fazer???
-			/*model.addAttribute("message",
-					messageSource.getMessage("profile.validatorCriteria", null, locale));*/
+			model.addAttribute("users", new ArrayList<User>());
+			model.addAttribute("message",
+					messageSource.getMessage("profile.validatorCriteria", null, locale));
 		}
+		
 		return "/profile/list";
 	}
 
