@@ -49,7 +49,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 
 	@Test
-	public void testList() throws Exception {
+	public void testToListAllItemsAndCheckAttributes() throws Exception {
 		this.mockMvc.perform(post("/item/list"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("items"))
@@ -66,7 +66,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testCreate() throws Exception {
+	public void testToCreateANewItemAndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/create"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("item"))
@@ -77,7 +77,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testView() throws Exception {
+	public void testToViewItem1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/view/1"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("item"))
@@ -88,7 +88,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testUpdate() throws Exception {
+	public void testToUpdateItem1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/edit/1"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("item"))
@@ -99,7 +99,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testDeleteOk() throws Exception {
+	public void testToCheckItem2DeleteItAndCheckAgain() throws Exception {
 		
 		assertThat(itemService.get(2L).getName(), is("Caneta"));
 		
@@ -112,7 +112,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testDeleteFail() throws Exception {
+	public void testToDeleteItem100ThatDoesNotExists() throws Exception {
 		
 		assertThat(itemService.get(100L), is(nullValue()));
 		
@@ -125,7 +125,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testSaveOk() throws Exception {
+	public void testToSaveAFormWithValidData() throws Exception {
 		
 		Long size = itemService.list().spliterator().getExactSizeIfKnown();
 		
@@ -145,7 +145,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	}
 	
 	@Test
-	public void testSaveFail() throws Exception {
+	public void testToSaveAFormWithBadData() throws Exception {
 		
 		Long size = itemService.list().spliterator().getExactSizeIfKnown();
 		

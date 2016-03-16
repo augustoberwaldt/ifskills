@@ -25,24 +25,24 @@ public class ItemServiceTest {
 	ItemService itemService;
 
 	@Test
-	public void testList() {
+	public void testToListAllItems() {
 		assertTrue(itemService.list().spliterator().estimateSize() > 0);
 	}
 
 	@Test
-	public void testGet() {
+	public void testToGetItem1AndCheckName() {
 		assertThat(itemService.get(1L), hasProperty("name", is("Celular")));
 	}
 
 	@Test
-	public void testSave() {
+	public void testToCreateAndSaveAnItem() {
 		Item item = new Item();
 		item.setName("My Name");
 		assertThat(itemService.save(item), hasProperty("id", is(not(empty()))));
 	}
 
 	@Test
-	public void testDelete() {
+	public void testToFindItem2DeleteItAndCheckAgain() {
 		assertThat(itemService.get(2L), hasProperty("name", is("Caneta")));
 		itemService.delete(2L);
 		assertThat(itemService.get(2L), is(nullValue()));

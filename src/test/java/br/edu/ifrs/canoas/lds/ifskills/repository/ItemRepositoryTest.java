@@ -19,7 +19,7 @@ public class ItemRepositoryTest {
 	ItemRepository itemRepository;
 	
 	@Test
-	public void testFindChecked() {
+	public void testToFindAllItemsThatAreChecked() {
 		assertThat(itemRepository.findChecked().size(), is(16));
 	}
 
