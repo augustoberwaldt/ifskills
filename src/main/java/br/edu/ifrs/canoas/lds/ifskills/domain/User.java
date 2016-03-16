@@ -39,7 +39,7 @@ public class User {
 	@Lob
 	private byte[] picture;
 
-	//inserção do relacionamento com a classe Address
+	// inserção do relacionamento com a classe Address
 	@OneToOne
 	@JoinColumn(name = "address_id")
 	private Address address;
@@ -50,7 +50,11 @@ public class User {
 
 	private Set<Role> roles = new HashSet<Role>();
 
+	@Column(columnDefinition = "boolean default true")
+	private Boolean active;
+
 	private User() {
+		this.active=true;
 	}
 
 	public Long getId() {
@@ -64,6 +68,10 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
+	
+	public Boolean getActive() {
+		return active;
+	}
 
 	public void setEmail(String email) {
 		this.email = email;
@@ -71,6 +79,10 @@ public class User {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public void setActive(Boolean active) {
+		this.active = active;
 	}
 
 	public void setPassword(String password) {
@@ -117,5 +129,5 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
-	
+
 }
