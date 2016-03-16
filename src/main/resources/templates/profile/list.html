@@ -80,13 +80,13 @@
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.email}|" /></td>
 
-											<!-- <td><a href="#" th:href="@{|/item/view/${item.id}|}"
-												th:text="|${item.active}|" /></td>
-											<td><a th:href="@{/item/edit/}+${item.id}"> <span
+											<td><a href="#" th:href="@{|/user/view/${user.id}|}"
+												th:text="|${user.active}|" /></td>
+											<td><a th:href="@{/user/edit/}+${user.id}"> <span
 													class="badge" th:text="#{crud.action.edit}" />
-											</a> <a th:href="@{/item/delete/}+${item.id}" class="delete">
+											</a> <a th:href="@{/user/delete/}+${user.id}" class="delete">
 													<span class="badge" th:text="#{crud.action.delete}" />
-											</a></td> -->
+											</a></td>
 
 										</tr>
 
