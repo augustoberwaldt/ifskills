@@ -68,12 +68,13 @@
 										<tr>
 											<th th:text="#{user.fullName}" />
 											<th th:text="#{user.email}" />
+											<th th:text="#{user.active}" />
 											<th sec:authorize="hasRole('ROLE_ADMIN')"
 												th:text="#{crud.action}" />
 										</tr>
 									</thead>
 									<tbody>
-										<tr th:each="user : ${users}">
+										<tr sec:authorize="hasRole('ROLE_ADMIN')" th:each="user : ${users}">
 											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
 												th:text="|${user.fullName}|" /></td>
 
