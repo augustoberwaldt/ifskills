@@ -112,28 +112,22 @@
 									
 		
 								</div>
-
-								<!-- <div class="checkbox1 checkbox-light">
-									<input type="checkbox" id="checkbox-1" th:field="*{active}"
-										th:disabled="${readonly}" /> <label for="checkbox-1"
-										th:text="#{item.active}" />
-								</div> -->
-
+								
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
 									th:text="#{crud.action.save}" />
 
 								<a th:href="@{/course/create/}" class="btn btn-success"
-									th:if="${readonly}" th:text="#{course.action.new}" /> 
+									th:if="${readonly}" th:text="#{crud.action.new}" /> 
 								<a th:href="@{/course/edit/}+${id}" class="btn btn-info"
-									th:if="${readonly}" th:text="#{course.action.edit}" /> 
+									th:if="${readonly}" th:text="#{crud.action.edit}" /> 
 								<a th:href="@{/course/list/}" class="btn btn-danger"
 									th:if="!${param.success}"> <span
 									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
 									</a> 
 								<a th:href="@{/course/list/}" class="btn btn-default"
-									th:if="${param.success}" th:text="#{course.action.list}" />
+									th:if="${param.success}" th:text="#{crud.action.list}" />
 
 							</form>
 						</div>
