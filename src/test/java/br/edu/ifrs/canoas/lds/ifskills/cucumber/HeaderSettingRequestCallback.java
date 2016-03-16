@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.lds.ifskills;
+package br.edu.ifrs.canoas.lds.ifskills.cucumber;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.ClientHttpRequest;

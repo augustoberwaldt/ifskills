@@ -38,14 +38,14 @@ import br.edu.ifrs.canoas.lds.ifskills.service.ItemService;
 public class ItemControllerTest extends BaseControllerTest {
 
 	@Autowired 
-	ItemController controller;
+	ItemController itemController;
 	
 	@Autowired
-    private ItemService service;
+    private ItemService itemService;
 
 	@Before
 	public void setup() {
-		mockMvc = getMockMvc(controller);
+		mockMvc = getMockMvc(itemController);
 	}
 
 	@Test
@@ -101,20 +101,20 @@ public class ItemControllerTest extends BaseControllerTest {
 	@Test
 	public void testDeleteOk() throws Exception {
 		
-		assertThat(service.get(2L).getName(), is("Caneta"));
+		assertThat(itemService.get(2L).getName(), is("Caneta"));
 		
 		this.mockMvc.perform(post("/item/delete/2"))
 			.andExpect(flash().attributeExists("message"))
 			;
 		
-		assertThat(service.get(2L), is(nullValue()));
+		assertThat(itemService.get(2L), is(nullValue()));
 
 	}
 	
 	@Test
 	public void testDeleteFail() throws Exception {
 		
-		assertThat(service.get(100L), is(nullValue()));
+		assertThat(itemService.get(100L), is(nullValue()));
 		
 		this.mockMvc.perform(post("/item/delete/100"))
 		.andExpect(view().name("/item/form"))
@@ -127,7 +127,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	@Test
 	public void testSaveOk() throws Exception {
 		
-		Long size = service.list().spliterator().getExactSizeIfKnown();
+		Long size = itemService.list().spliterator().getExactSizeIfKnown();
 		
 		mockMvc.perform(post("/item/save")
 				.contentType(MediaType.APPLICATION_FORM_URLENCODED)
@@ -140,14 +140,14 @@ public class ItemControllerTest extends BaseControllerTest {
 	    .andExpect(flash().attributeExists("message"))
 	    ;
 		
-		assertThat(service.list().spliterator().getExactSizeIfKnown(), is(size + 1L));
+		assertThat(itemService.list().spliterator().getExactSizeIfKnown(), is(size + 1L));
 
 	}
 	
 	@Test
 	public void testSaveFail() throws Exception {
 		
-		Long size = service.list().spliterator().getExactSizeIfKnown();
+		Long size = itemService.list().spliterator().getExactSizeIfKnown();
 		
 		mockMvc.perform(post("/item/save")
 				.contentType(MediaType.APPLICATION_FORM_URLENCODED)
@@ -160,7 +160,7 @@ public class ItemControllerTest extends BaseControllerTest {
 	    .andExpect(model().attribute("readonly", is(false)))
 	    ;
 		
-		assertThat(service.list().spliterator().getExactSizeIfKnown(), is(size));
+		assertThat(itemService.list().spliterator().getExactSizeIfKnown(), is(size));
 
 	}
 

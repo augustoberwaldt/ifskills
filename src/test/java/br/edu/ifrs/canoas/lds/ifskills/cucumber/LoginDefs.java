@@ -1,4 +1,4 @@
-package br.edu.ifrs.canoas.lds.ifskills;
+package br.edu.ifrs.canoas.lds.ifskills.cucumber;
 
 import java.util.concurrent.TimeUnit;
 
