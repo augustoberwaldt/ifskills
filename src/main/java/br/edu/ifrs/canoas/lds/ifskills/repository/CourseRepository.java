@@ -1,7 +1,5 @@
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
-import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Course;
