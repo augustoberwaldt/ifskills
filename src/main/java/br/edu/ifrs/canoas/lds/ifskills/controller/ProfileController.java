@@ -51,6 +51,12 @@ public class ProfileController {
 		}
 		else {
 			model.addAttribute("users", new ArrayList<User>());
+			//Eu queria disparar uma mensagem ao usuário, caso ele 
+			//clique no botão search do form, sem antes ter escrito algo no campo de busca!
+			//Fiquei em dúvida porque já tem um evento "onclick" no botão do form.
+			//Gostaria de saber que outras validações poderia fazer???
+			/*model.addAttribute("message",
+					messageSource.getMessage("profile.validatorCriteria", null, locale));*/
 		}
 		return "/profile/list";
 	}
