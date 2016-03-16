@@ -67,7 +67,7 @@
 																				
 										<td><a sec:authorize="hasRole('ROLE_TRAINER')" th:href="@{/course/edit/}+${course.id}" class="edit">
 												<span class="badge" th:text="#{crud.action.edit}"/>
-										</a><a sec:authorize="hasRole('ROLE_TRAINER')" th:href="@{/course/delete/}+${course.id}" class="delete">
+										</a><a sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')" th:href="@{/course/delete/}+${course.id}" class="delete">
 												<span class="badge" th:text="#{crud.action.delete}"/>
 										</a></td>
 									</tr>
