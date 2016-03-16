@@ -29,7 +29,7 @@
 						<div class="card-header">
 							<div class="card-title">
 								<div class="title"
-									th:text="${readonly}?#{course.view}:#{course.create}" />
+									th:text="${readonly}?#{course.view}:#{course.edit}" />
 							</div>
 						</div>
 						<div class="card-body">
@@ -55,7 +55,7 @@
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('description')}? 'has-error'">
-									<label for="CourseDescription" th:text="#{course.description}" />
+									<label for="courseDescription" th:text="#{course.description}" />
 									<input class="form-control" id="courseDescription"
 										th:field="*{description}" placeholder="Course description"
 										th:readonly="${readonly}" /> <span
