@@ -11,7 +11,7 @@
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
 			<li th:text="#{course.breadcrumb-1}" />
-			<li class="active" th:text="#{course.breadcrumb-2}" />
+			<li class="active" th:text="#{course.breadcrumb-3}" />
 		</ol>
 
 
@@ -29,7 +29,7 @@
 						<div class="card-header">
 							<div class="card-title">
 								<div class="title"
-									th:text="${readonly}?#{course.view}:#{course.edit}" />
+									th:text="${readonly}?#{course.view}:#{course.info}" />
 							</div>
 						</div>
 						<div class="card-body">

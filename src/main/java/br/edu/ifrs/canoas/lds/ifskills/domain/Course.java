@@ -38,8 +38,6 @@ public class Course {
 	@NotNull
 	private Long workload;
 	
-	// Trainer names (multiple selection from a list) ??????????
-	// ***Find this option (multiple section list) on template?***
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date startDate;
@@ -48,8 +46,7 @@ public class Course {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date endDate;
 	
-	// DON'T KNOW IF (instructor) AND (contact) ARE THE SAME PERSON; I ASSUMED
-	// THEY'RE.
+	// DON'T KNOW IF (instructor) AND (contact) ARE THE SAME PERSON; I ASSUMED THEY'RE.
 	// PLACE+CONTACT INFO = USER ATTRIBUTES.
 	@OneToOne
 	@JoinColumn(name = "instructor_user_id")
