@@ -62,6 +62,7 @@ public class CourseController {
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("course", courseService.get(id));
+		model.addAttribute("trainers", userProfileService.findAllTrainers());
 		model.addAttribute("readonly", true);
 		return "/course/form";
 	}
@@ -69,6 +70,7 @@ public class CourseController {
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("course", courseService.get(id));
+		model.addAttribute("trainers", userProfileService.findAllTrainers());
 		model.addAttribute("readonly", false);
 		return "/course/form";
 	}
