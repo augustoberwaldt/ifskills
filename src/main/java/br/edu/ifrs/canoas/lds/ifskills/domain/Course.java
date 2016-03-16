@@ -15,6 +15,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -34,7 +35,7 @@ public class Course {
 	@Size(min = 1, max = 255)
 	private String description;
 	
-	@NotEmpty
+	@NotNull
 	private Long workload;
 	
 	// Trainer names (multiple selection from a list) ??????????
