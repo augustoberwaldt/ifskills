@@ -3,6 +3,18 @@
 
 <head>
 <title th:text="#{profile.title}" />
+
+<!-- include libraries(jQuery, bootstrap) -->
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<link rel="stylesheet"
+	href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+<script type="text/javascript"
+	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- include summernote css/js-->
+<link href="summernote.css" rel="stylesheet"/>
+<script src="summernote.js"></script>
 </head>
 
 <body>
@@ -22,6 +34,9 @@
 				<div class="description" th:text="#{profile.title.description}"></div>
 			</div>
 
+			<div id="summernote">Hello Summernote</div>
+			
+			
 			<!--  BODY -->
 			<div class="row">
 				<div class="col-xs-12">

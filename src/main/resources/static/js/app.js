@@ -49,3 +49,8 @@ $('.datepicker').datepicker({
     todayHighlight: true,
     toggleActive: true
 });
+
+
+$(document).ready(function() {
+	  $('#summernote').summernote();
+	});
