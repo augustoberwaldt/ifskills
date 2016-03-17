@@ -30,6 +30,12 @@ public class ProfileController {
 		this.messageSource = messageSource;
 	}
 
+	@RequestMapping("/edit/{id}")
+	public String update(@PathVariable Long id, Model model) {
+		model.addAttribute("user", userProfileService.get(id));
+		model.addAttribute("readonly", false);
+		return "/profile/form";
+	}
 
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {

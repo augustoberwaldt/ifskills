@@ -143,14 +143,27 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
-									<a onclick="javascript:history.back()" class="btn btn-danger"
+
+									<div class="checkbox1 checkbox-light">
+										<input type="checkbox" id="checkbox-1" th:field="*{active}"
+											th:disabled="${readonly}" /> <label for="checkbox-1"
+											th:text="#{user.active}" />
+									</div>
+
+									<button type="submit" class="btn btn-success"
+										th:if="${!readonly}"
+										onclick="document.getElementById('mainForm').submit(); return false;"
+										th:text="#{crud.action.save}" />
+
+									<a sec:authorize="hasRole('ROLE_ADMIN')"
+										th:href="@{/profile/edit/}+${id}" class="btn btn-info"
+										th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
+										th:href="@{/profile/search/}" class="btn btn-danger"
 										th:if="!${param.success}"> <span
-										th:text="${readonly}?#{navigation.back}" />
+										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
 									</a>
 
 								</div>
-
-
 							</form>
 						</div>
 					</div>
