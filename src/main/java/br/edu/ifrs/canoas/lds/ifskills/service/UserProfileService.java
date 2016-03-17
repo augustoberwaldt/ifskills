@@ -51,6 +51,10 @@ public class UserProfileService {
 	public List<User> findAllTrainers() {
 		return userRepository.findAllByRoles_Id(3L);
 	}
+
+	public void delete(Long id) {
+		userRepository.delete(id);
+	}
 	
 	
 

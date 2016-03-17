@@ -24,19 +24,19 @@ public class ItemController {
 
 	private ItemService itemService;
 	private MessageSource messageSource;
-	
+
 	@Autowired
 	public ItemController(ItemService service, MessageSource messageSource) {
 		this.itemService = service;
 		this.messageSource = messageSource;
 	}
-	
+
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("items", itemService.list());
 		return "/item/list";
 	}
-	
+
 	@RequestMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("item", new Item());
@@ -57,34 +57,33 @@ public class ItemController {
 		model.addAttribute("readonly", false);
 		return "/item/form";
 	}
-	
+
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Item item = itemService.get(id);
-		if (item != null){
+		if (item != null) {
 			itemService.delete(id);
-			
-			redirectAttrs.addFlashAttribute("message", 
-					MessageFormat.format(messageSource.getMessage("item.deleted", null, locale), 
-							item.getName()));
-			
+
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("item.deleted", null, locale), item.getName()));
+
 			return "redirect:/item/list";
 		}
-		model.addAttribute("message", 
-					MessageFormat.format(messageSource.getMessage("item.deleted.failed", null, locale), 
-							id));
+		model.addAttribute("message",
+				MessageFormat.format(messageSource.getMessage("item.deleted.failed", null, locale), id));
 		return "/item/form";
-	}	
+	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid Item item, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs, Locale locale) {
-		if(!bindingResult.hasErrors() ){
+	public String save(@Valid Item item, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
+			Locale locale) {
+		if (!bindingResult.hasErrors()) {
 			Item savedItem = itemService.save(item);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("item.saved", null, locale));
-			return "redirect:/item/view/" + savedItem.getId()+"?success";		
+			return "redirect:/item/view/" + savedItem.getId() + "?success";
 		}
 		model.addAttribute("readonly", false);
 		return "/item/form";
-	}	
-	
+	}
+
 }

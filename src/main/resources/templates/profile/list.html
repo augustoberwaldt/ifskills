@@ -93,7 +93,7 @@
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><a
 												th:href="@{/profile/edit/}+${user.id}"> <span
 													class="badge" th:text="#{crud.action.edit}" />
-											</a> <a th:href="@{/profile/delete/}+${user.id}" class="delete">
+											</a> <a th:href="@{/user/delete/}+${user.id}" class="delete">
 													<span class="badge" th:text="#{crud.action.delete}" />
 											</a></td>
 
