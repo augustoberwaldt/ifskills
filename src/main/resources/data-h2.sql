@@ -48,17 +48,6 @@ insert into item(id, name, description, active, date) values (3, 'Lápis', 'Disp
 insert into item(id, name, description, active, date) values (4, 'Cadeira', 'Assento para uma só pessoa, comumente portátil, com quatro pernas e espaldar, com ou sem braçose', true, sysdate);
 insert into item(id, name, description, active, date) values (5, 'Software', 'É uma sequência de instruções escritas para serem interpretadas por um computador com o objetivo de executar tarefas específicas', true, sysdate);
 insert into item(id, name, description, active, date) values (6, 'Hardware', 'É a parte física de um computador', true, sysdate);
-insert into item(id, name, description, active, date) values (8, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (9, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (10, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (11, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (12, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (13, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (14, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (15, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (16, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (17, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
-insert into item(id, name, description, active, date) values (18, 'Blá Blá Blá', 'Blá Blá Blá', true, sysdate);
 
 insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (1, 'Master in English',800 , 'This is an English course', '2016-03-01', '2016-12-15', 1);
 insert into Course (id, name, workload, description, start_date, end_date, instructor_user_id) values (2, 'Introduction to Oracle Database', 120, 'Based on the most used database', '2016-02-01', '2016-02-28', 1);
