@@ -17,6 +17,8 @@ public class TrainerApplication {
 	@GeneratedValue
 	private Long id;
 	
+	private boolean status;
+	
 	@OneToOne
 	private Scholarity scholarity;
 	
@@ -25,5 +27,16 @@ public class TrainerApplication {
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="dd/mm/yyyy")
-	private Date graduationDate;	
+	private Date graduationDate;
+
+	public Long getId() {return id;}
+	public void setId(Long id) {this.id = id;}
+	public boolean isStatus() {return status;}
+	public void setStatus(boolean status) {this.status = status;}
+	public Scholarity getScholarity() {return scholarity;}
+	public void setScholarity(Scholarity scholarity) {this.scholarity = scholarity;}
+	public String getEducationDescription() {return educationDescription;}
+	public void setEducationDescription(String educationDescription) {this.educationDescription = educationDescription;}
+	public Date getGraduationDate() {return graduationDate;}
+	public void setGraduationDate(Date graduationDate) {this.graduationDate = graduationDate;}	
 }
