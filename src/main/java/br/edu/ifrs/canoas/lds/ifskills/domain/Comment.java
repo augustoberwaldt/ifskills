@@ -6,9 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,16 +21,18 @@ public class Comment {
 	private Long id;
 
 	@NotEmpty
+	@Size(min = 1, max = 500)
 	private String text;
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date;
-
-	/* relacionamento com USER
-	@ManyToMany
+	
+	//relacionamento com USER
+	@OneToOne
 	@JoinColumn(name = "user_id")
-	private User user;*/
+	private User user;
+
 
 	public Date getDate() {
 		return date;
@@ -39,13 +42,13 @@ public class Comment {
 		this.date = date;
 	}
 
-	/*public User getUser() {
+	public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}*/
+	}
 
 	public Long getId() {
 		return id;
