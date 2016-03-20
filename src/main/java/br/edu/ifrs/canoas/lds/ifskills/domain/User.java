@@ -35,6 +35,11 @@ public class User {
 	@Column(nullable = false)
 	private String fullName;
 
+	//Edson
+	@Column(columnDefinition = "boolean default false")
+	private Boolean isPrivate;
+	//EndEdson
+	
 	@Lob
 	private byte[] picture;
 
@@ -133,6 +138,14 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 
 }
