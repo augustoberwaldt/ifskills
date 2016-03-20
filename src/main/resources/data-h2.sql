@@ -72,3 +72,16 @@ insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 6);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 7);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 10);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 11);
+
+insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (1,'Approved');
+insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (2,'Waiting');
+insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (3,'Disapproved');
+
+insert into SCHOLARITY (ID,NAME) values (1,'Kindergarten');
+insert into SCHOLARITY (ID,NAME) values (2,'Elementary School');
+insert into SCHOLARITY (ID,NAME) values (3,'High School');
+insert into SCHOLARITY (ID,NAME) values (4,'Higher Education');
+insert into SCHOLARITY (ID,NAME) values (5,'Master''s Degree');
+insert into SCHOLARITY (ID,NAME) values (6,'Doctorate Degree');
+
+insert into TRAINER_APPLICATION (ID,EDUCATION_DESCRIPTION,GRADUATION_DATE,SCHOLARITY_ID,STATUS_ID) values (1,'IFRS campus canoas','2015-06-01',4,1);

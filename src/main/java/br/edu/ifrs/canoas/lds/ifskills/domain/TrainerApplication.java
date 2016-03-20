@@ -1,4 +1,5 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
+//Author: Fernando - 18/03/16
 
 import java.util.Date;
 
@@ -17,7 +18,8 @@ public class TrainerApplication {
 	@GeneratedValue
 	private Long id;
 	
-	private boolean status;
+	@OneToOne
+	private TrainerApplicationStatus status;
 	
 	@OneToOne
 	private Scholarity scholarity;
@@ -31,8 +33,8 @@ public class TrainerApplication {
 
 	public Long getId() {return id;}
 	public void setId(Long id) {this.id = id;}
-	public boolean isStatus() {return status;}
-	public void setStatus(boolean status) {this.status = status;}
+	public void setStatus(TrainerApplicationStatus status){this.status = status;}
+	public TrainerApplicationStatus getStatus() {return status;}
 	public Scholarity getScholarity() {return scholarity;}
 	public void setScholarity(Scholarity scholarity) {this.scholarity = scholarity;}
 	public String getEducationDescription() {return educationDescription;}

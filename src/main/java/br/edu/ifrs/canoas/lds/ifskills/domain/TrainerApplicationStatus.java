@@ -1,14 +1,13 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
-//Author: Fernando - 18/03/16
+//Author: Fernando - 20/03/16
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
-public class Scholarity {
+public class TrainerApplicationStatus {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -20,6 +19,5 @@ public class Scholarity {
 	public void setId(Long id) {this.id = id;}
 	public String getName() {return name;}
 	public void setName(String name) {this.name = name;}
-	
 	
 }
