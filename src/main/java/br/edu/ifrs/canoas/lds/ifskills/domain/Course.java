@@ -56,13 +56,10 @@ public class Course {
 	@JoinColumn(name = "address_id")
 	private Address address;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "course_attendees", joinColumns = { @JoinColumn(name = "attendee_user_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "course_id") })
-	private Set<User> attendees = new HashSet<User>();
-	
-	
-	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "course_attendees", joinColumns = { @JoinColumn(name = "course_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "attendee_user_id") })
+	private Set<User> attendees = new HashSet<User>();	
 	
 	public Long getId() {
 		return id;
