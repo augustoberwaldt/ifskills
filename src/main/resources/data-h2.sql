@@ -73,4 +73,6 @@ insert into SCHOLARITY (ID,NAME) values (4,'Higher Education');
 insert into SCHOLARITY (ID,NAME) values (5,'Master''s Degree');
 insert into SCHOLARITY (ID,NAME) values (6,'Doctorate Degree');
 
-insert into TRAINER_APPLICATION (ID,EDUCATION_DESCRIPTION,GRADUATION_DATE,SCHOLARITY_ID,STATUS_ID) values (1,'IFRS campus canoas','2015-06-01',4,1);
+insert into TRAINER_APPLICATION (ID,EDUCATION_DESCRIPTION,GRADUATION_DATE,SCHOLARITY_ID,STATUS_ID) values (1,'Tecnologo em Analise e Desenvolvimento de Sistemas','2015-06-26',4,1);
+
+UPDATE USER SET TRAINER_APPLICATION_ID=1 WHERE ID=3;
