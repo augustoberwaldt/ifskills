@@ -145,7 +145,9 @@
 								<div id="dropdown-classes" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')" href="/course/create">Create a New Course</a></li>
+											<li><a
+												sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')"
+												href="/course/create">Create a New Course</a></li>
 											<li><a href="/course/list">List Courses</a></li>
 										</ul>
 									</div>
@@ -161,6 +163,18 @@
 											<li><a href="/profile/search">List Members</a></li>
 										</ul>
 									</div>
+								</div></li>
+							<!-- Dropdown-->
+							<li class="panel panel-default dropdown"><a
+								data-toggle="collapse" href="#menu-profile"> <span
+									class="icon glyphicon glyphicon-book"></span><span class="title">Articles</span>
+							</a> <!-- Dropdown level 1 -->
+								<div id="menu-profile" class="panel-collapse collapse">
+									<!-- <div class="panel-body">
+										<ul class="nav navbar-nav">
+											<li><a href="/profile/search">List Members</a></li>
+										</ul>
+									</div>-->
 								</div></li>
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#dropdown-element"> <span
