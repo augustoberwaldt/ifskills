@@ -54,6 +54,14 @@ public class Article {
 		return autor;
 	}
 
+	public Comment getComment() {
+		return comment;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
