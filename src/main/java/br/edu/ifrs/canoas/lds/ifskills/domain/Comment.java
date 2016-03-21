@@ -32,6 +32,11 @@ public class Comment {
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
+	
+	// relacionamento com COMMENTS
+	@OneToOne
+	@JoinColumn(name = "article_id")
+	private Article article;
 
 	public Date getDate() {
 		return date;
@@ -64,5 +69,15 @@ public class Comment {
 	public void setText(String text) {
 		this.text = text;
 	}
+
+	public Article getArticle() {
+		return article;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+	
+	
 
 }

@@ -5,8 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -27,12 +25,7 @@ public class Article {
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date datePubication;
-
-	// relacionamento com COMMENTS
-	@OneToOne
-	@JoinColumn(name = "comment_id")
-	private Comment comment;
+	private Date date;
 
 	public Long getId() {
 		return id;
@@ -54,24 +47,17 @@ public class Article {
 		return autor;
 	}
 
-	public Comment getComment() {
-		return comment;
-	}
-
-	public void setComment(Comment comment) {
-		this.comment = comment;
-	}
 
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
 
-	public Date getDatePubication() {
-		return datePubication;
+	public Date getDate() {
+		return date;
 	}
 
-	public void setDatePubication(Date datePubication) {
-		this.datePubication = datePubication;
+	public void setDate(Date datePubication) {
+		this.date = datePubication;
 	}
 
 }
