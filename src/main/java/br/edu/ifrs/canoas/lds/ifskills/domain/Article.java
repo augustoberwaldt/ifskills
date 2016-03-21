@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -20,8 +22,9 @@ public class Article {
 	@NotEmpty
 	private String title;
 
-	@NotEmpty
-	private String autor;
+	@OneToOne
+	@JoinColumn(name = "author_user_id")
+	private User author;
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -43,13 +46,13 @@ public class Article {
 		this.title = title;
 	}
 
-	public String getAutor() {
-		return autor;
+	public User getAuthor() {
+		return author;
 	}
 
 
-	public void setAutor(String autor) {
-		this.autor = autor;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
 	public Date getDate() {
