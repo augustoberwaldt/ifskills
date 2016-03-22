@@ -2,7 +2,7 @@
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
-<title th:text="#{profile.header}" />
+<title th:text="#{applications.header}" />
 </head>
 
 <body>
@@ -10,15 +10,15 @@
 
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
-			<li th:text="#{profile.breadcrumb-1}" />
-			<li class="active" th:text="#{profile.breadcrumb-2}" />
+			<li th:text="#{applications.breadcrumb-1}" />
+			<li class="active" th:text="#{applications.breadcrumb-2}" />
 		</ol>
 
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
-				<span class="title" th:text="#{profile.title}" />
-				<div class="description" th:text="#{profile.title.description}"></div>
+				<span class="title" th:text="#{applications.title}" />
+				<div class="description" th:text="#{applications.title.description}"></div>
 			</div>
 
 			<!--  BODY -->
@@ -29,7 +29,7 @@
 						<!-- TITLE -->
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="#{profile.list}" />
+								<div class="title" th:text="#{applications.list}" />
 							</div>
 						</div>
 
@@ -40,21 +40,21 @@
 								<p th:text="${message}" />
 							</div>
 
-							<!-- Form Search Profiles -->
+							<!-- Form Search applications -->
 
 							<div class="col-xs-12">
 								<div class="card">
 									<div class="card-body">
 										<form class="form-inline" _lpchecked="1"
-											th:object="${profile}" th:action="@{/profile/search}"
-											method="get" id="searchProfileForm">
+											th:object="${applications}" th:action="@{/applications/search}"
+											method="get" id="searchApplicationsForm">
 											<div class="form-group">
 												<input type="text" id="criteria" name="criteria"
 													style="width: 500px" class="form-control"
 													placeholder="User Name or Email" required="true" />
 											</div>
 											<button type="submit" class="btn btn-default"
-												onclick="document.getElementById('searchProfileForm').submit(); return false;"
+												onclick="document.getElementById('searchApplicationsForm').submit(); return false;"
 												th:text="#{crud.action.search}">Search</button>
 										</form>
 									</div>
@@ -80,21 +80,21 @@
 									</thead>
 									<tbody>
 										<tr th:each="user : ${users}">
-											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+											<td><a href="#" th:href="@{|/applications/view/${user.id}|}"
 												th:text="|${user.fullName}|" /></td>
 
-											<td><a href="#" th:href="@{|/profile/view/${user.id}|}"
+											<td><a href="#" th:href="@{|/applications/view/${user.id}|}"
 												th:text="|${user.email}|" /></td>
 
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/user/view/${user.id}|}"
 												th:text="|${user.active}|" /></td>
 
-											<td sec:authorize="hasRole('ROLE_ADMIN')"><a
-												th:href="@{/profile/edit/}+${user.id}"> <span
-													class="badge" th:text="#{crud.action.edit}" />
-											</a> <a th:href="@{/profile/delete/}+${user.id}" class="delete">
-													<span class="badge" th:text="#{crud.action.delete}" />
+											<!-- <td sec:authorize="hasRole('ROLE_ADMIN')"><a
+											 	th:href="@{/applications/denied/}+${user.id}"> <span  -->
+													<!--  class="badge" th:text="#{crud.action.denied}" /> mudar esse caminho para alterar o status da application-->
+											</a> <a th:href="@{/applications/approved/}+${user.id}" class="denied">
+													<!--  span class="badge" th:text="#{crud.action.delete}" /> mudar esse caminho para alterar o status da application-->
 											</a></td>
 
 										</tr>
