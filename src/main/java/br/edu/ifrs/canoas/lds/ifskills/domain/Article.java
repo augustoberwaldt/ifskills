@@ -1,5 +1,6 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -13,6 +14,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.util.Base64Utils;
 
 @Entity
 public class Article {
@@ -30,13 +32,17 @@ public class Article {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date;
-	
-	//inserção da picture
+
+	// inserção da picture
 	@Lob
 	private byte[] picture;
 
 	public byte[] getPicture() {
 		return picture;
+	}
+	
+	public String getPictureBase64() {
+		return "data:image/png;base64," + Base64Utils.encodeToString(picture);
 	}
 
 	public void setPicture(byte[] picture) {
@@ -62,7 +68,6 @@ public class Article {
 	public User getAuthor() {
 		return author;
 	}
-
 
 	public void setAuthor(User author) {
 		this.author = author;
