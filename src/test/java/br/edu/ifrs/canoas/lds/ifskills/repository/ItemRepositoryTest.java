@@ -20,7 +20,7 @@ public class ItemRepositoryTest {
 	
 	@Test
 	public void testToFindAllItemsThatAreChecked() {
-		assertThat(itemRepository.findChecked().size(), is(16));
+		assertThat(itemRepository.findChecked().size(), is(5));
 	}
 
 }
