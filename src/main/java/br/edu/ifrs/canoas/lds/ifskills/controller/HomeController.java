@@ -19,7 +19,7 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 @Controller
 public class HomeController {
 	
-	private UserProfileService service;
+	private UserProfileService userService;
 	private ArticleService articleService;
 	
 	/**
@@ -32,7 +32,7 @@ public class HomeController {
 	 */
 	@Autowired
 	public HomeController(UserProfileService service, ArticleService articleService) {
-		this.service = service;
+		this.userService = service;
 		this.articleService = articleService;
 	}
 
@@ -43,13 +43,30 @@ public class HomeController {
 	 * @param Date: 24/03/2016
 	 * @return Description: Method that carries 3 Database
 	 *  items and shows the home page index.html
+	 *  
+	 *  03/24 - Rodrigo - added auth attribute for template decorator
 	 */
 	@RequestMapping("/")
 	public String view(Model model, HttpSession session){
-		if (service.getPrincipal() != null && service.getPrincipal().getUser() != null)
-			session.setAttribute("pictureBase64", ""+service.getPrincipal().getUser().getPictureBase64());
+		if (userService.getPrincipal() != null && userService.getPrincipal().getUser() != null)
+			session.setAttribute("pictureBase64", ""+userService.getPrincipal().getUser().getPictureBase64());
 		
+		model.addAttribute("auth",userService.getPrincipal() != null );
 		model.addAttribute("articles", articleService.findAll());
 		return "/index";
+	}
+	
+	/**
+	 * View.
+	 *
+	 * @param Author: Rodrigo 
+	 * @param Date: 24/03/2016
+	 * @return 
+	 * @description: method to display the articles when the user is authenticated.
+	 *  
+	 */
+	@RequestMapping("/articles")
+	public String viewArticles(Model model, HttpSession session){
+		return view(model, session);
 	}
 }

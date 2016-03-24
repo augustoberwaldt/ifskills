@@ -1,10 +1,86 @@
-<!DOCTYPE html>
-<html> 
-	<head> 
-		<title>Articles</title> 
-	</head> 
-	<body> 
-		<p>Visualização dos artigos</p> 
-	</body> 
-</html>
+<html lang="en" layout:decorator="${!auth} ? 'layouts/landing':'layouts/main'">
 
+<head>
+<title th:text="#{user.header}" />
+</head>
+<body>
+	<div layout:fragment="content">
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{profile.breadcrumb-1}" />
+			<li class="active" th:text="#{profile.breadcrumb-2}" />
+		</ol>
+
+		<div class="side-body">
+
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{article.title}" />
+				<div class="description" th:text="#{article.title.description}"></div>
+			</div>
+
+			
+			<div class="row">
+                        <div class="col-xs-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <div class="title">SECTION</div>
+                                        <div class="description">A card element that has jumbotron header</div>
+                                    </div>
+                                    <div class="pull-right card-action">
+                                        <div class="btn-group" role="group" aria-label="...">
+                                            <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalCardJumbotronExample"><i class="fa fa-code"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row no-margin">
+                                        <div class="col-sm-6">
+                                            <div class="card primary">
+                                                <div class="card-jumbotron no-padding">
+                                                    <img src="../../img/thumbnails/picjumbo.com_IMG_3241.jpg" height="533" width="800" class="img-responsive"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="card">
+                                                <div class="card-jumbotron">
+                                                    <h1>TITLE>>>>Hello, world!</h1>
+                                                    <h3>TEASER>>>>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h3>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4>AUTHOR>>>>Lorem Ipsum</h4>
+                                                    AUTHOR DESCRIPTION>>>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row no-margin">
+                                   		<div class="col-sm-12">
+                                            <div class="card primary">
+                                            ARTICLE CONTENT *HTML FORMATED* ...Lorem ipsum dolor sit amet, consectetuer
+											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+											minim veniam, quis nostrud exerci tation ullamcorper suscipit
+											lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+											vel eum iriure dolor in hendrerit in vulputate velit esse
+											molestie consequat, vel illum dolore eu feugiat nulla
+											facilisis at vero eros et accumsan et iusto odio dignissim
+											qui blandit praesent luptatum zzril delenit augue duis dolore
+											te feugait nulla facilisi. Nam liber tempor. 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+			
+
+		</div>
+	</div>
+</body>
+
+</html>

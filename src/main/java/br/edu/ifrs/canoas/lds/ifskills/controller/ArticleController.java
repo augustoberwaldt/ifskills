@@ -165,4 +165,16 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "/index";
 	}
+	
+	@RequestMapping("/view")
+	public String view(Model model) {
+		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		return "/article/view";
+	}
+	
+	@RequestMapping("/viewAuth")
+	public String viewAuth(Model model) {
+		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		return "/article/view";
+	}
 }
