@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
+// TODO: Auto-generated Javadoc
 @Controller
 @RequestMapping("/profile")
 public class ProfileController {
@@ -29,12 +30,29 @@ public class ProfileController {
 	private UserProfileService userProfileService;
 	private MessageSource messageSource;
 
+	/**
+	 * Instantiates a new profile controller.
+	 *
+	 * @param service
+	 *            the service
+	 * @param messageSource
+	 *            the message source
+	 */
 	@Autowired
 	public ProfileController(UserProfileService service, MessageSource messageSource) {
 		this.userProfileService = service;
 		this.messageSource = messageSource;
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userProfileService.get(id));
@@ -43,6 +61,15 @@ public class ProfileController {
 	}
 	
 
+	/**
+	 * View.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("user", userProfileService.get(id));
@@ -50,6 +77,19 @@ public class ProfileController {
 		return "/profile/form";
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @param redirectAttrs
+	 *            the redirect attrs
+	 * @param locale
+	 *            the locale
+	 * @return the string
+	 */
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		User user = userProfileService.get(id);
@@ -66,6 +106,17 @@ public class ProfileController {
 		return "/profile/form";
 	}
 
+	/**
+	 * Show user list.
+	 *
+	 * @param model
+	 *            the model
+	 * @param req
+	 *            the req
+	 * @param locale
+	 *            the locale
+	 * @return the string
+	 */
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String showUserList(Model model, final HttpServletRequest req, final Locale locale) {
 		String criteria = req.getParameter("criteria");

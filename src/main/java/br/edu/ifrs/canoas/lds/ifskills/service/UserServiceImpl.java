@@ -17,6 +17,12 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
 	private UserRepository userRepository;
 	
+	/**
+	 * Instantiates a new user service impl.
+	 *
+	 * @param userRepository
+	 *            the user repository
+	 */
 	@Autowired
 	public UserServiceImpl(UserRepository userRepository){
 		this.userRepository = userRepository;

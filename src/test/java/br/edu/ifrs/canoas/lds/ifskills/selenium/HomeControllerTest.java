@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.selenium;
 
 import org.junit.Before;
@@ -14,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.selenium.support.SeleniumTest;
 
+// TODO: Auto-generated Javadoc
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
 @WebIntegrationTest(value = "server.port=9000")
@@ -25,11 +31,20 @@ public class HomeControllerTest {
 
     private HomePage homePage;
 
+    /**
+	 * Sets the up.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
     @Before
     public void setUp() throws Exception {
         homePage = PageFactory.initElements(driver, HomePage.class);
     }
 
+    /**
+	 * Contains actuator links.
+	 */
     @Test
     public void containsActuatorLinks() {
         homePage.assertThat()
@@ -37,6 +52,9 @@ public class HomeControllerTest {
                 .hasNoActuatorLink("shutdown");
     }
 
+    /**
+	 * Failing test.
+	 */
     @Test
     @Ignore
     public void failingTest() {

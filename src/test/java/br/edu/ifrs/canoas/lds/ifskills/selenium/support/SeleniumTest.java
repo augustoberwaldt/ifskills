@@ -16,6 +16,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.test.context.TestExecutionListeners;
 
+// TODO: Auto-generated Javadoc
 @Documented
 @Inherited
 @Retention(RetentionPolicy.RUNTIME)
@@ -25,7 +26,17 @@ import org.springframework.test.context.TestExecutionListeners;
         mergeMode = MERGE_WITH_DEFAULTS)
 public @interface SeleniumTest {
 	
+	/**
+	 * Driver.
+	 *
+	 * @return the class<? extends web driver>
+	 */
 	Class<? extends WebDriver> driver() default FirefoxDriver.class;
 
+    /**
+	 * Base url.
+	 *
+	 * @return the string
+	 */
     String baseUrl() default "http://localhost:8080";
 }

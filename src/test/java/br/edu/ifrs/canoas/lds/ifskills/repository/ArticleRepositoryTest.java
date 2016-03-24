@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -18,6 +23,9 @@ public class ArticleRepositoryTest {
 	@Autowired
 	ArticleRepository articleRepository;
 	
+	/**
+	 * Test to find all articles that are checked.
+	 */
 	@Test
 	public void testToFindAllArticlesThatAreChecked() {
 		assertThat(articleRepository.findChecked().size(), is(5));

@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.cucumber;
 
 import org.springframework.http.HttpHeaders;
@@ -13,6 +18,12 @@ public class HeaderSettingRequestCallback implements RequestCallback
 
     private String body;
 
+    /**
+	 * Instantiates a new header setting request callback.
+	 *
+	 * @param headers
+	 *            the headers
+	 */
     public HeaderSettingRequestCallback(final Map<String, String> headers)
     {
         this.requestHeaders = headers;

@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.controller.admin;
 
 import org.springframework.security.access.annotation.Secured;
@@ -11,6 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/admin/user")
 public class AdminUserController {
 
+	/**
+	 * View.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/view")
 	@ResponseBody
 	public String view(Model model) {

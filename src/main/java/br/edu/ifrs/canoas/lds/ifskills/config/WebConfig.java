@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
+// TODO: Auto-generated Javadoc
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
@@ -25,6 +26,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 
+	/**
+	 * Locale resolver.
+	 *
+	 * @return the locale resolver
+	 */
 	@Bean
 	public LocaleResolver localeResolver() {
 		SessionLocaleResolver slr = new SessionLocaleResolver();
@@ -32,6 +38,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return slr;
 	}
 
+	/**
+	 * Locale change interceptor.
+	 *
+	 * @return the locale change interceptor
+	 */
 	@Bean
 	public LocaleChangeInterceptor localeChangeInterceptor() {
 		LocaleChangeInterceptor lci = new LocaleChangeInterceptor();

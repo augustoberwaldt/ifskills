@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import org.springframework.test.web.servlet.MockMvc;
@@ -13,6 +18,13 @@ public class BaseControllerTest {
 	protected InternalResourceViewResolver viewResolver;
 	
 	
+	/**
+	 * Gets the mock mvc.
+	 *
+	 * @param controller
+	 *            the controller
+	 * @return the mock mvc
+	 */
 	public MockMvc getMockMvc(Object controller){
 		viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix(PRE_URL);

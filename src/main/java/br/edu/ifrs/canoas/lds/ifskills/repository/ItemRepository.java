@@ -12,6 +12,11 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
 	
+	/**
+	 * Find checked.
+	 *
+	 * @return the list
+	 */
 	@Query("SELECT i FROM Item i WHERE i.active=true")
 	List<Item> findChecked();
 

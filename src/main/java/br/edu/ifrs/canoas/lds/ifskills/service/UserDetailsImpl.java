@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
 import java.util.Collection;
@@ -17,6 +22,12 @@ public class UserDetailsImpl implements UserDetails {
 
 	private User user;
 	
+	/**
+	 * Instantiates a new user details impl.
+	 *
+	 * @param user
+	 *            the user
+	 */
 	public UserDetailsImpl(User user){
 		this.user = user;
 	}

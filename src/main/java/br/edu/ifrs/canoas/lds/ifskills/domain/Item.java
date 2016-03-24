@@ -35,6 +35,9 @@ public class Item {
 	@DateTimeFormat (pattern="dd/MM/yyyy")
 	private Date date;	
 
+	/**
+	 * Instantiates a new item.
+	 */
 	public Item() {
 		this.active=true;
 	}

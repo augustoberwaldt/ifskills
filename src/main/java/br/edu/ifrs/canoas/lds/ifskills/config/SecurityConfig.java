@@ -22,9 +22,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * Método usado para configurar os usuários.
-	 * 
+	 *
 	 * @param auth
+	 *            the auth
 	 * @throws Exception
+	 *             the exception
 	 */
 	@Autowired
 	public void configureAuth(AuthenticationManagerBuilder auth) throws Exception {

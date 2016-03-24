@@ -137,6 +137,11 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
 
+	/**
+	 * Checks if is private.
+	 *
+	 * @return the boolean
+	 */
 	public Boolean isPrivate() {
 		return isPrivate;
 	}

@@ -21,12 +21,23 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
+// TODO: Auto-generated Javadoc
 public class ArticleController {
 	
 	private ArticleService articleService;
 	private MessageSource messageSource;
 	private UserProfileService userProfileService;
 
+	/**
+	 * Instantiates a new article controller.
+	 *
+	 * @param articleService
+	 *            the article service
+	 * @param userProfileService
+	 *            the user profile service
+	 * @param messageSource
+	 *            the message source
+	 */
 	@Autowired
 	public ArticleController(ArticleService articleService, UserProfileService userProfileService, MessageSource messageSource) {
 		this.articleService = articleService;
@@ -34,6 +45,13 @@ public class ArticleController {
 		this.messageSource = messageSource;
 	}
 
+	/**
+	 * List.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("article", articleService.list());
@@ -41,14 +59,18 @@ public class ArticleController {
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @param model
-	 * @param redirectAttrs
-	 * @param locale
-	 * @return
+	 * Delete.
+	 *
 	 * @author Luciane
-	 * @
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @param redirectAttrs
+	 *            the redirect attrs
+	 * @param locale
+	 *            the locale
+	 * @return the string @
 	 */
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
@@ -61,6 +83,13 @@ public class ArticleController {
 		return "redirect:/index";
 	}
 
+	/**
+	 * Creates the.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("article", new Article());
@@ -69,6 +98,15 @@ public class ArticleController {
 		return "/course/form";
 	}
 
+	/**
+	 * View.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));
@@ -77,6 +115,15 @@ public class ArticleController {
 		return "/course/form";
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));
@@ -86,6 +133,21 @@ public class ArticleController {
 	}
 	
 	
+	/**
+	 * Save.
+	 *
+	 * @param article
+	 *            the article
+	 * @param bindingResult
+	 *            the binding result
+	 * @param model
+	 *            the model
+	 * @param redirectAttrs
+	 *            the redirect attrs
+	 * @param locale
+	 *            the locale
+	 * @return the string
+	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Article article, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {

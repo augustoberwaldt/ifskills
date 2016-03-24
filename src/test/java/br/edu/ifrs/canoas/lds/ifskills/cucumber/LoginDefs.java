@@ -19,15 +19,25 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+// TODO: Auto-generated Javadoc
 public class LoginDefs extends AbstractDefs {
 	private WebDriver driver = new FirefoxDriver();
 	private HomePage homePage;
 
+	/**
+	 * Sets the up.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		homePage = PageFactory.initElements(driver, HomePage.class);
 	}
 
+	/**
+	 * Given_ i_navigate_to_the_mock_application.
+	 */
 	@Given("^I open google$")
 	public void given_I_navigate_to_the_mock_application() {
 		//Set implicit wait of 10 seconds and launch the app 
@@ -35,6 +45,12 @@ public class LoginDefs extends AbstractDefs {
 		driver.get(homePage.getTitle());
 	}
 
+	/**
+	 * I_enter_in_search_textbox.
+	 *
+	 * @param additionTerms
+	 *            the addition terms
+	 */
 	@When("^I enter \"([^\"]*)\" in search textbox$")
 	public void I_enter_in_search_textbox(String additionTerms) { 
 		//Write term in google textbox 
@@ -44,6 +60,12 @@ public class LoginDefs extends AbstractDefs {
 		//Click on searchButton 
 	}
 
+	/**
+	 * I_should_get_correct_result.
+	 *
+	 * @param expectedResult
+	 *            the expected result
+	 */
 	@Then("^I should get result as \"([^\"]*)\"$") 
 	public void I_should_get_correct_result(String expectedResult) { 
 		//Get result from calculator 
@@ -55,6 +77,9 @@ public class LoginDefs extends AbstractDefs {
 		driver.close(); 
 	}
 	
+	/**
+	 * Close browser.
+	 */
 	@After 
 	public void closeBrowser() { 
 		driver.quit(); 

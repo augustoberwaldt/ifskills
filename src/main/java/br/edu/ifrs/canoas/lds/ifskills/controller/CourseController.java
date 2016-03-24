@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
@@ -19,6 +24,7 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Course;
 import br.edu.ifrs.canoas.lds.ifskills.service.CourseService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
+// TODO: Auto-generated Javadoc
 @Controller
 @RequestMapping("/course")
 public class CourseController {
@@ -27,6 +33,16 @@ public class CourseController {
 	private UserProfileService userProfileService;
 	private MessageSource messageSource;
 
+	/**
+	 * Instantiates a new course controller.
+	 *
+	 * @param courseService
+	 *            the course service
+	 * @param userProfileService
+	 *            the user profile service
+	 * @param messageSource
+	 *            the message source
+	 */
 	@Autowired
 	public CourseController(CourseService courseService, UserProfileService userProfileService, MessageSource messageSource) {
 		this.courseService = courseService;
@@ -34,12 +50,32 @@ public class CourseController {
 		this.messageSource = messageSource;
 	}
 
+	/**
+	 * List.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("courses", courseService.list());
 		return "/course/list";
 	}
 
+	/**
+	 * Delete.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @param redirectAttrs
+	 *            the redirect attrs
+	 * @param locale
+	 *            the locale
+	 * @return the string
+	 */
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Course course = courseService.get(id);
@@ -51,6 +87,13 @@ public class CourseController {
 		return "redirect:/course/list";
 	}
 
+	/**
+	 * Creates the.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("course", new Course());
@@ -59,6 +102,15 @@ public class CourseController {
 		return "/course/form";
 	}
 
+	/**
+	 * View.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("course", courseService.get(id));
@@ -67,6 +119,15 @@ public class CourseController {
 		return "/course/form";
 	}
 
+	/**
+	 * Update.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("course", courseService.get(id));
@@ -75,6 +136,21 @@ public class CourseController {
 		return "/course/form";
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param course
+	 *            the course
+	 * @param bindingResult
+	 *            the binding result
+	 * @param model
+	 *            the model
+	 * @param redirectAttrs
+	 *            the redirect attrs
+	 * @param locale
+	 *            the locale
+	 * @return the string
+	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Course course, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {

@@ -1,3 +1,8 @@
+/**
+ * @author:
+ * @date: 
+ * @description: 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -17,6 +22,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 
+// TODO: Auto-generated Javadoc
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
 public class ItemServiceTest {
@@ -24,16 +30,25 @@ public class ItemServiceTest {
 	@Autowired
 	ItemService itemService;
 
+	/**
+	 * Test to list all items.
+	 */
 	@Test
 	public void testToListAllItems() {
 		assertTrue(itemService.list().spliterator().estimateSize() > 0);
 	}
 
+	/**
+	 * Test to get item1 and check name.
+	 */
 	@Test
 	public void testToGetItem1AndCheckName() {
 		assertThat(itemService.get(1L), hasProperty("name", is("Celular")));
 	}
 
+	/**
+	 * Test to create and save an item.
+	 */
 	@Test
 	public void testToCreateAndSaveAnItem() {
 		Item item = new Item();
@@ -41,6 +56,9 @@ public class ItemServiceTest {
 		assertThat(itemService.save(item), hasProperty("id", is(not(empty()))));
 	}
 
+	/**
+	 * Test to find item2 delete it and check again.
+	 */
 	@Test
 	public void testToFindItem2DeleteItAndCheckAgain() {
 		assertThat(itemService.get(2L), hasProperty("name", is("Caneta")));

@@ -20,29 +20,67 @@ import org.springframework.web.multipart.MultipartFile;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
+// TODO: Auto-generated Javadoc
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
 	private UserProfileService service;
 
+	/**
+	 * Instantiates a new user controller.
+	 *
+	 * @param service
+	 *            the service
+	 */
 	@Autowired
 	public UserController(UserProfileService service) {
 		this.service = service;
 	}
 
+	/**
+	 * View.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/view")
 	public String view(Model model) {
 		model.addAttribute("user", service.getPrincipal().getUser());
 		return "/user/view";
 	}
 
+	/**
+	 * Profile.
+	 *
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
 	@RequestMapping("/profile")
 	public String profile(Model model) {
 		model.addAttribute("user", service.getPrincipal().getUser());
 		return "/user/profile";
 	}
 
+	/**
+	 * Save.
+	 *
+	 * @param user
+	 *            the user
+	 * @param bindingResult
+	 *            the binding result
+	 * @param session
+	 *            the session
+	 * @param model
+	 *            the model
+	 * @param picture
+	 *            the picture
+	 * @return the string
+	 * @throws IOException
+	 *             Signals that an I/O exception has occurred.
+	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid User user, BindingResult bindingResult, HttpSession session, Model model,
 			@RequestParam("userProfilePic") MultipartFile picture) throws IOException {

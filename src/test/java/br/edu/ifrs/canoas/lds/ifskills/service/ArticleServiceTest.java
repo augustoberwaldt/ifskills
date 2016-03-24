@@ -24,6 +24,7 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 
+// TODO: Auto-generated Javadoc
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
 public class ArticleServiceTest {
@@ -33,16 +34,25 @@ public class ArticleServiceTest {
 	@Autowired
 	UserRepository userRepository;
 
+	/**
+	 * Test to list all articles.
+	 */
 	@Test
 	public void testToListAllArticles() {
 		assertTrue(articleService.list().spliterator().estimateSize() > 0);
 	}
 
+	/**
+	 * Test to get article1 and check title.
+	 */
 	@Test
 	public void testToGetArticle1AndCheckTitle() {
 		assertThat(articleService.get(1L), hasProperty("title", is("kkkkk")));
 	}
 
+	/**
+	 * Test to create and save an article.
+	 */
 	@Test 
 	public void testToCreateAndSaveAnArticle() {
 		Article article = new Article();
@@ -54,6 +64,9 @@ public class ArticleServiceTest {
 		assertThat(articleService.save(article), hasProperty("id",is(not(empty()))));
 	}
 
+	/**
+	 * Test to find article2 delete it and check again.
+	 */
 	@Test
 	public void testToFindArticle2DeleteItAndCheckAgain() {
 		assertThat(articleService.get(2L), hasProperty("title", is("Spring tool boot é o título")));

@@ -35,6 +35,7 @@ import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.service.ItemService;
 
+// TODO: Auto-generated Javadoc
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
 @WebAppConfiguration
@@ -46,11 +47,20 @@ public class ItemControllerTest extends BaseControllerTest {
 	@Autowired
     private ItemService itemService;
 
+	/**
+	 * Setup.
+	 */
 	@Before
 	public void setup() {
 		mockMvc = getMockMvc(itemController);
 	}
 
+	/**
+	 * Test to list all items and check attributes.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToListAllItemsAndCheckAttributes() throws Exception {
 		this.mockMvc.perform(post("/item/list"))
@@ -68,6 +78,12 @@ public class ItemControllerTest extends BaseControllerTest {
 			;
 	}
 	
+	/**
+	 * Test to create a new item and check atts.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToCreateANewItemAndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/create"))
@@ -79,6 +95,12 @@ public class ItemControllerTest extends BaseControllerTest {
 			;
 	}
 	
+	/**
+	 * Test to view item1 and check atts.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToViewItem1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/view/1"))
@@ -90,6 +112,12 @@ public class ItemControllerTest extends BaseControllerTest {
 			;
 	}
 	
+	/**
+	 * Test to update item1 and check atts.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToUpdateItem1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/item/edit/1"))
@@ -101,6 +129,12 @@ public class ItemControllerTest extends BaseControllerTest {
 			;
 	}
 	
+	/**
+	 * Test to check item2 delete it and check again.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToCheckItem2DeleteItAndCheckAgain() throws Exception {
 		
@@ -114,6 +148,12 @@ public class ItemControllerTest extends BaseControllerTest {
 
 	}
 	
+	/**
+	 * Test to delete item100 that does not exists.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToDeleteItem100ThatDoesNotExists() throws Exception {
 		
@@ -127,6 +167,12 @@ public class ItemControllerTest extends BaseControllerTest {
 
 	}
 	
+	/**
+	 * Test to save a form with valid data.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToSaveAFormWithValidData() throws Exception {
 		
@@ -147,6 +193,12 @@ public class ItemControllerTest extends BaseControllerTest {
 
 	}
 	
+	/**
+	 * Test to save a form with bad data.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
 	@Test
 	public void testToSaveAFormWithBadData() throws Exception {
 		

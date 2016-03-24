@@ -18,6 +18,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 
+// TODO: Auto-generated Javadoc
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = IFSkillsApplication.class)
 @WebAppConfiguration
@@ -28,11 +29,23 @@ public class HomeControllerClassicTest {
 
     private MockMvc mockMvc;
 
+    /**
+	 * Sets the up.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
     @Before
     public void setUp() throws Exception {
         mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
     }
 
+    /**
+	 * Verifies home page loads.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
     @Test
     public void verifiesHomePageLoads() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/"))
