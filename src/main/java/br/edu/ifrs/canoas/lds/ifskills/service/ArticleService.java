@@ -35,6 +35,7 @@ public class ArticleService {
 
 
 	public Iterable<Article> findAll() {
-	    return articleRepository.findAll(new PageRequest(1, 20));
+	    //return articleRepository.findAll(new PageRequest(1, 20));
+	    return articleRepository.findAll();
 	  }
 }
