@@ -23,7 +23,7 @@ public class HomeController {
 	public String view(Model model, HttpSession session){
 		if (service.getPrincipal() != null && service.getPrincipal().getUser() != null)
 			session.setAttribute("pictureBase64", ""+service.getPrincipal().getUser().getPictureBase64());
-		return "/user/view";
+		return "/index";
 	}
 	
 }

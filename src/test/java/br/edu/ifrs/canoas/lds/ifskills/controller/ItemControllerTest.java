@@ -53,7 +53,7 @@ public class ItemControllerTest extends BaseControllerTest {
 		this.mockMvc.perform(post("/item/list"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("items"))
-			.andExpect(model().attribute("items", hasSize(17)))
+			.andExpect(model().attribute("items", hasSize(6)))
 			.andExpect(model().attribute("items", hasItem(
                     allOf(
                             hasProperty("id", is(1L)),
