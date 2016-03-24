@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.selenium.support;
 
 import org.openqa.selenium.OutputType;

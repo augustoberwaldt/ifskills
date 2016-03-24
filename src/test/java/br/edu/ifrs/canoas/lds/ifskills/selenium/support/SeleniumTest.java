@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.selenium.support;
 
 import static org.springframework.test.context.TestExecutionListeners.MergeMode.MERGE_WITH_DEFAULTS;

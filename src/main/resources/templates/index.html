@@ -49,7 +49,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#" th:href="@{/item/create/}">
+				<a class="navbar-brand" href="#">
 					<div class="icon fa fa-paper-plane"></div>
 					<div class="title">IFSkills</div>
 				</a>
@@ -57,7 +57,7 @@
 			<div id="navbar" class="navbar-collapse collapse "
 				aria-expanded="true">
 				<ul class="nav navbar-nav navbar-right">
-					<li class="active"><a href="#" th:href="@{/}">Home</a></li>
+					<li class="active"><a href="#" th:object="${article}" th:href="@{/}">Home</a></li>
 					<li><a href="#about">About</a></li>
 					<li><a href="#contact">Contact</a></li>
 				</ul>
@@ -85,7 +85,7 @@
 	</div>
 	<div class="container-fluid app-content-a">
 		<div class="container">
-			<div class="row text-center">
+			<div class="row text-center" th:each="article : ${articles}">
 				<div class="col-md-4 col-sm-6">
 					<span class="fa-stack fa-lg fa-2x"> 
 						<i class="fa fa-circle-thin fa-stack-2x"></i> 
@@ -94,15 +94,15 @@
 								src="../img/profile/picjumbo.com_HNCK4153_resize.jpg" 
 								class="profile-img" />
 						</i>
-					</span>
-					<h2>Heading</h2>
-					<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
+					</span> 
+					<h2  th:text="${article.title}">Heading</h2>
+					<p  th:text="${article.teaser}">Donec sed odio dui. Etiam porta sem malesuada magna mollis
 						euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
 						Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 						Praesent commodo cursus magna.</p>
 				</div>
 				<!-- /.col-lg-4 -->
-				<div class="col-md-4 col-sm-6">
+				<!--  <div class="col-md-4 col-sm-6">
 					<span class="fa-stack fa-lg fa-5x"> <i
 						class="fa fa-circle-thin fa-stack-2x"></i> <i
 						class="fa fa-inbox fa-stack-1x"></i>
@@ -112,9 +112,9 @@
 						ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
 						purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo,
 						tortor mauris condimentum nibh.</p>
-				</div>
+				</div> -->
 				<!-- /.col-lg-4 -->
-				<div class="col-md-4 col-sm-6">
+				<!-- <div class="col-md-4 col-sm-6">
 					<span class="fa-stack fa-lg fa-5x"> <i
 						class="fa fa-circle-thin fa-stack-2x"></i> <i
 						class="fa fa-comments-o fa-stack-1x"></i>
@@ -124,8 +124,8 @@
 						in, egestas eget quam. Vestibulum id ligula porta felis euismod
 						semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris
 						condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-				</div>
-				<!-- /.col-lg-4 -->
+				</div>-->
+				<!-- /.col-lg-4 --> 
 			</div>
 		</div>
 	</div>

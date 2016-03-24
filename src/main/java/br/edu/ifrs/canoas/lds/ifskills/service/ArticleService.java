@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
@@ -32,4 +33,9 @@ public class ArticleService {
 		articleRepository.delete(id);
 	}
 
+
+	public Iterable<Article> findAll() {
+	    //return articleRepository.findAll(new PageRequest(1, 20));
+	    return articleRepository.findAll();
+	  }
 }

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.config;
 
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import javax.persistence.Entity;
