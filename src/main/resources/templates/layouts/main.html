@@ -167,15 +167,15 @@
 								
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
+								sec:authorize="hasRole('ROLE_ADMIN')"
 								data-toggle="collapse" href="#dropdown-applications"> <span
-									class="icon fa fa-coffee"></span><span class="title">Applications</span>
+									class="icon glyphicon glyphicon-inbox"></span><span class="title">Applications</span>
 							</a > <!-- Dropdown level 1 -->
 								<div id="dropdown-applications" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<li><a 
-											sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')"
-											sec:authorize="hasRole('ROLE_ADMIN')"
+											
 											href="/applications/list">List applications</a></li>
 										</ul>
 									</div>
