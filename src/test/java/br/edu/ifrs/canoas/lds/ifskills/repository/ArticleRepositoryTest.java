@@ -19,7 +19,7 @@ public class ArticleRepositoryTest {
 	ArticleRepository articleRepository;
 	
 	@Test
-	public void testToFindAllItemsThatAreChecked() {
+	public void testToFindAllArticlesThatAreChecked() {
 		assertThat(articleRepository.findChecked().size(), is(5));
 	}
 
