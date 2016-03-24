@@ -134,11 +134,11 @@ public class User {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
 	}
 
-	public Boolean getIsPrivate() {
+	public Boolean isPrivate() {
 		return isPrivate;
 	}
 
-	public void setIsPrivate(Boolean isPrivate) {
+	public void setPrivate(Boolean isPrivate) {
 		this.isPrivate = isPrivate;
 	}
 

@@ -158,6 +158,15 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
+																	
+									<div > 
+	                                	<input type="checkbox" id="checkbox-1">
+	                                    	<label for="checkbox-1">
+	                                        	Private profile
+	                                        </label>
+	                                </div>
+                                
+									
 									<a onclick="javascript:history.back()" class="btn btn-danger"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}" />
