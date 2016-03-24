@@ -56,9 +56,6 @@ public class User {
 
 	@Column(columnDefinition = "boolean default true")
 	private Boolean active;
-	
-	@OneToOne
-	private TrainerApplication trainerApplication;
 
 	private User() {
 		this.active=true;
@@ -131,10 +128,7 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	//Fernando
-	public TrainerApplication getTrainerApplication() {return trainerApplication;}
-	public void setTrainerApplication(TrainerApplication trainerApplication) {this.trainerApplication = trainerApplication;}
-//End Fernando
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
