@@ -5,9 +5,6 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
@@ -44,11 +39,10 @@ public class HomeController {
 	/**
 	 * View.
 	 *
-	 * @param model
-	 *            the model
-	 * @param session
-	 *            the session
-	 * @return the string
+	 * @param Author: Luciane 
+	 * @param Date: 24/03/2016
+	 * @return Description: Method that carries 3 Database
+	 *  items and shows the home page index.html
 	 */
 	@RequestMapping("/")
 	public String view(Model model, HttpSession session){
