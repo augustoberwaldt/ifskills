@@ -62,20 +62,5 @@ insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 6);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 7);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 12);
 
-insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (1,'Approved');
-insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (2,'Waiting');
-insert into TRAINER_APPLICATION_STATUS (ID,NAME) values (3,'Disapproved');
-
-insert into SCHOLARITY (ID,NAME) values (1,'Kindergarten');
-insert into SCHOLARITY (ID,NAME) values (2,'Elementary School');
-insert into SCHOLARITY (ID,NAME) values (3,'High School');
-insert into SCHOLARITY (ID,NAME) values (4,'Higher Education');
-insert into SCHOLARITY (ID,NAME) values (5,'Master''s Degree');
-insert into SCHOLARITY (ID,NAME) values (6,'Doctorate Degree');
-
-insert into TRAINER_APPLICATION (ID,EDUCATION_DESCRIPTION,GRADUATION_DATE,SCHOLARITY_ID,STATUS_ID) values (1,'Tecnologo em Analise e Desenvolvimento de Sistemas','2015-06-26',4,1);
-
-UPDATE USER SET TRAINER_APPLICATION_ID=1 WHERE ID=3;
-
 insert  into article ( active, body , comment_id , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, null, sysdate,'mmmmmm','hhhhh', 'kkkkk', 2) ;
 insert  into article ( active, body , comment_id , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, null, sysdate,'O que seria slug???? Claro que não é lesma não é????','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;

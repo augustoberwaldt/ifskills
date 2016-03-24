@@ -35,6 +35,11 @@ public class User {
 	@Column(nullable = false)
 	private String fullName;
 
+	//Edson
+	@Column(columnDefinition = "boolean default false")
+	private Boolean isPrivate;
+	//EndEdson
+	
 	@Lob
 	private byte[] picture;
 
@@ -51,9 +56,6 @@ public class User {
 
 	@Column(columnDefinition = "boolean default true")
 	private Boolean active;
-	
-	@OneToOne
-	private TrainerApplication trainerApplication;
 
 	private User() {
 		this.active=true;
@@ -126,13 +128,18 @@ public class User {
 	public void setAddress(Address address) {
 		this.address = address;
 	}
-	//Fernando
-	public TrainerApplication getTrainerApplication() {return trainerApplication;}
-	public void setTrainerApplication(TrainerApplication trainerApplication) {this.trainerApplication = trainerApplication;}
-//End Fernando
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", email=" + email + ", password=" + password + "]";
+	}
+
+	public Boolean getIsPrivate() {
+		return isPrivate;
+	}
+
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 
 }
