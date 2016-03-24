@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
@@ -37,6 +40,16 @@ public class ArticleController {
 		return "/article/list";
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @param model
+	 * @param redirectAttrs
+	 * @param locale
+	 * @return
+	 * @author Luciane
+	 * @
+	 */
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Article article = articleService.get(id);
@@ -71,7 +84,8 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "/course/form";
 	}
-
+	
+	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Article article, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
