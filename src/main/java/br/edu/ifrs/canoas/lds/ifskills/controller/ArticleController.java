@@ -10,6 +10,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,8 @@ import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
+@Controller
+@RequestMapping("/article")
 public class ArticleController {
 	
 	private ArticleService articleService;
@@ -95,7 +98,7 @@ public class ArticleController {
 		model.addAttribute("article", new Article());
 		model.addAttribute("trainers", userProfileService.findAllTrainers());
 		model.addAttribute("readonly", false);
-		return "/course/form";
+		return "/article/newarticle";
 	}
 
 	/**
@@ -112,7 +115,7 @@ public class ArticleController {
 		model.addAttribute("article", articleService.get(id));
 		model.addAttribute("users", userProfileService.list());
 		model.addAttribute("readonly", true);
-		return "/course/form";
+		return "/article/form";
 	}
 
 	/**
@@ -129,7 +132,7 @@ public class ArticleController {
 		model.addAttribute("article", articleService.get(id));
 		model.addAttribute("users", userProfileService.list());
 		model.addAttribute("readonly", false);
-		return "/course/form";
+		return "/article/form";
 	}
 	
 	

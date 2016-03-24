@@ -52,5 +52,5 @@ $('.datepicker').datepicker({
 
 
 $(document).ready(function() {
-	  $('#summernote').summernote();
+	  $('.summernote').summernote();
 	});
