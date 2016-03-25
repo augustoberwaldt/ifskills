@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card-body">
+                                <div class="card-body" th:object="${article}">
                                     <div class="row no-margin">
                                         <div class="col-sm-6">
                                             <div class="card primary">
@@ -45,10 +45,10 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="card">
+                                            <div class="card" th:object="${article}">
                                                 <div class="card-jumbotron">
-                                                    <h1>TITLE>>>>Hello, world!</h1>
-                                                    <h3>TEASER>>>>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h3>
+                                                    <h1>TITLE>>>>Hello, world!</h1> <!-- th:text="${article.title}" -->
+                                                    <h3>TEASER>>>>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h3><!-- th:text="${article.teaser}" -->
                                                 </div>
                                                 <div class="card-body">
                                                     <h4>AUTHOR>>>>Lorem Ipsum</h4>

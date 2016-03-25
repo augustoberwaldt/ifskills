@@ -166,6 +166,13 @@ public class ArticleController {
 		return "/index";
 	}
 	
+	/**
+	 * Author: Luciane
+	 * Date: 24/03/2016
+	 * Description: Change view to read by @RequestMapping("/view/{slug}").
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("/view")
 	public String view(Model model) {
 		model.addAttribute("auth",userProfileService.getPrincipal() != null );
