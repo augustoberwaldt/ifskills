@@ -16,7 +16,7 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 public class UserServiceImpl implements UserService, UserDetailsService {
 
 	private UserRepository userRepository;
-	
+
 	/**
 	 * Instantiates a new user service impl.
 	 *
@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	 *            the user repository
 	 */
 	@Autowired
-	public UserServiceImpl(UserRepository userRepository){
+	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 
@@ -35,10 +35,10 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = findByEmail(username);
-		if( user == null ){
+		if (user == null) {
 			throw new UsernameNotFoundException(username);
 		}
 		return new UserDetailsImpl(user);
 	}
-	
+
 }

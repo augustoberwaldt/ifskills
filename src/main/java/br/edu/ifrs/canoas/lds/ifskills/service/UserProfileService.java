@@ -17,9 +17,9 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 // TODO: Auto-generated Javadoc
 @Service
 public class UserProfileService {
-	
+
 	private UserRepository userRepository;
-	
+
 	/**
 	 * Instantiates a new user profile service.
 	 *
@@ -30,16 +30,16 @@ public class UserProfileService {
 	public UserProfileService(UserRepository usuarioRepository) {
 		this.userRepository = usuarioRepository;
 	}
-	
+
 	/**
 	 * List.
 	 *
 	 * @return the iterable
 	 */
-	public Iterable<User> list(){
+	public Iterable<User> list() {
 		return userRepository.findAll();
 	}
-	
+
 	/**
 	 * Find by email.
 	 *
@@ -47,7 +47,7 @@ public class UserProfileService {
 	 *            the email
 	 * @return the user
 	 */
-	public User findByEmail(String email){
+	public User findByEmail(String email) {
 		return userRepository.findByEmail(email);
 	}
 
@@ -63,13 +63,12 @@ public class UserProfileService {
 	}
 
 	public UserDetailsImpl getPrincipal() {
-		if (SecurityContextHolder.getContext() != null 
-				&& SecurityContextHolder.getContext().getAuthentication() != null 
+		if (SecurityContextHolder.getContext() != null && SecurityContextHolder.getContext().getAuthentication() != null
 				&& SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null)
-			return  (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			return (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return null;
 	}
-	
+
 	/**
 	 * Gets the.
 	 *
@@ -77,7 +76,7 @@ public class UserProfileService {
 	 *            the id
 	 * @return the user
 	 */
-	//tenativa 09/03
+	// tenativa 09/03
 	public User get(Long id) {
 		return userRepository.findOne(id);
 	}
@@ -90,7 +89,7 @@ public class UserProfileService {
 	 * @return the list
 	 */
 	public List<User> list(String parameter) {
-		return userRepository.findAllByFullNameContainingOrEmailContainingAllIgnoreCase(parameter,parameter);
+		return userRepository.findAllByFullNameContainingOrEmailContainingAllIgnoreCase(parameter, parameter);
 	}
 
 	/**
@@ -111,7 +110,5 @@ public class UserProfileService {
 	public void delete(Long id) {
 		userRepository.delete(id);
 	}
-	
-	
 
 }

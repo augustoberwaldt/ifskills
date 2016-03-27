@@ -44,7 +44,8 @@ public class TrainerApplicationController {
 	 *            the message source
 	 */
 	@Autowired
-	public TrainerApplicationController(CourseService courseService, UserProfileService userProfileService, MessageSource messageSource) {
+	public TrainerApplicationController(CourseService courseService, UserProfileService userProfileService,
+			MessageSource messageSource) {
 		this.courseService = courseService;
 		this.userProfileService = userProfileService;
 		this.messageSource = messageSource;

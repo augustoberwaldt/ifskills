@@ -12,8 +12,8 @@ import org.springframework.data.repository.CrudRepository;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 
 // TODO: Auto-generated Javadoc
-public interface ArticleRepository extends CrudRepository<Article, Long>{
-	
+public interface ArticleRepository extends CrudRepository<Article, Long> {
+
 	/**
 	 * Find checked.
 	 *
@@ -21,7 +21,7 @@ public interface ArticleRepository extends CrudRepository<Article, Long>{
 	 */
 	@Query("SELECT i FROM Article i WHERE i.active=true")
 	List<Article> findChecked();
-	
+
 	/**
 	 * Find all.
 	 *
@@ -31,6 +31,4 @@ public interface ArticleRepository extends CrudRepository<Article, Long>{
 	 */
 	List<Article> findAll(Pageable pageable);
 
-
 }
-

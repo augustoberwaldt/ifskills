@@ -38,11 +38,11 @@ public class User {
 	@Column(nullable = false)
 	private String fullName;
 
-	//Edson
+	// Edson
 	@Column(columnDefinition = "boolean default false")
 	private Boolean isPrivate;
-	//EndEdson
-	
+	// EndEdson
+
 	@Lob
 	private byte[] picture;
 
@@ -61,7 +61,7 @@ public class User {
 	private Boolean active;
 
 	private User() {
-		this.active=true;
+		this.active = true;
 	}
 
 	public Long getId() {
@@ -75,7 +75,7 @@ public class User {
 	public String getEmail() {
 		return email;
 	}
-	
+
 	public Boolean getActive() {
 		return active;
 	}
@@ -87,7 +87,7 @@ public class User {
 	public String getPassword() {
 		return password;
 	}
-	
+
 	public void setActive(Boolean active) {
 		this.active = active;
 	}

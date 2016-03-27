@@ -17,9 +17,9 @@ public class CucumberController {
 	 *
 	 * @return the string
 	 */
-	@RequestMapping(method={RequestMethod.GET},value={"/cucumber"})
-	public String cucumber(){
+	@RequestMapping(method = { RequestMethod.GET }, value = { "/cucumber" })
+	public String cucumber() {
 		return "Success";
 	}
-	
+
 }

@@ -26,7 +26,7 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 @Controller
 @RequestMapping("/article")
 public class ArticleController {
-	
+
 	private ArticleService articleService;
 	private MessageSource messageSource;
 	private UserProfileService userProfileService;
@@ -42,7 +42,8 @@ public class ArticleController {
 	 *            the message source
 	 */
 	@Autowired
-	public ArticleController(ArticleService articleService, UserProfileService userProfileService, MessageSource messageSource) {
+	public ArticleController(ArticleService articleService, UserProfileService userProfileService,
+			MessageSource messageSource) {
 		this.articleService = articleService;
 		this.userProfileService = userProfileService;
 		this.messageSource = messageSource;
@@ -134,8 +135,7 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "/article/form";
 	}
-	
-	
+
 	/**
 	 * Save.
 	 *
@@ -152,8 +152,8 @@ public class ArticleController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid Article article, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
-			Locale locale) {
+	public String save(@Valid Article article, BindingResult bindingResult, Model model,
+			RedirectAttributes redirectAttrs, Locale locale) {
 		if (!bindingResult.hasErrors()) {
 			Article savedArticle = articleService.save(article);
 			model.addAttribute("readonly", true);
@@ -165,23 +165,23 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "/index";
 	}
-	
+
 	/**
-	 * Author: Luciane
-	 * Date: 24/03/2016
-	 * Description: Change view to read by @RequestMapping("/view/{slug}").
+	 * Author: Luciane Date: 24/03/2016 Description: Change view to read
+	 * by @RequestMapping("/view/{slug}").
+	 * 
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/view")
 	public String view(Model model) {
-		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		model.addAttribute("auth", userProfileService.getPrincipal() != null);
 		return "/article/view";
 	}
-	
+
 	@RequestMapping("/viewAuth")
 	public String viewAuth(Model model) {
-		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		model.addAttribute("auth", userProfileService.getPrincipal() != null);
 		return "/article/view";
 	}
 }

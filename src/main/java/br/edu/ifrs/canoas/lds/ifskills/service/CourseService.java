@@ -16,7 +16,7 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.CourseRepository;
 public class CourseService {
 
 	private CourseRepository courseRepository;
-	
+
 	/**
 	 * Instantiates a new course service.
 	 *
@@ -27,7 +27,7 @@ public class CourseService {
 	public CourseService(CourseRepository repo) {
 		this.courseRepository = repo;
 	}
-	
+
 	/**
 	 * List.
 	 *

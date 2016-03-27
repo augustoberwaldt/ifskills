@@ -59,7 +59,6 @@ public class ProfileController {
 		model.addAttribute("readonly", false);
 		return "/profile/form";
 	}
-	
 
 	/**
 	 * View.

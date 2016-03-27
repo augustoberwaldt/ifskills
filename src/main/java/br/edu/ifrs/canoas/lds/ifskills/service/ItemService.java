@@ -16,7 +16,7 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.ItemRepository;
 public class ItemService {
 
 	private ItemRepository itemRepository;
-	
+
 	/**
 	 * Instantiates a new item service.
 	 *
@@ -27,7 +27,7 @@ public class ItemService {
 	public ItemService(ItemRepository repo) {
 		this.itemRepository = repo;
 	}
-	
+
 	/**
 	 * List.
 	 *

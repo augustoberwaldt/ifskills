@@ -44,7 +44,8 @@ public class CourseController {
 	 *            the message source
 	 */
 	@Autowired
-	public CourseController(CourseService courseService, UserProfileService userProfileService, MessageSource messageSource) {
+	public CourseController(CourseService courseService, UserProfileService userProfileService,
+			MessageSource messageSource) {
 		this.courseService = courseService;
 		this.userProfileService = userProfileService;
 		this.messageSource = messageSource;

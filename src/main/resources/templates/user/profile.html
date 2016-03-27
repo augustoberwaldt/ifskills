@@ -37,8 +37,8 @@
 
 								<div class="row example">
 									<div class="col-xs-6 col-md-4">
-										<li th:if="${picture != null}" class="profile-img"><img th:src="*{pictureBase64}"
-											th:height="291px" th:width="305px"
+										<li th:if="${picture != null}" class="profile-img"><img
+											th:src="*{pictureBase64}" th:height="291px" th:width="305px"
 											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 											class="profile-img" alt="" /></li>
 									</div>
@@ -51,12 +51,12 @@
 
 										</div>
 										<div class="form-group" th:if="!${user.private}">
-											<label for="exampleInputEmail" th:text="#{user.email}" >Email:</label>
+											<label for="exampleInputEmail" th:text="#{user.email}">Email:</label>
 											<input type="email" class="form-control"
 												id="userProfileEmail" th:field="*{email}"
 												placeholder="Informe o email" />
 										</div>
-										<div class="form-group"  th:if="!${user.private}">
+										<div class="form-group" th:if="!${user.private}">
 											<label for="exampleInputPassword" th:text="#{user.password}">Password:</label>
 											<input type="password" class="form-control"
 												id="userProfilePassword" th:field="*{password}"

@@ -33,7 +33,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	 * @return the list
 	 */
 	List<User> findAllByFullNameContainingOrEmailContainingAllIgnoreCase(String fullName, String email);
-	
+
 	/**
 	 * Find all by roles_ id.
 	 *
@@ -42,5 +42,5 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	 * @return the list
 	 */
 	List<User> findAllByRoles_Id(Long id);
-	
+
 }

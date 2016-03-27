@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 
 public interface ItemRepository extends CrudRepository<Item, Long> {
-	
+
 	/**
 	 * Find checked.
 	 *

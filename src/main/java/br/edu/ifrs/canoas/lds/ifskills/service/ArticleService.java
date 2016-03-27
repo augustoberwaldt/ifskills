@@ -16,7 +16,7 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.ArticleRepository;
 public class ArticleService {
 
 	private ArticleRepository articleRepository;
-	
+
 	/**
 	 * Instantiates a new article service.
 	 *
@@ -27,7 +27,7 @@ public class ArticleService {
 	public ArticleService(ArticleRepository artRepo) {
 		this.articleRepository = artRepo;
 	}
-	
+
 	/**
 	 * List.
 	 *
@@ -69,14 +69,13 @@ public class ArticleService {
 		articleRepository.delete(id);
 	}
 
-
 	/**
 	 * Find all.
 	 *
 	 * @return the iterable
 	 */
 	public Iterable<Article> findAll() {
-	    //return articleRepository.findAll(new PageRequest(1, 20));
-	    return articleRepository.findAll();
-	  }
+		// return articleRepository.findAll(new PageRequest(1, 20));
+		return articleRepository.findAll();
+	}
 }

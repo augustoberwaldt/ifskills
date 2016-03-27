@@ -28,7 +28,8 @@ import org.springframework.util.Base64Utils;
 
 @Entity
 public class Article {
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
 
 	@NotEmpty
@@ -39,21 +40,21 @@ public class Article {
 
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat ( pattern="dd/M/yyyy hh:mm:ss a")
-	private Date postedOn;   
-	
-	@Size(min=1, max=2)
+	@DateTimeFormat(pattern = "dd/M/yyyy hh:mm:ss a")
+	private Date postedOn;
+
+	@Size(min = 1, max = 2)
 	@ElementCollection
 	private List<String> keywords;
-	
+
 	private Boolean active;
-	
-	//relacionamento com USER
+
+	// relacionamento com USER
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
-	
+
 	@Column(columnDefinition = "TEXT")
 	private String teaser;
 
@@ -65,7 +66,7 @@ public class Article {
 	@OneToOne
 	@JoinColumn(name = "comment_id")
 	private Comment comment;
-	
+
 	@Lob
 	private byte[] picture;
 
@@ -152,7 +153,7 @@ public class Article {
 	public byte[] getPicture() {
 		return picture;
 	}
-	
+
 	public String getPictureBase64() {
 		return "data:image/png;base64," + Base64Utils.encodeToString(picture);
 	}
@@ -160,8 +161,5 @@ public class Article {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
-	
-	
-
 
 }

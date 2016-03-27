@@ -32,12 +32,12 @@ public class Comment {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date date;
-	
-	//relacionamento com USER
+
+	// relacionamento com USER
 	@OneToOne
 	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	// relacionamento com COMMENTS
 	@OneToOne
 	@JoinColumn(name = "article_id")
@@ -82,7 +82,5 @@ public class Comment {
 	public void setArticle(Article article) {
 		this.article = article;
 	}
-	
-	
 
 }

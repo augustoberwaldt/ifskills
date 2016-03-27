@@ -13,7 +13,7 @@ import javax.persistence.OneToOne;
 
 @Entity
 public class Place {
-	
+
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -23,31 +23,37 @@ public class Place {
 	@OneToOne
 	@JoinColumn(name = "parent_place_id")
 	private Place parentPlace;
-	
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
 	public String getDescription() {
 		return description;
 	}
+
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
 	public PlaceType getPlaceType() {
 		return placeType;
 	}
+
 	public void setPlaceType(PlaceType placeType) {
 		this.placeType = placeType;
 	}
+
 	public Place getParentPlace() {
 		return parentPlace;
 	}
+
 	public void setParentPlace(Place parentPlace) {
 		this.parentPlace = parentPlace;
 	}
-	
-	
+
 }
