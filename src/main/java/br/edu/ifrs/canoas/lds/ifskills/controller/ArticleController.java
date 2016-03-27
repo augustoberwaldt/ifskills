@@ -111,13 +111,13 @@ public class ArticleController {
 	 *            the model
 	 * @return the string
 	 */
-	@RequestMapping("/view/{id}")
+	/*@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));
 		model.addAttribute("users", userProfileService.list());
 		model.addAttribute("readonly", true);
 		return "/article/form";
-	}
+	}*/
 
 	/**
 	 * Update.
@@ -167,15 +167,16 @@ public class ArticleController {
 	}
 
 	/**
-	 * Author: Luciane Date: 24/03/2016 Description: Change view to read
-	 * by @RequestMapping("/view/{slug}").
-	 * 
+	 * Author: Luciane
+	 * Date: 24/03/2016
+	 * Description: Change view to read by @RequestMapping("/view/{slug}").
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/view")
-	public String view(Model model) {
-		model.addAttribute("auth", userProfileService.getPrincipal() != null);
+	@RequestMapping("/view/{slug}") 
+	public String view(@PathVariable String slug, Model model) {
+		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		model.addAttribute("article", articleService.get(slug));
 		return "/article/view";
 	}
 

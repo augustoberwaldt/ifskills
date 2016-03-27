@@ -35,7 +35,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card-body" th:object="${article}">
+                                <div class="card-body">
                                     <div class="row no-margin">
                                         <div class="col-sm-6">
                                             <div class="card primary">
@@ -45,13 +45,13 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="card" th:object="${article}">
+                                            <div class="card"> <!-- th:object="${article}" -->
                                                 <div class="card-jumbotron">
-                                                    <h1>TITLE>>>>Hello, world!</h1> <!-- th:text="${article.title}" -->
-                                                    <h3>TEASER>>>>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h3><!-- th:text="${article.teaser}" -->
+                                                    <h1 th:text="${article.title}">TITLE>>>>Hello, world!</h1> <!-- th:text="${article.title}" -->
+                                                    <h3 th:text="${article.teaser}">TEASER>>>>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</h3><!-- th:text="${article.teaser}" -->
                                                 </div>
                                                 <div class="card-body">
-                                                    <h4>AUTHOR>>>>Lorem Ipsum</h4>
+                                                    <h4>AUTHOR>>>>Lorem Ipsum</h4> <!-- th:text="${author.fullName}" -->
                                                     AUTHOR DESCRIPTION>>>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor.
                                                 </div>
                                             </div>
