@@ -65,7 +65,7 @@
 									</div>
 								</div>
 
-								<div class="form-group">
+								<div class="form-group" th:if="!${user.private}">
 									<label for="exampleInputFile" th:text="#{user.picture}">Picture:</label>
 									<input type="file" id="userProfilePic" name="userProfilePic" />
 									<p class="help-block" th:text="#{user.picture.description}">Update

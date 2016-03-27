@@ -159,11 +159,21 @@
 											th:class="help-block" />
 									</div>
 																	
-									<div > 
-	                                	<input type="checkbox" id="checkbox-1">
-	                                    	<label for="checkbox-1">
-	                                        	Private profile
-	                                        </label>
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('isPrivate')}? 'has-error'">
+										
+										<input
+											type="checkbox" class="form-control" id="chkIsPrivate"
+											th:field="*{isPrivate}" placeholder="Private Profile"
+											th:readonly="${readonly}" />
+										
+										<label  for="checkbox-1" th:text="#{user.isPrivate}"> 
+    										Private profile
+	                                    </label> 
+										
+										<span
+											th:if="${#fields.hasErrors('isPrivate')}"
+											th:errors="*{isPrivate}" th:class="help-block" />
 	                                </div>
                                 
 									
