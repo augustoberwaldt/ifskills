@@ -1,4 +1,5 @@
-<html lang="en" layout:decorator="${!auth} ? 'layouts/landing':'layouts/main'">
+<html lang="en"
+	layout:decorator="${!auth} ? 'layouts/landing':'layouts/main'">
 
 <head>
 <title th:text="#{user.header}" />
@@ -6,7 +7,8 @@
 <body>
 	<div layout:fragment="content">
 		<!-- BREADCRUMB -->
-		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb" th:if="${auth}">
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb"
+			th:if="${auth}">
 			<li th:text="#{profile.breadcrumb-1}" />
 			<li class="active" th:text="#{profile.breadcrumb-2}" />
 		</ol>
@@ -22,6 +24,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="card">
+
+						<!--
 						<div class="card-header">
 							<div class="pull-right card-action">
 								<div class="btn-group" role="group" aria-label="...">
@@ -40,8 +44,29 @@
 								</div>
 							</div>
 						</div>
+						-->
 
-						<div class="card-body"  th:each="article : ${articles}">
+						<div class="card-header">
+							<div class="pull-right card-action">
+								<div class="btn-group" role="group" aria-label="...">
+									<form class="form-inline" _lpchecked="1" th:object="${article}"
+										th:action="@{/article/search}" method="get"
+										id="searchArticleForm">
+										<div class="form-group">
+											<input type="text" id="criteria" name="criteria"
+												style="width: 500px" class="form-control"
+												placeholder="Search for article, text or author"
+												required="true" />
+										</div>
+										<button type="submit" class="btn btn-default"
+											onclick="document.getElementById('searchArticleForm').submit(); return false;"
+											th:text="#{crud.action.search}">Search</button>
+									</form>
+								</div>
+							</div>
+						</div>
+
+						<div class="card-body" th:each="article : ${articles}">
 							<div class="row no-margin">
 								<div class="col-sm-6">
 									<div class="card primary">
@@ -51,22 +76,21 @@
 										</div>
 										<div class="card-body">
 											<h4 th:text="${article.title}">TITLE</h4>
-											<span th:text="${article.teaser}">TEASER >>>>>Lorem ipsum dolor sit amet, consectetuer
-											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-											minim veniam, quis nostrud exerci tation ullamcorper suscipit
-											lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-											vel eum iriure dolor in hendrerit in vulputate velit esse
-											molestie consequat, vel illum dolore eu feugiat nulla
-											facilisis at vero eros et accumsan et iusto odio dignissim
-											qui blandit praesent luptatum zzril delenit augue duis dolore
-											te feugait nulla facilisi. Nam liber tempor. </span>
-											
-											<a th:href="@{/article/view}" id="message-load-more">
-	                                            <li class="text-center load-more">
-	                                                <i class="fa fa-refresh"></i> read more..
-	                                            </li>
-	           		                         </a>
+											<span th:text="${article.teaser}">TEASER >>>>>Lorem
+												ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+												nonummy nibh euismod tincidunt ut laoreet dolore magna
+												aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
+												nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+												aliquip ex ea commodo consequat. Duis autem vel eum iriure
+												dolor in hendrerit in vulputate velit esse molestie
+												consequat, vel illum dolore eu feugiat nulla facilisis at
+												vero eros et accumsan et iusto odio dignissim qui blandit
+												praesent luptatum zzril delenit augue duis dolore te feugait
+												nulla facilisi. Nam liber tempor. </span> <a
+												th:href="@{/article/view}" id="message-load-more">
+												<li class="text-center load-more"><i
+													class="fa fa-refresh"></i> read more..</li>
+											</a>
 										</div>
 									</div>
 								</div>
