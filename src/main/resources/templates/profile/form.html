@@ -72,8 +72,7 @@
 											type="text" class="form-control" id="ProfileName"
 											th:field="*{fullName}" placeholder="Profile name"
 											th:readonly="${readonly}" /> <span
-											th:if="${#fields.hasErrors('fullName')}"
-											th:errors="*{fullName}" th:class="help-block" />
+											th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" th:class="help-block" />
 									</div>
 
 									<div class="form-group"
@@ -158,25 +157,36 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
-																	
+									<!-- 						
 									<div class="form-group"
-										th:classappend="${#fields.hasErrors('isPrivate')}? 'has-error'">
+										th:classappend="${#fields.hasErrors('user.isPrivate')}? 'has-error'">
 										
 										<input
-											type="checkbox" class="form-control" id="chkIsPrivate"
-											th:field="*{isPrivate}" placeholder="Private Profile"
-											th:readonly="${readonly}" />
+											type="checkbox" 
+											class="form-control" 
+											id="userIsPrivate"
+											th:field="*{user.isPrivate}" 
+											placeholder="Private Profile"
+											th:readonly="${readonly}" /><span
+											th:if="${#fields.hasErrors('isPrivate')}"
+											th:errors="*{isPrivate}" 
+											th:class="help-block" />
 										
-										<label  for="checkbox-1" th:text="#{user.isPrivate}"> 
+										<label 
+											for="userIsPrivate"> 
     										Private profile
 	                                    </label> 
-										
-										<span
-											th:if="${#fields.hasErrors('isPrivate')}"
-											th:errors="*{isPrivate}" th:class="help-block" />
-	                                </div>
-                                
 									
+										
+	                                </div>
+									<div class="checkbox1 checkbox-light">
+									<input type="checkbox" id="checkbox-1" th:field="*{isPrivate}"
+										th:disabled="${readonly}" /> <label for="checkbox-1"
+										th:text="#{user.isPrivate}" />
+								</div>
+								
+								
+                                	 -->
 									<a onclick="javascript:history.back()" class="btn btn-danger"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}" />
