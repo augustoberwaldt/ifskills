@@ -97,12 +97,12 @@ public class ArticleController {
 	 *            the model
 	 * @return the string
 	 */
-	@RequestMapping("/create")
+	@RequestMapping("/new")
 	public String create(Model model) {
 		model.addAttribute("article", new Article());
 		model.addAttribute("trainers", userProfileService.findAllTrainers());
 		model.addAttribute("readonly", false);
-		return "/article/newarticle";
+		return "/article/new";
 	}
 
 	/**

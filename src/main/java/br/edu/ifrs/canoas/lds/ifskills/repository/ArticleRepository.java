@@ -3,6 +3,12 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
+/**
+ * Author: Felipe
+ * Date: 28/03/2016
+ * Description: Repository for the Articles
+ */
+
 import java.util.List;
 
 import org.springframework.data.domain.Pageable;
