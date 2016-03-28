@@ -30,5 +30,15 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * @return the list
 	 */
 	List<Article> findAll(Pageable pageable);
+	
+	/** 
+	 * Author: Luciane
+	 * Date: 25/03/2016
+	 * Description: Method that finds the slug Article
+	 * @param slug
+	 * @return
+	 */
+	
+	Article findBySlug(String slug);
 
 }

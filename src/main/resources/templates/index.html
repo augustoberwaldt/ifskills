@@ -75,8 +75,10 @@
 												height="533" width="800" class="img-responsive" />
 										</div>
 										<div class="card-body">
-											<h4 th:text="${article.title}">TITLE</h4>
-											<span th:text="${article.teaser}">TEASER >>>>>Lorem
+											<h4 href="#" th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.title}|">TITLE</h4>
+											<span th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.teaser}|">TEASER >>>>>Lorem
 												ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
 												nonummy nibh euismod tincidunt ut laoreet dolore magna
 												aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
@@ -87,7 +89,7 @@
 												vero eros et accumsan et iusto odio dignissim qui blandit
 												praesent luptatum zzril delenit augue duis dolore te feugait
 												nulla facilisi. Nam liber tempor. </span> <a
-												th:href="@{/article/view}" id="message-load-more">
+												th:href="@{|/article/view/${article.slug}|}" id="message-load-more">
 												<li class="text-center load-more"><i
 													class="fa fa-refresh"></i> read more..</li>
 											</a>

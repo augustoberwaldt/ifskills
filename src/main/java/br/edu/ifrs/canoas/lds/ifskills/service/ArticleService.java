@@ -78,4 +78,18 @@ public class ArticleService {
 		// return articleRepository.findAll(new PageRequest(1, 20));
 		return articleRepository.findAll();
 	}
+	
+	/**
+	 * Author: Luciane
+	 * Data: 25/03/2016
+	 * Description: capture the slug Article
+	 * 
+	 * view.
+	 *
+	 * @param id
+	 *            the id
+	 */
+	public Article get(String slug) {
+		return articleRepository.findBySlug(slug);
+	}
 }
