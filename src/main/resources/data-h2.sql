@@ -62,6 +62,6 @@ insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 6);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 7);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 12);
 
-insert  into article ( active, body , comment_id , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, null, sysdate,'Linguagens JPA JSF','hhhhh', 'JPA, JSF e Spring Tool Boot', 2) ;
-insert  into article ( active, body , comment_id , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, null, sysdate,'IDE Spring Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
-insert  into article ( active, body , comment_id , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, null, sysdate,'Artigo sobre educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, sysdate,'Linguagens JPA JSF','hhhhh', 'JPA, JSF e Spring Tool Boot', 2) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, sysdate,'IDE Spring Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, sysdate,'Artigo sobre educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;

@@ -36,13 +36,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
 		web.ignoring().antMatchers("/webjars/**", "/resources/**", "/public/**", "/img/**", "/db/**", "/test/**", "/",
-				"/article/view");
+				"/article/view/**");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/view").permitAll().antMatchers("/cucumber").permitAll()
-				.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated().and().formLogin()
+		http.csrf().disable()
+			.authorizeRequests()
+			.antMatchers("/view").permitAll()
+			.antMatchers("/cucumber").permitAll()
+			.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
+			.and().formLogin()
 				.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me")
 				.logoutSuccessUrl("/login?logout").permitAll().and().rememberMe();
 	}

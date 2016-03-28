@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,36 +28,36 @@ public class Comment {
 
 	@NotEmpty
 	@Size(min = 1, max = 500)
-	private String text;
+	private String content;
 
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date date;
+	private Date postedOn;
 
 	// relacionamento com USER
 	@OneToOne
-	@JoinColumn(name = "user_id")
-	private User user;
+	@JoinColumn(name = "author_user_id")
+	private User author;
 
 	// relacionamento com COMMENTS
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "article_id")
 	private Article article;
 
-	public Date getDate() {
-		return date;
+	public Date getPostedOn() {
+		return postedOn;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
 	}
 
-	public User getUser() {
-		return user;
+	public User getAuthor() {
+		return author;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setAuthor(User author) {
+		this.author = author;
 	}
 
 	public Long getId() {
@@ -67,12 +68,14 @@ public class Comment {
 		this.id = id;
 	}
 
-	public String getText() {
-		return text;
+	
+
+	public String getContent() {
+		return content;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public Article getArticle() {

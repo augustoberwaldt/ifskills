@@ -16,7 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -63,9 +63,8 @@ public class Article {
 	private String body;
 
 	// relacionamento com COMMENTS
-	@OneToOne
-	@JoinColumn(name = "comment_id")
-	private Comment comment;
+	@OneToMany(mappedBy = "article")
+	private List<Comment> comments;
 
 	@Lob
 	private byte[] picture;
@@ -142,12 +141,13 @@ public class Article {
 		this.body = body;
 	}
 
-	public Comment getComment() {
-		return comment;
+	
+	public List<Comment> getComments() {
+		return comments;
 	}
 
-	public void setComment(Comment comment) {
-		this.comment = comment;
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public byte[] getPicture() {

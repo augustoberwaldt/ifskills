@@ -4,6 +4,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -19,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
+import br.edu.ifrs.canoas.lds.ifskills.service.CommentService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -175,8 +178,13 @@ public class ArticleController {
 	 */
 	@RequestMapping("/view/{slug}") 
 	public String view(@PathVariable String slug, Model model) {
+		Article article = articleService.get(slug);
+		Comment comment = new Comment();
+		comment.setArticle(article);
+		
 		model.addAttribute("auth",userProfileService.getPrincipal() != null );
-		model.addAttribute("article", articleService.get(slug));
+		model.addAttribute("article",  article);
+		model.addAttribute("comment",  comment);
 		return "/article/view";
 	}
 
@@ -185,4 +193,6 @@ public class ArticleController {
 		model.addAttribute("auth", userProfileService.getPrincipal() != null);
 		return "/article/view";
 	}
+	
+	
 }

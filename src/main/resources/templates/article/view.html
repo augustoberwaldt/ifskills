@@ -42,7 +42,7 @@
 
 						<div class="card-body">
 							<div class="row no-margin">
-								<div class="col-sm-6">
+								<div class="col-sm-6" th:if ="${article.picture} != null">
 									<div class="card primary">
 										<div class="card-jumbotron no-padding">
 											<img src="../../img/thumbnails/picjumbo.com_IMG_3241.jpg"
@@ -64,8 +64,9 @@
 											<!-- th:text="${article.teaser}" -->
 										</div>
 										<div class="card-body">
-											<h4>AUTHOR>>>>Lorem Ipsum</h4>
-											<!-- th:text="${author.fullName}" -->
+											<h4 th:text="${article.author.fullName}">AUTHOR>>>>Lorem
+												Ipsum</h4>
+
 											AUTHOR DESCRIPTION>>>Lorem ipsum dolor sit amet, consectetuer
 											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
 											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
@@ -82,31 +83,63 @@
 							</div>
 							<div class="row no-margin">
 								<div class="col-sm-12">
-									<div class="card primary">ARTICLE CONTENT *HTML FORMATED*
-										...Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-										sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-										magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-										quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-										ut aliquip ex ea commodo consequat. Duis autem vel eum iriure
-										dolor in hendrerit in vulputate velit esse molestie consequat,
-										vel illum dolore eu feugiat nulla facilisis at vero eros et
-										accumsan et iusto odio dignissim qui blandit praesent luptatum
-										zzril delenit augue duis dolore te feugait nulla facilisi. Nam
-										liber tempor.</div>
+									<div class="card primary">
+										<span th:text="${article.body}">ARTICLE CONTENT *HTML
+											FORMATED* ...Lorem ipsum dolor sit amet, consectetuer
+											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+											minim veniam, quis nostrud exerci tation ullamcorper suscipit
+											lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
+											vel eum iriure dolor in hendrerit in vulputate velit esse
+											molestie consequat, vel illum dolore eu feugiat nulla
+											facilisis at vero eros et accumsan et iusto odio dignissim
+											qui blandit praesent luptatum zzril delenit augue duis dolore
+											te feugait nulla facilisi. Nam liber tempor.</span>
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="row no-margin"  th:each="comment: ${article.comments}">
+								<div class="col-sm-12">
+									<div class="card primary">
+										<span th:text="${comment.content}"/>
+										<span th:text="${comment.author.fullName}"/>
+										<span th:text="${comment.postedOn}"/>
+										<!-- bota delete -> tem o id do comentario -->
+									</div>
 								</div>
 							</div>
 
-							<form>
+							<!-- <div class="form-group"
+									th:classappend="${#fields.hasErrors('date')}? 'has-error'">
+									<label for="itemDate" th:text="#{item.date}" /> <input
+										type="text" class="form-control datepicker" id="itemDate"
+										th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+										th:field="*{{date}}" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('date')}" th:errors="*{{date}}"
+										th:class="help-block" />
+								</div> -->
+
+
+
+
+
+							<form id="commentForm" th:object="${comment}"
+								th:action="@{/article/comment/save}" method="post">
+								<input type="hidden" th:field="*{id}" />
+								<input type="hidden" th:field="*{article.id}" />
 								<div class="row">
 									<div class="col-sm-6">
 										<textarea id="comment" name="comment" class="form-control"
-											placeholder="Your Comment" rows="5"></textarea>
+											placeholder="Your Comment" rows="5" th:field="*{content}"></textarea>
 									</div>
 								</div>
 								<div>
 									<button id="comment-submit" type="submit"
-										class="btn btn-success">Send</button>
-										<button type="button" class="btn btn-danger">Cancel</button>
+										class="btn btn-success"
+										onclick="document.getElementById('commentForm').submit(); return false;"
+										th:text="#{crud.action.save}">Send</button>
 								</div>
 							</form>
 

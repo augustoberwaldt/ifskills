@@ -3,6 +3,13 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
-public class CommentRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
+
+public interface CommentRepository extends CrudRepository<Comment, Long> {
+	
+	
+
 
 }
