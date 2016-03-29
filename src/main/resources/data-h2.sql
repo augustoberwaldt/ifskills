@@ -8,14 +8,19 @@ insert into place(id, place_type, description, parent_place_id) values (6, 'City
 insert into address(id, street, number, complement, place_id) values (1, 'Maria Zélia Carneiro de Figueiredo', 870, null, 6);
 insert into address(id, street, number, complement, place_id) values (2, 'Rua dos Andradas', 1951, 'apto 201', 5);
 
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (1, '123@123.123', 'General User', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (2, 'admin@123.123', 'General Admin', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (3, 'trainer@123.123', 'General Trainer', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null, 1);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (6, 'felipe.zoltowski', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (7, 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1);
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id) VALUES (8, 'aline.gandolfi', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2);
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (1, '123@123.123', 'General User', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Software developer, with solid background in embedded applications. 
+Strong analytical skills combined with experience in object oriented programming techniques. 
+Compatible team player trough complete project cycles, testing, and final implementation. ');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (2, 'admin@123.123', 'General Admin', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'WEB developer with experience in various types of projects , web sites , portals, enterprise systems , applications for Facebook , mobile apps ( Mobile) , e-commerce systems and multi- level systems.');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (3, 'trainer@123.123', 'General Trainer', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Solve and forward the calls to other teams.
+Guide users in the use of ICT resources. 
+Open and track called request services or incidents
+Interact with other teams for the solution of user requests.');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null, 1, 'Expert software developer in php');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'PhD in Software Engineering , Master in Applied Computing .');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (6, 'felipe.zoltowski', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Analyst expert systems in project management using agile methods.');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (7, 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Introduction Professor of computing , computer Master in education');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (8, 'aline.gandolfi', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Computer technician , enrolled in graduate degree in the field of Systems Analysis and Development');
 
 insert into roles(id, role) values (1, 'ROLE_USER');
 insert into roles(id, role) values (2, 'ROLE_ADMIN');
@@ -62,6 +67,6 @@ insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 6);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 7);
 insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 12);
 
-insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, sysdate,'Linguagens JPA JSF','hhhhh', 'JPA, JSF e Spring Tool Boot', 2) ;
-insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, sysdate,'IDE Spring Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
-insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, sysdate,'Artigo sobre educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, sysdate,'Linguagens-JPA-JSF','hhhhh', 'JPA, JSF e Spring Tool Boot', 2) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, sysdate,'IDE-Spring-Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
+insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, sysdate,'Artigo-sobre-Educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;
