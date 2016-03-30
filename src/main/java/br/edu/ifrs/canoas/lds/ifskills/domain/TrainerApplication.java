@@ -1,7 +1,7 @@
 /**
- * @author:
- * @date: 
- * @description: 
+ * @author: Fernando
+ * @date: 24/03/16
+ * @description: The application to become a trainer is here.
  */
 
 package br.edu.ifrs.canoas.lds.ifskills.domain;

@@ -62,6 +62,9 @@
 												id="userProfilePassword" th:field="*{password}"
 												placeholder="Informe a senha" />
 										</div>
+										<div sec:authorize="hasRole('ROLE_USER')">
+											<a th:href="@{/application/create/}+${user.id}" for="trainerApplication" th:text="#{applications.fill}">Fill form:</a>
+										</div>
 									</div>
 								</div>
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{application.title}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{application.breadcrumb-1}" />
+			<li class="active" th:text="#{application.breadcrumb-3}" />
+		</ol>
+
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{application.title}" />
+				<div class="description" th:text="#{application.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title"
+									th:text="${readonly}?#{application.view}:#{application.info}" />
+							</div>
+						</div>
+						<div class="card-body">
+
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+
+							<form th:object="${application}" th:action="@{/application/save}" method="post"
+								id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('name')}? 'has-error'">
+									<label for="ApplicationName" th:text="#{application.name}" /> <input
+										type="text" class="form-control" id="ApplicationName"
+										th:field="*{name}" placeholder="Application name"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+										th:class="help-block" />
+								</div>
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+									<label for="applicationDescription" th:text="#{application.description}" />
+									<input class="form-control" id="applicationDescription"
+										th:field="*{description}" placeholder="Application description"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('description')}"
+										th:errors="*{description}" th:class="help-block" />
+								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('workload')}? 'has-error'">
+									<label for="ApplicationWorkload" th:text="#{application.workload}" />
+									<input class="form-control" id="applicationWorkload"
+										th:field="*{workload}" placeholder="Application workload"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('workload')}"
+										th:errors="*{workload}" th:class="help-block" />
+								</div>
+
+								<div class="form-group">
+									<label for="Trainers" th:text="#{application.trainers}" /> 
+									<select th:field="*{instructor}" style="width: 200px">
+										<option th:each="user : ${trainers}"
+						                        th:value="${user.id}" th:text="${user.fullName}">Fulano</option>
+						            </select>
+									
+		
+								</div>
+								
+								<button type="submit" class="btn btn-success"
+									th:if="${!readonly}"
+									onclick="document.getElementById('mainForm').submit(); return false;"
+									th:text="#{crud.action.save}" />
+
+								<a th:href="@{/application/create/}" class="btn btn-success"
+									th:if="${readonly}" th:text="#{crud.action.new}" /> 
+								<a th:href="@{/application/edit/}+${id}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{crud.action.edit}" /> 
+								<a th:href="@{/application/list/}" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> 
+								<a th:href="@{/application/list/}" class="btn btn-default"
+									th:if="${param.success}" th:text="#{crud.action.list}" />
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

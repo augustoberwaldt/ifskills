@@ -70,6 +70,9 @@ public class User {
 
 	@Column(columnDefinition = "boolean default true")
 	private Boolean active;
+	
+	@OneToOne
+	private TrainerApplication trainerApplication;
 
 	private User() {
 		this.active = true;
