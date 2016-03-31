@@ -42,8 +42,24 @@
 								id="mainForm">
 
 								<input type="hidden" th:field="*{id}" />
-
-								<div class="form-group"
+                                
+                                <div class="form-group" th:if="*{picture != null}">
+									<div class="col-xs-6 col-md-4">
+										<li class="profile-img"><img th:src="*{pictureBase64}"
+											th:height="291px" th:width="305px"
+											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
+											class="profile-img" alt="" /></li>
+									</div>
+								</div>
+								<div class="col-xs-12 col-md-8">
+								 <div class="form-group" th:if="!${article.active}">
+									    <label for="exampleInputFile" th:text="#{article.picture}">Picture:</label>
+									  	<input type="file" id="articlePicture" name="articlePicture" />
+										<p class="help-block" th:text="#{article.picture.description}">Update
+										article picture</p>
+								</div>
+								
+								 <div class="form-group"
 									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
 									<label for="ArticleTitle" th:text="#{article.title}" /> <input
 										type="text" class="form-control" id="ArticleTitle"
@@ -84,21 +100,11 @@
 										th:if="${#fields.hasErrors('body')}"
 										th:errors="*{body}" th:class="help-block" />
 								</div> -->
-																							
-							    <div class="form-group" th:if="*{picture != null}">
-									<div class="col-xs-6 col-md-4">
-										<li class="profile-img"><img th:src="*{pictureBase64}"
-											th:height="291px" th:width="305px"
-											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
-											class="profile-img" alt="" /></li>
-									</div>
-								</div>
-																
+																								
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
 									th:text="#{crud.action.save}" />
-
 								<a th:href="@{/article/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> 
 								<a th:href="@{/article/edit/}+${id}" class="btn btn-info"
@@ -109,7 +115,7 @@
 									</a> 
 								<a th:href="@{/article/list/}" class="btn btn-default"
 									th:if="${param.success}" th:text="#{crud.action.list}" />
-
+                               </div>
 							</form>
 						</div>
 					</div>
