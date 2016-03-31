@@ -21,7 +21,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 
 // TODO: Auto-generated Javadoc
@@ -47,7 +46,7 @@ public class ArticleServiceTest {
 	 */
 	@Test
 	public void testToGetArticle1AndCheckTitle() {
-		assertThat(articleService.get(1L), hasProperty("title", is("kkkkk")));
+		assertThat(articleService.get(1L), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
 	}
 
 	/**
@@ -72,6 +71,18 @@ public class ArticleServiceTest {
 		assertThat(articleService.get(2L), hasProperty("title", is("Spring tool boot é o título")));
 		articleService.delete(2L);
 		assertThat(articleService.get(2L), is(nullValue()));
+	}
+	
+	/**
+	 * Author: Luciane
+	 * Date: 30/03/2016
+	 * Description: Test to find for slug article1 .
+	 * 
+	 * Dúvida: Está correto este teste???
+	 */
+	@Test
+	public void testToGetSlugAndCheckTitle() {
+		assertThat(articleService.get("Linguagens-JPA-JSF"), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
 	}
 
 }

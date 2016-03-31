@@ -70,3 +70,5 @@ insert into COURSE_ATTENDEES (ATTENDEE_USER_ID ,COURSE_ID ) values (1, 12);
 insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'hjhjfhjh jkojiojikj bhhgfhgh kjkijikjikjoi', null, sysdate,'Linguagens-JPA-JSF','hhhhh', 'JPA, JSF e Spring Tool Boot', 2) ;
 insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, sysdate,'IDE-Spring-Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
 insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, sysdate,'Artigo-sobre-Educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;
+
+insert into comment (content, posted_on, article_id, author_user_id) values ('Comment number one', sysdate,1 ,3);

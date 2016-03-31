@@ -110,6 +110,9 @@
 									</tr>
 								</thead>
 								<tbody>
+									<div th:if="${message}" class="alert alert-success">
+										<p th:text="${message}" />
+									</div>
 									<tr th:each="comment: ${article.comments}">
 										<td th:text="${comment.content}" class="col-sm-6"></td>
 										<td th:text="${comment.author.fullName}"></td>
@@ -139,8 +142,8 @@
 										onclick="document.getElementById('commentForm').submit(); return false;"
 										th:text="#{crud.action.save}">Send</button>
 
-									<a onclick="javascript:history.back()" class="btn btn-danger"
-										th:if="!${param.success}"> <span
+									<a class="btn btn-danger" th:if="!${param.success}"
+										th:href="@{/}"> <span
 										th:text="${readonly}?:#{navigation.back}" />
 									</a>
 								</div>

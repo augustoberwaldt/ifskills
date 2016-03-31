@@ -114,25 +114,17 @@ public class CommentController {
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Comment comment = commentService.get(id);
 		if (comment.getAuthor().getId() != userService.getPrincipal().getUser().getId()){
+			model.addAttribute("message",
+					MessageFormat.format(messageSource.getMessage("comment.deleted.failed", null, locale), id));
+			return "redirect:/article/view/"+comment.getArticle().getSlug();
+		}else		
 			commentService.delete(id);
 
-			redirectAttrs.addFlashAttribute("message", MessageFormat
-					.format(messageSource.getMessage("comment.deleted", null, locale), comment.getContent()));
+		redirectAttrs.addFlashAttribute("message", MessageFormat
+				.format(messageSource.getMessage("comment.deleted", null, locale), comment.getContent()));
 
-			return "redirect:/article/view";
-		}
-		model.addAttribute("message",
-				MessageFormat.format(messageSource.getMessage("comment.deleted.failed", null, locale), id));
-		return "/article/view";
+		return "redirect:/article/view/"+comment.getArticle().getSlug();
+
 	}
-	
-	/*
-	  public void delete(Comment comment){
-	   if (comment.getAuthor().getId() != userService.getPrincipal().getUser().getId()); 
-	  }
-	 */
-
-	
-	
 
 }

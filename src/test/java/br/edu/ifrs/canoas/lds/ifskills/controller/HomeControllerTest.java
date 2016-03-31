@@ -35,8 +35,8 @@ public class HomeControllerTest extends BaseControllerTest{
 	
 	/** Author:Luciane
 	 *  Date: 24/03/2016
-	 *  Description: teste do método view que 
-	 *  mostra uma lista com 3 artigos na página index.html
+	 *  Description: view test method
+	 *  Shows a list of articles on page index.html
 	 * */
 			
 	@Test
