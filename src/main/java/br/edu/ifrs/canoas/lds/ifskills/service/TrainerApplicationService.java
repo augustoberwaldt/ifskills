@@ -1,31 +1,31 @@
 /**
- * @author:
- * @date: 
- * @description: 
+ * @author: Fernando Sturzbecher
+ * @date: 31/03/2016
+ * @description: This is the service class for TrainerApplication
  */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Course;
-import br.edu.ifrs.canoas.lds.ifskills.repository.CourseRepository;
+import br.edu.ifrs.canoas.lds.ifskills.domain.TrainerApplication;
+import br.edu.ifrs.canoas.lds.ifskills.repository.TrainerApplicationRepository;
 
 // TODO: Auto-generated Javadoc
 @Service
 public class TrainerApplicationService {
 
-	private CourseRepository courseRepository;
+	private TrainerApplicationRepository trainerApplicationRepository;
 
 	/**
-	 * Instantiates a new course service.
+	 * Instantiates a new trainer application service.
 	 *
 	 * @param repo
-	 *            the repo
+	 *            the trainer application repository
 	 */
 	@Autowired
-	public TrainerApplicationService(CourseRepository repo) {
-		this.courseRepository = repo;
+	public TrainerApplicationService(TrainerApplicationRepository trainerApplicationRepository) {
+		this.trainerApplicationRepository = trainerApplicationRepository;
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class TrainerApplicationService {
 	 *
 	 * @return the iterable
 	 */
-	public Iterable<Course> list() {
-		return courseRepository.findAll();
+	public Iterable<TrainerApplication> list() {
+		return trainerApplicationRepository.findAll();
 	}
 
 	/**
@@ -42,21 +42,21 @@ public class TrainerApplicationService {
 	 *
 	 * @param id
 	 *            the id
-	 * @return the course
+	 * @return the trainer application
 	 */
-	public Course get(Long id) {
-		return courseRepository.findOne(id);
+	public TrainerApplication get(Long id) {
+		return trainerApplicationRepository.findOne(id);
 	}
 
 	/**
 	 * Save.
 	 *
-	 * @param courses
-	 *            the courses
-	 * @return the course
+	 * @param trainer applications
+	 *            the trainer application
+	 * @return the trainer application
 	 */
-	public Course save(Course courses) {
-		return courseRepository.save(courses);
+	public TrainerApplication save(TrainerApplication trainerApplications) {
+		return trainerApplicationRepository.save(trainerApplications);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class TrainerApplicationService {
 	 *            the id
 	 */
 	public void delete(Long id) {
-		courseRepository.delete(id);
+		trainerApplicationRepository.delete(id);
 	}
 
 }

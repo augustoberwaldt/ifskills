@@ -1,7 +1,7 @@
 /**
- * @author:
- * @date: 
- * @description: 
+ * @author: Fernando Sturzbecher
+ * @date: 31/03/2016
+ * @description: The controller for our applications
  */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
@@ -20,34 +20,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Course;
-import br.edu.ifrs.canoas.lds.ifskills.service.CourseService;
-import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
+import br.edu.ifrs.canoas.lds.ifskills.domain.TrainerApplication;
+import br.edu.ifrs.canoas.lds.ifskills.service.TrainerApplicationService;
 
 // TODO: Auto-generated Javadoc
 @Controller
-@RequestMapping("/application")
+@RequestMapping("/applications")
 public class TrainerApplicationController {
 
-	private CourseService courseService;
-	private UserProfileService userProfileService;
+	private TrainerApplicationService trainerApplicationService;
 	private MessageSource messageSource;
 
 	/**
-	 * Instantiates a new course controller.
+	 * Instantiates a new trainer application controller.
 	 *
-	 * @param courseService
-	 *            the course service
-	 * @param userProfileService
-	 *            the user profile service
+	 * @param trainer application
+	 *            the trainer application
 	 * @param messageSource
 	 *            the message source
 	 */
 	@Autowired
-	public TrainerApplicationController(CourseService courseService, UserProfileService userProfileService,
+	public TrainerApplicationController(TrainerApplicationService trainerApplicationService,
 			MessageSource messageSource) {
-		this.courseService = courseService;
-		this.userProfileService = userProfileService;
+		this.trainerApplicationService = trainerApplicationService;
 		this.messageSource = messageSource;
 	}
 
@@ -60,8 +55,8 @@ public class TrainerApplicationController {
 	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("courses", courseService.list());
-		return "/application/list";
+		model.addAttribute("trainerApplications", trainerApplicationService.list());
+		return "/applications/list";
 	}
 
 	/**
@@ -79,13 +74,13 @@ public class TrainerApplicationController {
 	 */
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
-		Course course = courseService.get(id);
-		courseService.delete(id);
+		TrainerApplication trainerApplication = trainerApplicationService.get(id);
+		trainerApplicationService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",
-				MessageFormat.format(messageSource.getMessage("course.deleted", null, locale), course.getName()));
+				MessageFormat.format(messageSource.getMessage("trainerApplication.deleted", null, locale), trainerApplication.getBriefSummary()));
 
-		return "redirect:/application/list";
+		return "redirect:/applications/list";
 	}
 
 	/**
@@ -97,10 +92,9 @@ public class TrainerApplicationController {
 	 */
 	@RequestMapping("/create")
 	public String create(Model model) {
-		model.addAttribute("course", new Course());
-		model.addAttribute("trainers", userProfileService.findAllTrainers());
+		model.addAttribute("trainerApplication", new TrainerApplication());
 		model.addAttribute("readonly", false);
-		return "/course/form";
+		return "/applications/form";
 	}
 
 	/**
@@ -114,10 +108,9 @@ public class TrainerApplicationController {
 	 */
 	@RequestMapping("/view/{id}")
 	public String view(@PathVariable Long id, Model model) {
-		model.addAttribute("course", courseService.get(id));
-		model.addAttribute("trainers", userProfileService.findAllTrainers());
+		model.addAttribute("trainerApplication", trainerApplicationService.get(id));
 		model.addAttribute("readonly", true);
-		return "/course/form";
+		return "/applications/form";
 	}
 
 	/**
@@ -131,17 +124,16 @@ public class TrainerApplicationController {
 	 */
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
-		model.addAttribute("course", courseService.get(id));
-		model.addAttribute("trainers", userProfileService.findAllTrainers());
+		model.addAttribute("trainerApplication", trainerApplicationService.get(id));
 		model.addAttribute("readonly", false);
-		return "/course/form";
+		return "/applications/form";
 	}
 
 	/**
 	 * Save.
 	 *
-	 * @param course
-	 *            the course
+	 * @param trainerApplication
+	 *            the trainerApplication
 	 * @param bindingResult
 	 *            the binding result
 	 * @param model
@@ -153,18 +145,18 @@ public class TrainerApplicationController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid Course course, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
+	public String save(@Valid TrainerApplication trainerApplication, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
 		if (!bindingResult.hasErrors()) {
-			Course savedCourse = courseService.save(course);
+			TrainerApplication savedTrainerApplication = trainerApplicationService.save(trainerApplication);
 			model.addAttribute("readonly", true);
 
-			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("course.saved", null, locale));
+			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("trainerApplication.saved", null, locale));
 
-			return "redirect:/course/view/" + savedCourse.getId() + "?success";
+			return "redirect:/applications/view/" + savedTrainerApplication.getId() + "?success";
 		}
 		model.addAttribute("readonly", false);
-		return "/course/form";
+		return "/applications/form";
 	}
 
 }
