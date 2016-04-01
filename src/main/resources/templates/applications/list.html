@@ -90,11 +90,11 @@
 												th:href="@{|/user/view/${user.id}|}"
 												th:text="|${user.active}|" /></td>
 
-											<!-- <td sec:authorize="hasRole('ROLE_ADMIN')"><a
-											 	th:href="@{/applications/denied/}+${user.id}"> <span  -->
-													<!--  class="badge" th:text="#{crud.action.denied}" /> mudar esse caminho para alterar o status da application-->
+											 <td sec:authorize="hasRole('ROLE_ADMIN')"><a
+											 	th:href="@{/applications/denied/}+${user.id}"> <span  
+													  class="badge" th:text="#{crud.action.denied}" /> 
 											</a> <a th:href="@{/applications/approved/}+${user.id}" class="denied">
-													<!--  span class="badge" th:text="#{crud.action.delete}" /> mudar esse caminho para alterar o status da application-->
+													 <span class="badge" th:text="#{crud.action.approved}" /> 
 											</a></td>
 
 										</tr>
