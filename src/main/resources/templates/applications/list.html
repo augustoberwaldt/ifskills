@@ -40,7 +40,7 @@
 								<p th:text="${message}" />
 							</div>
 
-							<!-- Form Search applications -->
+							<!-- Form Search applications 
 
 							<div class="col-xs-12">
 								<div class="card">
@@ -60,7 +60,7 @@
 									</div>
 								</div>
 							</div>
-
+							-->
 
 							<div th:fragment="resultsList"
 								th:unless="${#lists.isEmpty(users)}">
@@ -94,7 +94,7 @@
 											 	th:href="@{/applications/denied/}+${user.id}"> <span  
 													  class="badge" th:text="#{crud.action.denied}" /> 
 											</a> <a th:href="@{/applications/approved/}+${user.id}" class="denied">
-													 <span class="badge" th:text="#{crud.action.approved}" /> 
+												<span class="badge" th:text="#{crud.action.denied}" /> 
 											</a></td>
 
 										</tr>
