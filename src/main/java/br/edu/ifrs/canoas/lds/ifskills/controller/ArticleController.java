@@ -85,7 +85,7 @@ public class ArticleController {
 		redirectAttrs.addFlashAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
 
-		return "redirect:/index";
+		return "redirect:/";
 	}
 
 	/**

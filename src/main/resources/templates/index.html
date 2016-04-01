@@ -45,6 +45,10 @@
 							</div>
 						</div>
 						-->
+						
+																
+					 <div th:if="${message}" class="alert alert-success">
+					 <p th:text="${message}" /> </div>
 
 						<div class="card-header">
 							<div class="pull-right card-action">
@@ -92,6 +96,12 @@
 												th:href="@{|/article/view/${article.slug}|}" id="message-load-more">
 												<li class="text-center load-more"><i
 													class="fa fa-refresh"></i> read more..</li>
+													
+										<!--sec:authorize="hasRole('ROLE_ADMIN')" -->
+									   		<div><a
+									   				 class="btn btn-danger delete"
+													 th:href="@{/article/delete/}+${article.id}"> <span 
+										             th:text="#{article.action.delete}"/></a></div>
 											</a>
 										</div>
 									</div>
