@@ -4,8 +4,10 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -192,5 +194,29 @@ public class ArticleController {
 		return "/article/view";
 	}
 	
+	/**
+	 * 01/04/16 - Ricardo - Create method showArticleList
+	 * 
+	 * @param model
+	 * @param req
+	 * @param locale
+	 * @return
+	 */
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String showArticleList(Model model, final HttpServletRequest req, final Locale locale) {
+		String criteria = req.getParameter("criteria");
+		if (criteria != null && !criteria.isEmpty()) {
+			List<Article> articles = articleProfileService.list(criteria);
+			if (articles.isEmpty()) {
+				model.addAttribute("message",
+						messageSource.getMessage("article.findAllByTitleOrBodyOrUser_IdAllIgnoreCase", null, locale));
+			}
+			model.addAttribute("articles", articles);
+		} else if (criteria != null && criteria.isEmpty()) {
+			model.addAttribute("articles", new ArrayList<Article>());
+			model.addAttribute("message", messageSource.getMessage("article.validatorCriteria", null, locale));
+		}
+		return "/article/list";
+	}
 	
 }
