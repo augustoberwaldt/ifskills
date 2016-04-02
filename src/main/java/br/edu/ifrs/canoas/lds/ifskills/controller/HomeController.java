@@ -39,14 +39,10 @@ public class HomeController {
 	/**
 	 * View.
 	 *
-	 * @param Author:
-	 *            Luciane
-	 * @param Date:
-	 *            24/03/2016
-	 * @return Description: Method that carries 3 Database items and shows the
-	 *         home page index.html
+	 * Author: Luciane Date: 24/03/2016 Description: Method that carries 3
+	 * Database items and shows the home page index.html
 	 * 
-	 *         03/24 - Rodrigo - added auth attribute for template decorator
+	 * 03/24 - Rodrigo - added auth attribute for template decorator
 	 */
 	@RequestMapping("/")
 	public String view(Model model, HttpSession session) {

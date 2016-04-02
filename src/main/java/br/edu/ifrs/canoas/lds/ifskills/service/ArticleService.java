@@ -73,6 +73,9 @@ public class ArticleService {
 	}
 
 	/**
+	 * Author: Luciane
+	 * Data: 25/03/2016
+	 * Description: Returns the list of existing articles in database
 	 * Find all.
 	 *
 	 * @return the iterable

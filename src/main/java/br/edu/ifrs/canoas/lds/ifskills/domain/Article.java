@@ -1,7 +1,7 @@
 /**
- * @author:
- * @date: 
- * @description: 
+ * @author:Luciane
+ * @date: 24/03/2016
+ * @description: Class Article
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
@@ -49,7 +49,13 @@ public class Article {
 
 	private Boolean active;
 
-	// relacionamento com USER
+	/**
+	 * Auhtor: Luciane
+	 * Date:24/03/2016
+	 * Description: Relacionamento entre Article e User
+	 * Author is a type attribute User
+	 * A user can be the author of several articles
+	 */
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "user_id")
@@ -62,7 +68,12 @@ public class Article {
 	@Column(columnDefinition = "TEXT")
 	private String body;
 
-	// relacionamento com COMMENTS
+	/**
+	 * Auhtor: Luciane
+	 * Date:27/03/2016
+	 * Description: Relationship between Article and Comment
+	 * An article has a comments list
+	 */
 	@OneToMany(mappedBy = "article")
 	private List<Comment> comments;
 

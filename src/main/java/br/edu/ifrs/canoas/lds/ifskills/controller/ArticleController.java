@@ -69,7 +69,6 @@ public class ArticleController {
 	/**
 	 * Delete.
 	 *
-	 * @author Luciane
 	 * @param id
 	 *            the id
 	 * @param model
@@ -105,23 +104,6 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "/article/new";
 	}
-
-	/**
-	 * View.
-	 *
-	 * @param id
-	 *            the id
-	 * @param model
-	 *            the model
-	 * @return the string
-	 */
-	/*@RequestMapping("/view/{id}")
-	public String view(@PathVariable Long id, Model model) {
-		model.addAttribute("article", articleService.get(id));
-		model.addAttribute("users", userProfileService.list());
-		model.addAttribute("readonly", true);
-		return "/article/form";
-	}*/
 
 	/**
 	 * Update.

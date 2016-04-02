@@ -1,6 +1,6 @@
 /**
- * @author:
- * @date: 
+ * @author:Luciane
+ * @date: 27/03/2016
  * @description: 
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
@@ -34,12 +34,23 @@ public class Comment {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date postedOn;
 
-	// relacionamento com USER
+	/**
+	 * Auhtor: Luciane
+	 * Date:27/03/2016
+	 * Description: Relationship between Comment and User
+	 * The author of a review is a type attribute User
+	 */
 	@OneToOne
 	@JoinColumn(name = "author_user_id")
 	private User author;
 
-	// relacionamento com COMMENTS
+	/**
+	 * Auhtor: Luciane
+	 * Date:27/03/2016
+	 * Description: Relationship between Comment and Article
+	 * The Article type attribute will store the id of the 
+	 * article to which the comment refers
+	 */
 	@ManyToOne
 	@JoinColumn(name = "article_id")
 	private Article article;

@@ -38,7 +38,9 @@ public class CommentController {
 	private ArticleService articleService;
 
 	/**
-	 * Author: Luciane Date: 27/03/2016 Description: Instantiates a new article
+	 * Author: Luciane 
+	 * Date: 27/03/2016 
+	 * Description: Instantiates a new article
 	 * comment.
 	 *
 	 * @param commentService
@@ -58,7 +60,9 @@ public class CommentController {
 	}
 
 	/**
-	 * Author: Luciane Date: 27/03/2016 Description: Method of the save a new
+	 * Author: Luciane 
+	 * Date: 27/03/2016 
+	 * Description: Method of the save a new
 	 * article comment.
 	 * 
 	 * @param comment
@@ -98,7 +102,9 @@ public class CommentController {
 	 * Author: Luciane 
 	 * Date: 28/03/2016 
 	 * Description: Method that allows the
-	 * deletion of an article that is saved in the database . Delete.
+	 * deletion of an article that is saved in the database . 
+	 * 
+	 * Delete.
 	 *
 	 * @param id
 	 *            the id

@@ -32,7 +32,7 @@ public class CommentService {
 	/**
 	 * Author: Luciane 
 	 * Date: 27/03/2016
-	 * Description: Method save 
+	 * Description: Method save comments in DB
 	 * Save.
 	 *
 	 * @param comment
@@ -47,7 +47,7 @@ public class CommentService {
 	/**
 	 * Author: Luciane 
 	 * Date: 28/03/2016
-	 * Description: Method get
+	 * Description: Method get id
 	 * Save.
 	 *
 	 * @param comment
@@ -61,9 +61,7 @@ public class CommentService {
 	/**
 	 * Author: Luciane 
 	 * Date: 28/03/2016
-	 * Description: Method delete 
-	 * Save.
-	 *
+	 * Description: Method delete an comment
 	 * @param comment
 	 *            the item
 	 * @return the item
