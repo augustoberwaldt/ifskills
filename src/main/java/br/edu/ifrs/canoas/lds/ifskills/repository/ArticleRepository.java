@@ -16,6 +16,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 
 // TODO: Auto-generated Javadoc
 public interface ArticleRepository extends CrudRepository<Article, Long> {
@@ -43,8 +44,14 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * Description: Method that finds the slug Article
 	 * @param slug
 	 * @return
-	 */
-	
+	 */	
 	Article findBySlug(String slug);
+	
+	/**
+	 * 01/04/16 - Ricardo - Method to find Title
+	 * @param title
+	 * @return
+	 */
+	List<Article> findAllByTitleContainingAllIgnoreCase(String title);
 
 }
