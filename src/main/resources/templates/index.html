@@ -44,12 +44,12 @@
 								</div>
 							</div>
 						</div>
-						-->
-						
+						-->						
 																
 					 <div th:if="${message}" class="alert alert-success">
 					 <p th:text="${message}" /> </div>
 
+						<!-- 31/03/16 - Ricardo - Change placeholder information -->
 						<div class="card-header">
 							<div class="pull-right card-action">
 								<div class="btn-group" role="group" aria-label="...">
@@ -69,7 +69,7 @@
 								</div>
 							</div>
 						</div>
-
+						
 						<div class="card-body" th:each="article : ${articles}">
 							<div class="row no-margin">
 								<div class="col-sm-6">
