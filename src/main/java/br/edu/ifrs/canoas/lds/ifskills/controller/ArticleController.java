@@ -206,10 +206,10 @@ public class ArticleController {
 	public String showArticleList(Model model, final HttpServletRequest req, final Locale locale) {
 		String criteria = req.getParameter("criteria");
 		if (criteria != null && !criteria.isEmpty()) {
-			List<Article> articles = articleProfileService.list(criteria);
+			List<Article> articles = articleService.list(criteria);
 			if (articles.isEmpty()) {
 				model.addAttribute("message",
-						messageSource.getMessage("article.findAllByTitleOrBodyOrUser_IdAllIgnoreCase", null, locale));
+						messageSource.getMessage("article.findAllByTitleAllIgnoreCase", null, locale));
 			}
 			model.addAttribute("articles", articles);
 		} else if (criteria != null && criteria.isEmpty()) {

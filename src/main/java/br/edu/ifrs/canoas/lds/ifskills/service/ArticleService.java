@@ -5,10 +5,13 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.repository.ArticleRepository;
 
 // TODO: Auto-generated Javadoc
@@ -92,4 +95,14 @@ public class ArticleService {
 	public Article get(String slug) {
 		return articleRepository.findBySlug(slug);
 	}
+	
+	/**
+	 * 01/04/16 - Ricardo - List titles
+	 * @param parameter
+	 * @return
+	 */
+	public List<Article> list(String parameter) {
+		return articleRepository.findAllByTitleContainingAllIgnoreCase(parameter);
+	}	
+	
 }
