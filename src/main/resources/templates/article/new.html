@@ -46,6 +46,8 @@
 								id="articleForm">
 
 								<input type="hidden" th:field="*{id}" />
+								
+								<input type="hidden" th:field="*{body}" id="articleBody" />
                                 
                                 <div class="form-group" th:if="*{picture != null}">
 									<div class="col-xs-6 col-md-4">
@@ -93,14 +95,11 @@
 										th:errors="*{teaser}" th:class="help-block" />
 								</div>
 											
-								<div class="summernote">
-								<input type="hidden" th:field="*{body}"/>
-								<script>$('#summernote').summernote('body'); </script>
-								</div>												
+								<div class="summernote"/>
 																																								
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
-									onclick="document.getElementById('articleForm').submit(); return false;"
+									onclick="$('#articleBody').val($('.summernote').summernote('code'));document.getElementById('articleForm').submit(); return false;"
 									th:text="#{crud.action.save}" />
 									
 								<a th:href="@{/article/create/}" class="btn btn-success"
