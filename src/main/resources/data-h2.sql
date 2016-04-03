@@ -16,10 +16,10 @@ INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, descriptio
 Guide users in the use of ICT resources. 
 Open and track called request services or incidents
 Interact with other teams for the solution of user requests.');
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null, 1, 'Expert software developer in php');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, PRIVATE_PROFILE, address_id, description) VALUES (4, 'jrobaski@yahoo.com.br', 'José Ricardo Robaski', '$2a$10$g3JVotDZCxNZ8IdmDc5QkugSyyd0FNLNnzL5G1mMUcwn3ammWCM6m', null, 'TRUE', 1, 'Expert software developer in php');
 INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (5, 'edsoncandio@gmail.com', 'Edson Giovani de Candio', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'PhD in Software Engineering , Master in Applied Computing .');
 INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (6, 'felipe.zoltowski', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Analyst expert systems in project management using agile methods.');
-INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (7, 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Introduction Professor of computing , computer Master in education');
+INSERT INTO USER(ID, ACTIVE, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (7, 'FALSE', 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Introduction Professor of computing , computer Master in education');
 INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (8, 'aline.gandolfi', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Computer technician , enrolled in graduate degree in the field of Systems Analysis and Development');
 
 insert into roles(id, role) values (1, 'ROLE_USER');
