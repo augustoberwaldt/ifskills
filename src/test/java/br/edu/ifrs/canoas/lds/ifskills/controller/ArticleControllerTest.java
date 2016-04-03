@@ -37,8 +37,7 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 * @Date: 30/03/2016
 	 * Description:
 	 * Test to view Article1 for Slug and check atts.
-	 * @throws Exception
-	 *             the exception
+	 * @throws Exception the exception
 	 */
 	@Test
 	public void testToViewSlugArticle1AndCheckAtts() throws Exception {

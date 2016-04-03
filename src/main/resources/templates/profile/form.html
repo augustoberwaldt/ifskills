@@ -13,7 +13,7 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- include summernote css/js-->
-<link href="summernote.css" rel="stylesheet"/>
+<link href="summernote.css" rel="stylesheet" />
 <script src="summernote.js"></script>
 </head>
 
@@ -35,8 +35,8 @@
 			</div>
 
 			<div id="summernote">Hello Summernote</div>
-			
-			
+
+
 			<!--  BODY -->
 			<div class="row">
 				<div class="col-xs-12">
@@ -65,17 +65,19 @@
 									</div>
 								</div>
 
-								<div class="col-xs-12 col-md-8">f
+
+								<div class="col-xs-12 col-md-8">
 									<div class="form-group"
 										th:classappend="${#fields.hasErrors('fullName')}? 'has-error'">
 										<label for="ProfileName" th:text="#{user.fullName}" /> <input
 											type="text" class="form-control" id="ProfileName"
 											th:field="*{fullName}" placeholder="Profile name"
 											th:readonly="${readonly}" /> <span
-											th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}" th:class="help-block" />
+											th:if="${#fields.hasErrors('fullName')}"
+											th:errors="*{fullName}" th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+ 									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('email')}? 'has-error'">
 										<label for="profileEmail" th:text="#{profile.email}" /> <input
 											class="form-control" id="profileEmail" th:field="*{email}"
@@ -83,8 +85,8 @@
 											th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
 											th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.street')}? 'has-error'">
 										<label for="profileStreet" th:text="#{address.street}" /> <input
 											type="text" class="form-control datepicker"
@@ -94,8 +96,8 @@
 										<span th:if="${#fields.hasErrors('address.street')}"
 											th:errors="*{{address.street}}" th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
 										<label for="profileNumber" th:text="#{address.number}" /> <input
 											type="text" class="form-control datepicker"
@@ -105,8 +107,8 @@
 										<span th:if="${#fields.hasErrors('address.number')}"
 											th:errors="*{{address.number}}" th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.complement')}? 'has-error'">
 										<label for="profileNumber" th:text="#{address.complement}" />
 										<input type="text" class="form-control datepicker"
@@ -116,8 +118,8 @@
 										<span th:if="${#fields.hasErrors('address.complement')}"
 											th:errors="*{{address.complement}}" th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.place.description')}? 'has-error'">
 										<label for="profileCity"
 											th:text="#{address.place.description}" /> <input type="text"
@@ -129,8 +131,8 @@
 											th:errors="*{{address.place.description}}"
 											th:class="help-block" />
 									</div>
-
-									<div class="form-group"
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.place.parentPlace.description')}? 'has-error'">
 										<label for="profileEstate"
 											th:text="#{address.place.parentPlace.description}" /> <input
@@ -144,7 +146,7 @@
 											th:class="help-block" />
 									</div>
 
-									<div class="form-group"
+									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="profileParents"
 											th:text="#{address.place.parentPlace.parentPlace.description}" />
@@ -157,6 +159,9 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
+									
+									
+									
 									<!-- 						
 									<div class="form-group"
 										th:classappend="${#fields.hasErrors('user.isPrivate')}? 'has-error'">
