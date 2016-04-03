@@ -10,7 +10,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ItemServiceTest.class, ArticleServiceTest.class, CommentServiceTest.class})
+@SuiteClasses({ ItemServiceTest.class, ArticleServiceTest.class})
 public class AllTests {
 
 }

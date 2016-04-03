@@ -3,6 +3,10 @@
 
 <head>
 <title th:text="#{article.title}" />
+
+<!-- include summernote css/js-->
+<link href="summernote.css" rel="stylesheet"/>
+<script src="summernote.js"></script>
 </head>
 
 <body>
@@ -39,7 +43,7 @@
 							</div>
 
 							<form th:object="${article}" th:action="@{/article/save}" method="post"
-								id="mainForm">
+								id="articleForm">
 
 								<input type="hidden" th:field="*{id}" />
                                 
@@ -89,22 +93,16 @@
 										th:errors="*{teaser}" th:class="help-block" />
 								</div>
 											
-								<div class="summernote"></div>												
-																
-								<!-- <div class="form-group"
-									th:classappend="${#fields.hasErrors('body')}? 'has-error'">
-									<label for="body" th:text="#{article.body}" />
-									<input class="form-control" id="articleBody"
-										th:field="*{body}" placeholder="Article body"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('body')}"
-										th:errors="*{body}" th:class="help-block" />
-								</div> -->
-																								
+								<div class="summernote">
+								<input type="hidden" th:field="*{body}"/>
+								<script>$('#summernote').summernote('body'); </script>
+								</div>												
+																																								
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
-									onclick="document.getElementById('mainForm').submit(); return false;"
+									onclick="document.getElementById('articleForm').submit(); return false;"
 									th:text="#{crud.action.save}" />
+									
 								<a th:href="@{/article/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> 
 								<a th:href="@{/article/edit/}+${id}" class="btn btn-info"

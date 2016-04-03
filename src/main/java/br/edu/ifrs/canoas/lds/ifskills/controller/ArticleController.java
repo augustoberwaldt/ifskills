@@ -91,6 +91,8 @@ public class ArticleController {
 	}
 
 	/**
+	 * Author: Felipe
+	 * Date: 03/04/2016
 	 * Creates the.
 	 *
 	 * @param model
@@ -106,6 +108,8 @@ public class ArticleController {
 	}
 
 	/**
+	 * Author: Felipe
+	 * Date: 03/04/2016
 	 * Update.
 	 *
 	 * @param id
@@ -123,6 +127,8 @@ public class ArticleController {
 	}
 
 	/**
+	 * Author: Felipe
+	 * Date: 03/04/2016
 	 * Save.
 	 *
 	 * @param article
@@ -142,11 +148,8 @@ public class ArticleController {
 			RedirectAttributes redirectAttrs, Locale locale) {
 		if (!bindingResult.hasErrors()) {
 			Article savedArticle = articleService.save(article);
-			model.addAttribute("readonly", true);
-
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
-
-			return "/article/view/" + savedArticle.getId() + "?success";
+			return "redirect:/article/view/" + savedArticle.getId() + "?success";
 		}
 		model.addAttribute("readonly", false);
 		return "redirect:/";
