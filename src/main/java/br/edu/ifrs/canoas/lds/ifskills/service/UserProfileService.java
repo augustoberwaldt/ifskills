@@ -65,7 +65,8 @@ public class UserProfileService {
 	public UserDetailsImpl getPrincipal() {
 		if (SecurityContextHolder.getContext() != null && SecurityContextHolder.getContext().getAuthentication() != null
 				&& SecurityContextHolder.getContext().getAuthentication().getPrincipal() != null)
-			return (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof UserDetailsImpl)
+				return (UserDetailsImpl) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		return null;
 	}
 

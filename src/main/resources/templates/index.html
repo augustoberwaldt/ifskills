@@ -97,8 +97,8 @@
 												<li class="text-center load-more"><i
 													class="fa fa-refresh"></i> read more..</li>
 													
-										<!--sec:authorize="hasRole('ROLE_ADMIN')" -->
-									   		<div><a
+										<!-- -->
+									   		<div sec:authorize="hasRole('ROLE_ADMIN')"><a
 									   				 class="btn btn-danger delete"
 													 th:href="@{/article/delete/}+${article.id}"> <span 
 										             th:text="#{article.action.delete}"/></a></div>

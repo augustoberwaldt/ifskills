@@ -35,8 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-		web.ignoring().antMatchers("/webjars/**", "/resources/**", "/public/**", "/img/**", "/db/**", "/test/**", "/",
-				"/article/view/**");
+		web.ignoring().antMatchers("/webjars/**", "/resources/**", "/public/**", "/img/**", "/db/**", "/test/**");
 	}
 
 	@Override
@@ -45,6 +44,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 			.antMatchers("/view").permitAll()
 			.antMatchers("/cucumber").permitAll()
+			.antMatchers("/").permitAll()
+			.antMatchers("/article/view/**").permitAll()
 			.antMatchers("/admin/**").hasRole("ADMIN").anyRequest().authenticated()
 			.and().formLogin()
 				.loginPage("/login").permitAll().and().logout().deleteCookies("remember-me")
