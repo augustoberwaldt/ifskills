@@ -157,10 +157,10 @@ public class ArticleController {
 			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
 			
-			return "redirect:/" + savedArticle.getId() + "?success";
+			return "redirect:/";
 		}
 		model.addAttribute("readonly", false);
-		return "/article/new";
+		return "redirect:/article/new";
 	}
 
 	/**
