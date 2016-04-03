@@ -21,6 +21,8 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.Base64Utils;
 
+import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
+
 @Entity
 public class User {
 
@@ -49,9 +51,9 @@ public class User {
 		this.description = description;
 	}
 
-	// Edson
+	// 03-04-2016 - Edson - Changed attribute name
 	@Column(columnDefinition = "boolean default false")
-	private Boolean isPrivate;
+	private Boolean privateProfile;
 	// EndEdson
 
 	@Lob
@@ -156,12 +158,21 @@ public class User {
 	 *
 	 * @return the boolean
 	 */
-	public Boolean isPrivate() {
-		return isPrivate;
+	public Boolean isPrivateProfile() {
+		return privateProfile;
 	}
 
-	public void setPrivate(Boolean isPrivate) {
-		this.isPrivate = isPrivate;
+	public void setPrivate(Boolean privateProfile) {
+		this.privateProfile = privateProfile;
 	}
-
+	
+	// Edson - 03-04-2016 - Create method getShowProfileDetails() 
+	public Boolean getShowProfileDetails(){
+		//UserService --> Verify if is ADM,  return true, 
+		//else return userProfile
+		//(sec:authorize="hasRole('ROLE_ADMIN')"? return true : return false);
+		//UserProfileService.this.getPrincipal().getUser().getRoles();
+		return privateProfile;		
+	}
+	//EndEdson
 }
