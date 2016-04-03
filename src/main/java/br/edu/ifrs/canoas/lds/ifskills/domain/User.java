@@ -158,11 +158,11 @@ public class User {
 	 *
 	 * @return the boolean
 	 */
-	public Boolean isPrivateProfile() {
+	public Boolean getPrivateProfile() {
 		return privateProfile;
 	}
 
-	public void setPrivate(Boolean privateProfile) {
+	public void setPrivateProfile(Boolean privateProfile) {
 		this.privateProfile = privateProfile;
 	}
 	
