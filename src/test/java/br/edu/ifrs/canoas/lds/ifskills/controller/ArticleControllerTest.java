@@ -1,6 +1,11 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -35,22 +40,16 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 * @throws Exception
 	 *             the exception
 	 */
-	/*@Test
-	public void testToViewArticle1AndCheckAtts() throws Exception {
-		this.mockMvc.perform(post("/Article/view/Linguagens-JPA-JSF"))
+	@Test
+	public void testToViewSlugArticle1AndCheckAtts() throws Exception {
+		this.mockMvc.perform(post("/article/view/Linguagens-JPA-JSF"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("article"))
 			.andExpect(model().attribute("article", hasProperty("title", is("JPA, JSF e Spring Tool Boot"))))
-			.andExpect(model().attribute("readonly",is(true)))
 			.andExpect(forwardedUrl(PRE_URL+"/article/view"+POS_URL))
 			;
-	}*/
-
-	
-	@Test
-	public void testView() {
-		
 	}
+	
 
 	
 

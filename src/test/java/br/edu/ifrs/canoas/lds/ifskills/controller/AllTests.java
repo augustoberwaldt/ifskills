@@ -8,7 +8,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ItemControllerTest.class, HomeControllerTest.class, ArticleControllerTest.class})
+@SuiteClasses({ ItemControllerTest.class, HomeControllerTest.class, ArticleControllerTest.class, CommentControllerTest.class})
 public class AllTests {
 
 }

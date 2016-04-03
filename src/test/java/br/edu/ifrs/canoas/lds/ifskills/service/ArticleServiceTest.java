@@ -84,5 +84,17 @@ public class ArticleServiceTest {
 	public void testToGetSlugAndCheckTitle() {
 		assertThat(articleService.get("Linguagens-JPA-JSF"), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
 	}
+	
+	/**
+	 * Author: Luciane
+	 * Date: 30/03/2016
+	 * Description: Test to findAll articles .
+	 * 
+	 * Dúvida: Está correto este teste???
+	 */
+	@Test
+	public void testToFindAllArticles() {
+		assertTrue(articleService.findAll().spliterator().estimateSize() > 0);
+	}
 
 }

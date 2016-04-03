@@ -16,7 +16,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 
 // TODO: Auto-generated Javadoc
 public interface ArticleRepository extends CrudRepository<Article, Long> {

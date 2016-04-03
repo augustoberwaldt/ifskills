@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.repository.ArticleRepository;
 
 // TODO: Auto-generated Javadoc

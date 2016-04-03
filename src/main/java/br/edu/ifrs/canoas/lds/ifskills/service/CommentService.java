@@ -26,8 +26,18 @@ public class CommentService {
 	public CommentService(CommentRepository commentRepository) {
 		this.commentRepository = commentRepository;
 	}
-
-
+	
+	
+	/** 
+	 * Author: Luciane
+	 * Date: 03/04/2016
+	 * Description: Method that returns a list of database Comments
+	 * 
+	 * Note: Designed to meet the unit test! That's right ???
+	 */	
+	public Iterable<Comment> list() {
+		return commentRepository.findAll();
+	}
 
 	/**
 	 * Author: Luciane 
