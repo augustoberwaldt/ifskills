@@ -77,8 +77,6 @@ public class ArticleServiceTest {
 	 * Author: Luciane
 	 * Date: 30/03/2016
 	 * Description: Test to find for slug article1 .
-	 * 
-	 * Dúvida: Está correto este teste???
 	 */
 	@Test
 	public void testToGetSlugAndCheckTitle() {
