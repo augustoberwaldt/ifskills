@@ -41,6 +41,7 @@ public class ArticleRepositoryTest {
 	 * @author Luciane
 	 * @Date:30/03/2016
 	 * @Description: Test to find by slug article.
+	 * 
 	 */
 	@Test
 	public void testToFindBySlugArticleAndCheckPropertyUserId(){
