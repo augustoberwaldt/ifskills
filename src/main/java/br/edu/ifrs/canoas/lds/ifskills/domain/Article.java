@@ -2,7 +2,12 @@
  * @author:Luciane
  * @date: 24/03/2016
  * @description: Class Article
- */
+ * 
+ * @author: Felipe
+ * @date:03/04/2016
+ * @description: changed keywords to tags
+ * 
+ * */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.Date;
@@ -43,9 +48,9 @@ public class Article {
 	@DateTimeFormat(pattern = "dd/M/yyyy hh:mm:ss a")
 	private Date postedOn;
 
-	@Size(min = 1, max = 2)
 	@ElementCollection
-	private List<String> keywords;
+	@Size(min = 1,max = 2)
+	private List<String> tags;
 
 	private Boolean active;
 
@@ -112,12 +117,12 @@ public class Article {
 		this.postedOn = postedOn;
 	}
 
-	public List<String> getKeywords() {
-		return keywords;
+	public List<String> getTags() {
+		return tags;
 	}
 
-	public void setKeywords(List<String> keywords) {
-		this.keywords = keywords;
+	public void setTags(List<String> tags) {
+		this.tags = tags;
 	}
 
 	public Boolean getActive() {

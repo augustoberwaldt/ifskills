@@ -5,6 +5,7 @@ package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -102,7 +103,7 @@ public class ArticleController {
 	@RequestMapping("/new")
 	public String create(Model model) {
 		model.addAttribute("article", new Article());
-		model.addAttribute("trainers", userProfileService.findAllTrainers());
+		model.addAttribute("trainers", userProfileService.list());
 		model.addAttribute("readonly", false);
 		return "/article/new";
 	}
@@ -123,7 +124,7 @@ public class ArticleController {
 		model.addAttribute("article", articleService.get(id));
 		model.addAttribute("users", userProfileService.list());
 		model.addAttribute("readonly", false);
-		return "/article/form";
+		return "/article/new";
 	}
 
 	/**
@@ -147,12 +148,19 @@ public class ArticleController {
 	public String save(@Valid Article article, BindingResult bindingResult, Model model,
 			RedirectAttributes redirectAttrs, Locale locale) {
 		if (!bindingResult.hasErrors()) {
+			
+			article.setAuthor(userProfileService.getPrincipal().getUser());			
+			
+			article.setPostedOn(new Date());
+			
 			Article savedArticle = articleService.save(article);
+			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
-			return "redirect:/article/view/" + savedArticle.getId() + "?success";
+			
+			return "redirect:/";
 		}
 		model.addAttribute("readonly", false);
-		return "redirect:/";
+		return "redirect:/article/new";
 	}
 
 	/**

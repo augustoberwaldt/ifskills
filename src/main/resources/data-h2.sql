@@ -71,4 +71,8 @@ insert  into article ( active, body , picture , posted_on , slug , teaser , titl
 insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article', null, sysdate,'IDE-Spring-Tool','E teaser, também não sei o quer quer dizer?', 'Spring tool boot é o título',3) ;
 insert  into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'This is body of the article This is body of the article', null, sysdate,'Artigo-sobre-Educação','Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução Introdução', 'A educação em último lugar no país',1) ;
 
+insert into article_tags ( article_id, tags ) values(1, 'hjhhjjhhj, hsushshhs');
+insert into article_tags ( article_id, tags ) values(2, 'IDE, SPRING TOOL');
+insert into article_tags ( article_id, tags ) values(3, 'Artigo, Educacao');
+
 insert into comment (content, posted_on, article_id, author_user_id) values ('Comment number one', sysdate,1 ,3);
