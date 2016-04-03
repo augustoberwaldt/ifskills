@@ -65,7 +65,7 @@
 										article picture</p>
 								</div>
 								
-								 <div class="form-group"
+								<div class="form-group"
 									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
 									<label for="ArticleTitle" th:text="#{article.title}" /> <input
 										type="text" class="form-control" id="ArticleTitle"
@@ -74,15 +74,34 @@
 										th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
 										th:class="help-block" />
 								</div>
+															
+								<!-- <div class="form-group"
+									th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
+									<label for="ArticleTags" th:text="#{article.tags}" />
+									<input class="form-control" id="articleTags"
+									th:field="*{tags}" placeholder="Article tags"
+									th:readonly="${readonly}" /> <span
+									th:if="${#fields.hasErrors('tags')}"
+									th:errors="*{tags}" th:class="help-block " data-role="tagsinput" />
+								</div> -->
 								
-									<div class="form-group"
-									th:classappend="${#fields.hasErrors('keywords')}? 'has-error'">
-									<label for="ArticleKeywords" th:text="#{article.keywords}" />
-									<input class="form-control" id="articleKeywords"
-										th:field="*{keywords}" placeholder="Article keywords"
+								<!-- <div class="bootstrap-tagsinput">
+								<span class="tag label label-info">Amsterdam<span data-role="remove"></span>
+								</span> <span class="tag label label-info">Washington<span data-role="remove"></span>
+								</span> <span class="tag label label-info">Sydney<span data-role="remove"></span>
+								</span> <span class="tag label label-info">Beijing<span data-role="remove"></span>
+								</span> <span class="tag label label-info">Cairo<span data-role="remove"></span>
+								</span> <input type="text" />
+								</div> -->
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('slug')}? 'has-error'">
+									<label for="ArticleSlug" th:text="#{article.slug}" /> <input
+										type="text" class="form-control" id="ArticleSlug"
+										th:field="*{slug}" placeholder="Article slug"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('keywords')}"
-										th:errors="*{keywords}" th:class="help-block" />
+										th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}"
+										th:class="help-block" />
 								</div>
 								
 								<div class="form-group"
@@ -99,7 +118,7 @@
 																																								
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
-									onclick="$('#articleBody').val($('.summernote').summernote('code'));document.getElementById('articleForm').submit(); return false;"
+									onclick="$('#articleBody').val($('.summernote').summernote('article.body'));document.getElementById('articleForm').submit(); return false;"
 									th:text="#{crud.action.save}" />
 									
 								<a th:href="@{/article/create/}" class="btn btn-success"
