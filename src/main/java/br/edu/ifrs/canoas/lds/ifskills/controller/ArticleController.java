@@ -3,9 +3,10 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
+import java.io.IOException;
+import java.sql.Timestamp;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,7 +35,7 @@ public class ArticleController {
 
 	private ArticleService articleService;
 	private MessageSource messageSource;
-	private UserProfileService userProfileService;
+	private UserProfileService userService;
 
 	/**
 	 * Instantiates a new article controller.
@@ -47,10 +48,10 @@ public class ArticleController {
 	 *            the message source
 	 */
 	@Autowired
-	public ArticleController(ArticleService articleService, UserProfileService userProfileService,
+	public ArticleController(ArticleService articleService, UserProfileService userService,
 			MessageSource messageSource) {
 		this.articleService = articleService;
-		this.userProfileService = userProfileService;
+		this.userService = userService;
 		this.messageSource = messageSource;
 	}
 
@@ -103,7 +104,7 @@ public class ArticleController {
 	@RequestMapping("/new")
 	public String create(Model model) {
 		model.addAttribute("article", new Article());
-		model.addAttribute("trainers", userProfileService.list());
+		model.addAttribute("author", userService.list());
 		model.addAttribute("readonly", false);
 		return "/article/new";
 	}
@@ -122,7 +123,7 @@ public class ArticleController {
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));
-		model.addAttribute("users", userProfileService.list());
+		model.addAttribute("users", userService.list());
 		model.addAttribute("readonly", false);
 		return "/article/new";
 	}
@@ -145,14 +146,17 @@ public class ArticleController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid Article article, BindingResult bindingResult, Model model,
-			RedirectAttributes redirectAttrs, Locale locale) {
+	public String save(@Valid Article article, BindingResult bindingResult, Model model, 
+			RedirectAttributes redirectAttrs, Locale locale){
+		
 		if (!bindingResult.hasErrors()) {
-			
-			article.setAuthor(userProfileService.getPrincipal().getUser());			
-			
-			article.setPostedOn(new Date());
-			
+			article.setAuthor(userService.getPrincipal().getUser());			
+			article.setPostedOn(new Timestamp(System.currentTimeMillis()));
+			article.setActive(true);
+			String slug = article.getTeaser();
+			slug.substring(0,slug.length());
+			slug.replaceAll(" ", "-");
+			article.setSlug(slug);
 			Article savedArticle = articleService.save(article);
 			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
@@ -176,7 +180,7 @@ public class ArticleController {
 		Comment comment = new Comment();
 		comment.setArticle(article);
 		
-		model.addAttribute("auth",userProfileService.getPrincipal() != null );
+		model.addAttribute("auth",userService.getPrincipal() != null );
 		model.addAttribute("article",  article);
 		model.addAttribute("comment",  comment);
 		return "/article/view";
@@ -184,7 +188,7 @@ public class ArticleController {
 
 	@RequestMapping("/viewAuth")
 	public String viewAuth(Model model) {
-		model.addAttribute("auth", userProfileService.getPrincipal() != null);
+		model.addAttribute("auth", userService.getPrincipal() != null);
 		return "/article/view";
 	}
 	

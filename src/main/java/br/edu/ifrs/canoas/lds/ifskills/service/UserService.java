@@ -15,7 +15,7 @@ public interface UserService {
 	 * @param email
 	 *            the email
 	 * @return the user
-	 */
+	 */	
 	public User findByEmail(String email);
 
 }

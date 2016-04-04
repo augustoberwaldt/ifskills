@@ -93,17 +93,7 @@
 								</span> <span class="tag label label-info">Cairo<span data-role="remove"></span>
 								</span> <input type="text" />
 								</div> -->
-								
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('slug')}? 'has-error'">
-									<label for="ArticleSlug" th:text="#{article.slug}" /> <input
-										type="text" class="form-control" id="ArticleSlug"
-										th:field="*{slug}" placeholder="Article slug"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('slug')}" th:errors="*{slug}"
-										th:class="help-block" />
-								</div>
-								
+																
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('teaser')}? 'has-error'">
 									<label for="ArticleTeaser" th:text="#{article.teaser}" />
@@ -117,9 +107,9 @@
 								<div class="summernote"/>
 																																								
 								<button type="submit" class="btn btn-success"
-									th:if="${!readonly}"
-									onclick="$('#articleBody').val($('.summernote').summernote('article.body'));document.getElementById('articleForm').submit(); return false;"
-									th:text="#{crud.action.save}" />
+                                th:if="${!readonly}"
+                                onclick="$('#articleBody').val($('.summernote').summernote('code'));document.getElementById('articleForm').submit(); return false;"
+                                th:text="#{crud.action.save}" />
 
 								<a th:href="@{/article/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> 

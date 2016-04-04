@@ -21,6 +21,8 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 public interface ArticleRepository extends CrudRepository<Article, Long> {
 
 	/**
+	 * Author: Felipe
+	 * Date: 03/04/2016
 	 * Find checked.
 	 *
 	 * @return the list
@@ -29,6 +31,8 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	List<Article> findChecked();
 
 	/**
+	 * Author: Felipe
+	 * Date: 03/04/2016
 	 * Find all.
 	 *
 	 * @param pageable

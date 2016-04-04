@@ -40,12 +40,10 @@ public class Article {
 	@NotEmpty
 	private String title;
 
-	@NotEmpty
 	private String slug;
 
-	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/M/yyyy hh:mm:ss a")
+	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date postedOn;
 
 	@ElementCollection
@@ -61,7 +59,6 @@ public class Article {
 	 * Author is a type attribute User
 	 * A user can be the author of several articles
 	 */
-	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
@@ -69,7 +66,7 @@ public class Article {
 	@Column(columnDefinition = "TEXT")
 	private String teaser;
 
-	@NotEmpty
+	//@NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
 
