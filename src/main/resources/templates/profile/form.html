@@ -76,7 +76,7 @@
 											th:if="${#fields.hasErrors('fullName')}"
 											th:errors="*{fullName}" th:class="help-block" />
 									</div>
- 									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
+									<!-- Edson - 03,04,2016 - add th:if="*{!privateProfile} -->
 									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('email')}? 'has-error'">
 										<label for="profileEmail" th:text="#{profile.email}" /> <input
@@ -145,7 +145,7 @@
 											th:errors="*{{address.place.parentPlace.description}}"
 											th:class="help-block" />
 									</div>
-
+									<!-- Edson - 03-04-2016 - Show / Do not show informations user-->
 									<div class="form-group" th:if="*{!privateProfile}"
 										th:classappend="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="profileParents"
@@ -160,34 +160,66 @@
 											th:class="help-block" />
 									</div>
 									
-									
-									
+									<!-- Edson - 03-04-2016 - Create Active Checkbox-->
+
+									<div class="checkbox1 checkbox-light"
+										th:if="*{!privateProfile}">
+										<input 
+											type="checkbox" 
+											id="checkbox-1" 
+											th:field="*{active}"
+											th:disabled="${readonly}"
+										/>
+										
+										<label 
+											for="checkbox-1"
+											th:text="#{user.active}"
+										/>
+									</div>
+
+									<div class="checkbox1 checkbox-light"
+										th:if="*{!privateProfile}">
+										<input 
+											type="checkbox" 
+											id="checkbox-2"
+											th:field="*{privateProfile}" 
+											th:disabled="${readonly}" 
+										/> 
+											
+										<label
+											for="checkbox-2" 
+											th:text="#{user.privateProfile}" 
+											
+										>
+										Private Profile</label>
+									</div>
+
 									<!-- 						
 									<div class="form-group"
-										th:classappend="${#fields.hasErrors('user.isPrivate')}? 'has-error'">
+										th:classappend="${#fields.hasErrors('user.privateProfile')}? 'has-error'">
 										
 										<input
 											type="checkbox" 
 											class="form-control" 
-											id="userIsPrivate"
-											th:field="*{user.isPrivate}" 
+											id="userprivateProfile"
+											th:field="*{user.privateProfile}" 
 											placeholder="Private Profile"
 											th:readonly="${readonly}" /><span
-											th:if="${#fields.hasErrors('isPrivate')}"
-											th:errors="*{isPrivate}" 
+											th:if="${#fields.hasErrors('privateProfile')}"
+											th:errors="*{privateProfile}" 
 											th:class="help-block" />
 										
 										<label 
-											for="userIsPrivate"> 
+											for="userprivateProfile"> 
     										Private profile
 	                                    </label> 
 									
 										
 	                                </div>
 									<div class="checkbox1 checkbox-light">
-									<input type="checkbox" id="checkbox-1" th:field="*{isPrivate}"
+									<input type="checkbox" id="checkbox-1" th:field="*{privateProfile}"
 										th:disabled="${readonly}" /> <label for="checkbox-1"
-										th:text="#{user.isPrivate}" />
+										th:text="#{user.privateProfile}" />
 								</div>
 								
 								

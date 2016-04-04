@@ -118,7 +118,7 @@
 										<td th:text="${comment.author.fullName}"></td>
 										<td
 											th:text="${#dates.format(comment.postedOn, 'dd-MMM-yyyy')}"></td>
-										<td><a
+										<td><a sec:authorize="isAuthenticated()" th:if="${#authentication.principal.user.id} == ${comment.author.id}"
 											th:href="@{/article/comment/delete/}+${comment.id}"
 											class="delete"><span class="badge"
 												th:text="#{crud.action.delete}" /> </a></td>
@@ -128,8 +128,10 @@
 
 							<form id="commentForm" th:object="${comment}"
 								th:action="@{/article/comment/save}" method="post">
-								<input type="hidden" th:field="*{id}" /> <input type="hidden"
-									th:field="*{article.id}" />
+								
+								<input type="hidden" th:field="*{id}" />
+								<input type="hidden" th:field="*{article.id}" />
+								
 								<div class="row">
 									<div class="col-sm-6">
 										<textarea id="comment" name="comment" class="form-control"

@@ -36,16 +36,17 @@
 								<input type="hidden" th:field="*{id}" />
 
 								<div class="row example">
-									<!-- Edson - 03-04-2016 - Created th:if="*{!showProfileDetails}" -->
-									<div class="col-xs-6 col-md-4" th:if="!${user.privateProfile}"
-										th:if="*{!showProfileDetails}">
+									<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+									<div class="col-xs-6 col-md-4" th:if="!${user.privateProfile}">
+										<!-- th:if="*{!privateProfile}" -->
+										
 										<li th:if="${picture != null}" class="profile-img"><img
 											th:src="*{pictureBase64}" th:height="291px" th:width="305px"
 											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 											class="profile-img" alt="" /></li>
 									</div>
-									<!-- Edson - 03-04-2016 - Created th:if="*{!showProfileDetails}" -->
-									<div class="col-xs-12 col-md-8" th:if="*{!showProfileDetails}">
+									<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+									<div class="col-xs-12 col-md-8" th:if="*{!privateProfile}">
 										<div class="form-group">
 											<label for="exampleInputFullName" th:text="#{user.fullname}">Full
 												Name:</label> <input type="text" class="form-control"
@@ -53,17 +54,17 @@
 												placeholder="Informe o nome completo" />
 
 										</div>
-										<!-- Edson - 03-04-2016 - Created th:if="*{!showProfileDetails}" -->
-										<div class="form-group" th:if="!${user.privateProfile}"
-											th:if="*{!showProfileDetails}">
+										<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+										<div class="form-group"
+											th:if="*{!privateProfile}">
 											<label for="exampleInputEmail" th:text="#{user.email}">Email:</label>
 											<input type="email" class="form-control"
 												id="userProfileEmail" th:field="*{email}"
 												placeholder="Informe o email" />
 										</div>
-										<!-- Edson - 03-04-2016 - Created th:if="*{!showProfileDetails}" -->
-										<div class="form-group" th:if="!${user.privateProfile}"
-											th:if="*{!showProfileDetails}">
+										<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+										<div class="form-group"
+											th:if="*{!privateProfile}">
 											<label for="exampleInputPassword" th:text="#{user.password}">Password:</label>
 											<input type="password" class="form-control"
 												id="userProfilePassword" th:field="*{password}"
@@ -76,9 +77,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- Edson - 03-04-2016 - Created th:if="*{!showProfileDetails}" -->
-								<div class="form-group" th:if="!${user.privateProfile}"
-									th:if="*{!showProfileDetails}">
+								<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+								<div class="form-group"
+									th:if="*{!privateProfile}">
 									<label for="exampleInputFile" th:text="#{user.picture}">Picture:</label>
 									<input type="file" id="userProfilePic" name="userProfilePic" />
 									<p class="help-block" th:text="#{user.picture.description}">Update
@@ -87,10 +88,10 @@
 
 
 								<!-- Edson - 03-04-2016 - Created checkbox for private profile -->
-								<div class="checkbox1 checkbox-light">
+								<div class="checkbox1 checkbox-light" th:field="!${user.privateProfile}">
 									<input type="checkbox" id="checkbox-2"
-										th:field="${user.privateProfile}" /> <label
-										for="checkbox-2" th:text="#{item.active}" />
+										 /> <label
+										for="checkbox-2" th:text="#{user.privateProfile}" />
 								</div>
 
 								<button type="submit" class="btn btn-primary"
