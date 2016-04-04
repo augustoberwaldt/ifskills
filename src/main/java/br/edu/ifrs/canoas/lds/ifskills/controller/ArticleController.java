@@ -21,6 +21,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
@@ -146,21 +148,21 @@ public class ArticleController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@Valid Article article, BindingResult bindingResult, Model model, 
-			RedirectAttributes redirectAttrs, Locale locale){
+	public String save(@Valid Article article, BindingResult bindingResult, Model model,
+			@RequestParam("articlePicture") MultipartFile picture,
+			RedirectAttributes redirectAttrs, Locale locale) throws IOException{
 		
 		if (!bindingResult.hasErrors()) {
 			article.setAuthor(userService.getPrincipal().getUser());			
 			article.setPostedOn(new Timestamp(System.currentTimeMillis()));
 			article.setActive(true);
+			article.setPicture(picture.getBytes());
 			String slug = article.getTeaser();
 			slug.substring(0,slug.length());
 			slug.replaceAll(" ", "-");
 			article.setSlug(slug);
 			Article savedArticle = articleService.save(article);
-			
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
-			
 			return "redirect:/";
 		}
 		model.addAttribute("readonly", false);
