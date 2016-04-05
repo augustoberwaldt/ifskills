@@ -4,8 +4,10 @@
 <head>
 <title th:text="#{user.header}" />
 </head>
+
 <body>
 	<div layout:fragment="content">
+	
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb"
 			th:if="${auth}">

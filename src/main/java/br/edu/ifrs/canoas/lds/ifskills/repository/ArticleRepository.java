@@ -55,6 +55,6 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * @param title
 	 * @return
 	 */
-	List<Article> findAllByTitleContainingAllIgnoreCase(String title);
+	List<Article> findAllByTitleContainingOrBodyContainingAllIgnoreCase(String title, String body);
 
 }

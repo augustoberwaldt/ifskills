@@ -104,7 +104,7 @@ public class ArticleService {
 	 * @return
 	 */
 	public List<Article> list(String parameter) {
-		return articleRepository.findAllByTitleContainingAllIgnoreCase(parameter);
+		return articleRepository.findAllByTitleContainingOrBodyContainingAllIgnoreCase(parameter, parameter);
 	}	
 	
 }
