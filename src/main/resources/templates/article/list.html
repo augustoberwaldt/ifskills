@@ -60,7 +60,7 @@
 								</div>
 							</div>
 							-->
-							
+
 							<div th:fragment="resultsList"
 								th:unless="${#lists.isEmpty(articles)}">
 								<div th:if="${message}" class="alert alert-success">
@@ -71,6 +71,7 @@
 										<tr>
 											<th th:text="#{article.title}" />
 											<th th:text="#{article.body}" />
+											<th th:text="#{article.author}" />
 										</tr>
 									</thead>
 									<tbody>
@@ -81,9 +82,18 @@
 											<td><a href="#"
 												th:href="@{|/article/view/${article.id}|}"
 												th:text="|${article.title}|" /></td>
+											<td><a href="#"
+												th:href="@{|/article/view/${article.id}|}"
+												th:text="|${article.author.fullName}|" /></td>
 										</tr>
 									</tbody>
 								</table>
+
+								<a onclick="javascript:history.back()" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="#{navigation.back}" />
+								</a>
+
 							</div>
 						</div>
 					</div>
