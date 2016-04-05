@@ -71,8 +71,9 @@ public class ArticleController {
 	}
 
 	/**
-	 * Delete.
-	 *
+	 * Author: Aline G.
+	 * Date: 01/04/2016
+	 * Description: Method to delete an Article.
 	 * @param id
 	 *            the id
 	 * @param model

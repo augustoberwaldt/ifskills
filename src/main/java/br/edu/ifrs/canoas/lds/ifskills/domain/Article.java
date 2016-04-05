@@ -71,12 +71,17 @@ public class Article {
 	private String body;
 
 	/**
-	 * Auhtor: Luciane
+	 * Author: Luciane
 	 * Date:27/03/2016
 	 * Description: Relationship between Article and Comment
 	 * An article has a comments list
+	 * 
+	 * Date: 05/04/2016
+	 * Modified by Aline G.
+	 * Description: "orphanRemoval" added so when an Article is removed, 
+	 * it's comments are removed too.
 	 */
-	@OneToMany(mappedBy = "article")
+	@OneToMany(mappedBy = "article", orphanRemoval=true)
 	private List<Comment> comments;
 
 	@Lob
