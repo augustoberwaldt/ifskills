@@ -87,12 +87,19 @@ public class ArticleController {
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Article article = articleService.get(id);
+		if (article != null) {
 		articleService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
 
 		return "redirect:/";
+		} 
+		
+		model.addAttribute("message",
+				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale), id));
+		return "redirect:/";
+		
 	}
 
 	/**
