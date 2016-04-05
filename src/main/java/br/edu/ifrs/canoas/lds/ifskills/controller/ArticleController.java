@@ -98,7 +98,7 @@ public class ArticleController {
 		
 		model.addAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale), id));
-		return "redirect:/";
+		return "/";
 		
 	}
 

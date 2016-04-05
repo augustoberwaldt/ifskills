@@ -10,6 +10,12 @@ spring:
     platform: h2
   jackson:
     serialization.write-dates-as-timestamps: false
+  mail:
+    host: smtp.gmail.com
+    username: labifrs2016.1@gmail.com
+    password: software2016
+    port: 587
 multipart:
   maxFileSize: 1024KB
   maxRequestSize: 1024KB
+  
