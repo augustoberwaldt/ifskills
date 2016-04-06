@@ -68,10 +68,15 @@
 											th:class="help-block" />
 									</div>
 
-									<a onclick="javascript:history.back()" class="btn btn-danger"
-										th:if="!${param.success}"> <span
-										th:text="${readonly}?#{navigation.back}" />
-									</a>
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('author')}? 'has-error'">
+										<label for="Author" th:text="#{article.author}" /> <input
+											type="text" class="form-control" id="ArticleAuthor"
+											th:field="*{author}" placeholder="Author"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('body')}" th:errors="*{author}"
+											th:class="help-block" />
+									</div>
 
 								</div>
 
