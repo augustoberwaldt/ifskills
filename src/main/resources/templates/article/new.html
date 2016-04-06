@@ -78,21 +78,22 @@
 										article picture</p>
 							</div>
 							
+							
 							 <div class="form-group"
 							 	th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
 							    <label for = "ArticleTags" th:text="#{article.tags}" />
 								<input type="text" class="form-control" id="articleTags" 
-								placeholder="Article tags"
-								th:readonly=  "${readonly}" /> <span
-								th:if="${#fields.hasErrors('teaser')}"
-								th:errors="*{teaser}" th:class="help-block" data-role="tagsinput" />
+								placeholder="Article tags" th:field="*{tags}"
+								th:readonly=  "${readonly}" data-role="tagsinput"/> <span
+								th:if="${#fields.hasErrors('teaser')}" 
+								th:errors="*{teaser}" th:class="help-block" />
 							 </div>	
 															
 								<div class="summernote"/>
 																																					
 								<button type="submit" class="btn btn-success"
                                 th:if="${!readonly}"
-                                onclick="$('#articleBody').val($('.summernote').summernote('code'));$('#articleTags').val();;document.getElementById('articleForm').submit(); return false;"
+                                onclick="$('#articleBody').val($('.summernote').summernote('code'));$('#articleTags').val();document.getElementById('articleForm').submit(); return false;"
                                 th:text="#{crud.action.save}" />
 
 								<a th:href="@{/article/create/}" class="btn btn-success"

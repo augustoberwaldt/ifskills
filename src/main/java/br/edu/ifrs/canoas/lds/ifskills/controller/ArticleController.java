@@ -111,9 +111,9 @@ public class ArticleController {
 		return "redirect:/";
 		} 
 		
-		model.addAttribute("message",
-				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale), id));
-		return "/";
+		redirectAttrs.addFlashAttribute("message",
+				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale), article.getTitle()));
+		return "redirect:/";
 		
 	}
 
