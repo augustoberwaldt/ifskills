@@ -77,13 +77,13 @@
 									<tbody>
 										<tr th:each="article : ${articles}">
 											<td><a href="#"
-												th:href="@{|/article/view/${article.id}|}"
+												th:href="@{|/article/view/${article.slug}|}"
 												th:text="|${article.title}|" /></td>
 											<td><a href="#"
-												th:href="@{|/article/view/${article.id}|}"
-												th:text="|${article.title}|" /></td>
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.body}|" /></td>
 											<td><a href="#"
-												th:href="@{|/article/view/${article.id}|}"
+												th:href="@{|/article/view/${article.slug}|}"
 												th:text="|${article.author.fullName}|" /></td>
 										</tr>
 									</tbody>
