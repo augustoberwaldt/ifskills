@@ -64,6 +64,7 @@ public class Article {
 	private User author;
 
 	@Column(columnDefinition = "TEXT")
+	@Size(min = 1, max = 500)
 	private String teaser;
 
 	//@NotEmpty

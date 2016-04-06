@@ -73,7 +73,8 @@
 							<div class="row no-margin">
 								<div class="col-sm-12">
 									<div class="card primary">
-										<span th:text="${article.body}">ARTICLE CONTENT *HTML
+									
+										<span th:remove="tag" th:utext="${article.body}">ARTICLE CONTENT *HTML
 											FORMATED* ...Lorem ipsum dolor sit amet, consectetuer
 											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
 											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
