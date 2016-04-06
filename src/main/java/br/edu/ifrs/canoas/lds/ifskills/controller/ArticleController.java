@@ -15,6 +15,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.MailException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
+import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -35,6 +37,9 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 @RequestMapping("/article")
 public class ArticleController {
 
+	@Autowired
+	private NotificationService notificationService;
+	
 	private ArticleService articleService;
 	private MessageSource messageSource;
 	private UserProfileService userService;
@@ -73,7 +78,11 @@ public class ArticleController {
 	/**
 	 * Author: Aline G.
 	 * Date: 01/04/2016
-	 * Description: Method to delete an Article.
+	 * Description: Method that calls sendNotification() and delete an Article.
+	 * 
+	 * Modified by Aline G. 
+	 * Date: 05/04/2016
+	 * Now it's calling sendNotification() before delete the Article.
 	 * @param id
 	 *            the id
 	 * @param model
@@ -88,6 +97,12 @@ public class ArticleController {
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Article article = articleService.get(id);
 		if (article != null) {
+		 try {
+			notificationService.sendNotification(article);
+			}catch( MailException e){
+			// catch error
+			//logger.info("Error Sending Email: " + e.getMessage());
+		 }
 		articleService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",

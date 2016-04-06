@@ -44,7 +44,7 @@ public class HomeControllerTest extends BaseControllerTest{
 	public void testToViewArticles() throws Exception {
 		this.mockMvc.perform(get("/"))
 			.andExpect(status().isOk())
-			.andExpect(model().attribute("articles", hasSize(3)))
+			.andExpect(model().attribute("articles", hasSize(4)))
 			.andExpect(model().attribute("articles", hasItem(
 		            allOf(
 		                    hasProperty("title", is("JPA, JSF e Spring Tool Boot")),
