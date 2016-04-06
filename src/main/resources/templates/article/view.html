@@ -143,6 +143,11 @@
 										class="btn btn-success"
 										onclick="document.getElementById('commentForm').submit(); return false;"
 										th:text="#{crud.action.save}">Send</button>
+										
+								<a sec:authorize="hasRole('ROLE_ADMIN')"
+									    class="btn btn-primary delete"
+										th:href="@{/article/delete/}+${article.id}"> <span 
+										th:text="#{article.action.delete}"/></a>
 
 									<a class="btn btn-danger" th:if="!${param.success}"
 										th:href="@{/}"> <span
