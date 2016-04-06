@@ -44,7 +44,7 @@
 								<div class="col-sm-6" th:if="${article.picture} != null">
 									<div class="card primary">
 										<div class="card-jumbotron no-padding">
-											<img src="../../img/thumbnails/picjumbo.com_IMG_3241.jpg"
+											<img th:src="${article.pictureBase64}"
 												height="533" width="800" class="img-responsive" />
 										</div>
 									</div>
