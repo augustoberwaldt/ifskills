@@ -18,10 +18,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 
 //TODO: Auto-generated Javadoc
@@ -88,6 +90,7 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
+	@WithUserDetails("admin@123.123")
 	public void testToCheckArticle3DeleteItAndCheckAgain() throws Exception {
 		
 		assertThat(articleService.get(3L), is(notNullValue()));
@@ -111,16 +114,28 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
+	@WithUserDetails("admin@123.123")
 	public void testToDeleteArticle1000ThatDoesNotExists() throws Exception {
 		
 		assertThat(articleService.get(1000L), is(nullValue()));
 		
 		this.mockMvc.perform(post("/article/delete/1000"))
-		.andExpect(view().name("/"))
-		.andExpect(status().isOk())
-		//.andExpect(model().attribute("message", containsString("failed to delete")))
+		.andExpect(view().name("redirect:/"))
+		.andExpect(status().is3xxRedirection())
 		;
 
 	}
 
+	
+	@Test
+	@WithUserDetails("admin@123.123")
+	public void testToDeleteArticle2WithInvalidEmail() throws Exception {
+		assertThat(articleService.get(2L), is(notNullValue()));
+		assertThat(articleService.get(2L).getTitle(), is("Spring tool boot é o título"));
+		this.mockMvc.perform(post("/article/delete/2"))
+		.andExpect(view().name("redirect:/"))
+		.andExpect(status().is3xxRedirection())
+		.andExpect(flash().attributeExists("message"));	
+	}
+		
 }
