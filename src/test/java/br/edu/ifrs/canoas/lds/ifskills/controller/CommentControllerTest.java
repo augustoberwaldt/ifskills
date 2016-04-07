@@ -1,13 +1,12 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
-
-import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -84,22 +83,23 @@ public class CommentControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
+	@WithUserDetails("admin@123.123")
 	public void testToSaveACommentWithBadData() throws Exception {
 		
-		/*Long size = commentService.list().spliterator().getExactSizeIfKnown();
+		Long size = commentService.list().spliterator().getExactSizeIfKnown();
 		
 		mockMvc.perform(post("/article/comment/save")
 				.contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("content", "is a content")
+                .param("content", " ")
+                .param("article.id", "s") //You should set the null attributes that are in the HTML form
                 .sessionAttr("comment", new Comment())
         )
-	    .andDo(MockMvcResultHandlers.print())
-	    .andExpect(status().isOk())
-	    .andExpect(view().name("/article/view"))
-	   // "redirect:/article/view/" + comment.getArticle().getSlug();
+		.andDo(MockMvcResultHandlers.print())
+		.andExpect(view().name(containsString("redirect:/article/view/")))
+		//.andExpect(flash().attributeExists("message"))//>> Does not exists this message in CommentController method.
 	    ;
 		
-		assertThat(commentService.list().spliterator().getExactSizeIfKnown(), is(size));*/
+		assertThat(commentService.list().spliterator().getExactSizeIfKnown(), is(size));
 
 	}
 
@@ -112,27 +112,26 @@ public class CommentControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
+	@WithUserDetails("admin@123.123")
 	public void testToCheckComment1DeleteItAndCheckAgain() throws Exception {
 		
-		/*assertThat(commentService.get(1L).getContent(), is("Comment number one"));
+		assertThat(commentService.get(1L), hasProperty("content", is("Comment number one")));
+		commentService.delete(1L);
+		assertThat(commentService.get(1L), is(nullValue()));
 		
-		this.mockMvc.perform(post("/article/comment/delete/1"))
-			.andExpect(flash().attributeExists("message"))
-			;
 		
-		assertThat(commentService.get(1L), is(nullValue()));*/
-
 	}
 	
 	/**
 	 * @author Luciane
 	 * @Date: 03/04/2016
-	 * Description: Test to delete item100 that does not exists.
+	 * Description: Test to delete comment100 that does not exists.
 	 *
 	 * @throws Exception
 	 *             the exception
 	 */
 	@Test
+	@WithUserDetails("admin@123.123")
 	public void testToDeleteComment100ThatDoesNotExists() throws Exception {
 		
 		/*assertThat(commentService.get(100L), is(nullValue()));

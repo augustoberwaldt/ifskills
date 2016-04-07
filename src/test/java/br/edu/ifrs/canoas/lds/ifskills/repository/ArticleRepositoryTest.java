@@ -33,7 +33,7 @@ public class ArticleRepositoryTest {
 	 */
 	@Test
 	public void testToFindAllArticlesThatAreChecked() {
-		assertThat(articleRepository.findChecked().size(), is(4));
+		assertThat(articleRepository.findChecked().size(), is(5));
 	}
 	
 	

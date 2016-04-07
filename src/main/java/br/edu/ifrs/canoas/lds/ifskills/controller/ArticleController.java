@@ -113,7 +113,7 @@ public class ArticleController {
 		
 		redirectAttrs.addFlashAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale),null));
-		return "redirect:/";
+		return "/";
 		
 	}
 
