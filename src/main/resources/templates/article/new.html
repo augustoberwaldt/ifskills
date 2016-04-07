@@ -85,8 +85,8 @@
 								<input type="text" class="form-control" id="articleTags" 
 								placeholder="Article tags" th:field="*{tags}"
 								th:readonly=  "${readonly}" data-role="tagsinput"/> <span
-								th:if="${#fields.hasErrors('teaser')}" 
-								th:errors="*{teaser}" th:class="help-block" />
+								th:if="${#fields.hasErrors('tags')}" 
+								th:errors="*{tags}" th:class="help-block" />
 							 </div>	
 															
 								<div class="summernote"/>
