@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.isEmptyOrNullString;
 import static org.junit.Assert.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
@@ -41,6 +42,24 @@ public class ArticleControllerTest extends BaseControllerTest{
 		mockMvc = getMockMvc(articleController);
 	}
 
+	/**
+	 * Author: Felipe 
+	 * Date:06/04/2016
+	 * Test to create a new article and check atts.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testToCreateNewArticleAndCheckAtts() throws Exception {
+		this.mockMvc.perform(post("/article/new"))
+			.andExpect(status().isOk())
+			.andExpect(model().attributeExists("article"))
+			.andExpect(model().attribute("article", hasProperty("title", isEmptyOrNullString())))
+			.andExpect(model().attribute("readonly",is(false)))
+			.andExpect(forwardedUrl(PRE_URL+"/article/new"+POS_URL))
+			;
+	}
 	
 	/**
 	 * @author Luciane
