@@ -115,6 +115,9 @@ public class ArticleController {
 		  if (not==1) {
 			redirectAttrs.addFlashAttribute("message2",
 					 MessageFormat.format(messageSource.getMessage("article.mail.failed", null, locale), null));
+		  } else {
+			  redirectAttrs.addFlashAttribute("message2",
+						 MessageFormat.format(messageSource.getMessage("article.mail.sent", null, locale), null));
 		  }
 
 		return "redirect:/";
