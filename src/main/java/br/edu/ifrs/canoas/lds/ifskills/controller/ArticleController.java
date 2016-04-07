@@ -16,6 +16,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.MailException;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -93,28 +95,39 @@ public class ArticleController {
 	 *            the locale
 	 * @return the string @
 	 */
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		int not = 0;
 		Article article = articleService.get(id);
+			
 		if (article != null) {
 		 try {
 			notificationService.sendNotification(article);
 			}catch( MailException e){
-			// catch error
-			//logger.info("Error Sending Email: " + e.getMessage());
+		      not = 1;
 		 }
+		
 		articleService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
+		  if (not==1) {
+			redirectAttrs.addFlashAttribute("message2",
+					 MessageFormat.format(messageSource.getMessage("article.mail.failed", null, locale), null));
+		  }
 
 		return "redirect:/";
 		} 
 		
-		redirectAttrs.addFlashAttribute("message",
+		redirectAttrs.addFlashAttribute("message3",
 				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale),null));
-		return "/";
 		
+//		if (au==1) {
+//		redirectAttrs.addFlashAttribute("message4",
+//				MessageFormat.format(messageSource.getMessage("article.deleted.failed2", null, locale),null));
+//	    }
+		return "redirect:/";
 	}
 
 	/**
