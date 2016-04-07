@@ -74,10 +74,13 @@ insert  into article ( active, body , picture , posted_on , slug , teaser , titl
 It is the language of media, medicine and business. Computing uses English as does the international airtraffic control. But is the spread of this language a good thing or a bad one, is the spread of one such a powerful language a disadvantage or an advantage?
 This is a difficult question to answer. Academics in the field of linguistics have tried to find the best solution for this puzzle for decades now. One disadvantage which is often mentioned in this context is the fact that many languages have died because of the spread of English. Many still have lost a large number of speakers and are bound to be doomed in the near future. These are the disadvantages, and while they certainly seem gloomy, there are many advantages of having a global language.
 ', null, sysdate,'Artigo-sobre-Algo','A discussion about English language', 'English as a global language, a good or bad thing?',8) ;
+insert into article ( active, body , picture , posted_on , slug , teaser , title , user_id ) values (true,'Alpha', null, sysdate,'Bravo','Charlie', 'Delta', 4);
 
 insert into article_tags ( article_id, tags ) values(1, 'hjhhjjhhj, hsushshhs');
 insert into article_tags ( article_id, tags ) values(2, 'IDE, SPRING TOOL');
 insert into article_tags ( article_id, tags ) values(3, 'Artigo, Educacao');
 insert into article_tags ( article_id, tags ) values(4, 'Artigo, English');
+insert into article_tags ( article_id, tags ) values(5, 'Echo, Foxtrot');
 
 insert into comment (content, posted_on, article_id, author_user_id) values ('Comment number one', sysdate,1 ,3);
+insert into comment (content, posted_on, article_id, author_user_id) values ('Golf', sysdate, 5 , 4);
