@@ -45,8 +45,8 @@
 											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
 											class="profile-img" alt="" /></li>
 									</div>
-									<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
-									<div class="col-xs-12 col-md-8" th:if="*{!privateProfile}">
+									<!-- Edson - 03-04-2016 - Created th:if="!${user.privateProfile}" -->
+									<div class="col-xs-12 col-md-8" th:if="!${user.privateProfile}">
 										<div class="form-group">
 											<label for="exampleInputFullName" th:text="#{user.fullname}">Full
 												Name:</label> <input type="text" class="form-control"
@@ -54,17 +54,17 @@
 												placeholder="Informe o nome completo" />
 
 										</div>
-										<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+										<!-- Edson - 03-04-2016 - Created th:if="!${user.privateProfile}" -->
 										<div class="form-group"
-											th:if="*{!privateProfile}">
+											th:if="!${user.privateProfile}">
 											<label for="exampleInputEmail" th:text="#{user.email}">Email:</label>
 											<input type="email" class="form-control"
 												id="userProfileEmail" th:field="*{email}"
 												placeholder="Informe o email" />
 										</div>
-										<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+										<!-- Edson - 03-04-2016 - Created th:if="!${user.privateProfile}" -->
 										<div class="form-group"
-											th:if="*{!privateProfile}">
+											th:if="!${user.privateProfile}">
 											<label for="exampleInputPassword" th:text="#{user.password}">Password:</label>
 											<input type="password" class="form-control"
 												id="userProfilePassword" th:field="*{password}"
@@ -77,9 +77,9 @@
 										</div>
 									</div>
 								</div>
-								<!-- Edson - 03-04-2016 - Created th:if="*{!privateProfile}" -->
+								<!-- Edson - 03-04-2016 - Created th:if="!${user.privateProfile}" -->
 								<div class="form-group"
-									th:if="*{!privateProfile}">
+									th:if="!${user.privateProfile}">
 									<label for="exampleInputFile" th:text="#{user.picture}">Picture:</label>
 									<input type="file" id="userProfilePic" name="userProfilePic" />
 									<p class="help-block" th:text="#{user.picture.description}">Update
@@ -97,7 +97,7 @@
 								<button type="submit" class="btn btn-primary"
 									onclick="document.getElementById('frmProfile').submit(); return false;"
 									th:text="#{crud.action.save}">Save</button>
-
+save(User user)
 							</form>
 						</div>
 					</div>

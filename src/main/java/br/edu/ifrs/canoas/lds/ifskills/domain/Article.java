@@ -59,6 +59,8 @@ public class Article {
 	 * Author is a type attribute User
 	 * A user can be the author of several articles
 	 */
+
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
@@ -82,6 +84,43 @@ public class Article {
 	@Lob
 	private byte[] picture;
 
+
+	/**
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of available article.
+	 * 
+	 */
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	private Date availableOn;
+	
+	
+	/**
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of expire article.
+	 * 
+	 */
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	private Date expiredOn;
+	
+	/**
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of delete article.
+	 *
+	 */
+	@Temporal(TemporalType.TIMESTAMP)
+	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	private Date deletedOn;	
+	
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
