@@ -44,11 +44,12 @@ public class HomeControllerTest extends BaseControllerTest{
 	public void testToViewArticles() throws Exception {
 		this.mockMvc.perform(get("/"))
 			.andExpect(status().isOk())
-			.andExpect(model().attribute("articles", hasSize(3)))
+			.andExpect(model().attribute("articles", hasSize(5)))
 			.andExpect(model().attribute("articles", hasItem(
 		            allOf(
 		                    hasProperty("title", is("JPA, JSF e Spring Tool Boot")),
 		                    hasProperty("teaser", is("hhhhh"))
+		                   
 		            )
 		    )))
 			.andExpect(forwardedUrl(PRE_URL+"/index"+POS_URL))

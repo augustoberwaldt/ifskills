@@ -15,6 +15,9 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.MailException;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,6 +31,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
+import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -35,6 +39,9 @@ import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 @RequestMapping("/article")
 public class ArticleController {
 
+	@Autowired
+	private NotificationService notificationService;
+	
 	private ArticleService articleService;
 	private MessageSource messageSource;
 	private UserProfileService userService;
@@ -71,8 +78,13 @@ public class ArticleController {
 	}
 
 	/**
-	 * Delete.
-	 *
+	 * Author: Aline G.
+	 * Date: 01/04/2016
+	 * Description: Method that calls sendNotification() and delete an Article.
+	 * 
+	 * Modified by Aline G. 
+	 * Date: 05/04/2016
+	 * Now it's calling sendNotification() before delete the Article.
 	 * @param id
 	 *            the id
 	 * @param model
@@ -83,14 +95,41 @@ public class ArticleController {
 	 *            the locale
 	 * @return the string @
 	 */
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		int not = 0;
 		Article article = articleService.get(id);
+			
+		if (article != null) {
+		 try {
+			notificationService.sendNotification(article);
+			}catch( MailException e){
+		      not = 1;
+		 }
+		
 		articleService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",
 				MessageFormat.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
+		  if (not==1) {
+			redirectAttrs.addFlashAttribute("message2",
+					 MessageFormat.format(messageSource.getMessage("article.mail.failed", null, locale), null));
+		  } else {
+			  redirectAttrs.addFlashAttribute("message2",
+						 MessageFormat.format(messageSource.getMessage("article.mail.sent", null, locale), null));
+		  }
 
+		return "redirect:/";
+		} 
+		
+		redirectAttrs.addFlashAttribute("message3",
+				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale),null));
+		
+//		if (au==1) {
+//		redirectAttrs.addFlashAttribute("message4",
+//				MessageFormat.format(messageSource.getMessage("article.deleted.failed2", null, locale),null));
+//	    }
 		return "redirect:/";
 	}
 
@@ -209,7 +248,7 @@ public class ArticleController {
 			List<Article> articles = articleService.list(criteria);
 			if (articles.isEmpty()) {
 				model.addAttribute("message",
-						messageSource.getMessage("article.findAllByTitleAllIgnoreCase", null, locale));
+						messageSource.getMessage("article.notFound", null, locale));
 			}
 			model.addAttribute("articles", articles);
 		} else if (criteria != null && criteria.isEmpty()) {

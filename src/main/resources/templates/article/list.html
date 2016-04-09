@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{profile.header}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{article.breadcrumb-1}" />
+			<li class="active" th:text="#{article.breadcrumb-2}" />
+		</ol>
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{article.title}" />
+				<div class="description" th:text="#{article.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="#{article.list}" />
+							</div>
+						</div>
+
+						<!-- CONTENT -->
+						<div class="card-body">
+							<div th:if="${message}"
+								class="alert fresh-color alert-danger alert-dismissible fade in">
+								<p th:text="${message}" />
+							</div>
+
+							<!-- 06/04/16 - Ricardo - Created search  -->
+							<div class="col-xs-12">
+								<div class="card">
+									<div class="card-body">
+										<form class="form-inline" _lpchecked="1"
+											th:object="${article}" th:action="@{/article/search}"
+											method="get" id="searchArticleForm">
+											<div class="form-group">
+												<input type="text" id="criteria" name="criteria"
+													style="width: 500px" class="form-control"
+													placeholder="Search for title, text or author of article"
+													required="true" />
+											</div>
+											<button type="submit" class="btn btn-default"
+												onclick="document.getElementById('searchArticleForm').submit(); return false;"
+												th:text="#{crud.action.search}">Search</button>
+										</form>
+									</div>
+								</div>
+							</div>
+
+							<div th:fragment="resultsList"
+								th:unless="${#lists.isEmpty(articles)}">
+								<div th:if="${message}" class="alert alert-success">
+									<p th:text="${message}" />
+								</div>
+								<table class="table table table-striped">
+									<thead>
+										<tr>
+											<th th:text="#{article.title}" />
+											<th th:text="#{article.body}" />
+											<th th:text="#{article.author}" />
+										</tr>
+									</thead>
+									<tbody>
+										<tr th:each="article : ${articles}">
+											<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.title}|" /></td>
+											<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.body}|" /></td>
+											<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.author.fullName}|" /></td>
+										</tr>
+									</tbody>
+								</table>
+
+								<a onclick="javascript:history.back()" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="#{navigation.back}" />
+								</a>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

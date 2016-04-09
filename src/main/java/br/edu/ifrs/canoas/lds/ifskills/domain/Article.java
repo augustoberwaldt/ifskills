@@ -16,6 +16,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,7 +25,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -66,19 +66,26 @@ public class Article {
 	private User author;
 
 	@Column(columnDefinition = "TEXT")
+	@Size(min = 1, max = 500)
 	private String teaser;
 
 	//@NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
+	
 
 	/**
-	 * Auhtor: Luciane
+	 * Author: Luciane
 	 * Date:27/03/2016
 	 * Description: Relationship between Article and Comment
 	 * An article has a comments list
+	 * 
+	 * Date: 05/04/2016
+	 * Modified by Aline G.
+	 * Description: "orphanRemoval" added so when an Article is removed, 
+	 * it's comments are removed too.
 	 */
-	@OneToMany(mappedBy = "article")
+	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
 	private List<Comment> comments;
 
 	@Lob

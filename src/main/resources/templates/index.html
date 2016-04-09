@@ -4,8 +4,10 @@
 <head>
 <title th:text="#{user.header}" />
 </head>
+
 <body>
 	<div layout:fragment="content">
+	
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb"
 			th:if="${auth}">
@@ -48,8 +50,16 @@
 																
 					 <div th:if="${message}" class="alert alert-success">
 					 <p th:text="${message}" /> </div>
+					 <div th:if="${message2}" class="alert alert-warning">
+					 <p th:text="${message2}" /> </div>
+					 <div th:if="${message3}" class="alert alert-danger">
+					 <p th:text="${message3}" /> </div>
+					 <div th:if="${message4}" class="alert alert-danger">
+					 <p th:text="${message4}" /> </div>
+					 
 
 						<!-- 31/03/16 - Ricardo - Change placeholder information -->
+						<!-- 05/04/16 - Ricardo - Change placeholder information -->
 						<div class="card-header">
 							<div class="pull-right card-action">
 								<div class="btn-group" role="group" aria-label="...">
@@ -59,7 +69,7 @@
 										<div class="form-group">
 											<input type="text" id="criteria" name="criteria"
 												style="width: 500px" class="form-control"
-												placeholder="Search for article, text or author"
+												placeholder="Search for title, text or author of article"
 												required="true" />
 										</div>
 										<button type="submit" class="btn btn-default"
@@ -74,8 +84,8 @@
 							<div class="row no-margin">
 								<div class="col-sm-6">
 									<div class="card primary">
-										<div class="card-jumbotron no-padding">
-											<img src="../../img/thumbnails/picjumbo.com_IMG_3241.jpg"
+										<div class="card-jumbotron no-padding" th:if="${article.picture} != null">
+											<img th:src="${article.pictureBase64}"
 												height="533" width="800" class="img-responsive" />
 										</div>
 										<div class="card-body">

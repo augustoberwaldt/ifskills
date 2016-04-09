@@ -48,18 +48,9 @@
 								<input type="hidden" th:field="*{id}" />
 								
 								<input type="hidden" th:field="*{body}" id="articleBody" />
-                                       
-									<div class="col-xs-6 col-md-4">
-									
-										<li th:if="${picture != null}" class="profile-img">
-										<img th:src="*{pictureBase64}"
-											th:height="291px" th:width="305px"
-											src="../img/profile/picjumbo.com_HNCK4153_resize.jpg"
-											class="profile-img" alt="" /></li>
-									</div>
-									
-								<div class="col-xs-12 col-md-8">
-											
+                                       								
+								<div class="col-xs-12 col-md-8">			
+								
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
 									<label for="ArticleTitle" th:text="#{article.title}" /> <input
@@ -69,26 +60,7 @@
 										th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
 										th:class="help-block" />
 								</div>
-															
-								<!-- <div class="form-group"
-									th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
-									<label for="ArticleTags" th:text="#{article.tags}" />
-									<input class="form-control" id="articleTags"
-									th:field="*{tags}" placeholder="Article tags"
-									th:readonly="${readonly}" /> <span
-									th:if="${#fields.hasErrors('tags')}"
-									th:errors="*{tags}" th:class="help-block " data-role="tagsinput" />
-								</div> -->
-								
-								<!-- <div class="bootstrap-tagsinput">
-								<span class="tag label label-info">Amsterdam<span data-role="remove"></span>
-								</span> <span class="tag label label-info">Washington<span data-role="remove"></span>
-								</span> <span class="tag label label-info">Sydney<span data-role="remove"></span>
-								</span> <span class="tag label label-info">Beijing<span data-role="remove"></span>
-								</span> <span class="tag label label-info">Cairo<span data-role="remove"></span>
-								</span> <input type="text" />
-								</div> -->
-																
+																																							
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('teaser')}? 'has-error'">
 									<label for="ArticleTeaser" th:text="#{article.teaser}" />
@@ -105,12 +77,23 @@
 										<p class="help-block" th:text="#{article.picture.description}">Update
 										article picture</p>
 							</div>
-											
+							
+							
+							 <div class="form-group"
+							 	th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
+							    <label for = "ArticleTags" th:text="#{article.tags}" />
+								<input type="text" class="form-control" id="articleTags" 
+								placeholder="Article tags" th:field="*{tags}"
+								th:readonly=  "${readonly}" data-role="tagsinput"/> <span
+								th:if="${#fields.hasErrors('tags')}" 
+								th:errors="*{tags}" th:class="help-block" />
+							 </div>	
+															
 								<div class="summernote"/>
 																																					
 								<button type="submit" class="btn btn-success"
                                 th:if="${!readonly}"
-                                onclick="$('#articleBody').val($('.summernote').summernote('code'));document.getElementById('articleForm').submit(); return false;"
+                                onclick="$('#articleBody').val($('.summernote').summernote('code'));$('#articleTags').val();document.getElementById('articleForm').submit(); return false;"
                                 th:text="#{crud.action.save}" />
 
 								<a th:href="@{/article/create/}" class="btn btn-success"
