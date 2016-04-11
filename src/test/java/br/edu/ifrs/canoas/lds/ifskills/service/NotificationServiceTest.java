@@ -10,15 +10,14 @@ import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasProperty;
-import static org.junit.Assert.*;
-
-import java.util.Date;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;

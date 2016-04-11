@@ -21,7 +21,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
-import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.CommentService;
 
 //TODO: Auto-generated Javadoc
@@ -35,9 +34,6 @@ public class CommentControllerTest extends BaseControllerTest{
 	
 	@Autowired
     private CommentService commentService;
-	
-	@Autowired
-    private ArticleService articleService;
 	
 	@Before
 	public void setup() {

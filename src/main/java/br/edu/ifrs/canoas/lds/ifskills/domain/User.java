@@ -21,8 +21,6 @@ import org.hibernate.validator.constraints.Email;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.util.Base64Utils;
 
-import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
-
 @Entity
 public class User {
 

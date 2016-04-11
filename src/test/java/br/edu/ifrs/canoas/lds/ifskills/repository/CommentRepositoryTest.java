@@ -38,7 +38,7 @@ public class CommentRepositoryTest {
 	 */
 	@Test
 	public void testToFindAllComments() {
-		assertThat(commentRepository.findAll().size(), is(1));
+		assertThat(commentRepository.findAll().size(), is(2));
 	}
 
 }

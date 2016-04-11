@@ -23,7 +23,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
-import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 
 //TODO: Auto-generated Javadoc
