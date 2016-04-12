@@ -16,6 +16,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -125,7 +127,13 @@ public class Article {
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date deletedOn;	
 	
-	
+	/**
+	 * @author:Edward Ramos
+	 * @date: Apr/12/2016
+	 * @description: Privacity Status of Article must be Public or Private.
+	 */	
+	@Enumerated(EnumType.STRING)
+	private ArticleStatus showMe;
 	
 	
 	public Long getId() {
@@ -220,5 +228,15 @@ public class Article {
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
 	}
+
+	public ArticleStatus getShowMe() {
+		return showMe;
+	}
+
+	public void setShowMe(ArticleStatus showMe) {
+		this.showMe = showMe;
+	}
+	
+	
 
 }

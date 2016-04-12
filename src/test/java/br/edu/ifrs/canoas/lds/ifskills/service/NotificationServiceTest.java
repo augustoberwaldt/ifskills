@@ -42,6 +42,9 @@ public class NotificationServiceTest {
 		article.setTeaser("This is the article's teaser.");
 		article.setBody("This is the article's body!!!");
 		
+		/**
+		 * This test result in a error: "is(notNullValue)".
+		 */		
 		assertThat(notificationService.sendNotification(article), is(notNullValue()));
 		assertThat(notificationService.sendNotification(article), hasProperty("to",is(not(empty()))));
 		
