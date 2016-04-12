@@ -236,6 +236,30 @@ public class Article {
 	public void setShowMe(ArticleStatus showMe) {
 		this.showMe = showMe;
 	}
+
+	public Date getAvailableOn() {
+		return availableOn;
+	}
+
+	public void setAvailableOn(Date availableOn) {
+		this.availableOn = availableOn;
+	}
+
+	public Date getExpiredOn() {
+		return expiredOn;
+	}
+
+	public void setExpiredOn(Date expiredOn) {
+		this.expiredOn = expiredOn;
+	}
+
+	public Date getDeletedOn() {
+		return deletedOn;
+	}
+
+	public void setDeletedOn(Date deletedOn) {
+		this.deletedOn = deletedOn;
+	}
 	
 	
 
