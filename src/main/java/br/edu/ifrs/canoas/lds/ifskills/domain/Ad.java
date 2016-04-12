@@ -1,18 +1,20 @@
 /**
  * @author: Fernando Sturzbecher
  * @date: 10/04/16
+ * @updated: 11/04/16
  * @description: Class for persistence of the Help Wanted Ad's
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Ad {
@@ -27,8 +29,11 @@ public class Ad {
 	@Size(min = 1,max = 4)
 	private List<String> tags;
 	
-	@Column(columnDefinition = "TEXT")
-	private String info;
+	@NotEmpty
+	private String requirements;
+	
+	@NotEmpty
+	private String businessArea;
 
 	@OneToOne
 	private User employer;
@@ -36,6 +41,15 @@ public class Ad {
 	@OneToOne
 	private Address location;
 	
+	@NotEmpty
+	private String educationLevelRequired;
+	
+	@NotEmpty
+	private String benefits;
+	
+	@NotEmpty
+	private String contactInfo;
+
 	public Long getId() {
 		return id;
 	}
@@ -60,12 +74,20 @@ public class Ad {
 		this.tags = tags;
 	}
 
-	public String getInfo() {
-		return info;
+	public String getRequirements() {
+		return requirements;
 	}
 
-	public void setInfo(String info) {
-		this.info = info;
+	public void setRequirements(String requirements) {
+		this.requirements = requirements;
+	}
+
+	public String getBusinessArea() {
+		return businessArea;
+	}
+
+	public void setBusinessArea(String businessArea) {
+		this.businessArea = businessArea;
 	}
 
 	public User getEmployer() {
@@ -82,5 +104,29 @@ public class Ad {
 
 	public void setLocation(Address location) {
 		this.location = location;
+	}
+
+	public String getEducationLevelRequired() {
+		return educationLevelRequired;
+	}
+
+	public void setEducationLevelRequired(String educationLevelRequired) {
+		this.educationLevelRequired = educationLevelRequired;
+	}
+
+	public String getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(String benefits) {
+		this.benefits = benefits;
+	}
+
+	public String getContactInfo() {
+		return contactInfo;
+	}
+
+	public void setContactInfo(String contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 }
