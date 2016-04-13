@@ -37,7 +37,7 @@ public class NotificationServiceTest {
 	@Test
 	public void testSendNotification() {
 		Article article = new Article();
-		article.setAuthor(userRepository.findOne(8L));
+		article.setAuthor(userRepository.findOne(9L));
 		article.setTitle("My Title");
 		article.setTeaser("This is the article's teaser.");
 		article.setBody("This is the article's body!!!");

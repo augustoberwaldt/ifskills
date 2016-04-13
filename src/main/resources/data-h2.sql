@@ -21,6 +21,7 @@ INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, descriptio
 INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (6, 'felipe.zoltowski', 'Felipe Zoltowski', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Analyst expert systems in project management using agile methods.');
 INSERT INTO USER(ID, ACTIVE, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (7, 'FALSE', 'edward.ramos', 'Edward Ramos', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 1, 'Introduction Professor of computing , computer Master in education');
 INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (8, 'alinegandolfi5@gmail.com', 'Aline Gandolfi', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Computer technician , enrolled in graduate degree in the field of Systems Analysis and Development');
+INSERT INTO USER(ID, EMAIL, FULL_NAME, PASSWORD, PICTURE, address_id, description) VALUES (9, 'labifrs2016.1@gmail.com', 'Lab IFRS', '$2a$10$cy42kPdxwRGcrx02umaL3O7f7xUKXQtugjXLrM9/DNay.D.WNK3HC', null, 2, 'Computer technician , enrolled in graduate degree in the field of Systems Analysis and Development');
 
 insert into roles(id, role) values (1, 'ROLE_USER');
 insert into roles(id, role) values (2, 'ROLE_ADMIN');
@@ -37,6 +38,7 @@ insert into users_roles (user_id, role_id) values (7, 2);
 insert into users_roles (user_id, role_id) values (7, 3);
 insert into users_roles (user_id, role_id) values (8, 2);
 insert into users_roles (user_id, role_id) values (8, 3);
+insert into users_roles (user_id, role_id) values (9, 2);
 
 insert into item(id, name, description, active, date) values (1, 'Celular', 'Dispositivo de comunicação', true, sysdate);
 insert into item(id, name, description, active, date) values (2, 'Caneta', 'Dispositivo de escrita manual a base de tinta', true, sysdate);
