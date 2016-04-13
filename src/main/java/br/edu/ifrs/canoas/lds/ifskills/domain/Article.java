@@ -52,8 +52,13 @@ public class Article {
 	@Size(min = 1,max = 2)
 	private List<String> tags;
 	
+	/**
+	 * Auhtor: Edward Ramos
+	 * Date:Apr/12/2016
+	 * Description: Define whether the article is private or not (Private or Public)
+	 */
 	@Column(columnDefinition = "boolean default true")
-	private Boolean privateArticle;
+	private Boolean isPrivate;
 
 	private Boolean active;
 
@@ -201,7 +206,6 @@ public class Article {
 	public void setBody(String body) {
 		this.body = body;
 	}
-
 	
 	public List<Comment> getComments() {
 		return comments;
@@ -221,16 +225,14 @@ public class Article {
 
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
+	}	
+
+	public Boolean getIsPrivate() {
+		return isPrivate;
 	}
 
-	
-
-	public Boolean getPrivateArticle() {
-		return privateArticle;
-	}
-
-	public void setPrivateArticle(Boolean privateArticle) {
-		this.privateArticle = privateArticle;
+	public void setIsPrivate(Boolean isPrivate) {
+		this.isPrivate = isPrivate;
 	}
 
 	public Date getAvailableOn() {
