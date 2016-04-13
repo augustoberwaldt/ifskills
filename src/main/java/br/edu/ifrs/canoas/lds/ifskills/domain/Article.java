@@ -58,7 +58,7 @@ public class Article {
 	 * Description: Define whether the article is private or not (Private or Public)
 	 */
 	@Column(columnDefinition = "boolean default true")
-	private Boolean isPrivate;
+	private Boolean privateArticle;
 
 	private Boolean active;
 
@@ -227,12 +227,13 @@ public class Article {
 		this.picture = picture;
 	}	
 
-	public Boolean getIsPrivate() {
-		return isPrivate;
+
+	public Boolean getPrivateArticle() {
+		return privateArticle;
 	}
 
-	public void setIsPrivate(Boolean isPrivate) {
-		this.isPrivate = isPrivate;
+	public void setPrivateArticle(Boolean privateArticle) {
+		this.privateArticle = privateArticle;
 	}
 
 	public Date getAvailableOn() {
