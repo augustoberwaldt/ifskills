@@ -51,6 +51,9 @@ public class Article {
 	@ElementCollection
 	@Size(min = 1,max = 2)
 	private List<String> tags;
+	
+	@Column(columnDefinition = "boolean default true")
+	private Boolean privateArticle;
 
 	private Boolean active;
 
@@ -126,15 +129,6 @@ public class Article {
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date deletedOn;	
-	
-	/**
-	 * @author:Edward Ramos
-	 * @date: Apr/12/2016
-	 * @description: Privacity Status of Article must be Public or Private.
-	 */	
-	@Enumerated(EnumType.STRING)
-	private ArticleStatus showMe;
-	
 	
 	public Long getId() {
 		return id;
@@ -229,12 +223,14 @@ public class Article {
 		this.picture = picture;
 	}
 
-	public ArticleStatus getShowMe() {
-		return showMe;
+	
+
+	public Boolean getPrivateArticle() {
+		return privateArticle;
 	}
 
-	public void setShowMe(ArticleStatus showMe) {
-		this.showMe = showMe;
+	public void setPrivateArticle(Boolean privateArticle) {
+		this.privateArticle = privateArticle;
 	}
 
 	public Date getAvailableOn() {
