@@ -59,3 +59,6 @@ $(document).ready(function() {
 		  focus: true                  // set focus to editable area after initializing summernote
 	  });
 });
+
+
+$(".star-rating").rating();
