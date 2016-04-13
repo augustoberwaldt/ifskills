@@ -2,6 +2,7 @@
  * @author: Fernando Sturzbecher
  * @date: 10/04/16
  * @updated: 11/04/16
+ * @renamed: 12/04/16
  * @description: Class for persistence of the Help Wanted Ad's
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
@@ -17,7 +18,7 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Ad {
+public class JobAd {
 	@Id
 	@GeneratedValue
 	private Long id;
