@@ -123,13 +123,12 @@
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#CRUD-example"> <span
-									class="icon fa fa-coffee"></span><span class="title">CRUD
-										Example</span>
+									class="icon fa fa-coffee"></span><span class="title">Item</span>
 							</a> <!-- Dropdown level 1 -->
 								<div id="CRUD-example" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a href="/item/list">Item</a></li>
+											<li><a href="/item/list">List</a></li>
 										</ul>
 									</div>
 								</div></li>
@@ -144,8 +143,8 @@
 										<ul class="nav navbar-nav">
 											<li><a
 												sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')"
-												href="/course/create">Create a New Course</a></li>
-											<li><a href="/course/list">List Courses</a></li>
+												href="/course/create">Create</a></li>
+											<li><a href="/course/list">List</a></li>
 										</ul>
 									</div>
 								</div></li>
@@ -157,7 +156,7 @@
 								<div id="menu-profile" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a href="/profile/search">List Members</a></li>
+											<li><a href="/profile/search">List</a></li>
 										</ul>
 									</div>
 								</div></li>
@@ -173,7 +172,7 @@
 										<ul class="nav navbar-nav">
 											<li><a 
 											
-											href="/applications/list">List applications</a></li>
+											href="/applications/list">List</a></li>
 										</ul>
 									</div>
 								</div></li>	
@@ -186,7 +185,7 @@
 								<div sec:authorize="hasRole('ROLE_TRAINER')" id="menu-article" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a href="/article/new">Create New Article</a></li>
+											<li><a href="/article/new">Create</a></li>
 										</ul>
 									</div>
 								</div></li>
@@ -199,7 +198,7 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<!-- seria href="/job/new" -->
-											<li><a href="#">Create New Job Ad</a></li>
+											<li><a href="#">Create</a></li>
 										</ul>
 									</div>
 								</div>
@@ -207,7 +206,7 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<!-- seria href="/job/list" -->
-											<li><a href="/job/list">List Job Ad</a></li>
+											<li><a href="/job/list">List</a></li>
 										</ul>
 								</div>
 							</div></li>	
