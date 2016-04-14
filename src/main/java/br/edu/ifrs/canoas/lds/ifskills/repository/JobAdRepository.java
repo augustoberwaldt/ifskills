@@ -1,6 +1,3 @@
-/*
- * 
- */
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
 import org.springframework.data.repository.CrudRepository;
