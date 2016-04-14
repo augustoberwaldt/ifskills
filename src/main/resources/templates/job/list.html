@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{job.header}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{job.breadcrumb-1}" />
+			<li class="active" th:text="#{job.breadcrumb-2}" />
+		</ol>
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{job.title}" />
+				<div class="description" th:text="#{job.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="#{job.list}" />
+							</div>
+						</div>
+
+						<!-- CONTENT -->
+						<div class="card-body">
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+							<table class="datatable table table-striped">
+								<thead>
+									<tr>
+										<th th:text="#{job.description}" />
+										<th th:text="#{job.businessArea}" />
+										<th th:text="#{job.contactInfo}"/>
+										<th th:text="#{course.benefits}" />
+										<th th:text="#{course.location}" />
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="job : ${jobs}">
+										<td><span th:text="${job.description}" /></td>
+										<td><span th:text="${job.businessArea}" /></td>
+										<td><span th:text="${job.contactInfo}" /></td>
+										<td><span th:text="${job.benefits}" /></td>
+										<td><span th:text="${job.location}" /></td>
+ 										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="|${course.type}|" /></td>-->
+										<!--<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.description}}" /></td>
+										
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.workload}}" /> hours</td>
+											
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.startDate}}" /></td>
+											
+										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
+											th:text="${{course.endDate}}" /></td>-->
+																				
+										<!--<td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/delete/}+${job.id}" class="delete">
+												<span class="badge" th:text="#{crud.action.delete}"/>
+										</a></td>-->
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
