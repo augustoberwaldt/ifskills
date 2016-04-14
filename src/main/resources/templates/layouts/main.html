@@ -193,6 +193,19 @@
 										</ul>
 									</div>
 								</div></li>
+							<!-- Dropdown-->
+							<li class="panel panel-default dropdown"><a
+								data-toggle="collapse" href="#menu-jobAd"> <span
+									class="icon glyphicon glyphicon-book"></span><span class="title">Job Ad</span>
+							</a> <!-- Dropdown level 1 -->
+								<div sec:authorize="hasRole('ROLE_USER')" id="menu-jobAd" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul class="nav navbar-nav">
+											<!-- seria href="/jobAd/new" -->
+											<li><a href="#">Create New Job Ad</a></li>
+										</ul>
+									</div>
+								</div></li>	
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#dropdown-element"> <span
 									class="icon fa fa-desktop"></span><span class="title">UI
