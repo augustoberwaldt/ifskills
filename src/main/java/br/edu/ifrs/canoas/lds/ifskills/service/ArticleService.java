@@ -106,6 +106,10 @@ public class ArticleService {
 	 */
 	public List<Article> list(String parameter) {
 		return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(parameter, parameter, parameter);
+	}
+
+	public Object listPublic() {
+		return articleRepository.findByPrivateArticle(false);
 	}	
 	
 }

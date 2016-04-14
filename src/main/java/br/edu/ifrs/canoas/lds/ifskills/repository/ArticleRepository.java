@@ -41,6 +41,17 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 */
 	List<Article> findAll(Pageable pageable);
 	
+	/**
+	 * Author: Edward Ramos
+	 * Date: 14/04/2016
+	 * Find all Public.
+	 *
+	 * @param pageable
+	 *            the pageable
+	 * @return the list
+	 */
+	List<Article> findByPrivateArticle(Boolean privateArticle);
+	
 	/** 
 	 * Author: Luciane
 	 * Date: 25/03/2016

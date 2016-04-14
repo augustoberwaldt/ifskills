@@ -50,7 +50,11 @@ public class HomeController {
 			session.setAttribute("pictureBase64", "" + userService.getPrincipal().getUser().getPictureBase64());
 
 		model.addAttribute("auth", userService.getPrincipal() != null);
-		model.addAttribute("articles", articleService.findAll());
+		if (userService.getPrincipal () != null ){
+			model.addAttribute("articles", articleService.findAll());
+		}else{
+			model.addAttribute("articles", articleService.listPublic());
+		}
 		return "/index";
 	}
 

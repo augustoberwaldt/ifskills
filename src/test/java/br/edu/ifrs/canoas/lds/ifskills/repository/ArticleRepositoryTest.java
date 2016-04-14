@@ -36,6 +36,17 @@ public class ArticleRepositoryTest {
 		assertThat(articleRepository.findChecked().size(), is(5));
 	}
 	
+	/**
+	 * @author Edward
+	 * @Date:14/04/2016
+	 * @Description: Test to find by slug article.
+	 * 
+	 */
+	@Test
+	public void testToFindOnePublicArticle() {
+		assertThat(articleRepository.findByPrivateArticle(false).size(), is(1));
+	}
+	
 	
 	/**
 	 * @author Luciane
