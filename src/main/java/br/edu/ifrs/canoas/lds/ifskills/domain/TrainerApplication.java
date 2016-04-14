@@ -27,7 +27,7 @@ public class TrainerApplication {
 	@Size(min = 1, max = 255)
 	private String references;
 	@Enumerated(EnumType.STRING)
-	private TrainerApplicationStatus status;
+	private Status status;
 
 	// Get's and Set's By:Edward Ramos
 	public Long getId() {
@@ -70,11 +70,11 @@ public class TrainerApplication {
 		this.references = references;
 	}
 
-	public TrainerApplicationStatus getStatus() {
+	public Status getStatus() {
 		return status;
 	}
 
-	public void setStatus(TrainerApplicationStatus status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 

@@ -10,6 +10,8 @@ package br.edu.ifrs.canoas.lds.ifskills.domain;
 import java.util.List;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
@@ -50,6 +52,9 @@ public class JobAd {
 	
 	@NotEmpty
 	private String contactInfo;
+
+	@Enumerated(EnumType.STRING)
+	private Status status;
 
 	public Long getId() {
 		return id;
@@ -129,5 +134,13 @@ public class JobAd {
 
 	public void setContactInfo(String contactInfo) {
 		this.contactInfo = contactInfo;
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 }
