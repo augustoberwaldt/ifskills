@@ -7,7 +7,7 @@
 
 <body>
 	<div layout:fragment="content">
-	
+
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb"
 			th:if="${auth}">
@@ -40,17 +40,21 @@
 								</div>
 							</div>
 						</div>
-						-->						
-																
-					 <div th:if="${message}" class="alert alert-success">
-					 <p th:text="${message}" /> </div>
-					 <div th:if="${message2}" class="alert alert-warning">
-					 <p th:text="${message2}" /> </div>
-					 <div th:if="${message3}" class="alert alert-danger">
-					 <p th:text="${message3}" /> </div>
-					 <div th:if="${message4}" class="alert alert-danger">
-					 <p th:text="${message4}" /> </div>
-					 
+						-->
+
+						<div th:if="${message}" class="alert alert-success">
+							<p th:text="${message}" />
+						</div>
+						<div th:if="${message2}" class="alert alert-warning">
+							<p th:text="${message2}" />
+						</div>
+						<div th:if="${message3}" class="alert alert-danger">
+							<p th:text="${message3}" />
+						</div>
+						<div th:if="${message4}" class="alert alert-danger">
+							<p th:text="${message4}" />
+						</div>
+
 
 						<!-- 31/03/16 - Ricardo - Change placeholder information -->
 						<!-- 05/04/16 - Ricardo - Change placeholder information -->
@@ -73,48 +77,83 @@
 								</div>
 							</div>
 						</div>
-						
-						<div class="card-body" th:each="article : ${articles}">
-							<div class="row no-margin">
-								<div class="col-sm-6">
-									<div class="card primary">
-										<div class="card-jumbotron no-padding" th:if="${article.picture} != null">
-											<img th:src="${article.pictureBase64}"
-												height="533" width="800" class="img-responsive" />
-										</div>
-										<div class="card-body">
-											<h4 href="#" th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.title}|">TITLE</h4>
-											<span th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.teaser}|">TEASER >>>>>Lorem
-												ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-												nonummy nibh euismod tincidunt ut laoreet dolore magna
-												aliquam erat volutpat. Ut wisi enim ad minim veniam, quis
-												nostrud exerci tation ullamcorper suscipit lobortis nisl ut
-												aliquip ex ea commodo consequat. Duis autem vel eum iriure
-												dolor in hendrerit in vulputate velit esse molestie
-												consequat, vel illum dolore eu feugiat nulla facilisis at
-												vero eros et accumsan et iusto odio dignissim qui blandit
-												praesent luptatum zzril delenit augue duis dolore te feugait
-												nulla facilisi. Nam liber tempor. </span> <a
-												th:href="@{|/article/view/${article.slug}|}" id="message-load-more">
-												
-												<input id="input-id" value="2" type="text" class="rating" data-size="sm" /><!--  readonly="true"  -->
-												
-												<li class="text-center load-more"><i
-													class="fa fa-refresh"></i> read more..</li>
-													
-										<!-- -->
-									   		<div sec:authorize="hasRole('ROLE_ADMIN')"><a
-									   				 class="btn btn-danger delete"
-													 th:href="@{/article/delete/}+${article.id}"> <span 
-										             th:text="#{article.action.delete}"/></a></div>
-											</a>
+
+						<!-- Header to show articles -->
+						<div class="container-fluid app-content-a">
+							<div class="container">
+								<div class="row text-center">
+									<div class="col-md-4 col-sm-6" th:each="article : ${articles}">
+										<span class="fa-stack fa-lg fa-5x"
+											th:if="${article.picture} != null"> <i
+											class="fa fa-circle-thin fa-stack-2x"></i> <img
+											th:src="${article.pictureBase64}" height="533" width="800"
+											class="img-responsive" />
+										</span>
+										<h2 th:href="@{|/article/view/${article.slug}|}"
+											th:text="|${article.title}|" />
+											<p th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.teaser}|">Donec sed odio dui. Etiam
+												porta sem malesuada magna mollis euismod. Nullam id dolor id
+												nibh ultricies vehicula ut id elit. Morbi leo risus, porta
+												ac consectetur ac, vestibulum at eros. Praesent commodo
+												cursus magna.</p>
+
+										<input id="input-id" value="2" type="text" class="rating"
+											data-size="sm" />
+										<!--  readonly="true"  -->
+
+										<li class="text-center load-more"><i
+											class="fa fa-refresh"></i> read more..</li>
+										<!--  Delete button for admin role -->
+										<div sec:authorize="hasRole('ROLE_ADMIN')">
+											<a class="btn btn-danger delete"
+												th:href="@{/article/delete/}+${article.id}"> <span
+												th:text="#{article.action.delete}" /></a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<!--  End of header -->
+						<!--  Job Announces Placement -->
+						<div class="container-fluid app-content">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12 ">
+										<h2 class="text-center app-content-header"></h2>
+										<p class="text-center app-content-description"></p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row no-margin no-gap">
+											<div class="col-md-3 col-sm-6" th:each="article, rowStat : ${articles}">
+												<div th:class="${rowStat.odd}? 'pricing-table red' : 'pricing-table blue'">
+													<div class="pt-header">
+														<div class="plan-pricing">
+															<div class="pricing">$10</div>
+															<div class="pricing-type">per month</div>
+														</div>
+													</div>
+													<div class="pt-body">
+														<h4>Basic Plan</h4>
+														<ul class="plan-detail">
+															<li>1 Website</li>
+															<li>100 GB Storage</li>
+															<li>Unlimited Bandwidth</li>
+														</ul>
+													</div>
+													<div class="pt-footer">
+														<button type="button" class="btn btn-primary">Buy
+															Now</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- End of Job Announces Placement -->
 					</div>
 				</div>
 			</div>
