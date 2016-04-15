@@ -216,6 +216,7 @@ public class ArticleController {
 	 */
 	@RequestMapping("/view/{slug}") 
 	public String view(@PathVariable String slug, Model model) {
+		
 		Article article = articleService.get(slug);
 		Comment comment = new Comment();
 		comment.setArticle(article);
