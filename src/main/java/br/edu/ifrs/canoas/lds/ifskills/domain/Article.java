@@ -49,12 +49,13 @@ public class Article {
 	private Date postedOn;
 
 	@ElementCollection
-	@Size(min = 1, max = 2)
+	@Size(min = 1,max = 2)
 	private List<String> tags;
-
+	
 	/**
-	 * Auhtor: Edward Ramos Date:Apr/12/2016 Description: Define whether the
-	 * article is private or not (Private or Public)
+	 * Auhtor: Edward Ramos
+	 * Date:Apr/12/2016
+	 * Description: Define whether the article is private or not (Private or Public)
 	 */
 	@Column(columnDefinition = "boolean default true")
 	private Boolean privateArticle;
@@ -62,16 +63,14 @@ public class Article {
 	private Boolean active;
 
 	/**
-	 * 14/04/16 - Ricardo - Storage star ratings of article.
+	 * Auhtor: Luciane
+	 * Date:24/03/2016
+	 * Description: Relacionamento entre Article e User
+	 * Author is a type attribute User
+	 * A user can be the author of several articles
 	 */
-	@ManyToOne
-	private float starRating;
 
-	/**
-	 * Auhtor: Luciane Date:24/03/2016 Description: Relacionamento entre Article
-	 * e User Author is a type attribute User A user can be the author of
-	 * several articles
-	 */
+	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
@@ -80,48 +79,62 @@ public class Article {
 	@Size(min = 1, max = 500)
 	private String teaser;
 
-	// @NotEmpty
+	//@NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
+	
 
 	/**
-	 * Author: Luciane Date:27/03/2016 Description: Relationship between Article
-	 * and Comment An article has a comments list
+	 * Author: Luciane
+	 * Date:27/03/2016
+	 * Description: Relationship between Article and Comment
+	 * An article has a comments list
 	 * 
-	 * Date: 05/04/2016 Modified by Aline G. Description: "orphanRemoval" added
-	 * so when an Article is removed, it's comments are removed too.
+	 * Date: 05/04/2016
+	 * Modified by Aline G.
+	 * Description: "orphanRemoval" added so when an Article is removed, 
+	 * it's comments are removed too.
 	 */
-	@OneToMany(mappedBy = "article", orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
 	private List<Comment> comments;
 
 	@Lob
 	private byte[] picture;
 
+
 	/**
-	 * Auhtor: Edson Date:04/08/2016 Description: Date of available article.
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of available article.
 	 * 
 	 */
-
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date availableOn;
-
+	
+	
 	/**
-	 * Auhtor: Edson Date:04/08/2016 Description: Date of expire article.
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of expire article.
 	 * 
 	 */
+	
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date expiredOn;
-
+	
 	/**
-	 * Auhtor: Edson Date:04/08/2016 Description: Date of delete article.
+	 * Auhtor: Edson
+	 * Date:04/08/2016
+	 * Description: Date of delete article.
 	 *
 	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
-	private Date deletedOn;
-
+	private Date deletedOn;	
+	
 	public Long getId() {
 		return id;
 	}
@@ -193,7 +206,7 @@ public class Article {
 	public void setBody(String body) {
 		this.body = body;
 	}
-
+	
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -212,7 +225,8 @@ public class Article {
 
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
-	}
+	}	
+
 
 	public Boolean getPrivateArticle() {
 		return privateArticle;
@@ -245,13 +259,7 @@ public class Article {
 	public void setDeletedOn(Date deletedOn) {
 		this.deletedOn = deletedOn;
 	}
-
-	public float getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(float starRating) {
-		this.starRating = starRating;
-	}
+	
+	
 
 }
