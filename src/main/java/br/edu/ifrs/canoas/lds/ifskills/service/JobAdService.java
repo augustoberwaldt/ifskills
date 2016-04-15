@@ -5,6 +5,8 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,6 +63,19 @@ public class JobAdService {
 	 */
 	public JobAd get(Long id) {
 		return jobAdRepository.findOne(id);
+	}
+	
+	/**
+	 *  @author Luciane
+	 * Date: 14/04/2016
+	 * Description: Method List.
+	 *
+	 * @param parameter
+	 *            the parameter
+	 * @return the list
+	 */
+	public List<JobAd> list(String parameter) {
+		return jobAdRepository.findAllByRequirementsContainingOrBusinessAreaContainingAllIgnoreCase(parameter, parameter);
 	}
 
 }

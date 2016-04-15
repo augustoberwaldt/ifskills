@@ -32,12 +32,11 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title"
-									th:text="${readonly}?#{job.view}:#{job.info}" />
+								<div class="title" th:text="${readonly}?#{job.view}:#{job.info}" />
 							</div>
 						</div>
 						<div class="card-body">
-
+						
 							<div th:if="${message}" class="alert alert-success">
 								<p th:text="${message}" />
 							</div>
@@ -53,40 +52,39 @@
 										type="text" class="form-control" id="JobDescription"
 										th:field="*{description}" placeholder="Job Description"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('description')}"
+										th:errors="*{description}" th:class="help-block" />
 								</div>
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
-									<label for="jobTags" th:text="#{job.tags}" />
-									<input class="form-control" id="jobTags"
-										th:field="*{tags}" placeholder="Job Tags"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('tags')}"
-										th:errors="*{tags}" th:class="help-block" />
-								</div>
-								
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('requirements')}? 'has-error'">
-									<label for="JobRequirements" th:text="#{job.requirements}" /> <input
-										type="text" class="form-control" id="JobRequirements"
-										th:field="*{requirements}" placeholder="Job Requirements"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('requirements')}" th:errors="*{requirements}"
+									<label for="jobTags" th:text="#{job.tags}" /> <input
+										class="form-control" id="jobTags" th:field="*{tags}"
+										placeholder="Job Tags" th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('tags')}" th:errors="*{tags}"
 										th:class="help-block" />
 								</div>
 
 								<div class="form-group"
+									th:classappend="${#fields.hasErrors('requirements')}? 'has-error'">
+									<label for="JobRequirements" th:text="#{job.requirements}" />
+									<input type="text" class="form-control" id="JobRequirements"
+										th:field="*{requirements}" placeholder="Job Requirements"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('requirements')}"
+										th:errors="*{requirements}" th:class="help-block" />
+								</div>
+
+								<div class="form-group"
 									th:classappend="${#fields.hasErrors('businessArea')}? 'has-error'">
-									<label for="JobBusinessArea" th:text="#{job.businessArea}" /> <input
-										type="text" class="form-control" id="JobBusinessArea"
+									<label for="JobBusinessArea" th:text="#{job.businessArea}" />
+									<input type="text" class="form-control" id="JobBusinessArea"
 										th:field="*{businessArea}" placeholder="Job Business Area"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('businessArea')}" th:errors="*{businessArea}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('businessArea')}"
+										th:errors="*{businessArea}" th:class="help-block" />
 								</div>
-								
+
 								<!--<div class="form-group"
 									th:classappend="${#fields.hasErrors(' employer.id')}? 'has-error'">
 									<label for="JobEmployer" th:text="#{job.employer}" /> <input
@@ -95,9 +93,9 @@
 										th:readonly="${readonly}" /> <span
 										th:if="${#fields.hasErrors('employer.id')}" th:errors="*{employer}"
 										th:class="help-block" />
-								</div>
-								
-								<div class="form-group" 
+								</div>-->
+
+								<!--<div class="form-group" 
 										th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
 										<label for="JobNumber" th:text="#{address.number}" /> <input
 											type="text" class="form-control datepicker"
@@ -159,16 +157,18 @@
 											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
 											th:class="help-block" />
 									</div>-->
-									
+
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('educationLevelRequired')}? 'has-error'">
-									<label for="JobEducationLevelRequired" th:text="#{job.educationLevelRequired}" /> <input
-										type="text" class="form-control" id="JobBusinessArea"
-										th:field="*{educationLevelRequired}" placeholder="Job Education Level Required"
+									<label for="JobEducationLevelRequired"
+										th:text="#{job.educationLevelRequired}" /> <input type="text"
+										class="form-control" id="JobBusinessArea"
+										th:field="*{educationLevelRequired}"
+										placeholder="Job Education Level Required"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('educationLevelRequired')}" th:errors="*{educationLevelRequired}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('educationLevelRequired')}"
+										th:errors="*{educationLevelRequired}" th:class="help-block" />
 								</div>
 
 								<div class="form-group"
@@ -177,20 +177,20 @@
 										type="text" class="form-control" id="JobBenefits"
 										th:field="*{benefits}" placeholder="Job Benefits"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('benefits')}" th:errors="*{benefits}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('benefits')}"
+										th:errors="*{benefits}" th:class="help-block" />
 								</div>
-								
+
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('contactInfo')}? 'has-error'">
 									<label for="JobContactInfo" th:text="#{job.ContactInfo}" /> <input
 										type="text" class="form-control" id="JobBenefits"
 										th:field="*{contactInfo}" placeholder="Job ContactInfo"
 										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('contactInfo')}" th:errors="*{contactInfo}"
-										th:class="help-block" />
+										th:if="${#fields.hasErrors('contactInfo')}"
+										th:errors="*{contactInfo}" th:class="help-block" />
 								</div>
-								
+
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
@@ -198,15 +198,13 @@
 
 								<!--<a th:href="@{/job/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> -->
-								
+
 								<a th:href="@{/job/delete/}+${id}" class="btn btn-danger"
-									th:if="${readonly}" th:text="#{crud.action.delete}" />
-								
-								<a th:href="@{/job/list/}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{crud.action.delete}" /> <a
+									th:href="@{/job/list/}" class="btn btn-info"
 									th:if="!${param.success}"> <span
 									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-									</a> 
-								<a th:href="@{/job/list/}" class="btn btn-default"
+								</a> <a th:href="@{/job/list/}" class="btn btn-default"
 									th:if="${param.success}" th:text="#{crud.action.list}" />
 
 							</form>
