@@ -86,80 +86,6 @@
 								</div>
 
 								<div class="form-group"
-									th:classappend="${#fields.hasErrors('employer.fullName')}? 'has-error'">
-									<label for="JobEmployer" th:text="#{job.employer}" /> <input
-										type="text" class="form-control" id="JobEmployer"
-										th:field="*{employer.fullName}" placeholder="Job Employer"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('employer.fullName')}" th:errors="*{employer.fullName}"
-										th:class="help-block" />
-								</div>
-
-								<!--<div class="form-group" 
-										th:classappend="${#fields.hasErrors('address.number')}? 'has-error'">
-										<label for="JobNumber" th:text="#{address.number}" /> <input
-											type="text" class="form-control datepicker"
-											id="jobNumber"
-											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-											th:field="*{{address.number}}" th:readonly="${readonly}" />
-										<span th:if="${#fields.hasErrors('address.number')}"
-											th:errors="*{{address.number}}" th:class="help-block" />
-									</div>
-									
-									<div class="form-group" 
-										th:classappend="${#fields.hasErrors('address.complement')}? 'has-error'">
-										<label for="profileNumber" th:text="#{address.complement}" />
-										<input type="text" class="form-control datepicker"
-											id="profileComplement"
-											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-											th:field="*{{address.complement}}" th:readonly="${readonly}" />
-										<span th:if="${#fields.hasErrors('address.complement')}"
-											th:errors="*{{address.complement}}" th:class="help-block" />
-									</div>
-									
-									<div class="form-group" 
-										th:classappend="${#fields.hasErrors('address.place.description')}? 'has-error'">
-										<label for="jobCity"
-											th:text="#{address.place.description}" /> <input type="text"
-											class="form-control datepicker" id="jobCity"
-											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-											th:field="*{{address.place.description}}"
-											th:readonly="${readonly}" /> <span
-											th:if="${#fields.hasErrors('address.place.description')}"
-											th:errors="*{{address.place.description}}"
-											th:class="help-block" />
-									</div>
-									
-									<div class="form-group" 
-										th:classappend="${#fields.hasErrors('address.place.parentPlace.description')}? 'has-error'">
-										<label for="jobEstate"
-											th:text="#{address.place.parentPlace.description}" /> <input
-											type="text" class="form-control datepicker"
-											id="jobEstate"
-											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-											th:field="*{{address.place.parentPlace.description}}"
-											th:readonly="${readonly}" /> <span
-											th:if="${#fields.hasErrors('address.place.parentPlace.description')}"
-											th:errors="*{{address.place.parentPlace.description}}"
-											th:class="help-block" />
-									</div>
-									
-									<div class="form-group" 
-										th:classappend="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}? 'has-error'">
-										<label for="jobParents"
-											th:text="#{address.place.parentPlace.parentPlace.description}" />
-										<input type="text" class="form-control datepicker"
-											id="jobParents"
-											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
-											th:field="*{{address.place.parentPlace.parentPlace.description}}"
-											th:readonly="${readonly}" /> <span
-											th:if="${#fields.hasErrors('address.place.parentPlace.parentPlace.description')}"
-											th:errors="*{{address.place.parentPlace.parentPlace.description}}"
-											th:class="help-block" />
-									</div>-->
-
-
-								<div class="form-group"
 									th:classappend="${#fields.hasErrors('educationLevelRequired')}? 'has-error'">
 									<label for="JobEducationLevelRequired"
 										th:text="#{job.educationLevelRequired}" /> <input type="text"
@@ -190,6 +116,79 @@
 										th:if="${#fields.hasErrors('contactInfo')}"
 										th:errors="*{contactInfo}" th:class="help-block" />
 								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('employer.fullName')}? 'has-error'">
+									<label for="JobEmployer" th:text="#{job.employer}" /> <input
+										type="text" class="form-control" id="JobEmployer"
+										th:field="*{employer.fullName}" placeholder="Job Employer"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('employer.fullName')}" th:errors="*{employer.fullName}"
+										th:class="help-block" />
+								</div>
+
+								<div class="form-group" 
+										th:classappend="${#fields.hasErrors('location.number')}? 'has-error'">
+										<label for="JobNumber" th:text="#{jobLocation.number}" /> <input
+											type="text" class="form-control datepicker"
+											id="jobNumber"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{location.number}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('location.number')}"
+											th:errors="*{{location.number}}" th:class="help-block" />
+									</div>
+									
+									<div class="form-group" 
+										th:classappend="${#fields.hasErrors('location.complement')}? 'has-error'">
+										<label for="jobComplement" th:text="#{jobLocation.complement}" />
+										<input type="text" class="form-control datepicker"
+											id="jobComplement"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{location.complement}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('location.complement')}"
+											th:errors="*{{location.complement}}" th:class="help-block" />
+									</div>
+									
+									<div class="form-group" 
+										th:classappend="${#fields.hasErrors('location.place.description')}? 'has-error'">
+										<label for="jobCity"
+											th:text="#{jobLocation.place.description}" /> <input type="text"
+											class="form-control datepicker" id="jobCity"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{location.place.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('location.place.description')}"
+											th:errors="*{{location.place.description}}"
+											th:class="help-block" />
+									</div>
+									
+									 <div class="form-group" 
+										th:classappend="${#fields.hasErrors('location.place.parentPlace.description')}? 'has-error'">
+										<label for="jobEstate"
+											th:text="#{location.place.parentPlace.description}" /> <input
+											type="text" class="form-control datepicker"
+											id="jobEstate"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{location.place.parentPlace.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('location.place.parentPlace.description')}"
+											th:errors="*{{location.place.parentPlace.description}}"
+											th:class="help-block" />
+									</div>
+									
+									<div class="form-group" 
+										th:classappend="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}? 'has-error'">
+										<label for="jobParents"
+											th:text="#{location.place.parentPlace.parentPlace.description}" />
+										<input type="text" class="form-control datepicker"
+											id="jobParents"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{location.place.parentPlace.parentPlace.description}}"
+											th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}"
+											th:errors="*{{location.place.parentPlace.parentPlace.description}}"
+											th:class="help-block" />
+									</div>
 
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
