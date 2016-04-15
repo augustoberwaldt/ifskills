@@ -86,6 +86,24 @@ public class JobAdController {
 
 		return "redirect:/job/list";
 	}
+	
+	/**
+	 * @author Luciane
+	 * Date: 14/04/2016
+	 * Description: Method View.
+	 *
+	 * @param id
+	 *            the id
+	 * @param model
+	 *            the model
+	 * @return the string
+	 */
+	@RequestMapping("/view/{id}")
+	public String view(@PathVariable Long id, Model model) {
+		model.addAttribute("job", jobAdService.get(id));
+		model.addAttribute("readonly", true);
+		return "/job/form";
+	}
 
 	
 	

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<!-- Author: Luciane 
+	Date: 14/04/2016  
+	Description: Page list.html
+-->
 <html lang="en" layout:decorator="layouts/main">
 
 <head>
@@ -43,19 +47,22 @@
 									<tr>
 										<th th:text="#{job.description}" />
 										<th th:text="#{job.businessArea}" />
-										<th th:text="#{job.contactInfo}"/>
-										<th th:text="#{course.benefits}" />
-										<th th:text="#{course.location}" />
+										<th th:text="#{job.contactInfo}" />
+										<th th:text="#{job.benefits}" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="job : ${jobs}">
-										<td><span th:text="${job.description}" /></td>
-										<td><span th:text="${job.businessArea}" /></td>
-										<td><span th:text="${job.contactInfo}" /></td>
-										<td><span th:text="${job.benefits}" /></td>
-										<td><span th:text="${job.location}" /></td>
- 										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
+										<td><a href="#" th:href="@{|/job/view/${job.id}|}"
+											th:text="${{job.description}}" /> hours</td>
+										<td><a href="#" th:href="@{|/job/view/${job.id}|}"
+											th:text="${{job.businessArea}}" /> hours</td>
+										<td><a href="#" th:href="@{|/job/view/${job.id}|}"
+											th:text="${{job.contactInfo}}" /> hours</td>
+										<td><a href="#" th:href="@{|/job/view/${job.id}|}"
+											th:text="${{job.benefits}}" /> hours</td>
+
+										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="|${course.type}|" /></td>-->
 										<!--<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.description}}" /></td>
@@ -68,9 +75,10 @@
 											
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.endDate}}" /></td>-->
-																				
-										<!--<td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/delete/}+${job.id}" class="delete">
-												<span class="badge" th:text="#{crud.action.delete}"/>
+
+										<!-- <td><a sec:authorize="hasRole('ROLE_ADMIN')"
+											th:href="@{/job/delete/}+${job.id}" class="delete"> <span
+												class="badge" th:text="#{crud.action.delete}" />
 										</a></td>-->
 									</tr>
 								</tbody>
