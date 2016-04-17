@@ -124,7 +124,7 @@ public class JobAdController {
 	 * @return the string
 	 */
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String showUserList(Model model, final HttpServletRequest req, final Locale locale) {
+	public String showJobAdList(Model model, final HttpServletRequest req, final Locale locale) {
 		String criteria = req.getParameter("criteria");
 		if (criteria != null && !criteria.isEmpty()) {
 			List<JobAd> jobs = jobAdService.list(criteria);
@@ -138,7 +138,7 @@ public class JobAdController {
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 
-		return "/profile/list";
+		return "/job/list";
 	}
 
 	
