@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.mail.MailException;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +25,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
+import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 
 @Controller
 @RequestMapping("/job")
 public class JobAdController {
-	private JobAdService jobAdService;
-	//private UserProfileService userProfileService;
 	
+	@Autowired
+	private NotificationService notificationService;
+	
+	private JobAdService jobAdService;
+	private MessageSource messageSource;
+		
 	
 	/**
 	 * @author Luciane
@@ -41,10 +48,6 @@ public class JobAdController {
 	 * @param messageSource
 	 *            the message source
 	 */
-	
-	private MessageSource messageSource;
-	
-	
 	@Autowired
 	public JobAdController(JobAdService jobAdService, MessageSource messageSource) {
 		
@@ -69,7 +72,11 @@ public class JobAdController {
 	/**
 	 * @author Luciane
 	 * Date: 14/04/2016
-	 * Description: Method Delete.
+	 * Description: Method Delete an Job Ad.
+	 * 
+	 * Modified by: Luciane
+	 * Date: 17/04/2016
+	 * Description: Implementation of the sending mail
 	 *
 	 * @param id
 	 *            the id
@@ -81,13 +88,36 @@ public class JobAdController {
 	 *            the locale
 	 * @return the string
 	 */
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		int not = 0;
 		JobAd jobAd = jobAdService.get(id);
+			
+		if (jobAd != null) {
+		 try {
+			notificationService.sendNotificationJobAd(jobAd);
+			}catch( MailException e){
+		      not = 1;
+		 }
+		
 		jobAdService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message",
-				MessageFormat.format(messageSource.getMessage("jobAd.deleted", null, locale), jobAd.getDescription()));
+				MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
+		  if (not==1) {
+			redirectAttrs.addFlashAttribute("message2",
+					 MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
+		  } else {
+			  redirectAttrs.addFlashAttribute("message2",
+						 MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
+		  }
+
+		  return "redirect:/job/list";
+		} 
+		
+		redirectAttrs.addFlashAttribute("message3",
+				MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale),null));
 
 		return "redirect:/job/list";
 	}
@@ -140,6 +170,18 @@ public class JobAdController {
 
 		return "/job/list";
 	}
+	
+	
+	/*@RequestMapping("/delete/{id}")
+	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		JobAd jobAd = jobAdService.get(id);
+		jobAdService.delete(id);
+
+		redirectAttrs.addFlashAttribute("message",
+				MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
+
+		return "redirect:/job/list";
+	}*/
 
 	
 	

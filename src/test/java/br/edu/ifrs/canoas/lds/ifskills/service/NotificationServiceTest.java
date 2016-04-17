@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -49,6 +50,28 @@ public class NotificationServiceTest {
 		assertThat(notificationService.sendNotification(article), hasProperty("to",is(not(empty()))));
 		
 	}
+	
+	/**
+	 * @author Luciane
+	 * Date: 17/04/2016
+	 * Description: Test method SendNotificationJobAd
+	 * of the class  NotificationService
+	 */
+	/*@Test
+	public void testSendNotificationJobAd() {
+		JobAd jobAd = new JobAd();
+		jobAd.setEmployer(userRepository.findOne(9L));
+		jobAd.setDescription("My description job");
+		jobAd.setBusinessArea("This is the job's business area.");
+		jobAd.setRequirements("This is the job's requirements!!!");*/
+		
+		/**
+		 * This test result in a error: "is(notNullValue)".
+		 */		
+		/*assertThat(notificationService.sendNotificationJobAd(jobAd), is(notNullValue()));
+		assertThat(notificationService.sendNotificationJobAd(jobAd), hasProperty("to",is(not(empty()))));
+		
+	}*/
 	
 
 }

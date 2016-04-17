@@ -165,7 +165,7 @@
 									 <div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.description')}? 'has-error'">
 										<label for="jobEstate"
-											th:text="#{location.place.parentPlace.description}" /> <input
+											th:text="#{joblocation.place.parentPlace.description}" /> <input
 											type="text" class="form-control datepicker"
 											id="jobEstate"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
@@ -179,7 +179,7 @@
 									<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="jobParents"
-											th:text="#{location.place.parentPlace.parentPlace.description}" />
+											th:text="#{joblocation.place.parentPlace.parentPlace.description}" />
 										<input type="text" class="form-control datepicker"
 											id="jobParents"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
