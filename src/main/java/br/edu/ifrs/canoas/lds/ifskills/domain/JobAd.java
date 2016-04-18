@@ -4,6 +4,10 @@
  * @updated: 11/04/16
  * @renamed: 12/04/16
  * @description: Class for persistence of the Help Wanted Ad's
+ * 
+ * @modified: Aline G.
+ * @date: 14/04/2016
+ * @description: "status" attribute added. 
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
