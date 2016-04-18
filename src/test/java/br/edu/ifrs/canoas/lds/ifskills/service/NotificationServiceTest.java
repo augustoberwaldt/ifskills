@@ -57,21 +57,21 @@ public class NotificationServiceTest {
 	 * Description: Test method SendNotificationJobAd
 	 * of the class  NotificationService
 	 */
-	/*@Test
+	@Test
 	public void testSendNotificationJobAd() {
 		JobAd jobAd = new JobAd();
 		jobAd.setEmployer(userRepository.findOne(9L));
 		jobAd.setDescription("My description job");
 		jobAd.setBusinessArea("This is the job's business area.");
-		jobAd.setRequirements("This is the job's requirements!!!");*/
+		jobAd.setRequirements("This is the job's requirements!!!");
 		
 		/**
 		 * This test result in a error: "is(notNullValue)".
 		 */		
-		/*assertThat(notificationService.sendNotificationJobAd(jobAd), is(notNullValue()));
+		assertThat(notificationService.sendNotificationJobAd(jobAd), is(notNullValue()));
 		assertThat(notificationService.sendNotificationJobAd(jobAd), hasProperty("to",is(not(empty()))));
 		
-	}*/
+	}
 	
 
 }

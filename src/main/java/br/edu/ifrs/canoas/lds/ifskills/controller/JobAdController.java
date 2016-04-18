@@ -170,21 +170,4 @@ public class JobAdController {
 
 		return "/job/list";
 	}
-	
-	
-	/*@RequestMapping("/delete/{id}")
-	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
-		JobAd jobAd = jobAdService.get(id);
-		jobAdService.delete(id);
-
-		redirectAttrs.addFlashAttribute("message",
-				MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
-
-		return "redirect:/job/list";
-	}*/
-
-	
-	
-	
-
 }
