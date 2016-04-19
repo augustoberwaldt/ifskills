@@ -129,7 +129,7 @@
 
 								<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.number')}? 'has-error'">
-										<label for="JobNumber" th:text="#{jobLocation.number}" /> <input
+										<label for="JobNumber" th:text="#{job.location.number}" /> <input
 											type="text" class="form-control datepicker"
 											id="jobNumber"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
@@ -140,7 +140,7 @@
 									
 									<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.complement')}? 'has-error'">
-										<label for="jobComplement" th:text="#{jobLocation.complement}" />
+										<label for="jobComplement" th:text="#{job.location.complement}" />
 										<input type="text" class="form-control datepicker"
 											id="jobComplement"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
@@ -152,7 +152,7 @@
 									<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.description')}? 'has-error'">
 										<label for="jobCity"
-											th:text="#{jobLocation.place.description}" /> <input type="text"
+											th:text="#{job.location.place.description}" /> <input type="text"
 											class="form-control datepicker" id="jobCity"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
 											th:field="*{{location.place.description}}"
@@ -165,7 +165,7 @@
 									 <div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.description')}? 'has-error'">
 										<label for="jobEstate"
-											th:text="#{joblocation.place.parentPlace.description}" /> <input
+											th:text="#{job.location.place.parentPlace.description}" /> <input
 											type="text" class="form-control datepicker"
 											id="jobEstate"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
@@ -179,7 +179,7 @@
 									<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="jobParents"
-											th:text="#{joblocation.place.parentPlace.parentPlace.description}" />
+											th:text="#{job.location.place.parentPlace.parentPlace.description}" />
 										<input type="text" class="form-control datepicker"
 											id="jobParents"
 											th:class="${readonly}? 'form-control' : 'form-control datepicker'"

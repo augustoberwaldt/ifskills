@@ -6,7 +6,6 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -25,14 +24,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
-import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 
 @Controller
 @RequestMapping("/job")
 public class JobAdController {
-	
-	@Autowired
-	private NotificationService notificationService;
 	
 	private JobAdService jobAdService;
 	private MessageSource messageSource;
@@ -91,35 +86,35 @@ public class JobAdController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
-		int not = 0;
+		
 		JobAd jobAd = jobAdService.get(id);
 			
-		if (jobAd != null) {
-		 try {
-			notificationService.sendNotificationJobAd(jobAd);
-			}catch( MailException e){
-		      not = 1;
-		 }
+		if (jobAd == null){
+			redirectAttrs.addFlashAttribute("message3",
+					MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale),null));
+			
+		}
+		else{
+			 try {
+				 jobAdService.sendMessage(jobAd);
+				  redirectAttrs.addFlashAttribute("message2",
+							 MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
+				
+				}catch( MailException e){
+					redirectAttrs.addFlashAttribute("message2",
+							 MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
+	
+			 }
+			
+			jobAdService.delete(id);
+	
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
+		}
+
+		return "redirect:/job/list"; 
+
 		
-		jobAdService.delete(id);
-
-		redirectAttrs.addFlashAttribute("message",
-				MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
-		  if (not==1) {
-			redirectAttrs.addFlashAttribute("message2",
-					 MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
-		  } else {
-			  redirectAttrs.addFlashAttribute("message2",
-						 MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
-		  }
-
-		  return "redirect:/job/list";
-		} 
-		
-		redirectAttrs.addFlashAttribute("message3",
-				MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale),null));
-
-		return "redirect:/job/list";
 	}
 	
 	/**
@@ -164,7 +159,7 @@ public class JobAdController {
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("jobs", new ArrayList<JobAd>());
+			model.addAttribute("jobs", jobAdService.list(criteria));
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 

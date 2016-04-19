@@ -54,26 +54,9 @@ public class NotificationService {
 	 * @return
 	 * @throws MailException
 	 */
-	public SimpleMailMessage sendNotificationJobAd(JobAd jobAd) throws MailException {
-	   // send email
-		
-	    SimpleMailMessage mail = new SimpleMailMessage();
-
-	    if (jobAd != null){
-		    mail.setTo(jobAd.getEmployer().getEmail());
-		    mail.setFrom("labifrs2016.1@gmail.com");
-		    mail.setSubject("Your Job Ad was deleted");
-		    mail.setText("Dear author " + jobAd.getEmployer().getFullName() + ", \n\n" +
-		                  "Your Job Ad with a description '" + jobAd.getDescription() + "' was deleted by one of our Administrators.\n" +
-		    		      "If there's any problem with that, feel free to call us any moment.\n" +
-		                  "\n\nHere's a copy of your Job Ad:\n\n" + jobAd.getDescription() + "\n\n" + jobAd.getBusinessArea() +
-	                      "\n\n" + jobAd.getRequirements() + "\n\n" +
-		    		      "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");
-		    javaMailSender.send(mail);
-
-		}
-	    
-	    return mail;
+	public SimpleMailMessage sendNotification(SimpleMailMessage mail) throws MailException {
+		javaMailSender.send(mail);
+		return mail;
 	}
 	
 }
