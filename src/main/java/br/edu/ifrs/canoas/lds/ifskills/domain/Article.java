@@ -41,6 +41,11 @@ public class Article {
 
 	@NotEmpty
 	private String title;
+	
+	/**
+	 * 19/04/16 - Ricardo - Variable for star rating entry.
+	 */
+	private Float starRating;
 
 	private String slug;
 
@@ -260,6 +265,12 @@ public class Article {
 		this.deletedOn = deletedOn;
 	}
 	
-	
+	public Float getStarRating() {
+		return starRating;
+	}
 
+	public void setStarRating(Float starRating) {
+		this.starRating = starRating;
+	}
+	
 }
