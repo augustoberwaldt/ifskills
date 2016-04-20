@@ -6,6 +6,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 
 @Controller
@@ -159,7 +161,7 @@ public class JobAdController {
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("jobs", jobAdService.list(criteria));
+			model.addAttribute("jobs", new ArrayList<JobAd>());//jobAdService.list(criteria)
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 

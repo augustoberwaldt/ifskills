@@ -55,6 +55,16 @@
 										th:if="${#fields.hasErrors('description')}"
 										th:errors="*{description}" th:class="help-block" />
 								</div>
+								
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('status')}? 'has-error'">
+									<label for="JobDescription" th:text="#{job.status}" /> <input
+										type="text" class="form-control" id="JobStatus"
+										th:field="*{status}" placeholder="Job Status"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('status')}"
+										th:errors="*{status}" th:class="help-block" />
+								</div>
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
