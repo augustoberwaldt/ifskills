@@ -44,8 +44,8 @@
 								<div class="col-sm-6" th:if="${article.picture} != null">
 									<div class="card primary">
 										<div class="card-jumbotron no-padding">
-											<img th:src="${article.pictureBase64}"
-												height="533" width="800" class="img-responsive" />
+											<img th:src="${article.pictureBase64}" height="533"
+												width="800" class="img-responsive" />
 										</div>
 									</div>
 								</div>
@@ -73,18 +73,19 @@
 							<div class="row no-margin">
 								<div class="col-sm-12">
 									<div class="card primary">
-									
-										<span th:remove="tag" th:utext="${article.body}">ARTICLE CONTENT *HTML
-											FORMATED* ...Lorem ipsum dolor sit amet, consectetuer
-											adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-											laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-											minim veniam, quis nostrud exerci tation ullamcorper suscipit
-											lobortis nisl ut aliquip ex ea commodo consequat. Duis autem
-											vel eum iriure dolor in hendrerit in vulputate velit esse
-											molestie consequat, vel illum dolore eu feugiat nulla
-											facilisis at vero eros et accumsan et iusto odio dignissim
-											qui blandit praesent luptatum zzril delenit augue duis dolore
-											te feugait nulla facilisi. Nam liber tempor.</span>
+
+										<span th:remove="tag" th:utext="${article.body}">ARTICLE
+											CONTENT *HTML FORMATED* ...Lorem ipsum dolor sit amet,
+											consectetuer adipiscing elit, sed diam nonummy nibh euismod
+											tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut
+											wisi enim ad minim veniam, quis nostrud exerci tation
+											ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo
+											consequat. Duis autem vel eum iriure dolor in hendrerit in
+											vulputate velit esse molestie consequat, vel illum dolore eu
+											feugiat nulla facilisis at vero eros et accumsan et iusto
+											odio dignissim qui blandit praesent luptatum zzril delenit
+											augue duis dolore te feugait nulla facilisi. Nam liber
+											tempor.</span>
 									</div>
 								</div>
 							</div>
@@ -119,7 +120,8 @@
 										<td th:text="${comment.author.fullName}"></td>
 										<td
 											th:text="${#dates.format(comment.postedOn, 'dd-MMM-yyyy')}"></td>
-										<td><a sec:authorize="isAuthenticated()" th:if="${#authentication.principal.user.id} == ${comment.author.id}"
+										<td><a sec:authorize="isAuthenticated()"
+											th:if="${#authentication.principal.user.id} == ${comment.author.id}"
 											th:href="@{/article/comment/delete/}+${comment.id}"
 											class="delete"><span class="badge"
 												th:text="#{crud.action.delete}" /> </a></td>
@@ -129,10 +131,10 @@
 
 							<form id="commentForm" th:object="${comment}"
 								th:action="@{/article/comment/save}" method="post">
-								
-								<input type="hidden" th:field="*{id}" />
-								<input type="hidden" th:field="*{article.id}" />
-								
+
+								<input type="hidden" th:field="*{id}" /> <input type="hidden"
+									th:field="*{article.id}" />
+
 								<div class="row">
 									<div class="col-sm-6">
 										<textarea id="comment" name="comment" class="form-control"
@@ -144,13 +146,12 @@
 										class="btn btn-success"
 										onclick="document.getElementById('commentForm').submit(); return false;"
 										th:text="#{crud.action.save}">Send</button>
-										
-								<a sec:authorize="hasRole('ROLE_ADMIN')"
-									    class="btn btn-primary delete"
-										th:href="@{/article/delete/}+${article.id}"> <span 
-										th:text="#{article.action.delete}"/></a>
 
-									<a class="btn btn-danger" th:if="!${param.success}"
+									<a sec:authorize="hasRole('ROLE_ADMIN')"
+										class="btn btn-primary delete"
+										th:href="@{/article/delete/}+${article.id}"> <span
+										th:text="#{article.action.delete}" /></a> <a
+										class="btn btn-danger" th:if="!${param.success}"
 										th:href="@{/}"> <span
 										th:text="${readonly}?:#{navigation.back}" />
 									</a>

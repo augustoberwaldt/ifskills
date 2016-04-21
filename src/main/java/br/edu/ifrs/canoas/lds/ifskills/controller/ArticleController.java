@@ -273,4 +273,5 @@ public class ArticleController {
 		return "/article/list";
 	}
 	
+	
 }

@@ -72,6 +72,17 @@
 											<th th:text="#{article.title}" />
 											<th th:text="#{article.body}" />
 											<th th:text="#{article.author}" />
+										
+											<!-- 
+												 * Author: Edson
+												 * Date: 21/04/2016
+												 * Description: Admin manage article dates
+												 * @param 
+												 * @return /article/manage										
+											-->																			
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.availableOn}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.expiredOn}"   />
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.deletedOn}"   />												
 										</tr>
 									</thead>
 									<tbody>
@@ -84,7 +95,18 @@
 												th:text="|${article.body}|" /></td>
 											<td><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.author.fullName}|" /></td>
+												th:text="|${article.author.fullName}|" /></td>										
+											<!-- 
+												 * Author: Edson
+												 * Date: 21/04/2016
+												 * Description: Button for manage article dates
+												 * @param 
+												 * @return /article/manage										
+											-->													
+											
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="availableOn" name="start" value=""/></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="availableOn" name="start" value=""/></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="availableOn" name="start" value=""/></td>																														
 										</tr>
 									</tbody>
 								</table>
