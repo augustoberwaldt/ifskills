@@ -72,6 +72,7 @@
 											<th th:text="#{article.title}" />
 											<th th:text="#{article.body}" />
 											<th th:text="#{article.author}" />
+											<th th:text="#{article.teaser}" />
 										
 											<!-- 
 												 * Author: Edson
@@ -95,7 +96,11 @@
 												th:text="|${article.body}|" /></td>
 											<td><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.author.fullName}|" /></td>										
+												th:text="|${article.author.fullName}|" /></td>
+											<!-- Edward Ramos -->
+											<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.teaser}|" /></td>										
 											<!-- 
 												 * Author: Edson
 												 * Date: 21/04/2016

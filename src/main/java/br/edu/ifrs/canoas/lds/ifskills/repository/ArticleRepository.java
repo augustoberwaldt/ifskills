@@ -66,13 +66,14 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * @param title
 	 * @return
 	 */
-	List<Article> findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(String title, String body, String author);
-
+	//List<Article> findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(String title, String body, String author);
+	List<Article> findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase (String title, String body, String author, String Teaser);
 	/**
 	 * Apr/21/2016 - Edward Ramos - Method to find Title, tag or Teaser
 	 * @param title
 	 * @return
 	 */
-	List<Article> findAllByTitleContainingOrTagsContainingOrTeaserContainingAllIgnoreCase(String title, List<Article> tags, String teaser);
+	
+
 
 }

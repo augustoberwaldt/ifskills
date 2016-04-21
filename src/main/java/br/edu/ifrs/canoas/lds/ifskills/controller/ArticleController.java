@@ -13,6 +13,8 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Projections;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.mail.MailException;
@@ -250,15 +252,19 @@ public class ArticleController {
 	
 	/**
 	 * 01/04/16 - Ricardo - Create method showArticleList
-	 * 
+	 * Apr/21/2016 - Edward Ramos - Add "Title, Tag and Teaser"
 	 * @param model
 	 * @param req
 	 * @param locale
 	 * @return
+	 * 
+	 * 
 	 */
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String showArticleList(Model model, final HttpServletRequest req, final Locale locale) {
-		String criteria = req.getParameter("criteria");
+		String criteria = req.getParameter("criteria");		
+		//List<String> list;
+		
 		if (criteria != null && !criteria.isEmpty()) {
 			List<Article> articles = articleService.list(criteria);
 			if (articles.isEmpty()) {

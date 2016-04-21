@@ -105,7 +105,8 @@ public class ArticleService {
 	 * @return
 	 */
 	public List<Article> list(String parameter) {
-		return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(parameter, parameter, parameter);
+		//return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(parameter, parameter, parameter);
+		return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
 	}
 
 	public Object listPublic() {
@@ -117,7 +118,5 @@ public class ArticleService {
 	 * @param title, tags, teaser
 	 * @return list
 	 */
-	public List<Article> listSearch(String title, List<Article> tags, String teaser){
-		return articleRepository.findAllByTitleContainingOrTagsContainingOrTeaserContainingAllIgnoreCase(title, tags, teaser);
-	}
+
 }
