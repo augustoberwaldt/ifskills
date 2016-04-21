@@ -200,6 +200,9 @@
 								</div>
 								</li>
 							<!-- Dropdown-->
+							<!-- Author: Felipe 
+								  Date: 21/04/2016  
+								  Description: Added chances to the permission, as an visitor or user can see the list of ads-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#menu-jobAd"> <span
 									class="icon glyphicon glyphicon-book"></span><span class="title">Job Ad</span>
@@ -208,18 +211,13 @@
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<!-- seria href="/job/new" -->
-											<li><a href="#">Create</a></li>
+											<li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_TRAINER')" href="#">Create</a></li>
+											<!-- seria href="/job/list" -->
+											<li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/job/list">List</a></li>
 										</ul>
 									</div>
 								</div>
-								<div sec:authorize="hasRole('ROLE_ADMIN')" id="menu-jobAd" class="panel-collapse collapse">
-									<div class="panel-body">
-										<ul class="nav navbar-nav">
-											<!-- seria href="/job/list" -->
-											<li><a href="/job/list">List</a></li>
-										</ul>
-								</div>
-							</div></li>	
+							</li>	
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
