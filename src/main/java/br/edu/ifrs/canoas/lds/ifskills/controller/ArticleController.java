@@ -75,7 +75,22 @@ public class ArticleController {
 		model.addAttribute("article", articleService.list());
 		return "/article/list";
 	}
-
+	
+	/**
+	 * Author: Edward Ramos
+	 * Date: Apr/03/2016
+	 * Description: List the result of Search for Tltle, Tag or Teaser
+	 *	 
+	 * @return the string
+	 */
+	
+	/**
+	@RequestMapping("/list")
+	public String listSearch(Model model) {
+		//model.addAttribute("article", articleService.listSearch(title, tags, teaser));
+		return "/article/list";
+	}
+	 */
 	/**
 	 * Author: Aline G.
 	 * Date: 01/04/2016
@@ -130,8 +145,8 @@ public class ArticleController {
 //				MessageFormat.format(messageSource.getMessage("article.deleted.failed2", null, locale),null));
 //	    }
 		return "redirect:/";
-	}
-
+	}   
+	
 	/**
 	 * Author: Felipe
 	 * Date: 03/04/2016

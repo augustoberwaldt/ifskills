@@ -43,7 +43,7 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	
 	/**
 	 * Author: Edward Ramos
-	 * Date: 14/04/2016
+	 * Date: Apr/14/2016
 	 * Find all Public.
 	 *
 	 * @param pageable
@@ -67,5 +67,12 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * @return
 	 */
 	List<Article> findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(String title, String body, String author);
+
+	/**
+	 * Apr/21/2016 - Edward Ramos - Method to find Title, tag or Teaser
+	 * @param title
+	 * @return
+	 */
+	List<Article> findAllByTitleContainingOrTagsContainingOrTeaserContainingAllIgnoreCase(String title, List<Article> tags, String teaser);
 
 }

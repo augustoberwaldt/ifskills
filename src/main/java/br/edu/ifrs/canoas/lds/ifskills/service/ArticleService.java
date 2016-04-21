@@ -112,4 +112,12 @@ public class ArticleService {
 		return articleRepository.findByPrivateArticle(false);
 	}	
 	
+	/**
+	 * Apr/21/2016 - Edward Ramos - List titles
+	 * @param title, tags, teaser
+	 * @return list
+	 */
+	public List<Article> listSearch(String title, List<Article> tags, String teaser){
+		return articleRepository.findAllByTitleContainingOrTagsContainingOrTeaserContainingAllIgnoreCase(title, tags, teaser);
+	}
 }

@@ -16,8 +16,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -42,11 +40,6 @@ public class Article {
 	@NotEmpty
 	private String title;
 	
-	/**
-	 * 19/04/16 - Ricardo - Variable for star rating entry.
-	 */
-	private Float starRating;
-
 	private String slug;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -102,6 +95,20 @@ public class Article {
 	 */
 	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
 	private List<Comment> comments;
+		
+	public List<ArticleRank> getArticleRank() {
+		return articleRank;
+	}
+
+	public void setArticleRank(List<ArticleRank> articleRank) {
+		this.articleRank = articleRank;
+	}
+
+	/**
+	 * 20/04/16 - Ricardo - Relationship between article star rating.
+	 */
+	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
+	private List<ArticleRank> articleRank;
 
 	@Lob
 	private byte[] picture;
@@ -263,14 +270,6 @@ public class Article {
 
 	public void setDeletedOn(Date deletedOn) {
 		this.deletedOn = deletedOn;
-	}
-	
-	public Float getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(Float starRating) {
-		this.starRating = starRating;
 	}
 	
 }
