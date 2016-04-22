@@ -147,6 +147,23 @@ public class Article {
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date deletedOn;	
 	
+	
+	/**
+	 * Auhtor: Edson
+	 * Date:22/08/2016
+	 * Description: Indicate whether an article is publicly available.
+	 */	
+	@Column(columnDefinition = "boolean default true")
+	private Boolean publiclyAvailable;
+	
+	public Boolean getPubliclyAvailable() {
+		return publiclyAvailable;
+	}
+
+	public void setPubliclyAvailable(Boolean publiclyAvailable) {
+		this.publiclyAvailable = publiclyAvailable;
+	}
+
 	public Long getId() {
 		return id;
 	}
