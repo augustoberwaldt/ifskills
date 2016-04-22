@@ -208,7 +208,7 @@
 								<!--<a th:href="@{/job/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> -->
 
-								<a th:href="@{/job/delete/}+${id}" class="btn btn-danger"
+								<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/delete/}+${id}" class="btn btn-danger"
 									th:if="${readonly}" th:text="#{crud.action.delete}" /> <a
 									th:href="@{/job/list/}" class="btn btn-info"
 									th:if="!${param.success}"> <span
