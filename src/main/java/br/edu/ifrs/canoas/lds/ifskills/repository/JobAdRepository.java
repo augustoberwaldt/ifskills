@@ -3,7 +3,6 @@ package br.edu.ifrs.canoas.lds.ifskills.repository;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
-
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 
 
@@ -21,5 +20,17 @@ public interface JobAdRepository extends CrudRepository<JobAd, Long> {
 	 * @return the list
 	 */
 	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingAllIgnoreCase(String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo);
+
+
+
+
+
+	/**
+	*  @author Aline G
+	* Date: 22/04/2016
+	* Description: Method that finds Job Ads by status
+	*
+	**/
+	List<JobAd> findByStatus(Enum status);
 
 }

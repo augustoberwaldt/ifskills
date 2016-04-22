@@ -12,6 +12,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.repository.JobAdRepository;
 
 // TODO: Auto-generated Javadoc
@@ -103,5 +104,18 @@ public class JobAdService {
 		return notificationService.sendNotification(mail);
 		    
 	}
-
+	
+	
+	/**
+	 *  @author Aline G.
+	 * Date: 22/04/2016
+	 * Description: Method that shows JobAds with "Waiting" status;
+	 *
+	 **/
+	public Object listWaitingJobAds() {
+		return jobAdRepository.findByStatus(Enum.valueOf(Status.class, "Waiting"));
+	}	
+	
+	
+				
 }

@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 
 @Controller
@@ -167,4 +166,22 @@ public class JobAdController {
 
 		return "/job/list";
 	}
+	
+	
+	/**
+	 * @author Aline G.
+	 * Date: 22/04/2016
+	 * Description: Method to avaliate the JobAd.
+	 *
+	 */
+	@RequestMapping("/approve")
+	public String approve(Model model) {
+		model.addAttribute("jobs", jobAdService.listWaitingJobAds());
+		return "/job/list";
+	}
+	
+	
+	
+	
+	
 }
