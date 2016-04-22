@@ -50,11 +50,11 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
-	public void testToListAllIJobAdAndCheckAttributes() throws Exception {
+	public void testToListStatusApprovedAllIJobAdAndCheckAttributes() throws Exception {
 		this.mockMvc.perform(post("/job/list"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("jobs"))
-		.andExpect(model().attribute("jobs", hasSize(6)))
+		.andExpect(model().attribute("jobs", hasSize(2)))
 		.andExpect(model().attribute("jobs", hasItem(
                 allOf(
                         hasProperty("id", is(1L)),

@@ -41,8 +41,8 @@ public class JobAdService {
 	 * Description: Method List.
 	 * @return the iterable
 	 */
-	public Iterable<JobAd> list() {
-		return jobAdRepository.findAll();
+	public Iterable<JobAd> listStatusApproved() {
+		return jobAdRepository.findAllByStatus(Enum.valueOf(Status.class, "Approved"));
 	}
 	
 	/**

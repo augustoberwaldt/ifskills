@@ -37,7 +37,7 @@ public class JobAdServiceTest  extends BaseControllerTest{
 	 */
 	@Test
 	public void testToListAllJobAds() {
-		assertTrue(jobAdService.list().spliterator().estimateSize() > 0);
+		assertTrue(jobAdService.listStatusApproved().spliterator().estimateSize() > 0);
 	}
 
 	/**

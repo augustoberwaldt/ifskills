@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 
 
 public interface JobAdRepository extends CrudRepository<JobAd, Long> {
@@ -21,7 +22,7 @@ public interface JobAdRepository extends CrudRepository<JobAd, Long> {
 	 */
 	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingAllIgnoreCase(String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo, String fullName);
 
-
+	Iterable<JobAd> findAllByStatus(Status status);
 
 
 	/**

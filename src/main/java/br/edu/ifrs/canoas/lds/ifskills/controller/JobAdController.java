@@ -61,7 +61,7 @@ public class JobAdController {
 	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("jobs", jobAdService.list());
+		model.addAttribute("jobs", jobAdService.listStatusApproved());
 		return "/job/list";
 	}
 
