@@ -20,8 +20,7 @@ public interface JobAdRepository extends CrudRepository<JobAd, Long> {
 	 *            the email
 	 * @return the list
 	 */
-	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationContainingOrTagsContainingAllIgnoreCase(String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo, String fullName, String title, String status, String city, String tags);
-
+	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo, String fullName, String title, String status, String city, String tags);
 
 	/**
 	*  @author Aline G
