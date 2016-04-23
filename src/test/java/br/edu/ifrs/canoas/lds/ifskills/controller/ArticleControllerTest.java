@@ -89,13 +89,15 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 *
 	 * @throws Exception
 	 *             the exception
+	 *             
+	 * Change: 23/04/2016 - Ricardo - Change test for article id
 	 */
 	@Test
 	@WithUserDetails("admin@123.123")
 	public void testToCheckArticle3DeleteItAndCheckAgain() throws Exception {
 		
 		assertThat(articleService.get(3L), is(notNullValue()));
-		assertThat(articleService.get(3L).getTitle(), is("A educação em último lugar no país"));
+		assertThat(articleService.get(3L).getTitle(), is("Watson’s Potty Mouth"));
 		
 		this.mockMvc.perform(post("/article/delete/3"))
 			.andExpect(flash().attributeExists("message"))
