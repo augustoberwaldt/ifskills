@@ -113,7 +113,11 @@
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="availableOn" name="start" value=""/></td>
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="expiredOn" name="old" value=""/></td>
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="deletedOn" name="stop" value=""/></td>		
-																														
+											<td sec:authorize="hasRole('ROLE_ADMIN')">
+												<a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.publiclyAvailable}|" />
+											</td>																					
 										</tr>
 									</tbody>
 								</table>
