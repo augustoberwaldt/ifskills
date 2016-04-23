@@ -84,7 +84,7 @@ public class JobAdService {
 	 * @return the list
 	 */
 	public List<JobAd> list(String parameter) {
-		return jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingAllIgnoreCase(parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter);
+		return jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationContainingOrTagsContainingAllIgnoreCase(parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter);
 	}
 
 	
