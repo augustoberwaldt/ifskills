@@ -57,7 +57,7 @@ public class ArticleRepositoryTest {
 	 */
 	@Test
 	public void testToFindBySlugArticleAndCheckPropertyUserId(){
-		assertThat(articleRepository.findBySlug("get-with-the-program"), hasProperty("title", is("Get With the Program")));
+		assertThat(articleRepository.findBySlug("get-program"), hasProperty("title", is("Get With the Program")));
 		
 	}
 }

@@ -72,7 +72,7 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	public void testToViewSlugArticle1AndCheckAtts() throws Exception {
-		this.mockMvc.perform(post("/article/view/get-with-the-program/"))
+		this.mockMvc.perform(post("/article/view/get-program/"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("article"))
 			.andExpect(model().attribute("article", hasProperty("title", is("Get With the Program"))))

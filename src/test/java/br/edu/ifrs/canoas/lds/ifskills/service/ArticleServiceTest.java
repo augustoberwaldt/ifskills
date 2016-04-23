@@ -85,7 +85,7 @@ public class ArticleServiceTest {
 	 */
 	@Test
 	public void testToGetSlugAndCheckTitle() {
-		assertThat(articleService.get("get-with-the-program"), hasProperty("title", is("Get With the Program")));
+		assertThat(articleService.get("get-program"), hasProperty("title", is("Get With the Program")));
 	}
 	
 	/**
