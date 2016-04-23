@@ -127,20 +127,18 @@
 								<div class="row">
 									<div class="col-md-12">
 										<div class="row no-margin no-gap">
-											<div class="col-md-3 col-sm-6" th:each="article, rowStat : ${articles}">
+											<div class="col-md-3 col-sm-6" th:each="job, rowStat : ${jobs}">
 												<div th:class="${rowStat.odd}? 'pricing-table red' : 'pricing-table blue'">
 													<div class="pt-header">
 														<div class="plan-pricing">
-															<div class="pricing">$10</div>
-															<div class="pricing-type">per month</div>
+															<div class="pricing" th:text="${job.title}">$10</div>
+															<div class="pricing-type" th:text="${job.title.description}">per month</div>
 														</div>
 													</div>
 													<div class="pt-body">
-														<h4>Basic Plan</h4>
+														<h4 th:text="#{job.requirements}"></h4>
 														<ul class="plan-detail">
-															<li>1 Website</li>
-															<li>100 GB Storage</li>
-															<li>Unlimited Bandwidth</li>
+															<li th:text="${job.requirements}"></li>
 														</ul>
 													</div>
 													<div class="pt-footer">
