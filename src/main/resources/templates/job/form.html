@@ -48,7 +48,7 @@
 								
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
-									<label for="JobTitle" th:text="#{job.title}" /> <input
+									<label for="JobTitle" th:text="#{job.title.title}" /> <input
 										type="text" class="form-control" id="JobTitle"
 										th:field="*{title}" placeholder="Job Title"
 										th:readonly="${readonly}" /> <span
