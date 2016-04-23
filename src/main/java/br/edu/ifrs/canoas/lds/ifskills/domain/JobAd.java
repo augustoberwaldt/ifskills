@@ -28,6 +28,9 @@ public class JobAd {
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	@NotEmpty
+	private String title;
 
 	@Size(min = 1, max = 255)
 	private String description;
