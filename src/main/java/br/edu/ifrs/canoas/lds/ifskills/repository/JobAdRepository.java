@@ -22,15 +22,17 @@ public interface JobAdRepository extends CrudRepository<JobAd, Long> {
 	 */
 	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingAllIgnoreCase(String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo, String fullName);
 
-	Iterable<JobAd> findAllByStatus(Status status);
-
 
 	/**
 	*  @author Aline G
 	* Date: 22/04/2016
 	* Description: Method that finds Job Ads by status
+	* 
+	* Modified by Luciane
+	* Date: 22/04/2016
+	* Description: Change parameter Enum enum for Status status
 	*
 	**/
-	List<JobAd> findByStatus(Enum status);
+	List<JobAd> findByStatus(Status status);
 
 }

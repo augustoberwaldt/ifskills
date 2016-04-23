@@ -40,9 +40,13 @@ public class JobAdService {
 	 * Date: 14/04/2016
 	 * Description: Method List.
 	 * @return the iterable
+	 * 
+	 * Alteration: Luciane 
+	 * Date: 22/04/2016
+	 * Description: Changed to list only Job Ad status to "approved"
 	 */
 	public Iterable<JobAd> listStatusApproved() {
-		return jobAdRepository.findAllByStatus(Enum.valueOf(Status.class, "Approved"));
+		return jobAdRepository.findByStatus(Enum.valueOf(Status.class, "Approved"));
 	}
 	
 	/**
@@ -73,8 +77,8 @@ public class JobAdService {
 	/**
 	 *  @author Luciane
 	 * Date: 14/04/2016
-	 * Description: Method List.
-	 *
+	 * Description: List the Job Ad found according to the informed discretion
+	 * 
 	 * @param parameter
 	 *            the parameter
 	 * @return the list
@@ -84,7 +88,15 @@ public class JobAdService {
 	}
 
 	
-	
+	/**
+	 *  @author Luciane
+	 * Date: 14/04/2016
+	 * Description: Responsible method for mounting the body of the email
+	 * 
+	 * @param parameter
+	 *            the parameter
+	 * @return the list
+	 */
 	public SimpleMailMessage sendMessage(JobAd jobAd) {
 		SimpleMailMessage mail = new SimpleMailMessage();
 
