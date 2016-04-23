@@ -53,10 +53,11 @@ public class ArticleRepositoryTest {
 	 * @Date:30/03/2016
 	 * @Description: Test to find by slug article.
 	 * 
+	 * Change: 23/04/2016 - Ricardo - Change test for article id 1
 	 */
 	@Test
 	public void testToFindBySlugArticleAndCheckPropertyUserId(){
-		assertThat(articleRepository.findBySlug("Linguagens-JPA-JSF"), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
+		assertThat(articleRepository.findBySlug("get-with-the-program"), hasProperty("title", is("Get With the Program")));
 		
 	}
 }

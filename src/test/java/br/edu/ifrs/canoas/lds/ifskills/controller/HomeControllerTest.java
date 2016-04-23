@@ -39,6 +39,7 @@ public class HomeControllerTest extends BaseControllerTest{
 	 *  Description: view test method
 	 *  Shows a list of articles on page index.html
 	 *  
+	 *  Change: 23/04/2016 - Ricardo - Change test for article id 1
 	 * */
 			
 	@Test
@@ -49,8 +50,8 @@ public class HomeControllerTest extends BaseControllerTest{
 			.andExpect(model().attribute("articles", hasSize(5)))
 			.andExpect(model().attribute("articles", hasItem(
 		            allOf(
-		                    hasProperty("title", is("JPA, JSF e Spring Tool Boot")),
-		                    hasProperty("teaser", is("hhhhh"))
+		                    hasProperty("title", is("Get With the Program")),
+		                    hasProperty("teaser", is("DIY tips for adding coding to your analysis arsenal"))
 		                   
 		            )
 		    )))

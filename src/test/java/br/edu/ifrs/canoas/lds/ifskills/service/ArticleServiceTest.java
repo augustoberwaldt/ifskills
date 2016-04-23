@@ -43,14 +43,17 @@ public class ArticleServiceTest {
 
 	/**
 	 * Test to get article1 and check title.
+	 * 
+	 * Change: 23/04/2016 - Ricardo - Change test for article id 1
 	 */
 	@Test
 	public void testToGetArticle1AndCheckTitle() {
-		assertThat(articleService.get(1L), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
+		assertThat(articleService.get(1L), hasProperty("title", is("Get With the Program")));
 	}
 
 	/**
 	 * Test to create and save an article.
+	 * 
 	 */
 	@Test 
 	public void testToCreateAndSaveAnArticle() {
@@ -76,11 +79,13 @@ public class ArticleServiceTest {
 	/**
 	 * Author: Luciane
 	 * Date: 30/03/2016
-	 * Description: Test to find for slug article1 .
+	 * Description: Test to find for slug article1.
+	 * 
+	 * Change: 23/04/2016 - Ricardo - Change test for article id 1
 	 */
 	@Test
 	public void testToGetSlugAndCheckTitle() {
-		assertThat(articleService.get("Linguagens-JPA-JSF"), hasProperty("title", is("JPA, JSF e Spring Tool Boot")));
+		assertThat(articleService.get("get-with-the-program"), hasProperty("title", is("Get With the Program")));
 	}
 	
 	/**

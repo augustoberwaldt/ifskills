@@ -67,13 +67,15 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 * Description:
 	 * Test to view Article1 for Slug and check atts.
 	 * @throws Exception the exception
+	 * 
+	 * Change: 23/04/2016 - Ricardo - Change test for article id 1
 	 */
 	@Test
 	public void testToViewSlugArticle1AndCheckAtts() throws Exception {
-		this.mockMvc.perform(post("/article/view/Linguagens-JPA-JSF"))
+		this.mockMvc.perform(post("/article/view/get-with-the-program/"))
 			.andExpect(status().isOk())
 			.andExpect(model().attributeExists("article"))
-			.andExpect(model().attribute("article", hasProperty("title", is("JPA, JSF e Spring Tool Boot"))))
+			.andExpect(model().attribute("article", hasProperty("title", is("Get With the Program"))))
 			.andExpect(forwardedUrl(PRE_URL+"/article/view"+POS_URL))
 			;
 	}
