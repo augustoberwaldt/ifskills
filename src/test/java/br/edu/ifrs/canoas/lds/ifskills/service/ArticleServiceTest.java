@@ -71,7 +71,7 @@ public class ArticleServiceTest {
 	 */
 	@Test
 	public void testToFindArticle2DeleteItAndCheckAgain() {
-		assertThat(articleService.get(2L), hasProperty("title", is("Spring tool boot é o título")));
+		assertThat(articleService.get(2L), hasProperty("title", is("A Face to Remember")));
 		articleService.delete(2L);
 		assertThat(articleService.get(2L), is(nullValue()));
 	}

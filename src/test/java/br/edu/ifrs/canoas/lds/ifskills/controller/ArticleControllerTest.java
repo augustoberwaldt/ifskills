@@ -127,12 +127,15 @@ public class ArticleControllerTest extends BaseControllerTest{
 
 	}
 
-	
+	/**
+	 * Change: 23/04/2016 - Ricardo - Change test for article id
+	 * @throws Exception
+	 */
 	@Test
 	@WithUserDetails("admin@123.123")
 	public void testToDeleteArticle2WithInvalidEmail() throws Exception {
 		assertThat(articleService.get(2L), is(notNullValue()));
-		assertThat(articleService.get(2L).getTitle(), is("Spring tool boot é o título"));
+		assertThat(articleService.get(2L).getTitle(), is("A Face to Remember"));
 		this.mockMvc.perform(post("/article/delete/2"))
 		.andExpect(view().name("redirect:/"))
 		.andExpect(status().is3xxRedirection())
