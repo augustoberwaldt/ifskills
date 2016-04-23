@@ -25,6 +25,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -118,11 +120,11 @@ public class Article {
 	 * Auhtor: Edson
 	 * Date:04/08/2016
 	 * Description: Date of available article.
-	 * 
+	 * 	
 	 */
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	@Column(length = 10)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date availableOn;
 	
 	
@@ -132,9 +134,10 @@ public class Article {
 	 * Description: Date of expire article.
 	 * 
 	 */
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	@Future
+	@Column(length = 10)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date expiredOn;
 	
 	/**
@@ -143,8 +146,9 @@ public class Article {
 	 * Description: Date of delete article.
 	 *
 	 */
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
+	@Column(length = 10)
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date deletedOn;	
 	
 	
