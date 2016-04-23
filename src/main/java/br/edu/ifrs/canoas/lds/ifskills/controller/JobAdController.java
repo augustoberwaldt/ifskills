@@ -55,6 +55,7 @@ public class JobAdController {
 	 * @author Luciane
 	 * Date: 14/04/2016
 	 * Description: Method List.
+	 * 
 	 * @param model
 	 *            the model
 	 * @return the string
