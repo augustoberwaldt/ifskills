@@ -72,7 +72,7 @@
 										th:classappend="${#fields.hasErrors('author')}? 'has-error'">
 										<label for="Author" th:text="#{article.author}" /> <input
 											type="text" class="form-control" id="ArticleAuthor"
-											th:field="*{author}" placeholder="Author"
+											th:field="*{author.fullName}" placeholder="Author"
 											th:readonly="${readonly}" /> <span
 											th:if="${#fields.hasErrors('body')}" th:errors="*{author}"
 											th:class="help-block" />
