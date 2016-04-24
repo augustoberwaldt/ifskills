@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 
@@ -118,7 +119,7 @@ public class JobAdController {
 
 		
 	}
-	
+		
 	/**
 	 * @author Luciane
 	 * Date: 14/04/2016
