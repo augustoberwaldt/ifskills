@@ -42,7 +42,7 @@ public class ArticleController {
 
 	@Autowired
 	private NotificationService notificationService;
-	
+
 	private ArticleService articleService;
 	private MessageSource messageSource;
 	private UserProfileService userService;
@@ -77,30 +77,26 @@ public class ArticleController {
 		model.addAttribute("article", articleService.list());
 		return "/article/list";
 	}
-	
+
 	/**
-	 * Author: Edward Ramos
-	 * Date: Apr/03/2016
-	 * Description: List the result of Search for Tltle, Tag or Teaser
-	 *	 
+	 * Author: Edward Ramos Date: Apr/03/2016 Description: List the result of
+	 * Search for Tltle, Tag or Teaser
+	 * 
 	 * @return the string
 	 */
-	
+
 	/**
-	@RequestMapping("/list")
-	public String listSearch(Model model) {
-		//model.addAttribute("article", articleService.listSearch(title, tags, teaser));
-		return "/article/list";
-	}
+	 * @RequestMapping("/list") public String listSearch(Model model) {
+	 * //model.addAttribute("article", articleService.listSearch(title, tags,
+	 * teaser)); return "/article/list"; }
 	 */
 	/**
-	 * Author: Aline G.
-	 * Date: 01/04/2016
-	 * Description: Method that calls sendNotification() and delete an Article.
+	 * Author: Aline G. Date: 01/04/2016 Description: Method that calls
+	 * sendNotification() and delete an Article.
 	 * 
-	 * Modified by Aline G. 
-	 * Date: 05/04/2016
-	 * Now it's calling sendNotification() before delete the Article.
+	 * Modified by Aline G. Date: 05/04/2016 Now it's calling sendNotification()
+	 * before delete the Article.
+	 * 
 	 * @param id
 	 *            the id
 	 * @param model
@@ -116,43 +112,42 @@ public class ArticleController {
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		int not = 0;
 		Article article = articleService.get(id);
-			
+
 		if (article != null) {
-		 try {
-			notificationService.sendNotification(article);
-			}catch( MailException e){
-		      not = 1;
-		 }
-		
-		articleService.delete(id);
+			try {
+				notificationService.sendNotification(article);
+			} catch (MailException e) {
+				not = 1;
+			}
 
-		redirectAttrs.addFlashAttribute("message",
-				MessageFormat.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
-		  if (not==1) {
-			redirectAttrs.addFlashAttribute("message2",
-					 MessageFormat.format(messageSource.getMessage("article.mail.failed", null, locale), null));
-		  } else {
-			  redirectAttrs.addFlashAttribute("message2",
-						 MessageFormat.format(messageSource.getMessage("article.mail.sent", null, locale), null));
-		  }
+			articleService.delete(id);
 
-		return "redirect:/";
-		} 
-		
+			redirectAttrs.addFlashAttribute("message", MessageFormat
+					.format(messageSource.getMessage("article.deleted", null, locale), article.getTitle()));
+			if (not == 1) {
+				redirectAttrs.addFlashAttribute("message2",
+						MessageFormat.format(messageSource.getMessage("article.mail.failed", null, locale), null));
+			} else {
+				redirectAttrs.addFlashAttribute("message2",
+						MessageFormat.format(messageSource.getMessage("article.mail.sent", null, locale), null));
+			}
+
+			return "redirect:/";
+		}
+
 		redirectAttrs.addFlashAttribute("message3",
-				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale),null));
-		
-//		if (au==1) {
-//		redirectAttrs.addFlashAttribute("message4",
-//				MessageFormat.format(messageSource.getMessage("article.deleted.failed2", null, locale),null));
-//	    }
+				MessageFormat.format(messageSource.getMessage("article.deleted.failed", null, locale), null));
+
+		// if (au==1) {
+		// redirectAttrs.addFlashAttribute("message4",
+		// MessageFormat.format(messageSource.getMessage("article.deleted.failed2",
+		// null, locale),null));
+		// }
 		return "redirect:/";
-	}   
-	
+	}
+
 	/**
-	 * Author: Felipe
-	 * Date: 03/04/2016
-	 * Creates the.
+	 * Author: Felipe Date: 03/04/2016 Creates the.
 	 *
 	 * @param model
 	 *            the model
@@ -167,28 +162,21 @@ public class ArticleController {
 	}
 
 	/**
-	 * Author: Felipe
-	 * Date: 03/04/2016
-	 * Update.
+	 * Author: Felipe Date: 03/04/2016 Update.
 	 *
-	 * @param id
-	 *            the id
-	 * @param model
-	 *            the model
-	 * @return the string
+	 * Modified by: Edson Date: 24/04/2016 Description: return "/article/list";
 	 */
+
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));
-		model.addAttribute("users", userService.list());
+//		model.addAttribute("users", userService.list());
 		model.addAttribute("readonly", false);
 		return "/article/new";
 	}
 
 	/**
-	 * Author: Felipe
-	 * Date: 03/04/2016
-	 * Save.
+	 * Author: Felipe Date: 03/04/2016 Save.
 	 *
 	 * @param article
 	 *            the article
@@ -204,16 +192,16 @@ public class ArticleController {
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Article article, BindingResult bindingResult, Model model,
-			@RequestParam("articlePicture") MultipartFile picture,
-			RedirectAttributes redirectAttrs, Locale locale) throws IOException{
-		
+			@RequestParam("articlePicture") MultipartFile picture, RedirectAttributes redirectAttrs, Locale locale)
+			throws IOException {
+
 		if (!bindingResult.hasErrors()) {
-			article.setAuthor(userService.getPrincipal().getUser());			
+			article.setAuthor(userService.getPrincipal().getUser());
 			article.setPostedOn(new Timestamp(System.currentTimeMillis()));
 			article.setActive(true);
 			article.setPicture(picture.getBytes());
 			String slug = article.getTeaser();
-			slug.substring(0,slug.length());
+			slug.substring(0, slug.length());
 			slug.replaceAll(" ", "-");
 			article.setSlug(slug);
 			Article savedArticle = articleService.save(article);
@@ -225,22 +213,22 @@ public class ArticleController {
 	}
 
 	/**
-	 * Author: Luciane
-	 * Date: 24/03/2016
-	 * Description: Change view to read by @RequestMapping("/view/{slug}").
+	 * Author: Luciane Date: 24/03/2016 Description: Change view to read
+	 * by @RequestMapping("/view/{slug}").
+	 * 
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("/view/{slug}") 
+	@RequestMapping("/view/{slug}")
 	public String view(@PathVariable String slug, Model model) {
-		
+
 		Article article = articleService.get(slug);
 		Comment comment = new Comment();
 		comment.setArticle(article);
-		
-		model.addAttribute("auth",userService.getPrincipal() != null );
-		model.addAttribute("article",  article);
-		model.addAttribute("comment",  comment);
+
+		model.addAttribute("auth", userService.getPrincipal() != null);
+		model.addAttribute("article", article);
+		model.addAttribute("comment", comment);
 		return "/article/view";
 	}
 
@@ -249,10 +237,11 @@ public class ArticleController {
 		model.addAttribute("auth", userService.getPrincipal() != null);
 		return "/article/view";
 	}
-	
+
 	/**
-	 * 01/04/16 - Ricardo - Create method showArticleList
-	 * Apr/21/2016 - Edward Ramos - Add "Title, Tag and Teaser"
+	 * 01/04/16 - Ricardo - Create method showArticleList Apr/21/2016 - Edward
+	 * Ramos - Add "Title, Tag and Teaser"
+	 * 
 	 * @param model
 	 * @param req
 	 * @param locale
@@ -262,14 +251,13 @@ public class ArticleController {
 	 */
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String showArticleList(Model model, final HttpServletRequest req, final Locale locale) {
-		String criteria = req.getParameter("criteria");		
-		//List<String> list;
-		
+		String criteria = req.getParameter("criteria");
+		// List<String> list;
+
 		if (criteria != null && !criteria.isEmpty()) {
 			List<Article> articles = articleService.list(criteria);
 			if (articles.isEmpty()) {
-				model.addAttribute("message",
-						messageSource.getMessage("article.notFound", null, locale));
+				model.addAttribute("message", messageSource.getMessage("article.notFound", null, locale));
 			}
 			model.addAttribute("articles", articles);
 		} else if (criteria != null && criteria.isEmpty()) {
@@ -278,6 +266,5 @@ public class ArticleController {
 		}
 		return "/article/list";
 	}
-	
-	
+
 }

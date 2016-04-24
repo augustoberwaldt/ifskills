@@ -73,18 +73,24 @@
 											<th th:text="#{article.body}" />
 											<th th:text="#{article.author}" />
 											<th th:text="#{article.teaser}" />
-										
+
 											<!-- 
 												 * Author: Edson
 												 * Date: 21/04/2016
 												 * Description: Admin manage article dates
 												 * @param 
 												 * @return /article/manage										
-											-->																			
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.startPublishingDate}" />
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.oldArticleDate}"   />
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.stopPublishingDate}"   />		
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.publiclyAvailable}"   />										
+											-->
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{article.startPublishingDate}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{article.oldArticleDate}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{article.stopPublishingDate}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{article.publiclyAvailable}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')"
+												th:text="#{article.action}" />
 										</tr>
 									</thead>
 									<tbody>
@@ -101,38 +107,43 @@
 											<!-- Edward Ramos -->
 											<td><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.teaser}|" /></td>										
+												th:text="|${article.teaser}|" /></td>
 											<!-- 
 												 * Author: Edson
 												 * Date: 21/04/2016
 												 * Description: Button for manage article dates
-												 * @param 
-												 * @return /article/manage										
-											-->	
-												<td><a href="#"
+												 * 
+												 * Changes: Edson
+												 * Date: 24/04/2016
+												 * Description: Only visibility for the fields	
+												 *
+												 *
+												 *								
+											-->
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.startPublishingDate}|" /></td>													
-																								<td><a href="#"
+												th:text="|${article.startPublishingDate}|" /></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.oldArticleDate}|" /></td>																								
-																								<td><a href="#"
+												th:text="|${article.oldArticleDate}|" /></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.stopPublishingDate}|" /></td>	
-												
-												<td sec:authorize="hasRole('ROLE_ADMIN')">
-												<a href="#"
+												th:text="|${article.stopPublishingDate}|" /></td>
+
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.publiclyAvailable}|" />
-											</td>										
-																							
-																							
-																							
+												th:text="|${article.publiclyAvailable}|"/></td>
+
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#" 
+												th:href="@{/article/edit/}+${article.id}"> <span
+												class="badge" th:text="#{article.action.manageDates}" />
+											</a></td>
 											<!-- 
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="startPublishingDate" name="startPublishingDate" value=""/></td>
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="oldArticleDate" name="old" value=""/></td>
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="stopPublishingDate" name="stopPublishingDate" value=""/></td>		
 
-											-->																					
+											-->
 										</tr>
 									</tbody>
 								</table>

@@ -43,7 +43,7 @@
 									<tr>
 										<th th:text="#{course.name}" />
 										<th th:text="#{course.description}" />
-										<th th:text="#{course.workload}"/>
+										<th th:text="#{course.workload}" />
 										<th th:text="#{course.startDate}" />
 										<th th:text="#{course.endDate}" />
 									</tr>
@@ -51,24 +51,26 @@
 								<tbody>
 									<tr th:each="course : ${courses}">
 										<td><span th:text="${course.name}" /></td>
- 										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
+										<!-- <td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="|${course.type}|" /></td>-->
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.description}}" /></td>
-										
+
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.workload}}" /> hours</td>
-											
+
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.startDate}}" /></td>
-											
+
 										<td><a href="#" th:href="@{|/course/view/${course.id}|}"
 											th:text="${{course.endDate}}" /></td>
-																				
-										<td><a sec:authorize="hasRole('ROLE_TRAINER')" th:href="@{/course/edit/}+${course.id}" class="edit">
-												<span class="badge" th:text="#{crud.action.edit}"/>
-										</a><a sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')" th:href="@{/course/delete/}+${course.id}" class="delete">
-												<span class="badge" th:text="#{crud.action.delete}"/>
+
+										<td><a sec:authorize="hasRole('ROLE_TRAINER')"
+											th:href="@{/course/edit/}+${course.id}" class="edit"> <span
+												class="badge" th:text="#{crud.action.edit}" />
+										</a><a sec:authorize="hasAnyRole('ROLE_TRAINER', 'ROLE_ADMIN')"
+											th:href="@{/course/delete/}+${course.id}" class="delete">
+												<span class="badge" th:text="#{crud.action.delete}" />
 										</a></td>
 									</tr>
 								</tbody>
