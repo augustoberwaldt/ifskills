@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import static org.hamcrest.CoreMatchers.allOf;
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -22,6 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.ui.Model;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
@@ -106,6 +108,7 @@ public class JobAdControllerTest extends BaseControllerTest{
 		this.mockMvc.perform(post("/job/delete/1000"))
 		.andExpect(view().name("redirect:/job/list"))
 		.andExpect(status().is3xxRedirection())
+		//.andExpect(model().attribute("message3", containsString("Job failed to delete!")))
 		;
 
 	}
@@ -141,12 +144,14 @@ public class JobAdControllerTest extends BaseControllerTest{
 	@Test
 	public void testToViewJobAd1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/job/view/1"))
-			.andExpect(status().isOk())
-			.andExpect(model().attributeExists("job"))
-			.andExpect(model().attribute("job", hasProperty("businessArea", is("Informática TI"))))
-			.andExpect(model().attribute("readonly",is(true)))
-			.andExpect(forwardedUrl(PRE_URL+"/job/form"+POS_URL))
-			;
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("job"))
+		.andExpect(model().attribute("job", hasProperty("title", is("Vaga TI"))))
+		.andExpect(model().attribute("readonly",is(true)))
+		.andExpect(forwardedUrl(PRE_URL+"/job/form"+POS_URL))
+		;
+
+		
 	}
 	
 	/**
@@ -158,8 +163,20 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
-	public void testShowJobAdList() {
-		//fail("Not yet implemented");
+	public void testShowJobAdListAndCheckAtts() throws Exception{
+		/*this.mockMvc.perform(post("/job/search/Porto+Alegre"))
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("jobs"))
+		.andExpect(model().attribute("jobs", hasSize(1)))
+		.andExpect(model().attribute("jobs", hasItem(
+                allOf(
+                        hasProperty("id", is(1L)),
+                        hasProperty("title", is("Vaga TI")),
+                        hasProperty("benefits", is("Vale-refeição e Vale transporte"))
+                )
+        )))
+		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
+		;*/
 	}
 
 }
