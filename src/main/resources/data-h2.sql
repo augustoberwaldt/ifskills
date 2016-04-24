@@ -111,3 +111,15 @@ insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(4, 'Marketing, Supports');
 insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(5, 'Technician, Developer, Products');
 insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(5, 'Database, Administrator');
 
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 1, 1, 1);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 2);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 3, 3);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 4, 4);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 5, 5);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 1, 6);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 1, 7);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 8);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 3, 9);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 4, 10);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 1, 1);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 1, 8);
