@@ -164,7 +164,7 @@ public class ArticleController {
 	/**
 	 * Author: Felipe Date: 03/04/2016 Update.
 	 *
-	 * Modified by: Edson Date: 24/04/2016 Description: return "/article/list";
+	 * Modified by: Edson Date: 24/04/2016 Description: return "/article/form";
 	 */
 
 	@RequestMapping("/edit/{id}")
@@ -172,7 +172,7 @@ public class ArticleController {
 		model.addAttribute("article", articleService.get(id));
 //		model.addAttribute("users", userService.list());
 		model.addAttribute("readonly", false);
-		return "/article/new";
+		return "/article/form";
 	}
 
 	/**
