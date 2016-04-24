@@ -106,7 +106,7 @@ public class ArticleService {
 	 */
 	public List<Article> list(String parameter) {
 		//return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(parameter, parameter, parameter);
-		return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
+		  return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
 	}
 
 	public Object listPublic() {

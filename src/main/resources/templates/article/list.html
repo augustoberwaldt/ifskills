@@ -81,9 +81,9 @@
 												 * @param 
 												 * @return /article/manage										
 											-->																			
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.availableOn}" />
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.expiredOn}"   />
-											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.deletedOn}"   />		
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.startPublishingDate}" />
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.oldArticleDate}"   />
+											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.stopPublishingDate}"   />		
 											<th sec:authorize="hasRole('ROLE_ADMIN')" th:text="#{article.publiclyAvailable}"   />										
 										</tr>
 									</thead>
@@ -108,16 +108,31 @@
 												 * Description: Button for manage article dates
 												 * @param 
 												 * @return /article/manage										
-											-->													
-											
-											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="availableOn" name="start" value=""/></td>
-											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="expiredOn" name="old" value=""/></td>
-											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="deletedOn" name="stop" value=""/></td>		
-											<td sec:authorize="hasRole('ROLE_ADMIN')">
+											-->	
+												<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.startPublishingDate}|" /></td>													
+																								<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.oldArticleDate}|" /></td>																								
+																								<td><a href="#"
+												th:href="@{|/article/view/${article.slug}|}"
+												th:text="|${article.stopPublishingDate}|" /></td>	
+												
+												<td sec:authorize="hasRole('ROLE_ADMIN')">
 												<a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
 												th:text="|${article.publiclyAvailable}|" />
-											</td>																					
+											</td>										
+																							
+																							
+																							
+											<!-- 
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="startPublishingDate" name="startPublishingDate" value=""/></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="oldArticleDate" name="old" value=""/></td>
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="stopPublishingDate" name="stopPublishingDate" value=""/></td>		
+
+											-->																					
 										</tr>
 									</tbody>
 								</table>
