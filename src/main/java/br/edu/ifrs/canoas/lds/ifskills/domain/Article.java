@@ -125,7 +125,7 @@ public class Article {
 	@Column(length = 10)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date availableOn;
+	private Date startPublishingDate;
 	
 	
 	/**
@@ -138,7 +138,7 @@ public class Article {
 	@Column(length = 10)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date expiredOn;
+	private Date oldArticleDate;
 	
 	/**
 	 * Auhtor: Edson
@@ -149,7 +149,7 @@ public class Article {
 	@Column(length = 10)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date deletedOn;	
+	private Date stopPublishingDate;	
 	
 	
 	/**
@@ -232,6 +232,30 @@ public class Article {
 		this.teaser = teaser;
 	}
 
+	public Date getStartPublishingDate() {
+		return startPublishingDate;
+	}
+
+	public void setStartPublishingDate(Date startPublishingDate) {
+		this.startPublishingDate = startPublishingDate;
+	}
+
+	public Date getOldArticleDate() {
+		return oldArticleDate;
+	}
+
+	public void setOldArticleDate(Date oldArticleDate) {
+		this.oldArticleDate = oldArticleDate;
+	}
+
+	public Date getStopPublishingDate() {
+		return stopPublishingDate;
+	}
+
+	public void setStopPublishingDate(Date stopPublishingDate) {
+		this.stopPublishingDate = stopPublishingDate;
+	}
+
 	public String getBody() {
 		return body;
 	}
@@ -260,37 +284,12 @@ public class Article {
 		this.picture = picture;
 	}	
 
-
 	public Boolean getPrivateArticle() {
 		return privateArticle;
 	}
 
 	public void setPrivateArticle(Boolean privateArticle) {
 		this.privateArticle = privateArticle;
-	}
-
-	public Date getAvailableOn() {
-		return availableOn;
-	}
-
-	public void setAvailableOn(Date availableOn) {
-		this.availableOn = availableOn;
-	}
-
-	public Date getExpiredOn() {
-		return expiredOn;
-	}
-
-	public void setExpiredOn(Date expiredOn) {
-		this.expiredOn = expiredOn;
-	}
-
-	public Date getDeletedOn() {
-		return deletedOn;
-	}
-
-	public void setDeletedOn(Date deletedOn) {
-		this.deletedOn = deletedOn;
 	}
 	
 }
