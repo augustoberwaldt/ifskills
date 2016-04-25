@@ -12,7 +12,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
-import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 
 @Service
 public class NotificationService {

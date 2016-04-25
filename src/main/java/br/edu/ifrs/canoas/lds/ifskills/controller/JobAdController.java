@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -18,14 +19,15 @@ import org.springframework.mail.MailException;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
+import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 @Controller
 @RequestMapping("/job")
@@ -33,6 +35,7 @@ public class JobAdController {
 	
 	private JobAdService jobAdService;
 	private MessageSource messageSource;
+	private UserProfileService userProfileService;
 		
 	
 	/**
@@ -46,10 +49,11 @@ public class JobAdController {
 	 *            the message source
 	 */
 	@Autowired
-	public JobAdController(JobAdService jobAdService, MessageSource messageSource) {
+	public JobAdController(JobAdService jobAdService, MessageSource messageSource,UserProfileService userProfileService) {
 		
 		this.jobAdService = jobAdService;
 		this.messageSource = messageSource;
+		this.userProfileService= userProfileService;
 	}
 	
 	/**
@@ -182,8 +186,34 @@ public class JobAdController {
 		return "/job/list";
 	}
 	
+	//@author Fernando Sturzbecher
+	//Date: 25/04/16
+	//Description: Method to create a new Job Ad.
+
+	@RequestMapping("/create")
+	public String create(Model model) {
+		JobAd jobAd= new JobAd();
+		jobAd.setEmployer(userProfileService.getPrincipal().getUser());
+		model.addAttribute("job", jobAd);
+		model.addAttribute("readonly", false);
+		return "/job/form";
+	}
 	
-	
-	
-	
+	//@author Fernando Sturzbecher
+	//Date: 25/04/16
+	//Description: Method to save a Job Ad.
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(@Valid JobAd jobAd, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
+			Locale locale) {
+		if (!bindingResult.hasErrors()) {
+			JobAd savedJobAd = jobAdService.save(jobAd);
+			model.addAttribute("readonly", true);
+
+			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("jobAd.saved", null, locale));
+
+			return "redirect:/job/view/" + savedJobAd.getId() + "?success";
+		}
+		model.addAttribute("readonly", false);
+		return "/job/form";
+	}
 }
