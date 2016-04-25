@@ -8,6 +8,10 @@
  * @modified: Aline G.
  * @date: 14/04/2016
  * @description: "status" attribute added. 
+ * 
+ * @modified: Aline G.
+ * @date: 25/04/2016
+ * @description: "justification" attribute added.
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
@@ -62,6 +66,8 @@ public class JobAd {
 
 	@Enumerated(EnumType.STRING)
 	private Status status;
+	
+	private String justification;
 
 	public Long getId() {
 		return id;
@@ -158,4 +164,14 @@ public class JobAd {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+
+	public String getJustification() {
+		return justification;
+	}
+
+	public void setJustification(String justification) {
+		this.justification = justification;
+	}
+	
+	
 }
