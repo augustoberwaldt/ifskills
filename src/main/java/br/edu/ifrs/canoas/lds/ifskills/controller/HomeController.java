@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
+import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -21,6 +22,7 @@ public class HomeController {
 
 	private UserProfileService userService;
 	private ArticleService articleService;
+	private JobAdService jobAdService;
 
 	/**
 	 * Instantiates a new home controller.
@@ -31,9 +33,10 @@ public class HomeController {
 	 *            the article service
 	 */
 	@Autowired
-	public HomeController(UserProfileService service, ArticleService articleService) {
+	public HomeController(UserProfileService service, ArticleService articleService, JobAdService jobAdService) {
 		this.userService = service;
 		this.articleService = articleService;
+		this.jobAdService = jobAdService;
 	}
 
 	/**
@@ -54,6 +57,7 @@ public class HomeController {
 			model.addAttribute("articles", articleService.findAll());
 		}else{
 			model.addAttribute("articles", articleService.listPublic());
+			model.addAttribute("jobs", jobAdService.listStatusApproved());
 		}
 		return "/index";
 	}
