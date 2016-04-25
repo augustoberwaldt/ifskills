@@ -29,12 +29,40 @@ public class JobAdRepositoryTest {
 		String str = "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
-		//assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase("", "Written Communication, Organization, Statistical Analysis, General Math, Microsoft Office, Self-Development, Financial Skills", " ", " ", " ", " ", " ", " ", " ", " ", " ").size(), is(6));
-		//assertTrue(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase("strategies", "", "", "", "", "", "", "", "", "", "").spliterator().estimateSize() > 0);
+		str="SCRUM";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
+		str="IT";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(5));
+		str="Graduation in IT area";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
+		str="Meal ticket";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));
+		str="rh.it@gmail.com";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));
+		str="Luciane";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
+		str="DBA Architect";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
+		str="waiting";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(4));
+		str="Canoas";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(5));
+		str="java";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));		
 	}
 	
 	/**
-	*  @author Aline G
+	*  @author Luciane
 	* Date: 
 	* Description: 
 	*
