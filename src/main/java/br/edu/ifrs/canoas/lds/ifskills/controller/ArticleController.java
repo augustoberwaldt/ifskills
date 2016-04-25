@@ -263,7 +263,7 @@ public class ArticleController {
 			}
 			model.addAttribute("articles", articles);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("articles", new ArrayList<Article>());
+			model.addAttribute("articles", new ArrayList<>());
 			model.addAttribute("message", messageSource.getMessage("article.validatorCriteria", null, locale));
 		}
 		return "/article/list";

@@ -73,6 +73,9 @@ public interface ArticleRepository extends CrudRepository<Article, Long> {
 	 * @param title
 	 * @return
 	 */
+
+	List<Article> findAllByTitleContainingOrTeaserContainingOrTagsInAllIgnoreCase(String title,
+			String teaser, String tag);
 	
 
 

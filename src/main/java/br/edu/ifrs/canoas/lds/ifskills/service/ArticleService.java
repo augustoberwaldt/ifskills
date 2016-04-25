@@ -5,6 +5,7 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -106,7 +107,8 @@ public class ArticleService {
 	 */
 	public List<Article> list(String parameter) {
 		//return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingAllIgnoreCase(parameter, parameter, parameter);
-		  return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
+		  //return articleRepository.findAllByTitleContainingOrBodyContainingOrAuthorContainingOrTeaserContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
+		return articleRepository.findAllByTitleContainingOrTeaserContainingOrTagsInAllIgnoreCase(parameter, parameter, parameter);
 	}
 
 	public Object listPublic() {
