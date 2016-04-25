@@ -1,8 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasProperty;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,6 +10,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
@@ -26,7 +26,9 @@ public class JobAdRepositoryTest {
 	 */
 	@Test
 	public void testFindAllByPropertiesOfJobAd() {
-		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase("Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral", "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral").size(), is(1));
+		String str = "Nível hierárquico: Operacional, Regime de contratação de tipo Efetivo – CLT Jornada Período Integral";
+		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
 		//assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase("", "Written Communication, Organization, Statistical Analysis, General Math, Microsoft Office, Self-Development, Financial Skills", " ", " ", " ", " ", " ", " ", " ", " ", " ").size(), is(6));
 		//assertTrue(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusContainingOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase("strategies", "", "", "", "", "", "", "", "", "", "").spliterator().estimateSize() > 0);
 	}
