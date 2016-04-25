@@ -132,11 +132,11 @@
 
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{|/article/view/${article.slug}|}"
-												th:text="|${article.publiclyAvailable}|"/></td>
+												th:text="|${article.publiclyAvailable}|" /></td>
 
-											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#" 
+											<td sec:authorize="hasRole('ROLE_ADMIN')"><a href="#"
 												th:href="@{/article/edit/}+${article.id}"> <span
-												class="badge" th:text="#{article.action.manageDates}" />
+													class="badge" th:text="#{article.action.manageDates}" />
 											</a></td>
 											<!-- 
 											<td sec:authorize="hasRole('ROLE_ADMIN')"><input type="text" class="form-control datepicker" id="startPublishingDate" name="startPublishingDate" value=""/></td>
@@ -147,12 +147,35 @@
 										</tr>
 									</tbody>
 								</table>
+								<div class="bottom">
+									<div class="dataTables_info" id="DataTables_Table_0_info"
+										role="status" aria-live="polite">Showing 1 to 6 of 6
+										entries</div>
+									<div class="dataTables_paginate paging_simple_numbers"
+										id="DataTables_Table_0_paginate">
+										<ul class="pagination">
+											<li class="paginate_button previous disabled"
+												id="DataTables_Table_0_previous"><a href="#"
+												aria-controls="DataTables_Table_0" data-dt-idx="0"
+												tabindex="0">Previous</a></li>
+											<li class="paginate_button active"><a href="#"
+												aria-controls="DataTables_Table_0" data-dt-idx="1"
+												tabindex="0">1</a></li>
+											<li class="paginate_button next disabled"
+												id="DataTables_Table_0_next"><a href="#"
+												aria-controls="DataTables_Table_0" data-dt-idx="2"
+												tabindex="0">Next</a></li>
+										</ul>
+									</div>
+									<div class="clear"></div>
+								</div>
 
-								<a onclick="javascript:history.back()" class="btn btn-danger"
-									th:if="!${param.success}"> <span
-									th:text="#{navigation.back}" />
-								</a>
-
+								<!-- <pseudo:after></<pseudo:after> -->
+								<a class="btn btn-success" href="/article/new/">New</a>
+										<a onclick="javascript:history.back()" class="btn btn-danger"
+											th:if="!${param.success}"> <span
+											th:text="#{navigation.back}" />
+										</a>
 							</div>
 						</div>
 					</div>
