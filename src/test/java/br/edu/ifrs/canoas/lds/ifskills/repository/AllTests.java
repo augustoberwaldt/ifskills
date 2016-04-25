@@ -10,7 +10,11 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ItemRepositoryTest.class, ArticleRepositoryTest.class, CommentRepositoryTest.class, JobAdRepositoryTest.class})
+@SuiteClasses({ 
+	ItemRepositoryTest.class
+	, ArticleRepositoryTest.class
+	, CommentRepositoryTest.class
+	, JobAdRepositoryTest.class})
 public class AllTests {
 
 }

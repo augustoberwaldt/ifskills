@@ -28,7 +28,7 @@ public class ItemRepositoryTest {
 	 */
 	@Test
 	public void testToFindAllItemsThatAreChecked() {
-		assertThat(itemRepository.findChecked().size(), is(5));
+		assertThat(itemRepository.findChecked().isEmpty(), is(false));
 	}
 
 }
