@@ -1,14 +1,17 @@
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import java.util.List;
 
-public class ArticleRankRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
+import br.edu.ifrs.canoas.lds.ifskills.domain.ArticleRank;
+
+public interface ArticleRankRepository extends CrudRepository<ArticleRank, Long>{
 
 	/**
 	 * 24/04/16 - Ricardo - Method to find all article to calculate rank
 	 */
-	public void findAllByArticle(Article article) {
-
-	}
-
+	public List<ArticleRank> findAllByArticle(Article article);
+	
 }
