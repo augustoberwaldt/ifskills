@@ -129,6 +129,10 @@ public class JobAdService {
 		return jobAdRepository.findByStatus(Enum.valueOf(Status.class, "Waiting"));
 	}	
 	
-	
-				
+	//@author Fernando Sturzbecher
+	//Date: 25/04/16
+	//Description: Method to save a Job Ad.
+	public JobAd save(JobAd jobAds) {
+		return jobAdRepository.save(jobAds);
+	}			
 }

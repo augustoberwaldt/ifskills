@@ -5,11 +5,9 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
