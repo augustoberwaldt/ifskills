@@ -72,6 +72,8 @@ public class ArticleController {
 	 *            the model
 	 * @return the string
 	 */
+	
+	
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("article", articleService.list());
@@ -166,7 +168,7 @@ public class ArticleController {
 	 *
 	 * Modified by: Edson Date: 24/04/2016 Description: return "/article/form";
 	 */
-
+	@Secured({"ROLE_ADMIN", "ROLE_TRAINER"})
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("article", articleService.get(id));

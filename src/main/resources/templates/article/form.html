@@ -17,7 +17,7 @@
 		<!-- BREADCRUMB -->
 		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
 			<li th:text="#{article.breadcrumb-1}" />
-			<li class="active" th:text="#{article.breadcrumb-2}" />
+			<li class="active" th:text="#{article.breadcrumb-edit}" />
 		</ol>
 
 		<div class="side-body">
@@ -47,8 +47,9 @@
 								<input type="hidden" th:field="*{id}" />
 
 								<div class="col-xs-12 col-md-8">
-
-									<div class="form-group"
+							<!-- Modified By: Edson Date: 24/04/2016 Description: Added hasAnyHole ('ROLE_TRAINER','ROLE_ADMIN')" -->
+							
+									<div sec:authorize="hasAnyRole('ROLE_TRAINER','ROLE_ADMIN')" class="form-group"
 										th:classappend="${#fields.hasErrors('title')}? 'has-error'">
 										<label for="Title" th:text="#{article.title}" /> <input
 											type="text" class="form-control" id="ArticleTitle"
@@ -58,7 +59,7 @@
 											th:class="help-block" />
 									</div>
 
-									<div class="form-group"
+									<div sec:authorize="hasAnyRole('ROLE_TRAINER','ROLE_ADMIN')" class="form-group"
 										th:classappend="${#fields.hasErrors('body')}? 'has-error'">
 										<label for="Body" th:text="#{article.body}" /> <input
 											type="text" class="form-control" id="ArticleBody"
@@ -68,7 +69,7 @@
 											th:class="help-block" />
 									</div>
 
-									<div class="form-group"
+									<div sec:authorize="hasAnyRole('ROLE_TRAINER','ROLE_ADMIN')" class="form-group"
 										th:classappend="${#fields.hasErrors('author')}? 'has-error'">
 										<label for="Author" th:text="#{article.author}" /> <input
 											type="text" class="form-control" id="ArticleAuthor"
@@ -77,6 +78,59 @@
 											th:if="${#fields.hasErrors('body')}" th:errors="*{author}"
 											th:class="help-block" />
 									</div>
+									
+								<!-- startPublishingDate  -->
+									<div sec:authorize="hasRole('ROLE_ADMIN')" class="form-group"
+										th:classappend="${#fields.hasErrors('startPublishingDate')}? 'has-error'">
+										<label for="startPublishingDate"
+											th:text="#{article.startPublishingDate}" /> <input
+											type="text" class="form-control datepicker"
+											id="startPublishingDate"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{startPublishingDate}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('startPublishingDate')}"
+											th:errors="*{{startPublishingDate}}" th:class="help-block" />
+									</div>
+									
+								<!-- oldArticleDate  -->
+									<div sec:authorize="hasRole('ROLE_ADMIN')" class="form-group"
+										th:classappend="${#fields.hasErrors('oldArticleDate')}? 'has-error'">
+										<label for="oldArticleDate"
+											th:text="#{article.oldArticleDate}" /> <input
+											type="text" class="form-control datepicker"
+											id="oldArticleDate"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{oldArticleDate}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('oldArticleDate')}"
+											th:errors="*{{oldArticleDate}}" th:class="help-block" />
+									</div>
+									
+								<!-- oldArticleDate  -->
+									<div sec:authorize="hasRole('ROLE_ADMIN')" class="form-group"
+										th:classappend="${#fields.hasErrors('stopPublishingDate')}? 'has-error'">
+										<label for="stopPublishingDate" th:text="#{article.stopPublishingDate}" />
+										<input type="text" class="form-control datepicker"
+											id="stopPublishingDate"
+											th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+											th:field="*{{stopPublishingDate}}" th:readonly="${readonly}" />
+										<span th:if="${#fields.hasErrors('stopPublishingDate')}"
+											th:errors="*{{stopPublishingDate}}" th:class="help-block" />
+									</div>
+									
+									<button type="submit" class="btn btn-success"
+										th:if="${!readonly}"
+										onclick="document.getElementById('mainForm').submit(); return false;"
+										th:text="#{crud.action.save}" />
+
+									<a th:href="@{/article/create/}" class="btn btn-success"
+										th:if="${readonly}" th:text="#{crud.action.new}" /> <a
+										th:href="@{/article/edit/}+${id}" class="btn btn-info"
+										th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
+										th:href="@{/article/list/}" class="btn btn-danger"
+										th:if="!${param.success}"> <span
+										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> <a th:href="@{/article/list/}" class="btn btn-default"
+										th:if="${param.success}" th:text="#{crud.action.list}" />
 								</div>
 							</form>
 						</div>
