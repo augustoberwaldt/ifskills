@@ -108,7 +108,7 @@ public class JobAdControllerTest extends BaseControllerTest{
 		this.mockMvc.perform(post("/job/delete/1000"))
 		.andExpect(view().name("redirect:/job/list"))
 		.andExpect(status().is3xxRedirection())
-		//.andExpect(model().attribute("message3", containsString("Job failed to delete!")))
+		.andExpect(flash().attributeExists("message"))
 		;
 
 	}
@@ -152,6 +152,25 @@ public class JobAdControllerTest extends BaseControllerTest{
 		;
 
 		
+	}
+	
+	/**
+	 * @author Luciane
+	 * @Date: 26/04/2016
+	 * Description: Test to view jobAd with id invalid =100.
+	 *
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testToViewJobAd100ThatDoesNotExists() throws Exception {
+		assertThat(jobAdService.get(100L), is(nullValue()));
+		
+		this.mockMvc.perform(post("/job/view/100"))
+		.andExpect(view().name("redirect:/job/list"))
+		.andExpect(status().is3xxRedirection())
+		.andExpect(flash().attributeExists("message"))
+		;		
 	}
 	
 	/**

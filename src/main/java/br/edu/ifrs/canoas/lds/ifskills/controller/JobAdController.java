@@ -80,6 +80,10 @@ public class JobAdController {
 	 * Modified by: Luciane
 	 * Date: 17/04/2016
 	 * Description: Implementation of the sending mail
+	 * 
+	 * Modified by Luciane
+	 * Date: 26/04/2016
+	 * Implements validations
 	 *
 	 * @param id
 	 *            the id
@@ -94,41 +98,43 @@ public class JobAdController {
 	@Secured("ROLE_ADMIN")
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
-		
+
 		JobAd jobAd = jobAdService.get(id);
-			
-		if (jobAd == null){
-			redirectAttrs.addFlashAttribute("message3",
-					MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale),null));
-			
-		}
-		else{
-			 try {
-				 jobAdService.sendMessage(jobAd);
-				  redirectAttrs.addFlashAttribute("message2",
-							 MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
-				
-				}catch( MailException e){
-					redirectAttrs.addFlashAttribute("message2",
-							 MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
-	
-			 }
+
+		if (jobAd == null) {
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale), null));
+
+		} else {
+			try {
+				jobAdService.sendMessage(jobAd);
+				redirectAttrs.addFlashAttribute("message",
+						MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
+
+			} catch (MailException e) {
+				redirectAttrs.addFlashAttribute("message",
+						MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
+
+			}
 			
 			jobAdService.delete(id);
-	
-			redirectAttrs.addFlashAttribute("message",
-					MessageFormat.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
+
+			redirectAttrs.addFlashAttribute("message", MessageFormat
+					.format(messageSource.getMessage("job.deleted", null, locale), jobAd.getDescription()));
 		}
 
-		return "redirect:/job/list"; 
+		return "redirect:/job/list";
 
-		
 	}
 		
 	/**
-	 * @author Luciane
-	 * Date: 14/04/2016
+	 * @author Luciane 
+	 * Date: 14/04/2016 
 	 * Description: Method View.
+	 * 
+	 * Modified by Luciane
+	 * Date: 26/04/2016
+	 * Implements validations
 	 *
 	 * @param id
 	 *            the id
@@ -137,9 +143,18 @@ public class JobAdController {
 	 * @return the string
 	 */
 	@RequestMapping("/view/{id}")
-	public String view(@PathVariable Long id, Model model) {
+	public String view(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		JobAd jobAd = jobAdService.get(id);
+
+		if (jobAd == null) {
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("job.searchFailed", null, locale), id));
+			return "redirect:/job/list";
+		}
+
 		model.addAttribute("job", jobAdService.get(id));
 		model.addAttribute("readonly", true);
+
 		return "/job/form";
 	}
 	
@@ -147,6 +162,10 @@ public class JobAdController {
 	 * @author Luciane
 	 * Date: 14/04/2016
 	 * Description: Method Show job list.
+	 * 
+	 * Modified by Luciane
+	 * Date: 26/04/2016
+	 * Implements validations
 	 *
 	 * @param model
 	 *            the model
@@ -162,8 +181,7 @@ public class JobAdController {
 		if (criteria != null && !criteria.isEmpty()) {
 			List<JobAd> jobs = jobAdService.list(criteria);
 			if (jobs.isEmpty()) {
-				model.addAttribute("message",
-						messageSource.getMessage("job.searchFailed", null, locale));
+				model.addAttribute("message", messageSource.getMessage("job.searchFailed", null, locale));
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
