@@ -166,7 +166,7 @@ public class JobAdController {
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("jobs", new ArrayList<JobAd>());//jobAdService.list(criteria)
+			model.addAttribute("jobs", jobAdService.listStatusApproved());
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 
