@@ -7,7 +7,8 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.empty;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

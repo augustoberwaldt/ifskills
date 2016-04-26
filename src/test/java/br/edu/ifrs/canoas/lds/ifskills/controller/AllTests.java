@@ -19,3 +19,4 @@ import br.edu.ifrs.canoas.lds.ifskills.controller.selenium.ItemControlerSelenium
 public class AllTests {
 
 }
+

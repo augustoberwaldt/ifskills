@@ -69,8 +69,9 @@ public class JobAdRepositoryTest {
 	**/
 	@Test
 	public void testFindByStatus() {
-		//assertThat(jobAdRepository.findByStatus(Status.get("Approved")).size(), is(2));
-		//assertThat(jobAdRepository.findByStatus(Status.get("Waiting")).size(), is(4));
+		assertThat(jobAdRepository.findByStatus(Status.get("Approved")).size(), is(4));
+		assertThat(jobAdRepository.findByStatus(Status.get("Waiting")).size(), is(4));
+		assertThat(jobAdRepository.findByStatus(Status.get("Rejected")).size(), is(0));
 	}
 
 }
