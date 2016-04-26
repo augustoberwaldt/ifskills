@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" layout:decorator="layouts/main">
-<!-- Modified by: Edson Date: 24/04/2016  Description: changed article.title,  added /head-->
+
 <head>
 <title th:text="#{article.title}" />
 </head>
+
 <!-- include libraries(jQuery, bootstrap) -->
 <script type="text/javascript"
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -20,6 +21,7 @@
 			<li class="active" th:text="#{article.breadcrumb-edit}" />
 		</ol>
 
+
 		<div class="side-body">
 			<!-- PAGE HEADER -->
 			<div class="page-title">
@@ -33,7 +35,8 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="card-title">
-								<div class="title" th:text="${readonly}?#{article.view}" />
+								<div class="title" 
+									th:text="${readonly}?#{article.view}:#{article.edit}" />
 							</div>
 						</div>
 						<div class="card-body">
@@ -42,7 +45,7 @@
 								<p th:text="${message}" />
 							</div>
 
-							<form th:object="${article}" id="articleForm" method="get">
+							<form th:object="${article}" id="mainForm" method="post" >
 
 								<input type="hidden" th:field="*{id}" />
 
@@ -118,7 +121,7 @@
 									</div>
 									
 									<button type="submit" class="btn btn-success"
-										th:if="${!readonly}"
+										th:if="${!readonly}" id="btSubmitForm"
 										onclick="document.getElementById('mainForm').submit(); return false;"
 										th:text="#{crud.action.save}" />
 
@@ -129,7 +132,8 @@
 										th:href="@{/article/list/}" class="btn btn-danger"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-									</a> <a th:href="@{/article/list/}" class="btn btn-default"
+									</a> 
+									<a th:href="@{/article/list/}" class="btn btn-default"
 										th:if="${param.success}" th:text="#{crud.action.list}" />
 								</div>
 							</form>
@@ -140,5 +144,6 @@
 		</div>
 	</div>
 </body>
+
 
 </html>

@@ -29,6 +29,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
@@ -189,7 +190,10 @@ public class ArticleController {
 	 * @param locale
 	 *            the locale
 	 * @return the string
+	 * Edson 26/04/2016 Update dates
 	 */
+	
+	/*
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Article article, BindingResult bindingResult, Model model,
 			@RequestParam("articlePicture") MultipartFile picture, RedirectAttributes redirectAttrs, Locale locale)
@@ -211,7 +215,20 @@ public class ArticleController {
 		model.addAttribute("readonly", false);
 		return "redirect:/article/new";
 	}
-
+*/
+ 
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(@Valid Article article, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
+			Locale locale) {
+		if (!bindingResult.hasErrors()) {
+			Article savedArticle = articleService.save(article);
+			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("article.saved", null, locale));
+			return "redirect:/article/view/" + savedArticle.getId() + "?success";
+		}
+		model.addAttribute("readonly", false);
+		return "/article/form";
+	}
+	
 	/**
 	 * Author: Luciane Date: 24/03/2016 Description: Change view to read
 	 * by @RequestMapping("/view/{slug}").
