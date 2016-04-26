@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -161,12 +162,12 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 * @throws Exception
 	 *             the exception
 	 */
-	/*@Test
+	@Test
 	public void testShowJobAdListAndCheckAtts() throws Exception{
-		this.mockMvc.perform(post("/job/search?criteria=Canoas"))
+		this.mockMvc.perform(get("/job/search?criteria=Luciane"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("jobs"))
-		.andExpect(model().attribute("jobs", hasSize(5)))
+		.andExpect(model().attribute("jobs", hasSize(1)))
 		.andExpect(model().attribute("jobs", hasItem(
                 allOf(
                         hasProperty("id", is(1L)),
@@ -177,6 +178,24 @@ public class JobAdControllerTest extends BaseControllerTest{
 		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
 		;
 		
-	}*/
+	}
+	
+	/**
+	 * @author Luciane
+	 * @Date: 26/04/2016
+	 * Description: Test method search with an empty search criterion
+	 * @throws Exception
+	 *             the exception
+	 */
+	@Test
+	public void testShowJobAdListWithEmptyCriterionSearchAndCheckAtts() throws Exception{
+		this.mockMvc.perform(get("/job/search?criteria="))
+		.andExpect(status().isOk())
+		.andExpect(model().attributeExists("jobs"))
+		.andExpect(model().attribute("jobs", hasSize(4)))
+		.andExpect(model().attribute("message", containsString("Fill in the search field")))		
+		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
+		;
+	}
 
 }

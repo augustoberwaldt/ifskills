@@ -67,6 +67,8 @@ public class JobAd {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 	
+	private String statusName;
+	
 	private String justification;
 
 	public Long getId() {
@@ -172,6 +174,15 @@ public class JobAd {
 	public void setJustification(String justification) {
 		this.justification = justification;
 	}
+
+	public String getStatusName() {
+		return status.toString();
+	}
+
+	/* public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}*/
 	
+
 	
 }

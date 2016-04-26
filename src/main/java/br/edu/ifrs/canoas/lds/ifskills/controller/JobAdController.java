@@ -166,24 +166,38 @@ public class JobAdController {
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("jobs", new ArrayList<JobAd>());//jobAdService.list(criteria)
+			model.addAttribute("jobs", jobAdService.listStatusApproved());
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 
 		return "/job/list";
 	}
 	
-	
 	/**
 	 * @author Aline G.
 	 * Date: 22/04/2016
-	 * Description: Method to avaliate the JobAd.
+	 * Description: Method to list only JobAds with "Waiting" status in approve item in menu.
 	 *
 	 */
+	@Secured("ROLE_ADMIN")
 	@RequestMapping("/approve")
-	public String approve(Model model) {
+	public String evaluationList(Model model) {
 		model.addAttribute("jobs", jobAdService.listWaitingJobAds());
 		return "/job/list";
+	}
+	
+	
+	/**
+	 * @author Aline G.
+	 * Date: 26/04/2016
+	 * Description: Method to evaluate (approve or reject) JobAds.
+	 *
+	 */
+	@Secured("ROLE_ADMIN")
+	@RequestMapping("/evaluate")
+	public String evaluate(Model model) {
+		
+		return "/job/approve";
 	}
 	
 	//@author Fernando Sturzbecher
