@@ -161,12 +161,12 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 * @throws Exception
 	 *             the exception
 	 */
-	/*@Test
+	@Test
 	public void testShowJobAdListAndCheckAtts() throws Exception{
-		this.mockMvc.perform(post("/job/search?criteria=Canoas"))
+		this.mockMvc.perform(get("/job/search?criteria=Luciane"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("jobs"))
-		.andExpect(model().attribute("jobs", hasSize(5)))
+		.andExpect(model().attribute("jobs", hasSize(1)))
 		.andExpect(model().attribute("jobs", hasItem(
                 allOf(
                         hasProperty("id", is(1L)),
@@ -177,6 +177,6 @@ public class JobAdControllerTest extends BaseControllerTest{
 		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
 		;
 		
-	}*/
+	}
 
 }
