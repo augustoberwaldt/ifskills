@@ -198,6 +198,16 @@
 											th:class="help-block" />
 									</div>
 									
+									
+									<!--  <div class="form-group" th:if="*{status} == 'Waiting'">
+                                    <label for="justification"
+                                        th:text="'Justification'" />
+                                    <input type="text" class="form-control datepicker"
+                                        id="justification" th:field="*{status}"
+                                        th:class="${readonly}? 'form-control' : 'form-control datepicker'"
+                                        th:readonly="${readonly}" /> 
+                                </div> -->
+									
 									<div class="form-group" 
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="jobParents"
@@ -212,6 +222,16 @@
 											th:class="help-block" />
 									</div>
 
+								 <!-- Author: Aline Gandolfi. The condition in the first th:if is not working yet. 
+									<div th:if="*{statusName} == 'Waiting'"  class="form-group" 
+									th:classappend="${#fields.hasErrors('justification')}? 'has-error'">
+									<label for="JobJustification" th:text="#{job.evaluation.justification}" /> <input
+										type="text" class="form-control" id="JobJustification"
+										th:field="*{justification}" placeholder="Rejection Justification" /> <span
+										th:if="${#fields.hasErrors('justification')}"
+										th:errors="*{justification}" th:class="help-block" />
+									</div> -->
+									
 								<button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
