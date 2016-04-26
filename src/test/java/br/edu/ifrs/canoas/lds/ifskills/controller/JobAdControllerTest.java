@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.flash;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrl;
@@ -154,7 +155,7 @@ public class JobAdControllerTest extends BaseControllerTest{
 	
 	/**
 	 * @author Luciane
-	 * @Date: /04/2016
+	 * @Date: 25/04/2016
 	 * Description: Test method search
 	 *
 	 * @throws Exception
@@ -162,10 +163,10 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	public void testShowJobAdListAndCheckAtts() throws Exception{
-		/*this.mockMvc.perform(post("/job/search/Porto+Alegre"))
+		this.mockMvc.perform(post("/job/search?criteria=Canoas"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("jobs"))
-		.andExpect(model().attribute("jobs", hasSize(1)))
+		.andExpect(model().attribute("jobs", hasSize(5)))
 		.andExpect(model().attribute("jobs", hasItem(
                 allOf(
                         hasProperty("id", is(1L)),
@@ -174,7 +175,8 @@ public class JobAdControllerTest extends BaseControllerTest{
                 )
         )))
 		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
-		;*/
+		;
+		
 	}
 
 }

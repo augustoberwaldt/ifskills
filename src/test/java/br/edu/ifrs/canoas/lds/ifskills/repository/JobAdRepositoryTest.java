@@ -63,13 +63,14 @@ public class JobAdRepositoryTest {
 	
 	/**
 	*  @author Luciane
-	* Date: 
-	* Description: 
+	* Date: 25/04/2016
+	* Description: Method of test search for status
 	*
 	**/
 	@Test
 	public void testFindByStatus() {
-		//assertThat(jobAdRepository.findByStatus("Approved"), hasProperty("title", is("Get With the Program")));
+		//assertThat(jobAdRepository.findByStatus(Status.get("Approved")).size(), is(2));
+		//assertThat(jobAdRepository.findByStatus(Status.get("Waiting")).size(), is(4));
 	}
 
 }
