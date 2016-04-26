@@ -47,7 +47,7 @@ public class HomeController {
 	 * 
 	 * 03/24 - Rodrigo - added auth attribute for template decorator
 	 * 
-	 * 25/04 - Rodrgo - added list jobs on line 61
+	 * 25/04 - Rodrigo - added list jobs on line 61
 	 */
 	@RequestMapping("/")
 	public String view(Model model, HttpSession session) {
