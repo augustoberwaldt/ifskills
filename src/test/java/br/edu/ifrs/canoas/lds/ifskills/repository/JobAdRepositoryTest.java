@@ -46,7 +46,7 @@ public class JobAdRepositoryTest {
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(4));
 		str="Luciane";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
 		str="DBA Architect";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
