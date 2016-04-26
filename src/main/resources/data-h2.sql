@@ -111,7 +111,9 @@ insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(2, 'Manager, IT');
 insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(3, 'Developer, Java, IT');
 insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(4, 'Marketing, Supports');
 insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(5, 'Technician, Developer, Products');
-insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(5, 'Database, Administrator');
+insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(6, 'Database, Architect');
+insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(7, 'Database, Manager');
+insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(8, 'Computer, Engineer');
 
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 1, 1, 1);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 2);

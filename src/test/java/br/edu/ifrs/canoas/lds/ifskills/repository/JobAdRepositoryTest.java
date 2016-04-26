@@ -34,19 +34,19 @@ public class JobAdRepositoryTest {
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
 		str="IT";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(5));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(7));
 		str="Graduation in IT area";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));
 		str="Meal ticket";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(5));
 		str="rh.it@gmail.com";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(4));
 		str="Luciane";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(2));
 		str="DBA Architect";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(1));
@@ -55,7 +55,7 @@ public class JobAdRepositoryTest {
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(4));
 		str="Canoas";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
-				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(5));
+				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(6));
 		str="java";
 		assertThat(jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 				str, str,str, str, str, str, str, str, Status.get(str), str, str).size(), is(3));		
