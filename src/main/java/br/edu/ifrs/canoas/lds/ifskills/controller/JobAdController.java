@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
@@ -194,11 +195,17 @@ public class JobAdController {
 	 *
 	 */
 	@Secured("ROLE_ADMIN")
-	@RequestMapping("/evaluate")
-	public String evaluate(Model model) {
+	@RequestMapping("/evaluate/{id}")
+	public String evaluate(Model model, @PathVariable Long id, @PathVariable String justification, RedirectAttributes redirectAttrs, Locale locale) {
+		JobAd jobAd = jobAdService.get(id);
+		jobAd.setStatus((Enum.valueOf(Status.class, "Approved")));
+		jobAd.setJustification(justification);
+		jobAdService.save(jobAd);
 		
-		return "/job/approve";
+		model.addAttribute("jobs", jobAdService.listWaitingJobAds());
+		return "/job/list";
 	}
+	
 	
 	//@author Fernando Sturzbecher
 	//Date: 25/04/16
