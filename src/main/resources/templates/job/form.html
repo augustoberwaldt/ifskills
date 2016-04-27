@@ -238,9 +238,10 @@
 									onclick="document.getElementById('mainForm').submit(); return false;"
 									th:text="#{crud.action.save}" /> 
 									
+								
 								<!-- Author: Aline G. Approve and Reject JobAd buttons th:if="${!readonly}" -->
-								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-success"
-									  id="btSubmitForm"
+								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-success" th:if = "*{statusName == 'Approved'}"
+									  id="btSubmitForm" 
 									 onclick="document.getElementById('mainForm').submit(); return false;"
 									 th:text="#{job.evaluation.approve}" />
 									 
