@@ -107,11 +107,15 @@ public class JobAdService {
 			mail.setFrom("labifrs2016.1@gmail.com");
 			mail.setSubject("Your Job Ad was deleted");
 			mail.setText(
-					"Dear author " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job Ad with a description '"
-							+ jobAd.getDescription() + "' was deleted by one of our Administrators.\n"
+					"Dear author " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job Ad with a title '"
+							+ jobAd.getTitle() + "' was deleted by one of our Administrators.\n"
 							+ "If there's any problem with that, feel free to call us any moment.\n"
-							+ "\n\nHere's a copy of your Job Ad:\n\n" + jobAd.getDescription() + "\n\n"
-							+ jobAd.getBusinessArea() + "\n\n" + jobAd.getRequirements() + "\n\n"
+							+ "\n\nHere's a copy of your Job Ad:\n\n"
+							+"Description: "+ jobAd.getDescription() + "\n\n"
+							+ "Business Area: " + jobAd.getBusinessArea() + "\n\n" 
+							+ "Requirements: " + jobAd.getRequirements() + "\n\n"
+							+ "Education Level required: " + jobAd.getEducationLevelRequired() + "\n\n"
+							+ "Benefits: " + jobAd.getBenefits() + "\n\n"
 							+ "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");
 		}
 
