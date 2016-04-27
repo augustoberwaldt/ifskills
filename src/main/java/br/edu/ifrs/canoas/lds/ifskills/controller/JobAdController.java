@@ -6,7 +6,6 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -203,6 +202,16 @@ public class JobAdController {
 		return "/job/list";
 	}
 	
+//	@RequestMapping(value = "/evaluate2/{id}")
+//	public String evaluate2(@PathVariable Long id, Model model, final HttpServletRequest req) {
+//		JobAd job = jobAdService.get(id);
+//		job.setJustification(req.getParameter("justification"));
+//		job.setStatus((Enum.valueOf(Status.class, "Rejected")));
+//		System.out.println(req.getParameter("JobJustification"));
+//		
+//		return "redirect:/job/view/" + job.getId() + "?success";
+//	}
+	
 	
 	/**
 	 * @author Aline G.
@@ -212,35 +221,35 @@ public class JobAdController {
 	 */
 	//I intend to create a boolean inside the buttons div to know what button were clicked on.
 	@RequestMapping(value = "/evaluate",  method = RequestMethod.POST)
-	public String save(@Valid JobAd jobAd, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
-	Locale locale, @PathVariable String justification, @PathVariable Long id) {
-		JobAd job = jobAdService.get(id);
+	public String save(JobAd job, Model model, RedirectAttributes redirectAttrs,
+			Locale locale) {
+		//JobAd job = jobAdService.get(id);
 		job.setStatus((Enum.valueOf(Status.class, "Rejected")));
-		job.setJustification(justification);
-		if (justification == null) {
+		//job.setJustification(justification);
+		if (job.getJustification() == null) {
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("job.evaluation.justification.null", null, locale), null));
-		} else if (!bindingResult.hasErrors()) {
+		} else if (true) {
 			//saves the changes (addiction of justification and change of status);
-			JobAd savedJobAd = jobAdService.save(job);
-			model.addAttribute("readonly", true);
-			
-				//sends notification e-mail;
-				try {
-					jobAdService.sendEvaluationMessage(jobAd);
-					redirectAttrs.addFlashAttribute("message",
-							MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
-
-				} catch (MailException e) {
-					redirectAttrs.addFlashAttribute("message",
-							MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
-
-				}
-			
-			redirectAttrs.addFlashAttribute("message", 
-					MessageFormat.format(messageSource.getMessage("job.evaluation.success", null, locale), null));
-
-			return "redirect:/job/view/" + savedJobAd.getId() + "?success";
+//			JobAd savedJobAd = jobAdService.save(job);
+//			model.addAttribute("readonly", true);
+//			
+//				//sends notification e-mail;
+//				try {
+//					jobAdService.sendEvaluationMessage(job);
+//					redirectAttrs.addFlashAttribute("message",
+//							MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
+//
+//				} catch (MailException e) {
+//					redirectAttrs.addFlashAttribute("message",
+//							MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
+//
+//				}
+//			
+//			redirectAttrs.addFlashAttribute("message", 
+//					MessageFormat.format(messageSource.getMessage("job.evaluation.success", null, locale), null));
+//
+//			return "redirect:/job/view/" + savedJobAd.getId() + "?success";
 		}
 		
 		redirectAttrs.addFlashAttribute("message",

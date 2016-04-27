@@ -74,7 +74,7 @@ public class User {
 	@OneToOne
 	private TrainerApplication trainerApplication;
 
-	private User() {
+	public User() {
 		this.active = true;
 	}
 
