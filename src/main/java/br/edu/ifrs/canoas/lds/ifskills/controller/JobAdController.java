@@ -68,7 +68,6 @@ public class JobAdController {
 	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("jobs", jobAdService.listStatusApproved());
 		return "/job/list";
 	}
 
@@ -185,7 +184,6 @@ public class JobAdController {
 			}
 			model.addAttribute("jobs", jobs);
 		} else if (criteria != null && criteria.isEmpty()) {
-			model.addAttribute("jobs", jobAdService.listStatusApproved());
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
 
