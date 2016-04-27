@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
@@ -118,6 +119,47 @@ public class JobAdService {
 		    
 	}
 	
+	/**
+	 *  @author Aline G
+	 * Date: 27/04/2016
+	 * Description: Method to create the body of evaluation e-mail.
+	 *
+	 **/
+	public SimpleMailMessage sendEvaluationMessage(JobAd jobAd) {
+		SimpleMailMessage mail = new SimpleMailMessage();
+
+		if (jobAd != null) {
+			mail.setTo(jobAd.getEmployer().getEmail());
+			mail.setFrom("labifrs2016.1@gmail.com");
+			if (jobAd.getStatusName() == "Approved") {
+				mail.setSubject("Your Job Ad was approved!");
+				mail.setText(
+						"Dear employer " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job named '"
+								+ jobAd.getTitle() + "' was APPROVED by one of our Administrators.\n"
+								+ "Now it can be viewed by all of our site members! You must take a look at it in site's main page."
+								+ "Thank you for choosing BootBase to promote your Ad.\n"
+								+ "\nAny questions or problems, let us now."
+								+ "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");
+			} else if (jobAd.getStatusName() == "Rejected") {
+				mail.setSubject("Your Job Ad was Rejected!");
+				mail.setText(
+						"Dear employer " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job Ad named '"
+								+ jobAd.getTitle() + "' was REJECTED by one of our Administrators.\n"
+								+ "Here's the Admin justification for this evaluation: \n" + jobAd.getJustification() 
+							
+								+ "\n\nHere's a copy of your Job Ad:\n\n" 
+								+ "Description: " + jobAd.getDescription() + "\n\n"
+								+ "Business Area: " + jobAd.getBusinessArea() + "\n\n" 
+								+ "Requirements: " + jobAd.getRequirements() + "\n\n"
+								+ "Education Level required: " + jobAd.getEducationLevelRequired() + "\n\n"
+								+ "Benefits: " + jobAd.getBenefits() + "\n\n"
+							
+								+ "\n\nIf there's any problem with that, feel free to call us any moment.\n"
+								+ "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");
+			}
+		}
+		return notificationService.sendNotification(mail);		    
+	}
 	
 	/**
 	 *  @author Aline G.
@@ -125,7 +167,7 @@ public class JobAdService {
 	 * Description: Method that shows JobAds with "Waiting" status;
 	 *
 	 **/
-	public Object listWaitingJobAds() {
+	public Iterable<JobAd> listWaitingJobAds() {
 		return jobAdRepository.findByStatus(Enum.valueOf(Status.class, "Waiting"));
 	}	
 	

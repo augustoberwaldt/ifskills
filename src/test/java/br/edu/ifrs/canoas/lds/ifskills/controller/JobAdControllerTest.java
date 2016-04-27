@@ -64,8 +64,7 @@ public class JobAdControllerTest extends BaseControllerTest{
                         hasProperty("educationLevelRequired", is("Ensino Superior"))
                 )
         )))
-		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))*/
-		;
+		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL));*/
 	}
 
 	/**

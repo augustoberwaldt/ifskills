@@ -43,8 +43,10 @@
 								<p th:text="${message3}" />
 							</div>
 
-							<form th:object="${job}" th:action="@{/job/save}" method="post"
+							<form th:object="${job}" th:action="@{/job/evaluate}" method="post"
 								id="mainForm">
+								
+								
 
 								<input type="hidden" th:field="*{id}" />
 								
@@ -232,14 +234,27 @@
 										th:errors="*{justification}" th:class="help-block" />
 									</div> 
 									
-								<button type="submit" class="btn btn-success"
+								  <button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
-									th:text="#{crud.action.save}" />
+									th:text="#{crud.action.save}" /> 
 									
-								<!-- Author: Aline G.  Reject JobAd button -->
-								<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/evaluate/}+${id}" class="btn btn-primary"
-									th:if="${readonly}" th:text="#{job.evaluation.reject}"> </a>
+								<!-- Author: Aline G. Approve and Reject JobAd buttons th:if="${!readonly}" -->
+								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-success"
+									  id="btSubmitForm"
+									 onclick="document.getElementById('mainForm').submit(); return false;"
+									 th:text="#{job.evaluation.approve}" />
+									 
+								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-primary"
+									  id="btSubmitForm"
+									 onclick="document.getElementById('mainForm').submit(); return false;"
+									 th:text="#{job.evaluation.reject}" />
+													
+									<br></br>
+									<br></br>
+									
+								<!-- <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/evaluate/}+${id}" class="btn btn-primary"
+									th:if="${readonly}" th:text="#{job.evaluation.reject}"> </a> -->
 									
 								<!--<a th:href="@{/job/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> -->
