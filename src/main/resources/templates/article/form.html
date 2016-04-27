@@ -120,6 +120,13 @@
 											th:errors="*{{stopPublishingDate}}" th:class="help-block" />
 									</div>
 									
+									<div class="checkbox1 checkbox-light" sec:authorize="hasRole('ROLE_ADMIN')" >
+									<input type="checkbox" th:field="*{active}" id="activeCb"
+										th:disabled="${readonly}" /> <label for="checkbox-1"
+										th:text="#{article.publiclyAvailable}" />
+									</div>
+									
+									
 									<button type="submit" class="btn btn-success"
 										th:if="${!readonly}" id="btSubmitForm"
 										onclick="document.getElementById('mainForm').submit(); return false;"

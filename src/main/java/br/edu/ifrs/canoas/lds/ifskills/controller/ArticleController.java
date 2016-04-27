@@ -72,7 +72,7 @@ public class ArticleController {
 	 * @return the string
 	 */
 	
-	
+
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("article", articleService.list());
