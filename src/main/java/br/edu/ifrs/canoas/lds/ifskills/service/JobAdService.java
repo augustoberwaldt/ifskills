@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
@@ -24,7 +23,6 @@ public class JobAdService {
 
 	private NotificationService notificationService;
 	
-	private UserProfileService userService;
 	/**
 	 * Instantiates a new article service.
 	 *
