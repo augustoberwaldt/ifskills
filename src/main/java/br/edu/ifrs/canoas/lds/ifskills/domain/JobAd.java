@@ -16,12 +16,16 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
 
@@ -49,8 +53,9 @@ public class JobAd {
 	@NotEmpty
 	private String businessArea;
 
-	@OneToOne
-	private User employer;
+	@ManyToOne
+	@JoinColumn(name = "employer_id")
+	User employer;
 
 	@OneToOne
 	private Address location;

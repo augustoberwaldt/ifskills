@@ -4,8 +4,10 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.validator.constraints.Email;
@@ -73,6 +76,17 @@ public class User {
 	
 	@OneToOne
 	private TrainerApplication trainerApplication;
+	
+	@OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<JobAd> jobs;
+
+	public List<JobAd> getJobs() {
+		return jobs;
+	}
+
+	public void setJobs(List<JobAd> jobs) {
+		this.jobs = jobs;
+	}
 
 	public User() {
 		this.active = true;
