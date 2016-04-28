@@ -47,11 +47,30 @@
 							</div>
 
 							<!-- tentativa de colocar o search -->
-							<div class="col-xs-12">
+							<div sec:authorize="hasRole('ROLE_ADMIN')" class="col-xs-12">
 								<div class="card">
 									<div class="card-body">
 										<form class="form-inline" _lpchecked="1" th:object="${job}"
 											th:action="@{/job/search}" method="get" id="searchJobForm">
+											<div class="form-group">
+												<input type="text" id="criteria" name="criteria"
+													style="width: 500px" class="form-control"
+													placeholder="Search for all properties of job"
+													required="true" alt="#{job.search.criteria}" />
+											</div>
+											<button type="submit" class="btn btn-default"
+												onclick="document.getElementById('searchJobForm').submit(); return false;"
+												th:text="#{crud.action.search}">Search</button>
+										</form>
+									</div>
+								</div>
+							</div>
+							
+							<div sec:authorize="hasRole('ROLE_USER')" class="col-xs-12">
+								<div class="card">
+									<div class="card-body">
+										<form class="form-inline" _lpchecked="1" th:object="${job}"
+											th:action="@{/job/visitor}" method="get" id="searchJobForm">
 											<div class="form-group">
 												<input type="text" id="criteria" name="criteria"
 													style="width: 500px" class="form-control"

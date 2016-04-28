@@ -165,6 +165,7 @@ public class JobAdController {
 	 * Modified by Luciane
 	 * Date: 26/04/2016
 	 * Implements validations
+	 * 
 	 *
 	 * @param model
 	 *            the model
@@ -186,9 +187,32 @@ public class JobAdController {
 		} else if (criteria != null && criteria.isEmpty()) {
 			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
 		}
-
 		return "/job/list";
 	}
+	/**
+	 * @author Felipe
+	 * Date: 27/04/2016
+	 * Description : show job ads for visitors
+	 * @param model
+	 * @param req
+	 * @param locale
+	 * @return
+	 */
+	@RequestMapping(value = "/visitor", method = RequestMethod.GET)
+	public String showJobAdListVisitor(Model model, final HttpServletRequest req, final Locale locale) {
+		String criteria = req.getParameter("criteria");
+		if (criteria != null && !criteria.isEmpty()) {
+			List<JobAd> jobs = jobAdService.listvisitor(criteria);
+			if (jobs.isEmpty()) {
+				model.addAttribute("message", messageSource.getMessage("job.searchFailed", null, locale));
+			}
+			model.addAttribute("jobs", jobs);
+		} else if (criteria != null && criteria.isEmpty()) {
+			model.addAttribute("message", messageSource.getMessage("job.validatorCriteria", null, locale));
+		}
+		return "/job/list";
+	}
+
 	
 	/**
 	 * @author Aline G.

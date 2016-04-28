@@ -22,7 +22,22 @@ public interface JobAdRepository extends CrudRepository<JobAd, Long> {
 	 */
 	List<JobAd> findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 			String description, String requirements, String businessArea, String educationLevelRequired, String benefits, String contactInfo, String fullName, String title, Status status, String city, String tags);
-
+	/**
+	 * @author Felipe
+	 * Date 27/04/2016
+	 * Description: Find by specific properties
+	 * 
+	 * @param description
+	 * @param tags
+	 * @param requirements
+	 * @param city
+	 * @param country
+	 * @param state
+	 * @return
+	 */
+	List<JobAd> findAllByDescriptionContainingOrTagsContainingOrRequirementsContainingOrLocationPlaceDescriptionContainingAllIgnoreCase(String description, String tags, String requirements, String city);
+	
+	
 	/**
 	*  @author Aline G
 	* Date: 22/04/2016

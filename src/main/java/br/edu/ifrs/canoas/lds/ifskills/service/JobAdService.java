@@ -9,6 +9,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
@@ -23,6 +24,7 @@ public class JobAdService {
 
 	private NotificationService notificationService;
 	
+	private UserProfileService userService;
 	/**
 	 * Instantiates a new article service.
 	 *
@@ -86,6 +88,17 @@ public class JobAdService {
 	public List<JobAd> list(String parameter) {
 		return jobAdRepository.findAllByDescriptionContainingOrRequirementsContainingOrBusinessAreaContainingOrEducationLevelRequiredContainingOrBenefitsContainingOrContactInfoContainingOrEmployer_FullNameContainingOrTitleContainingOrStatusOrLocationPlaceDescriptionContainingOrTagsContainingAllIgnoreCase(
 				parameter, parameter, parameter, parameter, parameter, parameter, parameter, parameter, Status.get(parameter), parameter, parameter);
+	}
+	/**
+	 * @author Felipe
+	 * Date: 27/04/2016
+	 * Description: List the Job Ad found according to the informed discretion
+	 * 
+	 * @param parameter
+	 * @return the list
+	 */
+	public List<JobAd> listvisitor(String parameter){
+		return jobAdRepository.findAllByDescriptionContainingOrTagsContainingOrRequirementsContainingOrLocationPlaceDescriptionContainingAllIgnoreCase(parameter, parameter, parameter, parameter);
 	}
 
 	

@@ -21,9 +21,9 @@ public class Place {
 	@Enumerated(EnumType.STRING)
 	private PlaceType placeType;
 	@OneToOne
-	@JoinColumn(name = "parent_place_id")
+	//@JoinColumn(name = "parent_place_id")
 	private Place parentPlace;
-
+	
 	public Long getId() {
 		return id;
 	}
