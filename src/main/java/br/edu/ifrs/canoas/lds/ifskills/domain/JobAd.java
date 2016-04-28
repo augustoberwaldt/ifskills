@@ -179,5 +179,8 @@ public class JobAd {
 		return status.toString();
 	}
 
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
 	
 }

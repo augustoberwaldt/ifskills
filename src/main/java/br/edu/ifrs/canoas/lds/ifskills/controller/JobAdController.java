@@ -294,6 +294,7 @@ public class JobAdController {
 	public String create(Model model) {
 		JobAd jobAd= new JobAd();
 		jobAd.setEmployer(userProfileService.getPrincipal().getUser());
+		jobAd.setStatus(Enum.valueOf(Status.class, "Waiting"));
 		model.addAttribute("job", jobAd);
 		model.addAttribute("readonly", false);
 		return "/job/form";
