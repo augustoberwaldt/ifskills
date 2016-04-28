@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 import br.edu.ifrs.canoas.lds.ifskills.controller.BaseControllerTest;
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -94,6 +95,53 @@ public class JobAdServiceTest  extends BaseControllerTest{
 		assertThat(jobAdService.sendMessage(jobAd), hasProperty("to",is(not(empty()))));
 		
 	}
+	
+	/**
+	 * @author Aline G.
+	 * Date: 27/04/2016
+	 * Description: Test method SendEvaluationMessage with status Approved
+	 */
+	@Test
+	public void testSendEvaluationMessageApproved() {
+		JobAd jobAd = jobAdService.get(7L);			
+		assertThat(jobAdService.sendEvaluationMessage(jobAd), is(notNullValue()));
+		assertThat(jobAdService.sendEvaluationMessage(jobAd), hasProperty("to",is(not(empty()))));
+	}
+	
+	/**
+	 * @author Aline G.
+	 * Date: 27/04/2016
+	 * Description: Test method SendEvaluationMessage with status Rejected
+	 */
+	@Test
+	public void testToSendEvaluationMessageRejected() {
+		JobAd jobAd = new JobAd();
+		jobAd.setEmployer(userRepository.findOne(8L));
+		jobAd.setTitle("PHP developer");
+		jobAd.setBenefits("Voucher");
+		jobAd.setBusinessArea("IT");
+		jobAd.setStatus(Enum.valueOf(Status.class, "Rejected"));
+		jobAd.setJustification("This ad was rejected because there was a bad job ad");
+		jobAd.setDescription("This is an ad of a PHP development job");
+		
+		assertThat(jobAdService.sendEvaluationMessage(jobAd), is(notNullValue()));
+		assertThat(jobAdService.sendEvaluationMessage(jobAd), hasProperty("to",is(not(empty()))));	
+		
+	}
+	
+	
+
+	/**
+	 * @author Aline G
+	 * Date: 27/04/2016
+	 * Description: Test to list all jobAds with waiting status.
+	 */
+	@Test
+	public void testToListAllWaitingJobAds() {
+		assertTrue(jobAdService.listWaitingJobAds().spliterator().estimateSize() > 0);
+	}
+	
+	
 	
 
 }

@@ -3,8 +3,6 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,13 +21,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
-import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.NotificationService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
@@ -72,7 +67,7 @@ public class ArticleController {
 	 * @return the string
 	 */
 	
-	
+
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("article", articleService.list());

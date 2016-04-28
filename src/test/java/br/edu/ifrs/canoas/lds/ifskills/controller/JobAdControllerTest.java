@@ -5,7 +5,6 @@ import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
-import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.hasProperty;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
@@ -64,8 +63,7 @@ public class JobAdControllerTest extends BaseControllerTest{
                         hasProperty("educationLevelRequired", is("Ensino Superior"))
                 )
         )))
-		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))*/
-		;
+		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL));*/
 	}
 
 	/**
