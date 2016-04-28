@@ -120,6 +120,27 @@
 							</div>
 						</div>
 						<!--  End of header -->
+						
+						<!-- Search bar for jobs @author: Felipe -->
+						<div class="card-header">
+							<div class="pull-right card-action">
+								<div class="btn-group" role="group" aria-label="...">
+									<form class="form-inline" _lpchecked="1" th:object="${job}"
+										th:action="@{/job/search}" method="get"
+										id="searchJobAdForm">
+										<div class="form-group">
+											<input type="text" id="criteria" name="criteria"
+												style="width: 500px" class="form-control"
+												placeholder= "Search for description, tags, skills, city"
+												required="true" />
+										</div>
+										<button type="submit" class="btn btn-default"
+											onclick="document.getElementById('searchJobAdForm').submit(); return false;"
+											th:text="#{crud.action.search}">Search</button>
+									</form>
+								</div>
+							</div>
+						</div>
 						<!--  Job Announces Placement -->
 						<div class="container-fluid app-content">
 							<div class="container">

@@ -42,29 +42,6 @@ public class JobAdControllerTest extends BaseControllerTest{
 		mockMvc = getMockMvc(jobAdController);
 	}
 	
-	/**
-	 * @author Luciane
-	 * Date: 18/04/2016
-	 * Description: Test to list all Job's and check attributes.
-	 *
-	 * @throws Exception
-	 *             the exception
-	 */
-	@Test
-	public void testToListStatusApprovedAllIJobAdAndCheckAttributes() throws Exception {
-		/*this.mockMvc.perform(post("/job/list"))
-		.andExpect(status().isOk())
-		.andExpect(model().attributeExists("jobs"))
-		.andExpect(model().attribute("jobs", hasSize(4)))
-		.andExpect(model().attribute("jobs", hasItem(
-                allOf(
-                        hasProperty("id", is(1L)),
-                        hasProperty("benefits", is("Vale-refeição e Vale transporte")),
-                        hasProperty("educationLevelRequired", is("Ensino Superior"))
-                )
-        )))
-		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL));*/
-	}
 
 	/**
 	 * @author Luciane

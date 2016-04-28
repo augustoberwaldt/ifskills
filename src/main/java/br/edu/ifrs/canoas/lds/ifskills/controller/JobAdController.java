@@ -61,6 +61,9 @@ public class JobAdController {
 	 * Date: 14/04/2016
 	 * Description: Method List.
 	 * 
+	 * Modified by: Felipe
+	 * Description: List Job doesn't show any ad before research;
+	 * 
 	 * @param model
 	 *            the model
 	 * @return the string

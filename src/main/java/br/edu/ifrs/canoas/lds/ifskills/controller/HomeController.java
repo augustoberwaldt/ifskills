@@ -57,6 +57,7 @@ public class HomeController {
 		model.addAttribute("auth", userService.getPrincipal() != null);
 		if (userService.getPrincipal () != null ){
 			model.addAttribute("articles", articleService.findAll());
+			model.addAttribute("jobs", jobAdService.listStatusApproved());
 		}else{
 			model.addAttribute("articles", articleService.listPublic());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
@@ -71,12 +72,15 @@ public class HomeController {
 	 *            Rodrigo
 	 * @param Date:
 	 *            24/03/2016
+	 *            
+	 * Modified by: Felipe
+	 * Description: renamed method mapping to /home and ajusted it at the landing.html
 	 * @return
 	 * @description: method to display the articles when the user is
 	 *               authenticated.
 	 * 
 	 */
-	@RequestMapping("/articles")
+	@RequestMapping("/home")
 	public String viewArticles(Model model, HttpSession session) {
 		return view(model, session);
 	}
