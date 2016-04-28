@@ -139,34 +139,34 @@ public class JobAdService {
 	 * Description: Method to create the body of evaluation e-mail.
 	 *
 	 **/
-	public SimpleMailMessage sendEvaluationMessage(JobAd jobAd) {
+	public SimpleMailMessage sendEvaluationMessage(JobAd job) {
 		SimpleMailMessage mail = new SimpleMailMessage();
 
-		if (jobAd != null) {
-			mail.setTo(jobAd.getEmployer().getEmail());
+		if (job != null) {
+			mail.setTo(job.getEmployer().getEmail());
 			mail.setFrom("labifrs2016.1@gmail.com");
-			if (jobAd.getStatusName() == "Approved") {
+			if (job.getStatusName() == "Approved") {
 				mail.setSubject("Your Job Ad was approved!");
 				mail.setText(
-						"Dear employer " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job named '"
-								+ jobAd.getTitle() + "' was APPROVED by one of our Administrators.\n"
+						"Dear employer " + job.getEmployer().getFullName() + ", \n\n" + "Your Job named '"
+								+ job.getTitle() + "' was APPROVED by one of our Administrators.\n"
 								+ "Now it can be viewed by all of our site members! You must take a look at it in site's main page."
 								+ "Thank you for choosing BootBase to promote your Ad.\n"
 								+ "\nAny questions or problems, let us now."
 								+ "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");
-			} else if (jobAd.getStatusName() == "Rejected") {
+			} else if (job.getStatusName() == "Rejected") {
 				mail.setSubject("Your Job Ad was Rejected!");
 				mail.setText(
-						"Dear employer " + jobAd.getEmployer().getFullName() + ", \n\n" + "Your Job Ad named '"
-								+ jobAd.getTitle() + "' was REJECTED by one of our Administrators.\n"
-								+ "Here's the Admin justification for this evaluation: \n" + jobAd.getJustification() 
+						"Dear employer " + job.getEmployer().getFullName() + ", \n\n" + "Your Job Ad named '"
+								+ job.getTitle() + "' was REJECTED by one of our Administrators.\n"
+								+ "Here's the Admin justification for this evaluation: \n" + job.getJustification() 
 							
 								+ "\n\nHere's a copy of your Job Ad:\n\n" 
-								+ "Description: " + jobAd.getDescription() + "\n\n"
-								+ "Business Area: " + jobAd.getBusinessArea() + "\n\n" 
-								+ "Requirements: " + jobAd.getRequirements() + "\n\n"
-								+ "Education Level required: " + jobAd.getEducationLevelRequired() + "\n\n"
-								+ "Benefits: " + jobAd.getBenefits() + "\n\n"
+								+ "Description: " + job.getDescription() + "\n\n"
+								+ "Business Area: " + job.getBusinessArea() + "\n\n" 
+								+ "Requirements: " + job.getRequirements() + "\n\n"
+								+ "Education Level required: " + job.getEducationLevelRequired() + "\n\n"
+								+ "Benefits: " + job.getBenefits() + "\n\n"
 							
 								+ "\n\nIf there's any problem with that, feel free to call us any moment.\n"
 								+ "\n\n\nBest Regards, \n" + "IFRS Lab - 2016\n");

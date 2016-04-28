@@ -42,6 +42,12 @@
 								<p th:text="${message2}" />
 								<p th:text="${message3}" />
 							</div>
+							
+							<div th:if="${message5}" class="alert alert-danger">
+								<p th:text="${message4}" />
+								<p th:text="${message5}" />
+								<p th:text="${message6}" />
+							</div>
 
 							<form th:object="${job}" th:action="@{/job/evaluate}" method="post" id="mainForm">
 								
@@ -70,8 +76,7 @@
 								</div>
 								
 								<div class="form-group"
-									th:classappend="${#fields.hasErrors('status')}? 'has-error'"
-									th:if="${readonly}">
+									th:classappend="${#fields.hasErrors('status')}? 'has-error'">
 									<label for="JobStatus" th:text="#{job.status}" /> <input
 										type="text" class="form-control" id="JobStatus"
 										th:field="*{status}" placeholder="Job Status"
@@ -142,8 +147,7 @@
 								</div>
 								
 								<div class="form-group"
-									th:classappend="${#fields.hasErrors('employer.fullName')}? 'has-error'"
-									th:if="${readonly}">
+									th:classappend="${#fields.hasErrors('employer.fullName')}? 'has-error'">
 									<label for="JobEmployer" th:text="#{job.employer}" /> <input
 										type="text" class="form-control" id="JobEmployer"
 										th:field="*{employer.fullName}" placeholder="Job Employer"
@@ -152,7 +156,7 @@
 										th:class="help-block" />
 								</div>
 
-								<div class="form-group" 
+								<div class="form-group" th:if = "*{statusName == 'Approved'}"
 										th:classappend="${#fields.hasErrors('location.number')}? 'has-error'">
 										<label for="JobNumber" th:text="#{job.location.number}" /> <input
 											type="text" class="form-control datepicker"
@@ -163,7 +167,7 @@
 											th:errors="*{{location.number}}" th:class="help-block" />
 									</div>
 									
-									<div class="form-group" 
+									<div class="form-group" th:if = "*{statusName == 'Approved'}"
 										th:classappend="${#fields.hasErrors('location.complement')}? 'has-error'">
 										<label for="jobComplement" th:text="#{job.location.complement}" />
 										<input type="text" class="form-control datepicker"
@@ -174,7 +178,7 @@
 											th:errors="*{{location.complement}}" th:class="help-block" />
 									</div>
 									
-									<div class="form-group" 
+									<div class="form-group" th:if = "*{statusName == 'Approved'}"
 										th:classappend="${#fields.hasErrors('location.place.description')}? 'has-error'">
 										<label for="jobCity"
 											th:text="#{job.location.place.description}" /> <input type="text"
@@ -187,7 +191,7 @@
 											th:class="help-block" />
 									</div>
 									
-									 <div class="form-group" 
+									 <div class="form-group" th:if = "*{statusName == 'Approved'}"
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.description')}? 'has-error'">
 										<label for="jobEstate"
 											th:text="#{job.location.place.parentPlace.description}" /> <input
@@ -211,7 +215,7 @@
                                         th:readonly="${readonly}" /> 
                                 </div> -->
 									
-									<div class="form-group" 
+									<div class="form-group" th:if = "*{statusName == 'Approved'}"
 										th:classappend="${#fields.hasErrors('location.place.parentPlace.parentPlace.description')}? 'has-error'">
 										<label for="jobParents"
 											th:text="#{job.location.place.parentPlace.parentPlace.description}" />
@@ -226,41 +230,46 @@
 									</div>
 
 								 <!-- Author: Aline Gandolfi. The condition in the first th:if is not working yet. -->
-									<div sec:authorize="hasRole('ROLE_ADMIN')" class="form-group" 
-									th:classappend="${#fields.hasErrors('justification')}? 'has-error'"
-									th:if="*{statusName == 'Waiting'}">
+									<div sec:authorize="hasRole('ROLE_ADMIN')" class="form-group" th:if = "*{statusName == 'Waiting'}"
+									th:classappend="${#fields.hasErrors('justification')}? 'has-error'">
 									<label for="JobJustification" th:text="#{job.evaluation.justification}" /> <input
 										type="text" class="form-control" id="JobJustification"
-										th:field="*{justification}" placeholder="Rejection Justification" 
-										th:readonly="${false}"/> <span
+										th:field="*{justification}" placeholder="Rejection Justification" /> <span
 										th:if="${#fields.hasErrors('justification')}"
 										th:errors="*{justification}" th:class="help-block" />
 									</div> 
 									
-								  <!-- <button type="submit" class="btn btn-success"
+								  <button type="submit" class="btn btn-success"
 									th:if="${!readonly}"
 									onclick="document.getElementById('mainForm').submit(); return false;"
-									th:text="#{crud.action.save}" /> -->
+									th:text="#{crud.action.save}" /> 
 									
 								
 								<!-- Author: Aline G. Approve and Reject JobAd buttons th:if="${!readonly}" -->
-								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-success" th:if = "*{statusName == 'Waiting'}"
+								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-primary" th:if = "*{statusName == 'Waiting'}"
 									  id="btSubmitForm" 
 									 onclick="document.getElementById('mainForm').submit(); return false;"
-									 th:text="#{job.evaluation.approve}" />
+									 th:text="#{job.evaluation}" />
 									 
-								<button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-primary" th:if = "*{statusName == 'Waiting'}"
+								<!--  <button sec:authorize="hasRole('ROLE_ADMIN')" type="submit" class="btn btn-primary"
 									  id="btSubmitForm"
 									 onclick="document.getElementById('mainForm').submit(); return false;"
-									 th:text="#{job.evaluation.reject}" />
+									 th:text="#{job.evaluation.reject}" />  -->
 													
 									<br></br>
 									<br></br>
-								
-								<!-- Fernando Sturzbecher:27/04-->
+									
+									<!-- Fernando Sturzbecher:27/04-->
 								<a th:href="@{/job/save/}" class="btn btn-success"
 									th:if="${!readonly}" th:text="#{crud.action.save}" />
 								<!-- Fernando Sturzbecher:27/04-->
+									
+									
+								<!-- <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/evaluate/}+${id}" class="btn btn-primary"
+									th:if="${readonly}" th:text="#{job.evaluation.reject}"> </a> -->
+									
+								<!--<a th:href="@{/job/create/}" class="btn btn-success"
+									th:if="${readonly}" th:text="#{crud.action.new}" /> -->
 
 								<a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/job/delete/}+${id}" class="btn btn-danger"
 									th:if="${readonly}" th:text="#{crud.action.delete}" /> <a

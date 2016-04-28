@@ -53,16 +53,16 @@ public class JobAdControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	@WithUserDetails("admin@123.123")
-	public void testToCheckJobAd3DeleteItAndCheckAgain() throws Exception {
+	public void testToCheckJobAd7DeleteItAndCheckAgain() throws Exception {
 		
-		assertThat(jobAdService.get(3L), is(notNullValue()));
-		assertThat(jobAdService.get(3L).getBusinessArea(), is("IT"));
+		assertThat(jobAdService.get(7L), is(notNullValue()));
+		assertThat(jobAdService.get(7L).getBusinessArea(), is("IT"));
 		
-		this.mockMvc.perform(post("/job/delete/3"))
+		this.mockMvc.perform(post("/job/delete/7"))
 			.andExpect(flash().attributeExists("message"))
 			;
 		
-		assertThat(jobAdService.get(3L), is(nullValue()));
+		assertThat(jobAdService.get(7L), is(nullValue()));
 
 	}
 

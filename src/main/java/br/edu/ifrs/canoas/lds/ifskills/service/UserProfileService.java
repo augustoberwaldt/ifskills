@@ -51,6 +51,15 @@ public class UserProfileService {
 	public User findByEmail(String email) {
 		return userRepository.findByEmail(email);
 	}
+	
+	/**
+	 * @author: Aline G.	
+	 * @date: 27/04/2016
+	 * @description: Method to find a User by its FullName.
+	 */
+	public User findByFullName(String fullname) {
+		return userRepository.findByFullName(fullname);
+	}
 
 	/**
 	 * Save.

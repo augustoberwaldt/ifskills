@@ -22,6 +22,13 @@ public interface UserRepository extends CrudRepository<User, Long> {
 	 * @return the user
 	 */
 	User findByEmail(String email);
+	
+	/**
+	 * @author: Aline G.	
+	 * @date: 27/04/2016
+	 * @description: Method to find a User by its FullName.
+	 */
+	User findByFullName(String fullname);
 
 	/**
 	 * Find all by full name containing or email containing all ignore case.

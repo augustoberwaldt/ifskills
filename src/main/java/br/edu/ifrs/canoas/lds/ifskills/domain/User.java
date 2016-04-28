@@ -77,16 +77,16 @@ public class User {
 	@OneToOne
 	private TrainerApplication trainerApplication;
 	
-	@OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<JobAd> jobs;
+	//@OneToMany(mappedBy = "employer", cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+	//private List<JobAd> jobs;
 
-	public List<JobAd> getJobs() {
-		return jobs;
-	}
+	//public List<JobAd> getJobs() {
+	//	return jobs;
+	//}
 
-	public void setJobs(List<JobAd> jobs) {
-		this.jobs = jobs;
-	}
+	//public void setJobs(List<JobAd> jobs) {
+	//	this.jobs = jobs;
+	//}
 
 	public User() {
 		this.active = true;

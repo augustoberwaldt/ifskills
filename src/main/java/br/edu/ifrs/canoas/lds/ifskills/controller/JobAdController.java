@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.Address;
 import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
@@ -236,48 +237,55 @@ public class JobAdController {
 	 * Description: Method to evaluate (approve or reject) JobAds.
 	 *
 	 */
-	//I intend to create a boolean inside the buttons div to know what button were clicked on.
+	@Secured("ROLE_ADMIN")
 	@RequestMapping(value = "/evaluate",  method = RequestMethod.POST)
 	public String evaluate(JobAd job, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
-		//JobAd job = jobAdService.get(id);
-		job.setStatus((Enum.valueOf(Status.class, "Rejected")));
+		
+		//I tried this to solve transient attribute (employer) issues. 
+		//I loaded the employer from DB and then set it again in job.
+		User employer = userProfileService.findByFullName(job.getEmployer().getFullName());
+		job.setEmployer(employer);
 		job.setJustification(job.getJustification());
 		
-		//I tried this to solve transient attribute (employer) issue. I loaded the employer from DB and then set it again in job.
-		User employer = userProfileService.get(job.getEmployer().getId());
-		job.setEmployer(employer);
+		//I couldn't find a way to know which button User clicked on, 
+		//So I did this poor condition only because I don't have time to fix it anymore :(
+		if (job.getJustification().isEmpty()) {
+			job.setStatus((Enum.valueOf(Status.class, "Approved")));
+			job.setStatusName("Approved");
+		} else {
+			job.setStatus((Enum.valueOf(Status.class, "Rejected")));
+			job.setStatusName("Rejected");
+		  }
 		
-//		if (job.getJustification() == null) {
-//			redirectAttrs.addFlashAttribute("message",
-//					MessageFormat.format(messageSource.getMessage("job.evaluation.justification.null", null, locale), null));
-//		} else {
-			//saves the changes (addiction of justification and change of status);
+		try {
+			//saves the changes (addiction of justification (rejection case) and change of status);
             JobAd savedJobAd = jobAdService.save(job);
             model.addAttribute("readonly", true);
-//			
-//				//sends notification e-mail;
-//				try {
-//					jobAdService.sendEvaluationMessage(job);
-//					redirectAttrs.addFlashAttribute("message",
-//							MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
-//
-//				} catch (MailException e) {
-//					redirectAttrs.addFlashAttribute("message",
-//							MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
-//
-//				}
-//			
-//			redirectAttrs.addFlashAttribute("message", 
-//					MessageFormat.format(messageSource.getMessage("job.evaluation.success", null, locale), null));
-//
-            return "redirect:/job/view/" + savedJobAd.getId() + "?success";
-//		}
-		
-//		redirectAttrs.addFlashAttribute("message",
-//				MessageFormat.format(messageSource.getMessage("job.evaluation.failed", null, locale), null));	
-//		model.addAttribute("readonly", false);
-//		return "/job/form";
+			
+				//sends notification e-mail;
+				try {
+				jobAdService.sendEvaluationMessage(job);
+					redirectAttrs.addFlashAttribute("message2",
+							MessageFormat.format(messageSource.getMessage("job.mail.sent", null, locale), null));
+
+				} catch (MailException e) {
+					redirectAttrs.addFlashAttribute("message4",
+						MessageFormat.format(messageSource.getMessage("job.mail.failed", null, locale), null));
+
+				}
+				
+			redirectAttrs.addFlashAttribute("message", 
+					MessageFormat.format(messageSource.getMessage("job.evaluation.success", null, locale), null));
+
+	        return "redirect:/job/view/" + savedJobAd.getId() + "?success";
+				
+			} catch (Exception e) {
+				redirectAttrs.addFlashAttribute("message5",
+						MessageFormat.format(messageSource.getMessage("job.evaluation.failed", null, locale), null));	
+				model.addAttribute("readonly", false);
+				return "/job/form";
+			}
 		
 	}
 	
