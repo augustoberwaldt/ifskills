@@ -173,23 +173,5 @@ public class JobAdControllerTest extends BaseControllerTest{
 		;
 		
 	}
-	
-	/**
-	 * @author Luciane
-	 * @Date: 26/04/2016
-	 * Description: Test method search with an empty search criterion
-	 * @throws Exception
-	 *             the exception
-	 */
-	@Test
-	public void testShowJobAdListWithEmptyCriterionSearchAndCheckAtts() throws Exception{
-		/*this.mockMvc.perform(get("/job/search?criteria="))
-		.andExpect(status().isOk())
-		//.andExpect(model().attributeExists("jobs"))
-		//.andExpect(model().attribute("jobs", hasSize(4)))
-		.andExpect(model().attribute("message", containsString("Fill in the search field")))		
-		.andExpect(forwardedUrl(PRE_URL+"/job/list"+POS_URL))
-		;*/
-	}
 
 }
