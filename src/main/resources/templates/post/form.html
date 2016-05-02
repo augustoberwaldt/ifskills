@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{post.title}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{post.breadcrumb-1}" />
+			<li class="active" th:text="#{post.breadcrumb-2}" />
+		</ol>
+
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{post.title}" />
+				<div class="description" th:text="#{post.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title"
+									th:text="${readonly}?#{post.view}:#{post.edit}" />
+							</div>
+						</div>
+						<div class="card-body">
+
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+
+							<form th:object="${post}" th:action="@{/post/save}" method="post"
+								id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('body')}? 'has-error'">
+									<label for="postbody" th:text="#{post.body}" /> <input
+										type="text" class="form-control" id="postbody"
+										th:field="*{body}" placeholder="post body"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('body')}" th:errors="*{body}"
+										th:class="help-block" />
+								</div>
+
+								<button type="submit" class="btn btn-success"
+									th:if="${!readonly}" id="btSubmitForm"
+									onclick="document.getElementById('mainForm').submit(); return false;"
+									th:text="#{crud.action.save}" />
+
+								<a th:href="@{/post/create/}" class="btn btn-success"
+									th:if="${readonly}" th:text="#{crud.action.new}" /> <a
+									th:href="@{/post/edit/}+${id}" class="btn btn-info"
+									th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
+									th:href="@{/post/list/}" class="btn btn-danger"
+									th:if="!${param.success}"> <span
+									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+								</a> <a th:href="@{/post/list/}" class="btn btn-default"
+									th:if="${param.success}" th:text="#{crud.action.list}" />
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
