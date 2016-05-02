@@ -160,29 +160,30 @@
 										</ul>
 									</div>
 								</div></li>
-								
+
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
-								sec:authorize="hasRole('ROLE_ADMIN')"
-								data-toggle="collapse" href="#dropdown-applications"> <span
-									class="icon glyphicon glyphicon-inbox"></span><span class="title">Applications</span>
-							</a > <!-- Dropdown level 1 -->
+								sec:authorize="hasRole('ROLE_ADMIN')" data-toggle="collapse"
+								href="#dropdown-applications"> <span
+									class="icon glyphicon glyphicon-inbox"></span><span
+									class="title">Applications</span>
+							</a> <!-- Dropdown level 1 -->
 								<div id="dropdown-applications" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a 
-											
-											href="/applications/list">List</a></li>
+											<li><a href="/applications/list">List</a></li>
 										</ul>
 									</div>
-								</div></li>	
-								
+								</div></li>
+
 							<!-- Dropdown-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#menu-article"> <span
-									class="icon glyphicon glyphicon-book"></span><span class="title">Articles</span>
+									class="icon glyphicon glyphicon-book"></span><span
+									class="title">Articles</span>
 							</a> <!-- Dropdown level 1 -->
-								<div sec:authorize="hasRole('ROLE_TRAINER')" id="menu-article" class="panel-collapse collapse">
+								<div sec:authorize="hasRole('ROLE_TRAINER')" id="menu-article"
+									class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<li><a href="/article/new">Create</a></li>
@@ -192,31 +193,45 @@
 								<div id="menu-article" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a 
-											
-											href="/article/list">List</a></li>
+											<li><a href="/article/list">List</a></li>
 										</ul>
 									</div>
-								</div>
-								</li>
+								</div></li>
 							<!-- Dropdown-->
 							<!-- Author: Felipe 
 								  Date: 21/04/2016  
 								  Description: Added chances to the permission, as an visitor or user can see the list of ads-->
 							<li class="panel panel-default dropdown"><a
 								data-toggle="collapse" href="#menu-jobAd"> <span
-									class="icon glyphicon glyphicon-briefcase"></span><span class="title">Job Ad</span>
+									class="icon glyphicon glyphicon-briefcase"></span><span
+									class="title">Job Ad</span>
 							</a> <!-- Dropdown level 1 -->
 								<div id="menu-jobAd" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
-											<li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_TRAINER')" href="/job/create">Create</a></li>
-											<li><a sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" href="/job/list">List</a></li>
-											<li><a sec:authorize="hasAnyRole('ROLE_ADMIN')" href="/job/approve">Approve</a></li>
+											<li><a
+												sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_TRAINER')"
+												href="/job/create">Create</a></li>
+											<li><a
+												sec:authorize="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"
+												href="/job/list">List</a></li>
+											<li><a sec:authorize="hasAnyRole('ROLE_ADMIN')"
+												href="/job/approve">Approve</a></li>
 										</ul>
 									</div>
-								</div>
-							</li>	
+								</div></li>
+							<!-- Dropdown-->
+							<li class="panel panel-default dropdown"><a
+								data-toggle="collapse" href="#menu-post"> <span
+									class="icon fa fa-coffee"></span><span class="title">Post</span>
+							</a> <!-- Dropdown level 1 -->
+								<div id="menu-post" class="panel-collapse collapse">
+									<div class="panel-body">
+										<ul class="nav navbar-nav">
+											<li><a href="/post/list">List</a></li>
+										</ul>
+									</div>
+								</div></li>
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
