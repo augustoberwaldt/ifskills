@@ -1,5 +1,6 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +25,20 @@ public class Post {
 	 */
 	@NotEmpty
 	private String body;
+	
+	/**
+	 * 02/05/16 - Ricardo - Hidden
+	 */
+	@Column(columnDefinition = "boolean default false")
+	private Boolean hidden;
+
+	public Boolean getHidden() {
+		return hidden;
+	}
+
+	public void setHidden(Boolean hidden) {
+		this.hidden = hidden;
+	}
 
 	public Long getId() {
 		return id;
