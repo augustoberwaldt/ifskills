@@ -4,7 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -25,12 +26,27 @@ public class Post {
 	 */
 	@NotEmpty
 	private String body;
-	
+
 	/**
 	 * 02/05/16 - Ricardo - Hidden
 	 */
 	@Column(columnDefinition = "boolean default false")
 	private Boolean hidden;
+
+	/**
+	 * 02/05/16 - Ricardo - Relationship between Post and User
+	 */
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User author;
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
 
 	public Boolean getHidden() {
 		return hidden;
