@@ -228,6 +228,9 @@
 								<div id="menu-post" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
+											<li><a
+												sec:authorize="hasAnyRole('ROLE_USER')"
+												href="/post/create">Create</a></li>
 											<li><a href="/post/list">List</a></li>
 										</ul>
 									</div>

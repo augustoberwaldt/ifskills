@@ -1,11 +1,15 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
@@ -41,8 +45,23 @@ public class Post {
 	//@ManyToOne
 	@JoinColumn(name = "user_id")
 	private Long author;
-
 	
+	/**
+	 * @author Luciane
+	 * Date: 05/05/2016
+	 * Description: creating the list of responsible post
+	 */
+	@OneToMany
+	private List <User> responsible;
+	
+	public List<User> getResponsible() {
+		return responsible;
+	}
+
+	public void setResponsible(List<User> responsible) {
+		this.responsible = responsible;
+	}
+
 	public Long getAuthor() {
 		return author;
 	}
