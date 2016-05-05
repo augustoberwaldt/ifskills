@@ -35,16 +35,19 @@ public class Post {
 
 	/**
 	 * 02/05/16 - Ricardo - Relationship between Post and User
+	 * May/05/2016 - Modified by: Edward Ramos - Change User author to Long author;
+	 *                                           ManyToOne don't work when i add a insert in data-h2
 	 */
-	@ManyToOne
+	//@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User author;
+	private Long author;
 
-	public User getAuthor() {
+	
+	public Long getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(User author) {
+	public void setAuthor(Long author) {
 		this.author = author;
 	}
 
