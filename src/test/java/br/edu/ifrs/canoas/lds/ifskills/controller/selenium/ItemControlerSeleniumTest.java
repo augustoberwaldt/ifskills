@@ -33,7 +33,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 		find(".dropdown-toggle", withText("General User"));
 	}
 
-	@Ignore
+	
 	@Test
 	public void testNavigation() {
 		goTo("http://localhost:8080/item/list");
@@ -72,7 +72,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 		assertThat(find("#DataTables_Table_0_info").getText()).isEqualTo("Showing 1 to 6 of 6 entries");
 	}
 
-	@Ignore
+	
 	@Test
 	public void testToViewAndEditItemDetailsWithNoErrors() {
 		goTo("http://localhost:8080/item/list");
@@ -96,7 +96,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void testToViewAndEditItemDetailsWithErrors() {
 		goTo("http://localhost:8080/item/list");
@@ -148,7 +148,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	}
 
-	@Ignore
+	
 	@Test
 	public void testToCreateAndDeleteAnItem() {
 		goTo("http://localhost:8080/item/list");
