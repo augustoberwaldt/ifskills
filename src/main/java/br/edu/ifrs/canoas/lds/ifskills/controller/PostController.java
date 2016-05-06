@@ -42,12 +42,13 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /list
+	 * 05/05/16 - Ricardo - post to posts in model.addAttribute
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("post", postService.list());
+		model.addAttribute("posts", postService.list());
 		return "/post/list";
 	}
 	
