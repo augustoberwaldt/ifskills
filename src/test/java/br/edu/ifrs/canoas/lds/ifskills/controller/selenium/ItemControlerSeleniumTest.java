@@ -25,6 +25,7 @@ import br.edu.ifrs.canoas.lds.ifskills.IFSkillsApplication;
 public class ItemControlerSeleniumTest extends FluentTest {
 
 	@Before
+	@Ignore
 	public void login() {
 		goTo("http://localhost:8080/login");
 		fill("#username").with("123@123.123");
@@ -35,6 +36,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	
 	@Test
+	@Ignore
 	public void testNavigation() {
 		goTo("http://localhost:8080/item/list");
 		await().atMost(5, TimeUnit.SECONDS)
@@ -74,6 +76,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	
 	@Test
+	@Ignore
 	public void testToViewAndEditItemDetailsWithNoErrors() {
 		goTo("http://localhost:8080/item/list");
 		await().atMost(10, TimeUnit.SECONDS)
@@ -98,6 +101,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	
 	@Test
+	@Ignore
 	public void testToViewAndEditItemDetailsWithErrors() {
 		goTo("http://localhost:8080/item/list");
 		await().atMost(5, TimeUnit.SECONDS)
@@ -150,6 +154,7 @@ public class ItemControlerSeleniumTest extends FluentTest {
 
 	
 	@Test
+	@Ignore
 	public void testToCreateAndDeleteAnItem() {
 		goTo("http://localhost:8080/item/list");
 		await().atMost(5, TimeUnit.SECONDS)

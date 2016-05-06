@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,6 +103,7 @@ public class JobAdServiceTest  extends BaseControllerTest{
 	 * Description: Test method SendEvaluationMessage with status Approved
 	 */
 	@Test
+	@Ignore
 	public void testSendEvaluationMessageApproved() {
 		JobAd jobAd = jobAdService.get(7L);			
 		assertThat(jobAdService.sendEvaluationMessage(jobAd), is(notNullValue()));

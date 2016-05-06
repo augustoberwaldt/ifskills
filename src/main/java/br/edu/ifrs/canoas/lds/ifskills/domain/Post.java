@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -24,7 +25,14 @@ public class Post {
 	@Id
 	@GeneratedValue
 	private Long id;
-
+	
+	/**
+	 * @date: May/06/2016 - @author: Edward Ramos
+	 * @description: Title of the post
+	 */
+	@NotEmpty
+	private String title;
+	
 	/**
 	 * 30/04/16 - Ricardo - Body
 	 */
@@ -54,6 +62,15 @@ public class Post {
 	@OneToMany
 	private List <User> responsible;
 	
+	/**
+	 * @date: May/06/2016 - @author: Edward Ramos
+	 * @description: The post must have comments of Site members;
+	 * 				 "orphanRemoval" =  when an Post is removed, the comments (of the post) are removed too.
+	 */
+	@OneToMany(mappedBy = "post", orphanRemoval=true, fetch=FetchType.EAGER)
+	private List<PostComments> postComments;
+	
+	//Gets'n'Sets
 	public List<User> getResponsible() {
 		return responsible;
 	}

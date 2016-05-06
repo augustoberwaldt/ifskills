@@ -54,7 +54,9 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name = "article_id")
 	private Article article;
-
+	
+	//Gets'n'Sets
+	
 	public Date getPostedOn() {
 		return postedOn;
 	}

@@ -128,8 +128,8 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 1, 1);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 1, 8);
 
-insert into post (id, body, hidden, author) values (1, 'Welcome to IFSkills', false, 1);
-insert into post (id, body, hidden, author) values (2, 'About Article', false, 1);
-insert into post (id, body, hidden, author) values (3, 'About Jobs', false, 1);
-insert into post (id, body, hidden, author) values (4, 'About Courses', false, 1);
-insert into post (id, body, hidden, author) values (5, 'About Items', true, 1);
+insert into post (id, title, body, hidden, author) values (1, 'Welcome to IFSkills', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 1);
+insert into post (id, title, body, hidden, author) values (2, 'About Article', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 1);
+insert into post (id, title, body, hidden, author) values (3, 'About Jobs', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 1);
+insert into post (id, title, body, hidden, author) values (4, 'About Courses', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 1);
+insert into post (id, title, body, hidden, author) values (5, 'About Items', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',true, 1);
