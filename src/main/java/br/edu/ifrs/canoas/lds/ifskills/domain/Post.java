@@ -106,6 +106,46 @@ public class Post {
 	@OneToMany
 	private List<User> responsible;
 
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
+
+	public Date getPostedOn() {
+		return postedOn;
+	}
+
+	public void setPostedOn(Date postedOn) {
+		this.postedOn = postedOn;
+	}
+
+	public List<PostComments> getPostComments() {
+		return postComments;
+	}
+
+	public void setPostComments(List<PostComments> postComments) {
+		this.postComments = postComments;
+	}
+
 	/**
 	 * @date: May/06/2016 - @author: Edward Ramos
 	 * @description: The post must have comments of Site members;
