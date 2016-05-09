@@ -76,6 +76,7 @@ public class Post {
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date postedOn;
 
+	
 	/**
 	 * 02/05/16 - Ricardo - Relationship between Post and User May/05/2016 -
 	 * 
@@ -165,7 +166,6 @@ public class Post {
 	public void setAuthor(User author) {
 		this.author = author;
 	}
-
 
 	public Long getId() {
 		return id;

@@ -12,11 +12,6 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
  */
 public interface PostRepository extends CrudRepository<Post, Long> {
 	
-	/**
-	 * 02/05/16 - Ricardo - Find checked
-	 * @return
-	 */
-	@Query("SELECT i FROM Post i WHERE i.hidden=false")
-	List<Post> findChecked();
+	
 
 }

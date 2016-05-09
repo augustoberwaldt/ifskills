@@ -15,7 +15,7 @@ public interface PostCommentsRepository extends CrudRepository<PostComments, Lon
 	 * May/09/16 - Edward - Find checked
 	 * @return
 	 */
-	@Query("SELECT i FROM PostComments i WHERE i.hidden=false")
-	List<PostComments> findChecked();
+	//@Query("SELECT i FROM PostComments i WHERE i.hidden=false")
+	//List<PostComments> findChecked();
 
 }
