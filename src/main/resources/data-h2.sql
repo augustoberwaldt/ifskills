@@ -128,8 +128,8 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 1, 1);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 1, 8);
 
-insert into post (id, title, body, hidden, author_id) values (1, 'Welcome to IFSkills', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 1);
-insert into post (id, title, body, hidden, author_id) values (2, 'About Article', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 2);
-insert into post (id, title, body, hidden, author_id) values (3, 'About Jobs', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 3);
-insert into post (id, title, body, hidden, author_id) values (4, 'About Courses', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',false, 4);
-insert into post (id, title, body, hidden, author_id) values (5, 'About Items', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',true, 5);
+insert into post (id, title, body, author_id) values (1, 'Welcome to IFSkills', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', 1);
+insert into post (id, title, body, author_id) values (2, 'About Article', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', 2);
+insert into post (id, title, body, author_id) values (3, 'About Jobs', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', 3);
+insert into post (id, title, body, author_id) values (4, 'About Courses', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',4);
+insert into post (id, title, body, author_id) values (5, 'About Items', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', 5);

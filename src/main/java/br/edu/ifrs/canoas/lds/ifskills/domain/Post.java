@@ -77,12 +77,6 @@ public class Post {
 	private Date postedOn;
 
 	/**
-	 * 02/05/16 - Ricardo - Hidden
-	 */
-	@Column(columnDefinition = "boolean default false")
-	private Boolean hidden;
-
-	/**
 	 * 02/05/16 - Ricardo - Relationship between Post and User May/05/2016 -
 	 * 
 	 * Modified by: Edward Ramos - Change User author to Long author; ManyToOne
@@ -172,13 +166,6 @@ public class Post {
 		this.author = author;
 	}
 
-	public Boolean getHidden() {
-		return hidden;
-	}
-
-	public void setHidden(Boolean hidden) {
-		this.hidden = hidden;
-	}
 
 	public Long getId() {
 		return id;
