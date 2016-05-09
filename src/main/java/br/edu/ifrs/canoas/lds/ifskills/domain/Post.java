@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -54,7 +53,7 @@ public class Post {
 	 * Date: 09/05/2016 
 	 * Description: add notation type "TEXT"
 	 */
-	@NotEmpty
+	//@NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
 	
@@ -94,6 +93,7 @@ public class Post {
 	 * Description:The relationship between User and Post can not be
 	 * removed because it will affect many stories.
 	 */
+	
 	@ManyToOne
 	private User author;
 
