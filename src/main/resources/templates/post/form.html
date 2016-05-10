@@ -16,11 +16,11 @@ $(document).ready(function(){
 </script> -->
 
 <script type="text/javascript">
-
+	
 </script>
 
 <!-- include summernote css/js-->
-<link href="summernote.css" rel="stylesheet"/>
+<link href="summernote.css" rel="stylesheet" />
 <script src="summernote.js"></script>
 
 </head>
@@ -49,7 +49,7 @@ $(document).ready(function(){
 						<div class="card-header">
 							<div class="card-title">
 								<div class="title"
-									th:text="${readonly}?#{post.view}:#{post.edit}" />
+									th:text="${readonly}?#{post.view}:#{post.create}" />
 							</div>
 						</div>
 						<div class="card-body">
@@ -61,30 +61,41 @@ $(document).ready(function(){
 							<form th:object="${post}" th:action="@{/post/save}" method="post"
 								id="mainForm">
 
+								<div class="form-group"
+									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+									<label for="Title" th:text="#{post.titlePost}" /> <input
+										type="text" class="form-control" id="PostTitle"
+										th:field="*{title}" placeholder="Title"
+										th:readonly="${readonly}" /> <span
+										th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+										th:class="help-block" />
+								</div>
+
+
 								<input type="hidden" th:field="*{id}" />
 								<!-- Corpo da postagem -->
 								<input type="hidden" th:field="*{body}" id="postBody" />
 								<!-- Chama o summernote -->
-								<div class="summernote"/>
-								
+								<div class="summernote" />
+
+
 								<!-- Luciane Componente Typeahead para a lista de responsible -->
-								<div class="form-group"  id="postResponsible"
+								<div class="form-group" id="postResponsible"
 									th:classappend="${#fields.hasErrors('responsible')}? 'has-error'">
-									<label th:text="#{post.responsible}" /> 
-									<input type="text" class="typeahead"
-										th:field="*{responsible}" placeholder="Post responsible"
-										th:readonly="${readonly}" autocomplete="off"/> 
-										
-										<span th:if="${#fields.hasErrors('responsible')}" th:errors="*{responsible}"
-										th:class="help-block" />
+									<label th:text="#{post.responsible}" /> <input type="text"
+										class="typeahead" th:field="*{responsible}"
+										placeholder="Post responsible" th:readonly="${readonly}"
+										autocomplete="off" /> <span
+										th:if="${#fields.hasErrors('responsible')}"
+										th:errors="*{responsible}" th:class="help-block" />
 								</div>
-								
+
 								<!-- @author Felipe -->
 								<button type="submit" class="btn btn-success"
-                                th:if="${!readonly}" id="btSubmitForm"
-                                onclick="$('#postBody').val($('.summernote').summernote('code'));document.getElementById('mainForm').submit(); return false;"
-                                th:text="#{crud.action.save}" />
-                                <!--  -->
+									th:if="${!readonly}" id="btSubmitForm"
+									onclick="$('#postBody').val($('.summernote').summernote('code'));document.getElementById('mainForm').submit(); return false;"
+									th:text="#{crud.action.save}" />
+								<!--  -->
 
 								<a th:href="@{/post/create/}" class="btn btn-success"
 									th:if="${readonly}" th:text="#{crud.action.new}" /> <a
@@ -104,10 +115,8 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<script type="text/javascript">
-	
-
-
-	 </script>
+		
+	</script>
 </body>
 
 </html>

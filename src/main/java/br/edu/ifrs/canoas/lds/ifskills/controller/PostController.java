@@ -5,6 +5,7 @@ import java.util.Locale;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -80,10 +81,12 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /edit
-	 * @param id
-	 * @param model
-	 * @return
+	 * 
+	 * Modified by Luciane
+	 * Date: 09/05/2016
+	 * Description: Add security check
 	 */
+	@Secured({"ROLE_USER","ROLE_ADMIN"})
 	@RequestMapping("/edit/{id}")
 	public String update(@PathVariable Long id, Model model) {
 		model.addAttribute("post", postService.get(id));
@@ -93,12 +96,13 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /delete
-	 * @param id
-	 * @param model
-	 * @param redirectAttrs
-	 * @param locale
-	 * @return
+	 * 
+	 * Modified by Luciane
+	 * Date: 09/05/2016
+	 * Description: Add security check
 	 */
+	
+	@Secured({"ROLE_USER","ROLE_ADMIN"})
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Post post = postService.get(id);
@@ -116,13 +120,12 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /save
-	 * @param post
-	 * @param bindingResult
-	 * @param model
-	 * @param redirectAttrs
-	 * @param locale
-	 * @return
+	 * 
+	 * Modified by Luciane
+	 * Date: 09/05/2016
+	 * Description: Add security check
 	 */
+	@Secured("ROLE_USER")
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Post post, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
