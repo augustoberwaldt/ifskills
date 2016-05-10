@@ -63,7 +63,7 @@ $(document).ready(function(){
 
 								<div class="form-group"
 									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
-									<label for="Title" th:text="#{post.titlePost}" /> <input
+									<label th:text="#{post.titlePost}" /> <input
 										type="text" class="form-control" id="PostTitle"
 										th:field="*{title}" placeholder="Title"
 										th:readonly="${readonly}" /> <span
