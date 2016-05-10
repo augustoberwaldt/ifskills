@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
-import br.edu.ifrs.canoas.lds.ifskills.service.PostCommentsService;
-import br.edu.ifrs.canoas.lds.ifskills.service.PostReplyCommentsService;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
 
 /**
@@ -30,11 +28,6 @@ public class PostController {
 	private PostService postService;
 	private MessageSource messageSource;
 	
-	/**
-	 * May/09/16 - Edward Ramos
-	 */
-	private PostCommentsService postCommentsService;
-	private PostReplyCommentsService postReplyCommentsService;
 	
 	/**
 	 * 01/05/16 - Ricardo - Instantiates a new post controller

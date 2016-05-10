@@ -100,6 +100,25 @@ public class Post {
 	 */
 	@OneToMany
 	private List<User> responsible;
+	
+	/**
+	 * @date: May/06/2016 - @author: Edward Ramos
+	 * @description: The post must have comments of Site members;
+	 *               "orphanRemoval" = when an Post is removed, the comments (of
+	 *               the post) are removed too.
+	 *               
+	 * Modified by Luciane
+	 * Date: 09/05/2016
+	 * Description:
+	 * Pessoal! O relacionamento entre Post e Comment 
+	 * vai ter que ser tratado de outra forma! Está explicado no Trello!
+	 * Assim que conseguirem implementar as soluções, 
+	 * por favor, vamos apagar este comentário.
+	 * Deixei esta lista abaixo para lembrarmos de criar o relacionamento: Post -> Comment
+	 */
+	/*@OneToMany(mappedBy = "post", orphanRemoval = true, fetch = FetchType.EAGER)
+	private List<PostComments> postComments;*/
+	
 
 	public String getTitle() {
 		return title;
@@ -133,24 +152,15 @@ public class Post {
 		this.postedOn = postedOn;
 	}
 
-	public List<PostComments> getPostComments() {
+	/*public List<PostComments> getPostComments() {
 		return postComments;
 	}
 
 	public void setPostComments(List<PostComments> postComments) {
 		this.postComments = postComments;
-	}
+	}*/
 
-	/**
-	 * @date: May/06/2016 - @author: Edward Ramos
-	 * @description: The post must have comments of Site members;
-	 *               "orphanRemoval" = when an Post is removed, the comments (of
-	 *               the post) are removed too.
-	 */
-	@OneToMany(mappedBy = "post", orphanRemoval = true, fetch = FetchType.EAGER)
-	private List<PostComments> postComments;
 
-	// Gets'n'Sets
 	public List<User> getResponsible() {
 		return responsible;
 	}
