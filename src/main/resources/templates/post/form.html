@@ -61,52 +61,72 @@ $(document).ready(function(){
 							<form th:object="${post}" th:action="@{/post/save}" method="post"
 								id="mainForm">
 
-								<div class="form-group"
-									th:classappend="${#fields.hasErrors('title')}? 'has-error'">
-									<label th:text="#{post.titlePost}" /> <input
-										type="text" class="form-control" id="PostTitle"
-										th:field="*{title}" placeholder="Title"
-										th:readonly="${readonly}" /> <span
-										th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
-										th:class="help-block" />
-								</div>
-
-
 								<input type="hidden" th:field="*{id}" />
-								<!-- Corpo da postagem -->
-								<input type="hidden" th:field="*{body}" id="postBody" />
-								<!-- Chama o summernote -->
-								<div class="summernote" />
+
+								<div class="col-xs-12 col-md-8">
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+										<label th:text="#{post.titlePost}" /> <input type="text"
+											class="form-control" id="PostTitle" th:field="*{title}"
+											placeholder="Title" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('subject')}? 'has-error'">
+										<label th:text="#{post.subject}" /> <input type="text"
+											class="form-control" id="PostSubject" th:field="*{subject}"
+											placeholder="Subject" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('subject')}"
+											th:errors="*{subject}" th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
+										<label for="PostTags" th:text="#{post.tags}" /> <input
+											type="text" class="form-control" id="postTags"
+											placeholder="Post tags" th:field="*{tags}"
+											th:readonly="${readonly}" data-role="tagsinput" /> <span
+											th:if="${#fields.hasErrors('tags')}" th:errors="*{tags}"
+											th:class="help-block" />
+									</div>
+
+									<!-- Corpo da postagem -->
+									<input type="hidden" th:field="*{body}" id="postBody" />
+									<!-- Chama o summernote -->
+									<div class="summernote" />
+
+									<!-- Luciane Componente Typeahead para a lista de responsible-->
+									<div class="form-group" id="postResponsible"
+										th:classappend="${#fields.hasErrors('responsible')}? 'has-error'">
+										<label th:text="#{post.responsible}" /> <input type="text"
+											class="typeahead" th:field="*{responsible}"
+											placeholder="Post responsible" th:readonly="${readonly}"
+											autocomplete="off" /> <span
+											th:if="${#fields.hasErrors('responsible')}"
+											th:errors="*{responsible}" th:class="help-block" />
+									</div>
 
 
-								<!-- Luciane Componente Typeahead para a lista de responsible -->
-								<div class="form-group" id="postResponsible"
-									th:classappend="${#fields.hasErrors('responsible')}? 'has-error'">
-									<label th:text="#{post.responsible}" /> <input type="text"
-										class="typeahead" th:field="*{responsible}"
-										placeholder="Post responsible" th:readonly="${readonly}"
-										autocomplete="off" /> <span
-										th:if="${#fields.hasErrors('responsible')}"
-										th:errors="*{responsible}" th:class="help-block" />
+									<!-- @author Felipe -->
+									<button type="submit" class="btn btn-success"
+										th:if="${!readonly}" id="btSubmitForm"
+										onclick="$('#postBody').val($('.summernote').summernote('code'));document.getElementById('mainForm').submit(); return false;"
+										th:text="#{crud.action.save}" />
+									<!--  -->
+
+									<a sec:authorize="hasRole('ROLE_USER')"
+										th:href="@{/post/create/}" class="btn btn-success"
+										th:if="${readonly}" th:text="#{crud.action.new}" /> <a
+										th:href="@{/post/edit/}+${id}" class="btn btn-info"
+										th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
+										th:href="@{/post/list/}" class="btn btn-danger"
+										th:if="!${param.success}"> <span
+										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> <a th:href="@{/post/list/}" class="btn btn-default"
+										th:if="${param.success}" th:text="#{crud.action.list}" />
 								</div>
-
-								<!-- @author Felipe -->
-								<button type="submit" class="btn btn-success"
-									th:if="${!readonly}" id="btSubmitForm"
-									onclick="$('#postBody').val($('.summernote').summernote('code'));document.getElementById('mainForm').submit(); return false;"
-									th:text="#{crud.action.save}" />
-								<!--  -->
-
-								<a th:href="@{/post/create/}" class="btn btn-success"
-									th:if="${readonly}" th:text="#{crud.action.new}" /> <a
-									th:href="@{/post/edit/}+${id}" class="btn btn-info"
-									th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
-									th:href="@{/post/list/}" class="btn btn-danger"
-									th:if="!${param.success}"> <span
-									th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
-								</a> <a th:href="@{/post/list/}" class="btn btn-default"
-									th:if="${param.success}" th:text="#{crud.action.list}" />
-
 							</form>
 						</div>
 					</div>

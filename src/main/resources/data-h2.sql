@@ -128,8 +128,14 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 1, 1);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 1, 8);
 
-insert into post (id, title, body, author_id) values (1, 'Welcome to IFSkills', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',1);
-insert into post (id, title, body, author_id) values (2, 'About Article', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',2);
-insert into post (id, title, body, author_id) values (3, 'About Jobs', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',3);
-insert into post (id, title, body, author_id) values (4, 'About Courses', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',4);
-insert into post (id, title, body, author_id) values (5, 'About Items', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',5);
+insert into post (id, title,subject, body, author_id) values (1, 'Welcome to IFSkills', 'Informática TI',  'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',1);
+insert into post (id, title,subject, body, author_id) values (2, 'About Article', 'Mineração de Dados','leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',2);
+insert into post (id, title,subject, body, author_id) values (3, 'About Jobs', 'Spring Boot', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',3);
+insert into post (id, title,subject, body, author_id) values (4, 'About Courses', 'Persistência Java ', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',4);
+insert into post (id, title,subject, body, author_id) values (5, 'About Items', 'E-commerce', 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo',5);
+
+insert into POST_TAGS  (POST_ID , tags ) values(1, 'Tics, Educação');
+insert into POST_TAGS  (POST_ID , tags ) values(2, 'Inteligência, BI');
+insert into POST_TAGS  (POST_ID , tags ) values(3, 'IDE, ferramenta');
+insert into POST_TAGS  (POST_ID , tags ) values(4, 'Liguagem, BD');
+insert into POST_TAGS  (POST_ID , tags ) values(5, 'Comércio, Online');
