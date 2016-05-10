@@ -17,14 +17,13 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Size;
 
@@ -32,15 +31,15 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.util.Base64Utils;
 
+/**
+ * Modify - 10/05/16 - Ricardo - extends Document
+ */
 @Entity
-public class Article {
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Article extends Document {
 
 	@NotEmpty
 	private String title;
-	
+
 	private String slug;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -48,13 +47,12 @@ public class Article {
 	private Date postedOn;
 
 	@ElementCollection
-	@Size(min = 1,max = 2)
+	@Size(min = 1, max = 2)
 	private List<String> tags;
-	
+
 	/**
-	 * Auhtor: Edward Ramos
-	 * Date:Apr/12/2016
-	 * Description: Define whether the article is private or not (Private or Public)
+	 * Auhtor: Edward Ramos Date:Apr/12/2016 Description: Define whether the
+	 * article is private or not (Private or Public)
 	 */
 	@Column(columnDefinition = "boolean default true")
 	private Boolean privateArticle;
@@ -62,14 +60,11 @@ public class Article {
 	private Boolean active;
 
 	/**
-	 * Auhtor: Luciane
-	 * Date:24/03/2016
-	 * Description: Relacionamento entre Article e User
-	 * Author is a type attribute User
-	 * A user can be the author of several articles
+	 * Auhtor: Luciane Date:24/03/2016 Description: Relacionamento entre Article
+	 * e User Author is a type attribute User A user can be the author of
+	 * several articles
 	 */
 
-	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User author;
@@ -78,25 +73,20 @@ public class Article {
 	@Size(min = 1, max = 500)
 	private String teaser;
 
-	//@NotEmpty
+	// @NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
-	
 
 	/**
-	 * Author: Luciane
-	 * Date:27/03/2016
-	 * Description: Relationship between Article and Comment
-	 * An article has a comments list
+	 * Author: Luciane Date:27/03/2016 Description: Relationship between Article
+	 * and Comment An article has a comments list
 	 * 
-	 * Date: 05/04/2016
-	 * Modified by Aline G.
-	 * Description: "orphanRemoval" added so when an Article is removed, 
-	 * it's comments are removed too.
+	 * Date: 05/04/2016 Modified by Aline G. Description: "orphanRemoval" added
+	 * so when an Article is removed, it's comments are removed too.
 	 */
-	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "article", orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<Comment> comments;
-		
+
 	public List<ArticleRank> getArticleRank() {
 		return articleRank;
 	}
@@ -108,29 +98,23 @@ public class Article {
 	/**
 	 * 20/04/16 - Ricardo - Relationship between article star rating.
 	 */
-	@OneToMany(mappedBy = "article", orphanRemoval=true, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "article", orphanRemoval = true, fetch = FetchType.EAGER)
 	private List<ArticleRank> articleRank;
 
 	@Lob
 	private byte[] picture;
 
-
 	/**
-	 * Auhtor: Edson
-	 * Date:04/08/2016
-	 * Description: Date of available article.
-	 * 	
+	 * Auhtor: Edson Date:04/08/2016 Description: Date of available article.
+	 * 
 	 */
 	@Column(length = 10)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date startPublishingDate;
-	
-	
+
 	/**
-	 * Auhtor: Edson
-	 * Date:04/08/2016
-	 * Description: Date of expire article.
+	 * Auhtor: Edson Date:04/08/2016 Description: Date of expire article.
 	 * 
 	 */
 	@Future
@@ -138,41 +122,29 @@ public class Article {
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date oldArticleDate;
-	
+
 	/**
-	 * Auhtor: Edson
-	 * Date:04/08/2016
-	 * Description: Date of delete article.
+	 * Auhtor: Edson Date:04/08/2016 Description: Date of delete article.
 	 *
 	 */
 	@Column(length = 10)
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Date stopPublishingDate;	
-	
-	
+	private Date stopPublishingDate;
+
 	/**
-	 * Auhtor: Edson
-	 * Date:22/08/2016
-	 * Description: Indicate whether an article is publicly available.
-	 */	
+	 * Auhtor: Edson Date:22/08/2016 Description: Indicate whether an article is
+	 * publicly available.
+	 */
 	@Column(columnDefinition = "boolean default true")
 	private Boolean publiclyAvailable;
-	
+
 	public Boolean getPubliclyAvailable() {
 		return publiclyAvailable;
 	}
 
 	public void setPubliclyAvailable(Boolean publiclyAvailable) {
 		this.publiclyAvailable = publiclyAvailable;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getTitle() {
@@ -262,7 +234,7 @@ public class Article {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	
+
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -281,7 +253,7 @@ public class Article {
 
 	public void setPicture(byte[] picture) {
 		this.picture = picture;
-	}	
+	}
 
 	public Boolean getPrivateArticle() {
 		return privateArticle;
@@ -290,5 +262,5 @@ public class Article {
 	public void setPrivateArticle(Boolean privateArticle) {
 		this.privateArticle = privateArticle;
 	}
-	
+
 }

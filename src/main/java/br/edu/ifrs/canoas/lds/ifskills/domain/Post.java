@@ -6,30 +6,22 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * 30/04/16 - Ricardo - Class post
+ * Create - 30/04/16 - Ricardo - Class post
+ * Modify - 10/05/16 - Ricardo - extends Document
  */
 @Entity
-public class Post {
-
-	/**
-	 * 30/04/16 - Ricardo - Id
-	 */
-	@Id
-	@GeneratedValue
-	private Long id;
+public class Post extends Document {
 
 	/**
 	 * @date: May/06/2016 - @author: Edward Ramos
@@ -37,88 +29,73 @@ public class Post {
 	 */
 	@NotEmpty
 	private String title;
-	
-	
+
 	/**
-	 * @author Luciane
-	 * Date: 09/05/2016
-	 * Description: create attribute subject
+	 * @author Luciane Date: 09/05/2016 Description: create attribute subject
 	 */
 	private String subject;
 
 	/**
 	 * 30/04/16 - Ricardo - Body
 	 * 
-	 * Modified by Luciane 
-	 * Date: 09/05/2016 
-	 * Description: add notation type "TEXT"
+	 * Modified by Luciane Date: 09/05/2016 Description: add notation type
+	 * "TEXT"
 	 */
-	//@NotEmpty
+	// @NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
-	
-	
+
 	/**
-	 * @author Luciane
-	 * Date: 09/05/2016 
-	 * Description: create attribute tags
+	 * @author Luciane Date: 09/05/2016 Description: create attribute tags
 	 */
 	@ElementCollection
-	@Size(min = 1,max = 2)
+	@Size(min = 1, max = 2)
 	private List<String> tags;
-	
+
 	/**
-	 * @author Luciane
-	 * Date: 09/05/2016 
-	 * Description: create attribute postedOn
+	 * @author Luciane Date: 09/05/2016 Description: create attribute postedOn
 	 */
 	@Temporal(TemporalType.TIMESTAMP)
 	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
 	private Date postedOn;
 
-	
 	/**
 	 * 02/05/16 - Ricardo - Relationship between Post and User May/05/2016 -
 	 * 
 	 * Modified by: Edward Ramos - Change User author to Long author; ManyToOne
-	 * don't work when i add a insert in data-h2 
+	 * don't work when i add a insert in data-h2
 	 * 
-	 * Modified by Luciane 
-	 * Date: 09/05/2016 
-	 * Description:The relationship between User and Post can not be
-	 * removed because it will affect many stories.
+	 * Modified by Luciane Date: 09/05/2016 Description:The relationship between
+	 * User and Post can not be removed because it will affect many stories.
 	 */
-	
+
 	@ManyToOne
 	private User author;
 
 	/**
-	 * @author Luciane 
-	 * Date: 05/05/2016 
-	 * Description: creating the list of
+	 * @author Luciane Date: 05/05/2016 Description: creating the list of
 	 *         responsible post
 	 */
 	@OneToMany
 	private List<User> responsible;
-	
+
 	/**
 	 * @date: May/06/2016 - @author: Edward Ramos
 	 * @description: The post must have comments of Site members;
 	 *               "orphanRemoval" = when an Post is removed, the comments (of
 	 *               the post) are removed too.
-	 *               
-	 * Modified by Luciane
-	 * Date: 09/05/2016
-	 * Description:
-	 * Pessoal! O relacionamento entre Post e Comment 
-	 * vai ter que ser tratado de outra forma! Está explicado no Trello!
-	 * Assim que conseguirem implementar as soluções, 
-	 * por favor, vamos apagar este comentário.
-	 * Deixei esta lista abaixo para lembrarmos de criar o relacionamento: Post -> Comment
+	 * 
+	 *               Modified by Luciane Date: 09/05/2016 Description: Pessoal!
+	 *               O relacionamento entre Post e Comment vai ter que ser
+	 *               tratado de outra forma! Está explicado no Trello! Assim que
+	 *               conseguirem implementar as soluções, por favor, vamos
+	 *               apagar este comentário. Deixei esta lista abaixo para
+	 *               lembrarmos de criar o relacionamento: Post -> Comment
 	 */
-	/*@OneToMany(mappedBy = "post", orphanRemoval = true, fetch = FetchType.EAGER)
-	private List<PostComments> postComments;*/
-	
+	/*
+	 * @OneToMany(mappedBy = "post", orphanRemoval = true, fetch =
+	 * FetchType.EAGER) private List<PostComments> postComments;
+	 */
 
 	public String getTitle() {
 		return title;
@@ -152,14 +129,12 @@ public class Post {
 		this.postedOn = postedOn;
 	}
 
-	/*public List<PostComments> getPostComments() {
-		return postComments;
-	}
-
-	public void setPostComments(List<PostComments> postComments) {
-		this.postComments = postComments;
-	}*/
-
+	/*
+	 * public List<PostComments> getPostComments() { return postComments; }
+	 * 
+	 * public void setPostComments(List<PostComments> postComments) {
+	 * this.postComments = postComments; }
+	 */
 
 	public List<User> getResponsible() {
 		return responsible;
@@ -175,14 +150,6 @@ public class Post {
 
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getBody() {
