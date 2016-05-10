@@ -125,7 +125,6 @@ public class PostController {
 	 * Date: 09/05/2016
 	 * Description: Add security check
 	 */
-	@Secured("ROLE_USER")
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Post post, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
