@@ -6,12 +6,15 @@
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -51,9 +54,23 @@ public class Comment {
 	 * The Article type attribute will store the id of the 
 	 * article to which the comment refers
 	 */
-	@ManyToOne
+	@ManyToOne(optional=true)
 	@JoinColumn(name = "article_id")
 	private Article article;
+	
+	/**
+	 * @date: May/10/2016 - @author: Edward Ramos
+	 */
+	@ManyToOne(optional=true)
+	@JoinColumn(name = "post_id")
+	private Post post;
+	
+	@ManyToOne(optional=true)
+	@JoinColumn(name = "comment_id")
+	private Comment comment;
+	
+	@OneToMany(mappedBy = "comment", orphanRemoval = true, fetch = FetchType.EAGER)
+	private List<Comment> comments;
 	
 	//Gets'n'Sets
 	
