@@ -54,19 +54,19 @@ public class Comment {
 	 * The Article type attribute will store the id of the 
 	 * article to which the comment refers
 	 */
-	@ManyToOne(optional=true)
-	@JoinColumn(name = "article_id")
+	@ManyToOne
+	@JoinColumn(name = "article_id", nullable=true)
 	private Article article;
 	
 	/**
 	 * @date: May/10/2016 - @author: Edward Ramos
 	 */
-	@ManyToOne(optional=true)
-	@JoinColumn(name = "post_id")
+	@ManyToOne
+	@JoinColumn(name = "post_id", nullable=true)
 	private Post post;
 	
-	@ManyToOne(optional=true)
-	@JoinColumn(name = "comment_id")
+	@ManyToOne
+	@JoinColumn(name = "comment_id", nullable=true)
 	private Comment comment;
 	
 	@OneToMany(mappedBy = "comment", orphanRemoval = true, fetch = FetchType.EAGER)
