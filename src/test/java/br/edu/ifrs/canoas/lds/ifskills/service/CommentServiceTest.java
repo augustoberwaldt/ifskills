@@ -43,7 +43,7 @@ public class CommentServiceTest {
 	@Test
 	public void testToCreateAndSaveAnComment() {
 		Comment comment = new Comment();
-		comment.setContent("My Comment");
+		comment.setBody("My Comment");
 		assertThat(commentService.save(comment), hasProperty("id", is(not(empty()))));
 	}
 

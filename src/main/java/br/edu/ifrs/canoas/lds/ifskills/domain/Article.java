@@ -17,9 +17,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -42,10 +40,6 @@ public class Article extends Document {
 
 	private String slug;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss aaa")
-	private Date postedOn;
-
 	@ElementCollection
 	@Size(min = 1, max = 2)
 	private List<String> tags;
@@ -59,29 +53,10 @@ public class Article extends Document {
 
 	private Boolean active;
 
-	/**
-	 * Auhtor: Luciane Date:24/03/2016 Description: Relacionamento entre Article
-	 * e User Author is a type attribute User A user can be the author of
-	 * several articles
-	 */
-
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User author;
-
 	@Column(columnDefinition = "TEXT")
 	@Size(min = 1, max = 500)
 	private String teaser;
 
-	/**
-	 * Author: Luciane Date:27/03/2016 Description: Relationship between Article
-	 * and Comment An article has a comments list
-	 * 
-	 * Date: 05/04/2016 Modified by Aline G. Description: "orphanRemoval" added
-	 * so when an Article is removed, it's comments are removed too.
-	 */
-	@OneToMany(mappedBy = "article", orphanRemoval = true, fetch = FetchType.EAGER)
-	private List<Comment> comments;
 
 	public List<ArticleRank> getArticleRank() {
 		return articleRank;
@@ -159,14 +134,6 @@ public class Article extends Document {
 		this.slug = slug;
 	}
 
-	public Date getPostedOn() {
-		return postedOn;
-	}
-
-	public void setPostedOn(Date postedOn) {
-		this.postedOn = postedOn;
-	}
-
 	public List<String> getTags() {
 		return tags;
 	}
@@ -181,14 +148,6 @@ public class Article extends Document {
 
 	public void setActive(Boolean active) {
 		this.active = active;
-	}
-
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
 	}
 
 	public String getTeaser() {
@@ -221,14 +180,6 @@ public class Article extends Document {
 
 	public void setStopPublishingDate(Date stopPublishingDate) {
 		this.stopPublishingDate = stopPublishingDate;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
 	}
 
 	public byte[] getPicture() {

@@ -236,7 +236,7 @@ public class ArticleController {
 
 		Article article = articleService.get(slug);
 		Comment comment = new Comment();
-		comment.setArticle(article);
+		comment.setDocument(article);
 
 		model.addAttribute("auth", userService.getPrincipal() != null);
 		model.addAttribute("article", article);

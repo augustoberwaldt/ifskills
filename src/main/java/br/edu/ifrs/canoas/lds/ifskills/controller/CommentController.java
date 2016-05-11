@@ -84,17 +84,17 @@ public class CommentController {
 			
 			comment.setAuthor(userService.getPrincipal().getUser());
 			comment.setPostedOn(new Date());
-			Article article = articleService.get(comment.getArticle().getId());
+			Article article = articleService.get(comment.getDocument().getId());
 			
-			comment.setArticle(article);
+			comment.setDocument(article);
 			article.getComments().add(comment);
 			
 			commentService.save(comment);
-			articleService.save(comment.getArticle());
+			articleService.save(((Article)comment.getDocument()));
 			
-			return "redirect:/article/view/" + comment.getArticle().getSlug();
+			return "redirect:/article/view/" + ((Article)comment.getDocument()).getSlug();
 		}
-		return "redirect:/article/view/"+comment.getArticle().getSlug();
+		return "redirect:/article/view/"+((Article)comment.getDocument()).getSlug();
 	}
 
 
@@ -122,14 +122,14 @@ public class CommentController {
 		if (comment.getAuthor().getId() != userService.getPrincipal().getUser().getId()){
 			model.addAttribute("message",
 					MessageFormat.format(messageSource.getMessage("comment.deleted.failed", null, locale), id));
-			return "redirect:/article/view/"+comment.getArticle().getSlug();
+			return "redirect:/article/view/"+((Article)comment.getDocument()).getSlug();
 		}else		
 			commentService.delete(id);
 
 		redirectAttrs.addFlashAttribute("message", MessageFormat
-				.format(messageSource.getMessage("comment.deleted", null, locale), comment.getContent()));
+				.format(messageSource.getMessage("comment.deleted", null, locale), comment.getBody()));
 
-		return "redirect:/article/view/"+comment.getArticle().getSlug();
+		return "redirect:/article/view/"+((Article)comment.getDocument()).getSlug();
 
 	}
 	

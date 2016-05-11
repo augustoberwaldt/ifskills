@@ -121,7 +121,7 @@
 										<p th:text="${message}" />
 									</div>
 									<tr th:each="comment: ${article.comments}">
-										<td th:text="${comment.content}" class="col-sm-6"></td>
+										<td th:text="${comment.body}" class="col-sm-6" maxlength="255"></td>
 										<td th:text="${comment.author.fullName}"></td>
 										<td
 											th:text="${#dates.format(comment.postedOn, 'dd-MMM-yyyy')}"></td>
