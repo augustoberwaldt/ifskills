@@ -3,7 +3,6 @@ package br.edu.ifrs.canoas.lds.ifskills.domain;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -34,16 +33,6 @@ public class Post extends Document {
 	 * @author Luciane Date: 09/05/2016 Description: create attribute subject
 	 */
 	private String subject;
-
-	/**
-	 * 30/04/16 - Ricardo - Body
-	 * 
-	 * Modified by Luciane Date: 09/05/2016 Description: add notation type
-	 * "TEXT"
-	 */
-	// @NotEmpty
-	@Column(columnDefinition = "TEXT")
-	private String body;
 
 	/**
 	 * @author Luciane Date: 09/05/2016 Description: create attribute tags
@@ -150,14 +139,6 @@ public class Post extends Document {
 
 	public void setAuthor(User author) {
 		this.author = author;
-	}
-
-	public String getBody() {
-		return body;
-	}
-
-	public void setBody(String body) {
-		this.body = body;
 	}
 
 }

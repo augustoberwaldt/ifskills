@@ -73,10 +73,6 @@ public class Article extends Document {
 	@Size(min = 1, max = 500)
 	private String teaser;
 
-	// @NotEmpty
-	@Column(columnDefinition = "TEXT")
-	private String body;
-
 	/**
 	 * Author: Luciane Date:27/03/2016 Description: Relationship between Article
 	 * and Comment An article has a comments list
@@ -225,14 +221,6 @@ public class Article extends Document {
 
 	public void setStopPublishingDate(Date stopPublishingDate) {
 		this.stopPublishingDate = stopPublishingDate;
-	}
-
-	public String getBody() {
-		return body;
-	}
-
-	public void setBody(String body) {
-		this.body = body;
 	}
 
 	public List<Comment> getComments() {
