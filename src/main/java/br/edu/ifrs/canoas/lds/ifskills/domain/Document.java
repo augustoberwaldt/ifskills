@@ -5,10 +5,10 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Create - 10/05/16 - Ricardo - Document Superclass
+ * Create - 10/05/16 - Ricardo - Document abstract superclass
  **/
 @MappedSuperclass
-public class Document {
+public abstract class Document {
 
 	/**
 	 * Create - 10/05/16 - Ricardo - Id
