@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{comment.title}" />
+
+<script type="text/javascript">
+	
+</script>
+
+<!-- include summernote css/js-->
+<link href="summernote.css" rel="stylesheet" />
+<script src="summernote.js"></script>
+
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{comment.breadcrumb-1}" />
+			<li class="active" th:text="#{comment.breadcrumb-2}" />
+		</ol>
+
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{comment.title}" />
+				<div class="description" th:text="#{comment.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title"
+									th:text="${readonly}?#{comment.view}:#{comment.create}" />
+							</div>
+						</div>
+						<div class="card-body">
+
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+
+							<form th:object="${comment}" th:action="@{/comment/save}" method="comment"
+								id="mainForm">
+
+								<input type="hidden" th:field="*{id}" />
+
+								<div class="col-xs-12 col-md-8">
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('title')}? 'has-error'">
+										<label th:text="#{comment.titlecomment}" /> <input type="text"
+											class="form-control" id="commentTitle" th:field="*{title}"
+											placeholder="Title" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('subject')}? 'has-error'">
+										<label th:text="#{comment.subject}" /> <input type="text"
+											class="form-control" id="commentSubject" th:field="*{subject}"
+											placeholder="Subject" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('subject')}"
+											th:errors="*{subject}" th:class="help-block" />
+									</div>
+
+									<div class="form-group"
+										th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
+										<label for="commentTags" th:text="#{comment.tags}" /> <input
+											type="text" class="form-control" id="commentTags"
+											placeholder="comment tags" th:field="*{tags}"
+											th:readonly="${readonly}" data-role="tagsinput" /> <span
+											th:if="${#fields.hasErrors('tags')}" th:errors="*{tags}"
+											th:class="help-block" />
+									</div>
+
+									<!-- Corpo da commentagem -->
+									<input type="hidden" th:field="*{body}" id="commentBody" />
+									<!-- Chama o summernote -->
+									<div class="summernote" />
+
+									<!-- Luciane Componente Typeahead para a lista de responsible-->
+									<div class="form-group" id="commentResponsible"
+										th:classappend="${#fields.hasErrors('responsible')}? 'has-error'">
+										<label th:text="#{comment.responsible}" /> <input type="text"
+											class="typeahead" th:field="*{responsible}"
+											placeholder="comment responsible" th:readonly="${readonly}"
+											autocomplete="off" /> <span
+											th:if="${#fields.hasErrors('responsible')}"
+											th:errors="*{responsible}" th:class="help-block" />
+									</div>
+
+
+									<!-- @author Felipe -->
+									<button type="submit" class="btn btn-success"
+										th:if="${!readonly}" id="btSubmitForm"
+										onclick="$('#commentBody').val($('.summernote').summernote('code'));document.getElementById('mainForm').submit(); return false;"
+										th:text="#{crud.action.save}" />
+									<!--  -->
+
+									<a sec:authorize="hasRole('ROLE_USER')"
+										th:href="@{/comment/create/}" class="btn btn-success"
+										th:if="${readonly}" th:text="#{crud.action.new}" /> <a
+										th:href="@{/comment/edit/}+${id}" class="btn btn-info"
+										th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
+										th:href="@{/comment/list/}" class="btn btn-danger"
+										th:if="!${param.success}"> <span
+										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
+									</a> <a th:href="@{/comment/list/}" class="btn btn-default"
+										th:if="${param.success}" th:text="#{crud.action.list}" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		
+	</script>
+</body>
