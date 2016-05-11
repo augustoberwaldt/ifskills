@@ -48,11 +48,6 @@
 									<tr th:each="post : ${posts}">
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
 											th:text="|${post.body}|" /></td>
-										<td><a th:href="@{/post/edit/}+${post.id}"> <span
-												class="badge" th:text="#{crud.action.edit}" />
-										</a> <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')" th:href="@{/post/delete/}+${post.id}" class="delete">
-												<span class="badge" th:text="#{crud.action.delete}" />
-										</a></td>
 									</tr>
 								</tbody>
 							</table>
