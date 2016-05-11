@@ -132,16 +132,5 @@ public class CommentController {
 		return "redirect:/article/view/"+((Article)comment.getDocument()).getSlug();
 
 	}
-	
-	/**
-	 * Create - 11/05/16 - Ricardo - /list
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("/list")
-	public String list(Model model) {
-		model.addAttribute("comment", commentService.list());
-		return "/comment/list";
-	}
 
 }
