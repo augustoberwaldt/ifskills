@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layouts/main">
+
+<head>
+<title th:text="#{comment.header}" />
+</head>
+
+<body>
+	<div layout:fragment="content">
+
+		<!-- BREADCRUMB -->
+		<ol class="breadcrumb navbar-breadcrumb" th:fragment="breadcrumb">
+			<li th:text="#{comment.breadcrumb-1}" />
+			<li class="active" th:text="#{comment.breadcrumb-2}" />
+		</ol>
+
+		<div class="side-body">
+			<!-- PAGE HEADER -->
+			<div class="page-title">
+				<span class="title" th:text="#{comment.title}" />
+				<div class="description" th:text="#{comment.title.description}"></div>
+			</div>
+
+			<!--  BODY -->
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="card">
+
+						<!-- TITLE -->
+						<div class="card-header">
+							<div class="card-title">
+								<div class="title" th:text="#{comment.list}" />
+							</div>
+						</div>
+
+						<!-- CONTENT -->
+						<div class="card-body">
+							<div th:if="${message}" class="alert alert-success">
+								<p th:text="${message}" />
+							</div>
+							<table class="datatable table table-striped">
+								<thead>
+									<tr>
+										<th th:text="#{comment.body}" />
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="comment : ${comments}">
+										<td><a href="#"
+											th:href="@{|/comment/view/${comment.id}|}"
+											th:text="|${comment.body}|" /></td>
+										<td><a th:href="@{/comment/edit/}+${comment.id}"> <span
+												class="badge" th:text="#{crud.action.edit}" />
+										</a> <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"
+											th:href="@{/comment/delete/}+${comment.id}" class="delete">
+												<span class="badge" th:text="#{crud.action.delete}" />
+										</a></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
