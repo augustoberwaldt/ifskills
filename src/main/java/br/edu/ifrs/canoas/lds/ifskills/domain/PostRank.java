@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  * 
  * @author Felipe
  * Description: class to secure the value of evaluation of the post
+ * Date:11/05/2016
  */
 @Entity
 public class PostRank {
@@ -26,6 +27,8 @@ public class PostRank {
 		@NotEmpty
 		@Size(min = 0, max = 5)
 		private float rank;
+		
+		private int views;
 
 		public Long getId() {
 			return id;
@@ -41,5 +44,13 @@ public class PostRank {
 
 		public void setRank(float rank) {
 			this.rank = rank;
+		}
+
+		public int getViews() {
+			return views;
+		}
+		
+		public void setViews(int views){
+			this.views = views;
 		}
 }

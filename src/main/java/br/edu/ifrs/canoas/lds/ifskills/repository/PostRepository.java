@@ -1,10 +1,6 @@
 package br.edu.ifrs.canoas.lds.ifskills.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 
 /**
@@ -12,6 +8,4 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
  */
 public interface PostRepository extends CrudRepository<Post, Long> {
 	
-	
-
 }
