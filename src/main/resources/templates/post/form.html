@@ -15,8 +15,15 @@ $(document).ready(function(){
 });  
 </script> -->
 
-<script type="text/javascript">
-	
+
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    var responsible = [[${users}]];
+    console.log(responsible);
+
+/*]]>*/
 </script>
 
 <!-- include summernote css/js-->
@@ -61,7 +68,8 @@ $(document).ready(function(){
 							<form th:object="${post}" th:action="@{/post/save}" method="post"
 								id="mainForm">
 
-								<input type="hidden" th:field="*{id}" />
+								<input type="hidden" th:field="*{id}" /> <input type="hidden"
+									th:field="*{body}" id="postBody" />
 
 								<div class="col-xs-12 col-md-8">
 									<div class="form-group"
@@ -92,21 +100,21 @@ $(document).ready(function(){
 											th:class="help-block" />
 									</div>
 
-									<!-- Corpo da postagem -->
-									<input type="hidden" th:field="*{body}" id="postBody" />
-									<!-- Chama o summernote -->
-									<div class="summernote" />
 
-									<!-- Luciane Componente Typeahead para a lista de responsible-->
+									<!-- Luciane Corpo da postagem -->
+									<span th:remove="tag" th:utext="${post.body}"
+										th:if="${readonly}" />
+									<!-- Chama o summernote -->
+									<div class="summernote" th:if="${!readonly}" />
+
+									<!-- Luciane Componente Typeahead para a lista de responsible
 									<div class="form-group" id="postResponsible"
 										th:classappend="${#fields.hasErrors('responsible')}? 'has-error'">
 										<label th:text="#{post.responsible}" /> <input type="text"
 											class="typeahead" th:field="*{responsible}"
 											placeholder="Post responsible" th:readonly="${readonly}"
-											autocomplete="off" /> <span
-											th:if="${#fields.hasErrors('responsible')}"
-											th:errors="*{responsible}" th:class="help-block" />
-									</div>
+											autocomplete="off" />
+									</div>-->
 
 
 									<!-- @author Felipe -->
@@ -127,6 +135,7 @@ $(document).ready(function(){
 									</a> <a th:href="@{/post/list/}" class="btn btn-default"
 										th:if="${param.success}" th:text="#{crud.action.list}" />
 								</div>
+
 							</form>
 						</div>
 					</div>

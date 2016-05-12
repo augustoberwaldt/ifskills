@@ -15,7 +15,7 @@ import br.edu.ifrs.canoas.lds.ifskills.controller.selenium.ItemControlerSelenium
 	, ArticleControllerTest.class
 	, CommentControllerTest.class
 	, JobAdControllerTest.class
-	, ItemControlerSeleniumTest.class})
+	, ItemControlerSeleniumTest.class, PostControllerTest.class})
 public class AllTests {
 
 }

@@ -1,6 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -71,6 +72,7 @@ public class PostController {
 	public String create(Model model) {
 		model.addAttribute("post", new Post());
 		model.addAttribute("readonly", false);
+		//model.addAttribute("userList", findResponsibles());
 		return "/post/form";
 	}
 	
@@ -149,10 +151,18 @@ public class PostController {
 	 * @param model
 	 * @return
 	 */
-	/*public String findResponsibles(@PathVariable Long id, Model model) {
-		List <User> responsible = userProfileService.list();
-		model.addAttribute("post", postService.get(id));
-		model.addAttribute("readonly", false);
-		return "/post/form";
-	}*/
+	/*private List<String> findResponsibles() {
+		Iterable<User> responsibles = userProfileService.list();
+		List<String> nomes = new ArrayList<>();
+		for (User user : responsibles) {
+			nomes.add(user.getFullName());
+		}
+		return nomes;
+	}
+	
+	@RequestMapping(value = "users", method = RequestMethod.GET)
+    public String users(Model model) {
+            model.addAttribute("users",  findResponsibles());
+            return "/post/form";
+    }*/
 }
