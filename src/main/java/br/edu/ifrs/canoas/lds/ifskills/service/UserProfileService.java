@@ -60,16 +60,6 @@ public class UserProfileService {
 		return userRepository.findByFullName(fullname);
 	}
 	
-	
-	/**
-	 * @author: Luciane	
-	 * @date: 11/05/2016
-	 * @description: Method to find a User by its FullName.
-	 */
-	public List <User> findAllByFullName (String fullname) {
-		return userRepository.findAllByFullName (fullname);
-	}
-
 	/**
 	 * Save.
 	 *

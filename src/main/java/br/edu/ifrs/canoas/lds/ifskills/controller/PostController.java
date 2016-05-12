@@ -1,8 +1,11 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
+import java.util.List;
 import java.util.Locale;
+
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.access.annotation.Secured;
@@ -13,8 +16,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
+import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
+import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 /**
  * 01/05/16 - Ricardo - PostController /post
@@ -27,6 +33,7 @@ public class PostController {
 	 * 01/05/16 - Ricardo
 	 */
 	private PostService postService;
+	private UserProfileService userProfileService;
 	private MessageSource messageSource;
 	
 	
@@ -37,9 +44,10 @@ public class PostController {
 	 * @param messageSource
 	 */
 	@Autowired
-	public PostController(PostService postService, MessageSource messageSource) {
+	public PostController(PostService postService, MessageSource messageSource, UserProfileService userProfileService) {
 		this.postService = postService;
 		this.messageSource = messageSource;
+		this.userProfileService = userProfileService;
 	}
 	
 	/**
@@ -120,10 +128,6 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /save
-	 * 
-	 * Modified by Luciane
-	 * Date: 09/05/2016
-	 * Description: Add security check
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Post post, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
@@ -136,5 +140,19 @@ public class PostController {
 		model.addAttribute("readonly", false);
 		return "/post/form";
 	}
-
+	
+	/**
+	 * @author Luciane
+	 * @date: 12/05/2016
+	 * @description: Populate list responsibles
+	 * @param id
+	 * @param model
+	 * @return
+	 */
+	/*public String findResponsibles(@PathVariable Long id, Model model) {
+		List <User> responsible = userProfileService.list();
+		model.addAttribute("post", postService.get(id));
+		model.addAttribute("readonly", false);
+		return "/post/form";
+	}*/
 }
