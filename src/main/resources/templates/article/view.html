@@ -136,14 +136,16 @@
 
 							<form id="commentForm" th:object="${comment}"
 								th:action="@{/article/comment/save}" method="post">
-
+<!-- 
 								<input type="hidden" th:field="*{id}" /> <input type="hidden"
-									th:field="*{article.id}" />
-
+									th:field="*{article.comment.id}" />
+-->
 								<div class="row">
 									<div class="col-sm-6">
+<!-- 								
 										<textarea id="comment" name="comment" class="form-control"
 											placeholder="Your Comment" rows="5" th:field="*{content}"></textarea>
+-->											
 									</div>
 								</div>
 
