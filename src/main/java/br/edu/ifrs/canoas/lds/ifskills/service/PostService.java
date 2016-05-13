@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.lds.ifskills.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
 import br.edu.ifrs.canoas.lds.ifskills.repository.PostRepository;
@@ -64,10 +65,21 @@ public class PostService {
 	 * Modified by: Felipe
 	 * Description: docService intercept post to update rank
 	 */
-	public Post get(Long id) {
+	public Post getRank(Long id) {
 		Post p = postRepository.findOne(id);
 		docService.updateRank(p);
 		return p;
+	}
+	
+	/**
+	 * Gets the.
+	 *
+	 * @param id
+	 *            the id
+	 * @return the item
+	 */
+	public Post get(Long id) {
+		return postRepository.findOne(id);
 	}
 	
 	/**
