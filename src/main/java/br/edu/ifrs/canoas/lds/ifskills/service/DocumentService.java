@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Document;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
@@ -14,11 +15,10 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
 
 @Service
 public class DocumentService {
-	
-	
+
 	private DocumentRepository documentRepository;
 	private RankRepository rankRepository;
-	
+
 	@Autowired
 	public DocumentService(DocumentRepository documentRepository, RankRepository rankRepository) {
 		this.documentRepository = documentRepository;
@@ -27,10 +27,11 @@ public class DocumentService {
 
 	public Document findOne(Document document) {
 		document = documentRepository.findOne(document.getId());
-		if (document instanceof Post) this.updateRank(document);
+		if (document instanceof Post)
+			this.updateRank(document);
 		return document;
 	}
-	
+
 	public void updateRank(Document document) {
 		List<Rank> ranks = rankRepository.findAllByDocument(document);
 		Rank rank = null;
@@ -46,4 +47,18 @@ public class DocumentService {
 		}
 		rankRepository.save(rank);
 	}
+
+	/**
+	 * Create - 13/05/16 - Ricardo - Method to delete comment
+	 * 
+	 * @param c
+	 */
+	public void deleteComment(Comment c) {
+		for (Comment c1 : c.getComments()) {
+			c1.setDocument(c.getDocument());
+		}
+		documentRepository.delete(c);
+
+	}
+
 }

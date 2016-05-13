@@ -141,7 +141,7 @@ $(document).ready(function(){
 											<tr th:each="comment : ${comments}">
 												<td><a href="#"
 													th:href="@{|/comment/view/${comment.id}|}"
-													th:text="|${comment.body}|" /></td>
+													th:text="|${comment}|" /></td>
 											</tr>
 										</tbody>
 									</table>

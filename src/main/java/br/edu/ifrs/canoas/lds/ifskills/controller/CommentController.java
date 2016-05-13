@@ -25,17 +25,20 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Article;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.CommentService;
+import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 //TODO: Auto-generated Javadoc
 @Controller
-@RequestMapping("/article/comment")
+@RequestMapping("/article/comment, /post/comment")
+
 public class CommentController {
 
 	private CommentService commentService;
 	private MessageSource messageSource;
 	private UserProfileService userService;
 	private ArticleService articleService;
+	private PostService postService;
 
 	/**
 	 * Author: Luciane 
@@ -131,6 +134,13 @@ public class CommentController {
 
 		return "redirect:/article/view/"+((Article)comment.getDocument()).getSlug();
 
+	}
+	
+	@RequestMapping("/view/{id}")
+	public String view(@PathVariable Long id, Model model) {
+		model.addAttribute("item", commentService.get(id));
+		model.addAttribute("readonly", true);
+		return "/post/form";
 	}
 
 }
