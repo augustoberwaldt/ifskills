@@ -42,15 +42,29 @@
 								<thead>
 									<tr>
 										<th th:text="#{post.body}" />
+										<th th:text="#{post.posted_on}" />
+										<th th:text="#{post.user_id}" />
+										<th th:text="#{post.title}" />
+										<th th:text="#{post.subject}" />
 									</tr>
 								</thead>
 								<tbody>
 									<tr th:each="post : ${posts}">
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
-											th:text="|${post.body}|" /></td>
+											th:text="|${post.body}|" /></td> td>
+										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
+											th:text="|${post.title}|" /></td>
+										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
+											th:text="|${post.title}|" /></td>
+										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
+											th:text="|${post.title}|" /></td>
+										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
+											th:text="|${post.subject}|" /></td>
 									</tr>
 								</tbody>
 							</table>
+							<a th:href="@{/post/create/}" class="btn btn-success"
+								id="newPostBt" th:text="#{crud.action.new}" />
 						</div>
 					</div>
 				</div>
