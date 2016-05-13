@@ -91,6 +91,15 @@ $(document).ready(function(){
 									</div>
 
 									<div class="form-group"
+										th:classappend="${#fields.hasErrors('body')}? 'has-error'">
+										<label th:text="#{post.body}" /> <input type="text"
+											class="form-control" id="PostBody" th:field="*{body}"
+											placeholder="Body" th:readonly="${readonly}" /> <span
+											th:if="${#fields.hasErrors('body')}" th:errors="*{body}"
+											th:class="help-block" />
+									</div>
+
+									<div class="form-group"
 										th:classappend="${#fields.hasErrors('tags')}? 'has-error'">
 										<label for="PostTags" th:text="#{post.tags}" /> <input
 											type="text" class="form-control" id="postTags"
@@ -100,12 +109,18 @@ $(document).ready(function(){
 											th:class="help-block" />
 									</div>
 
+									<!-- @author Luciane -->
+									<div class="form-group">
+										<label th:text="#{post.status}" /> <input type="checkbox"
+											id="PostStatus" th:readonly="${!readonly}"
+											th:checked="${true}" th:field="*{isPublic}" />
+									</div>
 
-									<!-- Luciane Corpo da postagem -->
+									<!-- Luciane Corpo da postagem 
 									<span th:remove="tag" th:utext="${post.body}"
-										th:if="${readonly}" />
+										th:if="${readonly}" /> -->
 									<!-- Chama o summernote -->
-									<div class="summernote" th:if="${!readonly}" />
+									<!-- <div class="summernote" th:if="${!readonly}" /> -->
 
 									<!-- Luciane Componente Typeahead para a lista de responsible
 									<div class="form-group" id="postResponsible"
@@ -116,12 +131,20 @@ $(document).ready(function(){
 											autocomplete="off" />
 									</div>-->
 
-									<!-- @author Luciane -->
-									<div class="form-group">
-										<label th:text="#{post.status}" /> <input type="checkbox"
-											id="PostStatus" th:readonly="${!readonly}" th:checked="${true}"
-											th:field="*{isPublic}" />
-									</div>
+									<table>
+										<thead>
+											<tr>
+												<th th:text="#{comment.body}" />
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:each="comment : ${comments}">
+												<td><a href="#"
+													th:href="@{|/comment/view/${comment.id}|}"
+													th:text="|${comment.body}|" /></td>
+											</tr>
+										</tbody>
+									</table>
 
 									<!-- @author Felipe -->
 									<button type="submit" class="btn btn-success"

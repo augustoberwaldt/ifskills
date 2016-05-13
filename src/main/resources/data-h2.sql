@@ -178,7 +178,7 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 -- POST
 insert into document(id, body, posted_on, user_id) values (11, 'Body 11', sysdate, 1);
 insert into post (id, title, subject) values (11, 'Title11', 'Subject11');
-insert into post_tags (post_id, tags) values (11, 'PostTag11-1, PostTag11-2');
+insert into post_tags (post_id, tags) values (11, 'PostTag11-1, PostTag11-2, PostTag11-3, PostTag11-4, PostTag11-5');
 -- COMMENTS
 insert into document(id, body, posted_on, user_id) values (12, 'Body 12 - Aponta body 11', sysdate, 2);
 insert into comment (id, document_id) values (12, 11);
