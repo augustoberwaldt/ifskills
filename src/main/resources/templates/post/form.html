@@ -116,11 +116,11 @@ $(document).ready(function(){
 											autocomplete="off" />
 									</div>-->
 
-
+									<!-- @author Luciane -->
 									<div class="form-group">
 										<label th:text="#{post.status}" /> <input type="checkbox"
 											id="PostStatus" placeholder="Title" th:readonly="${readonly}"
-											th:checked="true"/>
+											th:checked="true" th:field="*{isPublic}"/>
 									</div>
 
 
