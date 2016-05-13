@@ -62,8 +62,6 @@ public abstract class Document {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date postedOn;
 	
-	
-
 	public Date getPostedOn() {
 		return postedOn;
 	}
@@ -103,6 +101,5 @@ public abstract class Document {
 	public void setComments(List<Comment> comments) {
 		this.comments = comments;
 	}
-	
 	
 }

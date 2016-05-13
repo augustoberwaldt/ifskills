@@ -4,15 +4,15 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Create - 30/04/16 - Ricardo - Class post
- * Modify - 10/05/16 - Ricardo - extends Document
+ * Create - 30/04/16 - Ricardo - Class post Modify - 10/05/16 - Ricardo -
+ * extends Document
  */
 @Entity
 public class Post extends Document {
@@ -42,22 +42,23 @@ public class Post extends Document {
 	 */
 	@OneToMany
 	private List<User> responsible;
-	
+
 	/**
 	 * @author Luciane da Silva
 	 * @date: 12/05/2016
 	 * @description: attribute to set post status (public or private)
 	 * @return
-	 */	
+	 */
 	public Boolean isPublic;
 
-	public Boolean getIsPublic() {
-		return isPublic;
-	}
-
-	public void setIsPublic(Boolean isPublic) {
-		this.isPublic = isPublic;
-	}
+	/**
+	 * @author Felipe
+	 * @date: 12/05/2016
+	 * @description: attribute to make a relatioship with Rank
+	 * @return
+	 */
+	@ManyToOne
+	private Rank rank;
 
 	public String getTitle() {
 		return title;
@@ -89,6 +90,22 @@ public class Post extends Document {
 
 	public void setResponsible(List<User> responsible) {
 		this.responsible = responsible;
+	}
+
+	public Rank getRank() {
+		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+
+	public Boolean getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(Boolean isPublic) {
+		this.isPublic = isPublic;
 	}
 
 }
