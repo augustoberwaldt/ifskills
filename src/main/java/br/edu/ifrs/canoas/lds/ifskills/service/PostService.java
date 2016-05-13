@@ -21,6 +21,7 @@ public class PostService {
 	 * 01/05/16 - Ricardo
 	 */
 	private PostRepository postRepository;
+	
 	private RankRepository rankRepository;
 	
 	/**
