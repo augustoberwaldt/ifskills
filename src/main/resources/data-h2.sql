@@ -148,8 +148,16 @@ insert into article (id, active, picture, slug , teaser, title, private_article)
 insert into article_tags (article_id, tags) values (10, 'Echo, Foxtrot');
 
 -- COMMENTS
---insert into comment (content, posted_on, article_id, author_user_id) values ('Comment number one', sysdate,1 ,3);
---insert into comment (content, posted_on, article_id, author_user_id) values ('Golf', sysdate, 5 , 4);
+insert into comment (id, document_id) values (1, 2);
+insert into comment (id, document_id) values (2, 7);
+insert into comment (id, document_id) values (3, 8);
+insert into comment (id, document_id) values (4, 9);
+insert into comment (id, document_id) values (5, 10);
+insert into comment (id, document_id) values (6, 1);
+insert into comment (id, document_id) values (7, 3);
+insert into comment (id, document_id) values (8, 4);
+insert into comment (id, document_id) values (9, 5);
+insert into comment (id, document_id) values (10, 6);
 
 -- ARTICLE RANK
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 1, 2, 1);
