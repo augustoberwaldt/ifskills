@@ -66,21 +66,10 @@ public class PostService {
 	 * Modified by: Felipe
 	 * Description: docService intercept post to update rank
 	 */
-	public Post getRank(Long id) {
+	public Post get(Long id) {
 		Post p = postRepository.findOne(id);
 		docService.updateRank(p);
 		return p;
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param id
-	 *            the id
-	 * @return the item
-	 */
-	public Post get(Long id) {
-		return postRepository.findOne(id);
 	}
 	
 	/**
