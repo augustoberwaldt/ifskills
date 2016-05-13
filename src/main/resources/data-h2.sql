@@ -134,7 +134,7 @@ insert into article (id, active, picture, slug, teaser, title, private_article) 
 insert into article_tags (article_id, tags) values (7, 'IDE, SPRING TOOL');
 
 insert into document(id, body, posted_on, user_id) values (8, 'One of the biggest challenges for developing artificial intelligence is programming computers to understand natural language. But, when IBM programmers fed super computer Watson the Urban Dictionary—an online repository for slang—in an attempt to school it in current lingo, they inadvertently taught it to swear indiscriminately, according to a report in Fortune magazine.', sysdate, 3);
-insert into article (id, active, picture, slug, teaser, title, private_article) values (8, true, null, 'watson’s-potty-mouth', 'IBM programmers had to clean up the super computer’s language after it learned profanity on the Internet', 'Watson’s Potty Mouth', true) ;
+insert into article (id, active, picture, slug, teaser, title, private_article) values (8, true, null, 'watson’s-potty-mouth', 'IBM programmers had to clean up the super computer’s language after it learned profanity on the Internet', 'Watson’s Potty Mouth', false) ;
 insert into article_tags (article_id, tags ) values (8, 'Artigo, Educacao');
 
 insert into document(id, body, posted_on, user_id) values (9, 'The English language is everywhere. The language of most of the Internet sites around the world is English. We are using this language to write our articles on this site, even though I am positive that English is not the first language of everybody using this website. It is not my first language, I come from Finland. I learned English at school. It is the most widely studied language in the world.
