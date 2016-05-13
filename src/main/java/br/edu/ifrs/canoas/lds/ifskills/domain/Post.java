@@ -51,6 +51,14 @@ public class Post extends Document {
 	 */	
 	public Boolean isPublic;
 
+	public Boolean getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(Boolean isPublic) {
+		this.isPublic = isPublic;
+	}
+
 	public String getTitle() {
 		return title;
 	}
