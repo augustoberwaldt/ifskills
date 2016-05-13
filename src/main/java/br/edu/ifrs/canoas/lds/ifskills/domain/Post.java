@@ -11,8 +11,8 @@ import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Create - 30/04/16 - Ricardo - Class post
- * Modify - 10/05/16 - Ricardo - extends Document
+ * Create - 30/04/16 - Ricardo - Class post Modify - 10/05/16 - Ricardo -
+ * extends Document
  */
 @Entity
 public class Post extends Document {
@@ -42,7 +42,21 @@ public class Post extends Document {
 	 */
 	@OneToMany
 	private List<User> responsible;
-	
+
+	/**
+	 * @author Luciane da Silva
+	 * @date: 12/05/2016
+	 * @description: attribute to set post status (public or private)
+	 * @return
+	 */
+	public Boolean isPublic;
+
+	/**
+	 * @author Felipe
+	 * @date: 12/05/2016
+	 * @description: attribute to make a relatioship with Rank
+	 * @return
+	 */
 	@ManyToOne
 	private Rank rank;
 
@@ -85,6 +99,13 @@ public class Post extends Document {
 	public void setRank(Rank rank) {
 		this.rank = rank;
 	}
-	
+
+	public Boolean getIsPublic() {
+		return isPublic;
+	}
+
+	public void setIsPublic(Boolean isPublic) {
+		this.isPublic = isPublic;
+	}
 
 }
