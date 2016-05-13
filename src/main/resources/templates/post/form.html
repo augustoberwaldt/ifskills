@@ -158,7 +158,10 @@ $(document).ready(function(){
 										th:if="${readonly}" th:text="#{crud.action.new}" /> <a
 										th:href="@{/post/edit/}+${id}" class="btn btn-info"
 										th:if="${readonly}" th:text="#{crud.action.edit}" /> <a
-										th:href="@{/post/list/}" class="btn btn-danger"
+										sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_USER')"
+										th:href="@{/post/delete/}+${id}" class="btn btn-danger"
+										th:if="${readonly}" th:text="#{crud.action.delete}" /> <a
+										th:href="@{/post/list/}" class="btn btn-primary"
 										th:if="!${param.success}"> <span
 										th:text="${readonly}?#{navigation.back}:#{navigation.cancel}" />
 									</a> <a th:href="@{/post/list/}" class="btn btn-default"
