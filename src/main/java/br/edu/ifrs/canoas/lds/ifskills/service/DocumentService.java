@@ -15,12 +15,17 @@ import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
 @Service
 public class DocumentService {
 	
-	@Autowired
+	
 	private DocumentRepository documentRepository;
-	@Autowired
 	private RankRepository rankRepository;
 	
-	Document findOne(Document document) {
+	@Autowired
+	public DocumentService(DocumentRepository documentRepository, RankRepository rankRepository) {
+		this.documentRepository = documentRepository;
+		this.rankRepository = rankRepository;
+	}
+
+	public Document findOne(Document document) {
 		document = documentRepository.findOne(document.getId());
 		if (document instanceof Post) this.updateRank(document);
 		return document;

@@ -20,7 +20,6 @@ public class PostService {
 	 * 01/05/16 - Ricardo
 	 */
 	private PostRepository postRepository;
-	
 	private RankRepository rankRepository;
 	
 	/**
@@ -67,7 +66,6 @@ public class PostService {
 	 */
 	public Post get(Long id) {
 		Post p = postRepository.findOne(id);
-		docService = new DocumentService();
 		docService.updateRank(p);
 		return p;
 	}
