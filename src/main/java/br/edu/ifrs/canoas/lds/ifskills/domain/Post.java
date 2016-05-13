@@ -42,6 +42,14 @@ public class Post extends Document {
 	 */
 	@OneToMany
 	private List<User> responsible;
+	
+	/**
+	 * @author Luciane da Silva
+	 * @date: 12/05/2016
+	 * @description: attribute to set post status (public or private)
+	 * @return
+	 */	
+	public Boolean isPublic;
 
 	public String getTitle() {
 		return title;
