@@ -152,15 +152,15 @@ insert into article_tags (article_id, tags) values (10, 'Echo, Foxtrot');
 --insert into comment (content, posted_on, article_id, author_user_id) values ('Golf', sysdate, 5 , 4);
 
 -- ARTICLE RANK
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 1, 1, 1);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 2);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 3, 3);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 4, 4);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 5, 5);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 1, 6);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 1, 7);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 8);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 3, 9);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 4, 10);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 1, 1);
---insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 1, 8);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 1, 2, 1);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 7, 2);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 8, 3);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 9, 4);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 10, 5);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 2, 6);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 7, 7);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 2, 8, 8);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 3, 9, 9);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 10, 10);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 2, 1);
+insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 2, 8);
