@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -42,6 +42,9 @@ public class Post extends Document {
 	 */
 	@OneToMany
 	private List<User> responsible;
+	
+	@ManyToOne
+	private Rank rank;
 
 	public String getTitle() {
 		return title;
@@ -74,5 +77,14 @@ public class Post extends Document {
 	public void setResponsible(List<User> responsible) {
 		this.responsible = responsible;
 	}
+
+	public Rank getRank() {
+		return rank;
+	}
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
+	
 
 }
