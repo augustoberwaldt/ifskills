@@ -3,7 +3,6 @@ package br.edu.ifrs.canoas.lds.ifskills.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Item;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
 import br.edu.ifrs.canoas.lds.ifskills.repository.PostRepository;
@@ -71,6 +70,7 @@ public class PostService {
 		docService.updateRank(p);
 		return p;
 	}
+	
 	
 	/**
 	 * 01/05/16 - Ricardo - Save
