@@ -120,7 +120,7 @@ public class PostController {
 			postService.delete(id);
 
 			redirectAttrs.addFlashAttribute("message",
-					MessageFormat.format(messageSource.getMessage("post.deleted", null, locale), post.getBody()));
+					MessageFormat.format(messageSource.getMessage("post.deleted", null, locale), post.getTitle()));
 			return "redirect:/post/list";
 		}
 		model.addAttribute("message",
