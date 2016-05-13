@@ -172,3 +172,34 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 10, 10);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 4, 2, 1);
 insert into article_rank (created_on, rank, article_id, author_user_id) values (sysdate, 5, 2, 8);
+
+-- POST AND COMMENTS
+
+-- POST
+insert into document(id, body, posted_on, user_id) values (11, 'Body 11', sysdate, 1);
+insert into post (id, title, subject) values (11, 'Title11', 'Subject11');
+insert into post_tags (post_id, tags) values (11, 'PostTag11-1, PostTag11-2');
+-- COMMENTS
+insert into document(id, body, posted_on, user_id) values (12, 'Body 12 - Aponta body 11', sysdate, 2);
+insert into comment (id, document_id) values (12, 11);
+
+insert into document(id, body, posted_on, user_id) values (13, 'Body 13 - Aponta body 11', sysdate, 3);
+insert into comment (id, document_id) values (13, 11);
+
+insert into document(id, body, posted_on, user_id) values (14, 'Body 14 - Aponta body 11', sysdate, 4);
+insert into comment (id, document_id) values (14, 11);
+
+insert into document(id, body, posted_on, user_id) values (15, 'Body 15 - Aponta body 13', sysdate, 2);
+insert into comment (id, document_id) values (15, 13);
+
+insert into document(id, body, posted_on, user_id) values (16, 'Body 16 - Aponta body 13', sysdate, 2);
+insert into comment (id, document_id) values (16, 13);
+
+insert into document(id, body, posted_on, user_id) values (17, 'Body 17 - Aponta body 14', sysdate, 2);
+insert into comment (id, document_id) values (17, 14);
+
+insert into document(id, body, posted_on, user_id) values (18, 'Body 18', sysdate, 2);
+insert into comment (id, document_id) values (18, 14);
+
+insert into document(id, body, posted_on, user_id) values (19, 'Body 19', sysdate, 2);
+insert into comment (id, document_id) values (19, 18);
