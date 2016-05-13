@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.lds.ifskills.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  **/
 @Inheritance(strategy=InheritanceType.JOINED)
 @Entity
-public abstract class Document {
+public abstract class Document {	
 	
 	@OneToMany
 	private List<Comment> comments;
@@ -49,7 +50,7 @@ public abstract class Document {
 	 * Modify - Luciane Date: 09/05/2016
 	 * Description: add notation type "TEXT"
 	 */
-	// @NotEmpty
+	//@NotEmpty
 	@Column(columnDefinition = "TEXT")
 	private String body;
 	

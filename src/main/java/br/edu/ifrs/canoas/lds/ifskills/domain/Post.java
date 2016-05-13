@@ -2,6 +2,7 @@ package br.edu.ifrs.canoas.lds.ifskills.domain;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -55,9 +56,13 @@ public class Post extends Document {
 	 * @author Felipe
 	 * @date: 12/05/2016
 	 * @description: attribute to make a relatioship with Rank
-	 * @return
+	 * 
+	 * Modified by: Luciane
+	 * @date: 13/05/2016
+	 * @description: added JPA cascade mapping
 	 */
-	@ManyToOne
+	
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	private Rank rank;
 
 	public String getTitle() {

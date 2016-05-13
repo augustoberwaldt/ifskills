@@ -5,6 +5,7 @@
  */
 package br.edu.ifrs.canoas.lds.ifskills.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -15,8 +16,13 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Comment extends Document {
-
-	@ManyToOne
+	
+	/**
+	 * Modified by: Luciane
+	 *  @date: 13/05/2016
+	 * @description: added JPA cascade mapping
+	 */
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
 	@JoinColumn(name = "document_id", nullable = true)
 	private Document document;
 
