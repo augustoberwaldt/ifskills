@@ -117,6 +117,14 @@ $(document).ready(function(){
 									</div>-->
 
 
+									<div class="form-group">
+										<label th:text="#{post.status}" /> <input type="checkbox"
+											id="PostStatus" placeholder="Title" th:readonly="${readonly}"
+											th:checked="true"/>
+									</div>
+
+
+
 									<!-- @author Felipe -->
 									<button type="submit" class="btn btn-success"
 										th:if="${!readonly}" id="btSubmitForm"

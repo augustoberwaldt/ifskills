@@ -135,6 +135,7 @@ public class PostController {
 	public String save(@Valid Post post, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,
 			Locale locale) {
 		if (!bindingResult.hasErrors()) {
+			post.setIsPublic(true);
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));
 			return "redirect:/post/view/" + savedPost.getId() + "?success";
