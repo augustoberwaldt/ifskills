@@ -51,11 +51,11 @@
 								<tbody>
 									<tr th:each="post : ${posts}">
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
-											th:text="|${post.body}|" /></td> td>
+											th:text="|${post.body}|" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
-											th:text="|${post.title}|" /></td>
+											th:text="${#dates.format(post.postedOn, 'dd-MMM-yyyy')}" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
-											th:text="|${post.title}|" /></td>
+											th:text="|${post.author.fullName}|" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
 											th:text="|${post.title}|" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
