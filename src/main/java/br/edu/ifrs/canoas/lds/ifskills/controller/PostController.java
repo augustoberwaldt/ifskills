@@ -2,6 +2,7 @@ package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
@@ -137,6 +139,9 @@ public class PostController {
 		if (!bindingResult.hasErrors()) {
 			if(!post.getIsPublic())
 				post.setIsPublic(false);
+			
+			post.setPostedOn(new Date());
+			post.setAuthor(userProfileService.getPrincipal().getUser());
 			
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));

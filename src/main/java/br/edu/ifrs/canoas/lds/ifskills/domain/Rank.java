@@ -30,7 +30,7 @@ public class Rank {
 	 */
 	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	@JoinColumn(name = "document_id")
-	@NotNull
+	//@NotNull
 	private Document document;
 
 	@NotNull
