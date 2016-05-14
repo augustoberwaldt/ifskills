@@ -53,7 +53,7 @@
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
 											th:text="|${post.body}|" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
-											th:text="${#dates.format(post.postedOn, 'dd-MMM-yyyy')}" /></td>
+											th:text="${#dates.format(post.postedOn, 'dd-MM-yyyy')}" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
 											th:text="|${post.author.fullName}|" /></td>
 										<td><a href="#" th:href="@{|/post/view/${post.id}|}"
