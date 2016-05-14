@@ -137,7 +137,7 @@ public class ArticleControllerTest extends BaseControllerTest{
 	@WithUserDetails("admin@123.123")
 	public void testToDeleteArticle2WithInvalidEmail() throws Exception {
 		assertThat(articleService.get(2L), is(notNullValue()));
-		assertThat(articleService.get(2L).getTitle(), is("A Face to Remember"));
+		assertThat(articleService.get(2L).getTitle(), is("Get With the Program"));
 		this.mockMvc.perform(post("/article/delete/2"))
 		.andExpect(view().name("redirect:/"))
 		.andExpect(status().is3xxRedirection())

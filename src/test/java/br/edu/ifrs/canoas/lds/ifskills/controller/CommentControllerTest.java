@@ -111,7 +111,7 @@ public class CommentControllerTest extends BaseControllerTest{
 	@WithUserDetails("admin@123.123")
 	public void testToCheckComment1DeleteItAndCheckAgain() throws Exception {
 		
-		assertThat(commentService.get(1L), hasProperty("content", is("Comment number one")));
+		assertThat(commentService.get(1L), hasProperty("body", is("Collaborative development of a fictitious system in class software development laboratory.")));
 		commentService.delete(1L);
 		assertThat(commentService.get(1L), is(nullValue()));
 		
