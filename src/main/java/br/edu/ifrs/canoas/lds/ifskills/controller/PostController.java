@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
 import br.edu.ifrs.canoas.lds.ifskills.domain.User;
@@ -80,12 +81,21 @@ public class PostController {
 	
 	/**
 	 * 01/05/16 - Ricardo - /view
-	 * @param id
-	 * @param model
-	 * @return
+	 * 
+	 * Modified by:Luciane
+	 * @date: 15/05/2016
+	 * @description: Implements validations
 	 */
 	@RequestMapping("/view/{id}")
-	public String view(@PathVariable Long id, Model model) {
+	public String view(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
+		Post post = postService.get(id);
+
+		if (post == null) {
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("post.viewFailed", null, locale), id));
+			return "redirect:/post/list";
+		}
+		
 		model.addAttribute("post", postService.get(id));
 		model.addAttribute("readonly", true);
 		return "/post/form";
@@ -112,26 +122,35 @@ public class PostController {
 	 * Modified by Luciane
 	 * Date: 09/05/2016
 	 * Description: Add security check
+	 * 
+	 * Modified by:Luciane
+	 * @date: 15/05/2016
+	 * @description: Implements validations
 	 */
 	
 	@Secured({"ROLE_USER","ROLE_ADMIN"})
 	@RequestMapping("/delete/{id}")
 	public String delete(@PathVariable Long id, Model model, RedirectAttributes redirectAttrs, Locale locale) {
 		Post post = postService.get(id);
-		if (post != null) {
+		
+		if (post == null) {
+			redirectAttrs.addFlashAttribute("message",
+					MessageFormat.format(messageSource.getMessage("job.deleted.failed", null, locale), null));
+		}else{ 		
 			postService.delete(id);
 
 			redirectAttrs.addFlashAttribute("message",
 					MessageFormat.format(messageSource.getMessage("post.deleted", null, locale), post.getTitle()));
-			return "redirect:/post/list";
 		}
-		model.addAttribute("message",
-				MessageFormat.format(messageSource.getMessage("post.deleted.failed", null, locale), id));
-		return "/post/form";
+		return "redirect:/post/list";
 	}
 	
 	/**
 	 * 01/05/16 - Ricardo - /save
+	 * 
+	 * Modified by:Luciane
+	 * @date: 15/05/2016
+	 * @description: Add set properties
 	 */
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@Valid Post post, BindingResult bindingResult, Model model, RedirectAttributes redirectAttrs,

@@ -109,12 +109,11 @@ public class PostControllerTest extends BaseControllerTest{
 	@WithUserDetails("admin@123.123")
 	public void testToDeletePost1000ThatDoesNotExists() throws Exception {
 		
-		/*assertThat(postService.get(1000L), is(nullValue()));
+		assertThat(postService.get(1000L), is(nullValue()));
 		
 		this.mockMvc.perform(post("/post/delete/1000"))
 		.andExpect(view().name("redirect:/post/list"))
-		.andExpect(status().is3xxRedirection())
-		.andExpect(flash().attributeExists("message"))*/
+		.andExpect(flash().attributeExists("message"))
 		;
 
 	}
@@ -129,15 +128,13 @@ public class PostControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	public void testToViewPost1AndCheckAtts() throws Exception {
-		/*this.mockMvc.perform(post("/post/view/1"))
+		/*this.mockMvc.perform(post("post/view/1"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("post"))
 		.andExpect(model().attribute("post", hasProperty("title", is("Welcome to IFSkills"))))
 		.andExpect(model().attribute("readonly",is(true)))
 		.andExpect(forwardedUrl(PRE_URL+"/post/form"+POS_URL))
 		;*/
-
-		
 	}
 	
 	/**
@@ -150,12 +147,12 @@ public class PostControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	public void testToViewPost100ThatDoesNotExists() throws Exception {
-		/*assertThat(postService.get(100L), is(nullValue()));
+		assertThat(postService.get(100L), is(nullValue()));
 		
 		this.mockMvc.perform(post("/post/view/100"))
 		.andExpect(view().name("redirect:/post/list"))
 		.andExpect(status().is3xxRedirection())
 		.andExpect(flash().attributeExists("message"))
-		;*/		
+		;		
 	}
 }
