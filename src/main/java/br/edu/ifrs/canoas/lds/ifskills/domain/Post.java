@@ -22,7 +22,6 @@ public class Post extends Document {
 	 * @date: May/06/2016 - @author: Edward Ramos
 	 * @description: Title of the post
 	 */
-	@NotEmpty
 	private String title;
 
 	/**
@@ -60,9 +59,13 @@ public class Post extends Document {
 	 * Modified by: Luciane
 	 * @date: 13/05/2016
 	 * @description: added JPA cascade mapping
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2016
+	 * @description: modified JPA cascade for merge
 	 */
 	
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	private Rank rank;
 
 	public String getTitle() {

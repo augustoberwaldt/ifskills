@@ -52,10 +52,14 @@ public class CommentServiceTest {
 	 * @author Luciane
 	 * @Date: 03/04/2016
 	 * @Description: Test to get item1 and check name.
+	 * 
+	 *  Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
 	 */
 	@Test
-	public void testToGetComment1AndCheckAuthor() {
-		assertThat(commentService.get(1L), hasProperty("content", is("Comment number one")));
+	public void testToGetComment12AndCheckAuthor() {
+		assertThat(commentService.get(12L), hasProperty("body", is("Body 12 - Aponta body 11")));
 	}
 
 	/**
@@ -63,12 +67,16 @@ public class CommentServiceTest {
 	 * @Date: 03/04/2016
 	 * @Description: Test to find comment1 delete it and check again.
 	 * Test to find item2 delete it and check again.
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
 	 */
 	@Test
-	public void testToFindComment1DeleteItAndCheckAgain() {
-		assertThat(commentService.get(1L), hasProperty("content", is("Comment number one")));
-		commentService.delete(1L);
-		assertThat(commentService.get(1L), is(nullValue()));
+	public void testToFindComment12DeleteItAndCheckAgain() {
+		assertThat(commentService.get(12L), hasProperty("body", is("Body 12 - Aponta body 11")));
+		commentService.delete(12L);
+		assertThat(commentService.get(12L), is(nullValue()));
 	}
 
 }

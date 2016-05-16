@@ -41,10 +41,14 @@ public class ArticleRepositoryTest {
 	 * @Date:14/04/2016
 	 * @Description: Test to find by slug article.
 	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
+	 * 
 	 */
 	@Test
 	public void testToFindOnePublicArticle() {
-		assertThat(articleRepository.findByPrivateArticle(false).size(), is(1));
+		assertThat(articleRepository.findByPrivateArticle(false).size(), is(5));
 	}
 	
 	

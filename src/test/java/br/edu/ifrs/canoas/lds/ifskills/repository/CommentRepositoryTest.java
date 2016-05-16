@@ -25,20 +25,28 @@ public class CommentRepositoryTest {
 	 * @Date:30/03/2016
 	 * @Descrition: Test to findOne comment and check 
 	 * property content.
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
 	 */
 	@Test
 	public void testFindOneCommentAndCheckPropertyComment() {
-		assertThat(commentRepository.findOne(1L), hasProperty("content", is("Comment number one")));
+		assertThat(commentRepository.findOne(13L), hasProperty("body", is("Body 13 - Aponta body 11")));
 	}
 	
 	/**
 	 * @author Luciane
 	 * @Date:30/03/2016
 	 * @Descrition: Test to find all comments that are checked.
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
 	 */
 	@Test
 	public void testToFindAllComments() {
-		assertThat(commentRepository.findAll().size(), is(2));
+		assertThat(commentRepository.findAll().size(), is(18));
 	}
 
 }

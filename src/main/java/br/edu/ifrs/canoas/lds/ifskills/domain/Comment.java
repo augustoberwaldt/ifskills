@@ -21,8 +21,12 @@ public class Comment extends Document {
 	 * Modified by: Luciane
 	 *  @date: 13/05/2016
 	 * @description: added JPA cascade mapping
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2016
+	 * @description: modified JPA cascade for merge
 	 */
-	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "document_id", nullable = true)
 	private Document document;
 

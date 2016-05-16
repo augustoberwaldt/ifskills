@@ -3,6 +3,7 @@ package br.edu.ifrs.canoas.lds.ifskills.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,9 +23,14 @@ import org.springframework.format.annotation.DateTimeFormat;
  **/
 @Inheritance(strategy=InheritanceType.JOINED)
 @Entity
-public abstract class Document {	
+public abstract class Document {
 	
-	@OneToMany
+	/**
+	 * @author Luciane
+	 * @date: 15/05/2016
+	 * @description:ADD JPA cascade merge
+	 */
+	@OneToMany(cascade = {CascadeType.MERGE})
 	private List<Comment> comments;
 
 	/**
