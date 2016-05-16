@@ -27,8 +27,12 @@ public class Rank {
 	 * 
 	 * @date: 13/05/2016
 	 * @description: added JPA cascade mapping
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2016
+	 * @description: modified JPA cascade for merge
 	 */
-	@ManyToOne(cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "document_id")
 	//@NotNull
 	private Document document;

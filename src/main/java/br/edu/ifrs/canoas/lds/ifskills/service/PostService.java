@@ -1,10 +1,14 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
+import br.edu.ifrs.canoas.lds.ifskills.repository.CommentRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.PostRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.UserRepository;
@@ -23,6 +27,8 @@ public class PostService {
 	
 	private RankRepository rankRepository;
 	
+	private CommentRepository commentRepo;
+	
 	/**
 	 * @author Luciane
 	 * @date: 11/05/2016
@@ -37,17 +43,19 @@ public class PostService {
 	 * @description: Add documentService
 	 */
 	private DocumentService docService;
+	
 
 	/**
 	 * 01/05/16 - Ricardo
 	 * @param posRepo
 	 */
 	@Autowired
-	public PostService(PostRepository posRepo, UserRepository userRepository, DocumentService docService, RankRepository rankRepository) {
+	public PostService(PostRepository posRepo, UserRepository userRepository, DocumentService docService, RankRepository rankRepository, CommentRepository commentRepo) {
 		this.postRepository = posRepo;
 		this.userRepository = userRepository;
 		this.docService = docService;
 		this.rankRepository = rankRepository;
+		this.commentRepo = commentRepo;
 	}
 
 	/**
@@ -86,6 +94,19 @@ public class PostService {
 	 * @param id
 	 */
 	public void delete(Long id) {
+		/*//if(rankRepository.findOne(id)!= null);//ESTÁ BUSCANDO UM RANK COM O ID DO POST 
+		//DEVERIA TER PEGO O LIST<RANK> R = POST.GETRANK(); E INTERADO SOBRE A LISTA APAGANDO OS IDS
+		Post post = postRepository.findOne(id);
+		
+		Rank rank = post.getRank();
+		rankRepository.delete(rank);
+		
+		//  <== DEVERIA PEGAR APENAS OS COMMENTS DO POST, POST.GETCOMMENTS()
+		List <Comment> comments = post.getComments();
+		
+		for (Comment comment : comments) {
+			commentRepo.delete(comment);;
+		}*/
 		postRepository.delete(id);
 	}
 	/**

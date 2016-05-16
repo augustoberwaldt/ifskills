@@ -44,11 +44,16 @@ public class ArticleServiceTest {
 	/**
 	 * Test to get article1 and check title.
 	 * 
-	 * Change: 23/04/2016 - Ricardo - Change test for article id 1
+	 * Change: 23/04/2016 - Ricardo - Change test for article id 2
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: Was not working because the id was informed of a post and not an article
+	 * 
 	 */
 	@Test
-	public void testToGetArticle1AndCheckTitle() {
-		assertThat(articleService.get(1L), hasProperty("title", is("Get With the Program")));
+	public void testToGetArticle2AndCheckTitle() {
+		assertThat(articleService.get(2L), hasProperty("title", is("Get With the Program")));
 	}
 
 	/**
@@ -71,7 +76,7 @@ public class ArticleServiceTest {
 	 */
 	@Test
 	public void testToFindArticle2DeleteItAndCheckAgain() {
-		assertThat(articleService.get(2L), hasProperty("title", is("A Face to Remember")));
+		assertThat(articleService.get(2L), hasProperty("title", is("Get With the Program")));
 		articleService.delete(2L);
 		assertThat(articleService.get(2L), is(nullValue()));
 	}

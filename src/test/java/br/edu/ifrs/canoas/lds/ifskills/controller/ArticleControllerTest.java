@@ -91,19 +91,23 @@ public class ArticleControllerTest extends BaseControllerTest{
 	 *             the exception
 	 *             
 	 * Change: 23/04/2016 - Ricardo - Change test for article id
-	 */
+	 * 
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests*
+	 **/
 	@Test
 	@WithUserDetails("admin@123.123")
 	public void testToCheckArticle3DeleteItAndCheckAgain() throws Exception {
 		
-		assertThat(articleService.get(3L), is(notNullValue()));
-		assertThat(articleService.get(3L).getTitle(), is("Watson’s Potty Mouth"));
+		assertThat(articleService.get(7L), is(notNullValue()));
+		assertThat(articleService.get(7L).getTitle(), is("A Face to Remember"));
 		
-		this.mockMvc.perform(post("/article/delete/3"))
+		this.mockMvc.perform(post("/article/delete/7"))
 			.andExpect(flash().attributeExists("message"))
 			;
 		
-		assertThat(articleService.get(3L), is(nullValue()));
+		assertThat(articleService.get(7L), is(nullValue()));
 
 	}
 

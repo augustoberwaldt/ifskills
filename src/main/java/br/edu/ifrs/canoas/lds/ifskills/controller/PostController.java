@@ -161,6 +161,7 @@ public class PostController {
 			
 			post.setPostedOn(new Date());
 			post.setAuthor(userProfileService.getPrincipal().getUser());
+			//post.setRank(new Rank());
 			
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));

@@ -16,7 +16,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	, CommentServiceTest.class
 	, NotificationServiceTest.class
 	, JobAdServiceTest.class
-	, ArticleRankServiceTest.class})
+	, ArticleRankServiceTest.class
+	, PostServiceTest.class})
 public class AllTests {
 
 }

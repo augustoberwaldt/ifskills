@@ -104,16 +104,17 @@ public class CommentControllerTest extends BaseControllerTest{
 	 * @Date: 03/04/2016
 	 * Description: Test to check comment1 delete it and check again.
 	 *
-	 * @throws Exception
-	 *             the exception
+	 * Modified by: Luciane
+	 * @date: 15/05/2015
+	 * @description: I changed the id because new inserts broke the tests
 	 */
 	@Test
 	@WithUserDetails("admin@123.123")
-	public void testToCheckComment1DeleteItAndCheckAgain() throws Exception {
+	public void testToCheckComment12DeleteItAndCheckAgain() throws Exception {
 		
-		assertThat(commentService.get(1L), hasProperty("body", is("Collaborative development of a fictitious system in class software development laboratory.")));
-		commentService.delete(1L);
-		assertThat(commentService.get(1L), is(nullValue()));
+		assertThat(commentService.get(12L), hasProperty("body", is("Body 12 - Aponta body 11")));
+		commentService.delete(12L);
+		assertThat(commentService.get(12L), is(nullValue()));
 		
 		
 	}

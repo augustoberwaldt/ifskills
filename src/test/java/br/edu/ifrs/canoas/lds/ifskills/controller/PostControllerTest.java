@@ -128,13 +128,13 @@ public class PostControllerTest extends BaseControllerTest{
 	 */
 	@Test
 	public void testToViewPost1AndCheckAtts() throws Exception {
-		/*this.mockMvc.perform(post("post/view/1"))
+		this.mockMvc.perform(post("/post/view/1"))
 		.andExpect(status().isOk())
 		.andExpect(model().attributeExists("post"))
 		.andExpect(model().attribute("post", hasProperty("title", is("Welcome to IFSkills"))))
 		.andExpect(model().attribute("readonly",is(true)))
 		.andExpect(forwardedUrl(PRE_URL+"/post/form"+POS_URL))
-		;*/
+		;
 	}
 	
 	/**

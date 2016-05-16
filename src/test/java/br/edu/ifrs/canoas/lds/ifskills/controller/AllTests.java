@@ -8,6 +8,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import br.edu.ifrs.canoas.lds.ifskills.controller.selenium.ItemControlerSeleniumTest;
+import br.edu.ifrs.canoas.lds.ifskills.controller.selenium.PostControlerSeleniumTest;
 
 @RunWith(Suite.class)
 @SuiteClasses({ ItemControllerTest.class
@@ -15,7 +16,9 @@ import br.edu.ifrs.canoas.lds.ifskills.controller.selenium.ItemControlerSelenium
 	, ArticleControllerTest.class
 	, CommentControllerTest.class
 	, JobAdControllerTest.class
-	, ItemControlerSeleniumTest.class, PostControllerTest.class})
+	, ItemControlerSeleniumTest.class
+	, PostControllerTest.class
+	, PostControlerSeleniumTest.class})
 public class AllTests {
 
 }
