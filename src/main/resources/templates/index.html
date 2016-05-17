@@ -55,10 +55,28 @@
 							<p th:text="${message4}" />
 						</div>
 
-
-						<!-- 31/03/16 - Ricardo - Change placeholder information -->
-						<!-- 05/04/16 - Ricardo - Change placeholder information 
 						
+						<!-- Header to show post on homepage -->
+						<div class="container-fluid app-content-a">
+							<div class="container">
+								<div class="row text-center">
+									<div class="col-md-4 col-sm-6" th:each="post:${posts}">
+										<h2 th:href="@{|/post/view/${post.title}|}"	th:text="|${post.title}|" />
+										<!-- <div value="RankService.getRank(postService.get(input.id)" type="text" class="rating"
+											data-size="sm" /> -->
+										<!--  readonly="true"  -->
+
+										<li class="text-center load-more"><i
+											class="fa fa-refresh"></i> read more..</li>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<!-- 31/03/16 - Ricardo - Change placeholder information -->
+						<!-- 05/04/16 - Ricardo - Change placeholder information -->
+						<!-- 
 						Reviewed by:  Edson Giovani de Candio 
 						Date: 26/04/2016. 
 						Description: changed placeholder=  "Search for title, text or author of article" to "Search for title, tag or teaser"  
@@ -87,7 +105,7 @@
 						<div class="container-fluid app-content-a">
 							<div class="container">
 								<div class="row text-center">
-									<div class="col-md-4 col-sm-6" th:each="article : ${articles}">
+									<div class="col-md-4 col-sm-6" th:each="article : ${article}">
 										<span class="fa-stack fa-lg fa-5x"
 											th:if="${article.picture} != null"> <i
 											class="fa fa-circle-thin fa-stack-2x"></i> <img
