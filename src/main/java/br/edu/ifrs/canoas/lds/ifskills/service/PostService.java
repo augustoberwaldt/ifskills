@@ -1,13 +1,15 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
-import java.util.List;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
+import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.repository.CommentRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.PostRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
@@ -79,6 +81,10 @@ public class PostService {
 		return p;
 	}
 	
+	public Object listIsPublic() {
+		return postRepository.findByIsPublic(true);
+	}
+	
 	
 	/**
 	 * 01/05/16 - Ricardo - Save
@@ -86,16 +92,12 @@ public class PostService {
 	 * @return
 	 */
 	public Post save(Post post) {
-		//Rank rank = rankRepository.save(post.getRank());
-		//post.setRank(rank);
 		Post savedPost = postRepository.save(post);
-		
 		//Adicionado para salvar o rank
 		Rank rank = new Rank();
 		rank.setDocument(savedPost);
-		rank.setRank(0);
+		rank.setValue((float) 0.0);
 		rankRepository.save(rank);
-		
 		savedPost.setRank(rank);
 		return postRepository.save(savedPost);
 
@@ -127,15 +129,18 @@ public class PostService {
 	 * @return average value of rank
 	 * @description: Method to get the average value of rank for post
 	 */
-	public Integer getRank(Post post) {
+	public Float getRank(Post post) {
 		int rank = 0;
 		Iterable<Rank> ranks = rankRepository.findAll();
 		for (Rank r : ranks) {
 			if(r.getDocument() instanceof Post){
-				rank+=r.getRank();
+				rank+=r.getValue();
 			}
 		}
-		return post.getRank().getRank()/rank;
+		float result = post.getRank().getValue()/rank;
+		DecimalFormat df = new DecimalFormat("##.##");
+		df.format(result);
+		return result;
 	}
 
 }

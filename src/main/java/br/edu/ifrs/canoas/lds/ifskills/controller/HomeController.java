@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
+import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -23,6 +24,7 @@ public class HomeController {
 	private UserProfileService userService;
 	private ArticleService articleService;
 	private JobAdService jobAdService;
+	private PostService postService; 
 
 	/**
 	 * Instantiates a new home controller.
@@ -33,10 +35,11 @@ public class HomeController {
 	 *            the article service
 	 */
 	@Autowired
-	public HomeController(UserProfileService service, ArticleService articleService, JobAdService jobAdService) {
+	public HomeController(UserProfileService service, ArticleService articleService, JobAdService jobAdService, PostService postService) {
 		this.userService = service;
 		this.articleService = articleService;
 		this.jobAdService = jobAdService;
+		this.postService = postService;
 	}
 
 	/**
@@ -58,12 +61,14 @@ public class HomeController {
 		if (userService.getPrincipal () != null ){
 			model.addAttribute("articles", articleService.findAll());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
+			model.addAttribute("posts", postService.list());
+			
 		}else{
 			model.addAttribute("articles", articleService.listPublic());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
+			model.addAttribute("posts", postService.listIsPublic());
+			model.addAttribute("calculatedRank", new Float(2.5));
 		}
-		
-		model.addAttribute("calculatedRank", new Float(2.5));
 		return "/index";
 	}
 

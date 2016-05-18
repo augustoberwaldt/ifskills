@@ -38,12 +38,12 @@ public class DocumentService {
 		if (ranks == null || ranks.isEmpty()) {
 			ranks = new ArrayList<Rank>();
 			rank = new Rank();
-			rank.setRank(1);
+			rank.setValue((float)1);
 			rank.setDocument(document);
 		} else {
 			rank = ranks.get(0);
-			int val = rank.getRank() + 1;
-			rank.setRank(val);
+			float val = rank.getValue() + 1;
+			rank.setValue(val);
 		}
 		rankRepository.save(rank);
 	}

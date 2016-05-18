@@ -32,13 +32,13 @@ public class Rank {
 	 * @date: 15/05/2016
 	 * @description: modified JPA cascade for merge
 	 */
-	@ManyToOne(cascade = {CascadeType.MERGE})//revisar isso
+	@ManyToOne(cascade = {CascadeType.MERGE})
 	@JoinColumn(name = "document_id")
 	//@NotNull
 	private Document document;
 
 	@NotNull
-	private Integer rank;
+	private Float rank;
 
 	public Long getId() {
 		return id;
@@ -56,11 +56,11 @@ public class Rank {
 		this.document = document;
 	}
 
-	public Integer getRank() {
+	public Float getValue() {
 		return rank;
 	}
 
-	public void setRank(Integer rank) {
+	public void setValue(Float rank) {
 		this.rank = rank;
 	}
 

@@ -92,7 +92,7 @@ public class PostController {
 			return "redirect:/post/list";
 		}
 		model.addAttribute("post", postService.get(id));
-		model.addAttribute("calculatedRank", postService.getRank(post));
+		//model.addAttribute("calculatedRank", postService.getRank(post));
 		model.addAttribute("readonly", true);
 		return "/post/form";
 	}
