@@ -26,6 +26,4 @@ public class RankService {
 		this.documentRepository = documentRepository;
 	}
 
-	
-
 }

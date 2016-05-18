@@ -1,9 +1,7 @@
 package br.edu.ifrs.canoas.lds.ifskills.controller;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.validation.Valid;
@@ -19,11 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
-import br.edu.ifrs.canoas.lds.ifskills.domain.User;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
+import br.edu.ifrs.canoas.lds.ifskills.service.RankService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 /**
@@ -48,7 +45,7 @@ public class PostController {
 	 * @param messageSource
 	 */
 	@Autowired
-	public PostController(PostService postService, MessageSource messageSource, UserProfileService userProfileService) {
+	public PostController(PostService postService, MessageSource messageSource, UserProfileService userProfileService, RankService rankService) {
 		this.postService = postService;
 		this.messageSource = messageSource;
 		this.userProfileService = userProfileService;
@@ -95,7 +92,7 @@ public class PostController {
 					MessageFormat.format(messageSource.getMessage("post.viewFailed", null, locale), id));
 			return "redirect:/post/list";
 		}
-		
+		model.addAttribute("calculatedRank", postService.getRank(post));
 		model.addAttribute("post", postService.get(id));
 		model.addAttribute("readonly", true);
 		return "/post/form";
@@ -161,7 +158,7 @@ public class PostController {
 			
 			post.setPostedOn(new Date());
 			post.setAuthor(userProfileService.getPrincipal().getUser());
-			//post.setRank(new Rank());
+			post.setRank(new Rank());
 			
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));
