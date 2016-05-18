@@ -203,3 +203,17 @@ insert into comment (id, document_id) values (18, 14);
 
 insert into document(id, body, posted_on, user_id) values (19, 'Body 19', sysdate, 2);
 insert into comment (id, document_id) values (19, 18);
+
+--INSERTS LUCIANE
+insert into document(ID , BODY , POSTED_ON , USER_ID ) values (23, 'Sou corpo do Post  23', sysdate, 1);
+
+insert into post (ID , TITLE, SUBJECT , IS_PUBLIC, RANK_ID ,  ) values (23, 'Sou o post  23', 'Assunto qualquer', true, null);
+
+insert into post_tags (POST_ID , TAGS ) values (23, 'PostTag1, PostTag1, PostTag1, PostTag2');
+
+
+insert into document(ID , BODY , POSTED_ON , USER_ID ) values (24, 'Sou o comentário do post 13', sysdate, 2);
+
+insert into comment (ID ,DOCUMENT_ID ) values (24,24);
+
+insert into DOCUMENT_COMMENTS(document_id, comments_id) values(23, 24);

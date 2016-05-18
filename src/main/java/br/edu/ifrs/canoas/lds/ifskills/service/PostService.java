@@ -1,15 +1,14 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
-import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.edu.ifrs.canoas.lds.ifskills.domain.JobAd;
+import br.edu.ifrs.canoas.lds.ifskills.domain.Comment;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
-import br.edu.ifrs.canoas.lds.ifskills.domain.Status;
 import br.edu.ifrs.canoas.lds.ifskills.repository.CommentRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.PostRepository;
 import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
@@ -108,20 +107,18 @@ public class PostService {
 	 * @param id
 	 */
 	public void delete(Long id) {
-		/*//if(rankRepository.findOne(id)!= null);//ESTÁ BUSCANDO UM RANK COM O ID DO POST 
-		//DEVERIA TER PEGO O LIST<RANK> R = POST.GETRANK(); E INTERADO SOBRE A LISTA APAGANDO OS IDS
 		Post post = postRepository.findOne(id);
 		
 		Rank rank = post.getRank();
-		rankRepository.delete(rank);
+		if (rank != null)
+			rankRepository.delete(rank);
 		
-		//  <== DEVERIA PEGAR APENAS OS COMMENTS DO POST, POST.GETCOMMENTS()
 		List <Comment> comments = post.getComments();
 		
 		for (Comment comment : comments) {
-			commentRepo.delete(comment);;
-		}*/
-		postRepository.delete(id);
+			commentRepo.delete(comment);
+		}
+		postRepository.delete(post.getId());
 	}
 	/**
 	 * @author Felipe
