@@ -65,7 +65,7 @@ public class Post extends Document {
 	 * @description: modified JPA cascade for merge
 	 */
 	
-	@ManyToOne(cascade = {CascadeType.ALL})//revisar isso
+	@ManyToOne(cascade = {CascadeType.MERGE})//revisar isso
 	private Rank rank;
 
 	public String getTitle() {

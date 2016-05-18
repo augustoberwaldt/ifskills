@@ -86,7 +86,19 @@ public class PostService {
 	 * @return
 	 */
 	public Post save(Post post) {
-		return postRepository.save(post);
+		//Rank rank = rankRepository.save(post.getRank());
+		//post.setRank(rank);
+		Post savedPost = postRepository.save(post);
+		
+		//Adicionado para salvar o rank
+		Rank rank = new Rank();
+		rank.setDocument(savedPost);
+		rank.setRank(0);
+		rankRepository.save(rank);
+		
+		savedPost.setRank(rank);
+		return postRepository.save(savedPost);
+
 	}
 	
 	/**

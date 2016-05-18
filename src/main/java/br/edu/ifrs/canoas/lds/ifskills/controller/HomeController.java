@@ -62,6 +62,8 @@ public class HomeController {
 			model.addAttribute("articles", articleService.listPublic());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
 		}
+		
+		model.addAttribute("calculatedRank", new Float(2.5));
 		return "/index";
 	}
 

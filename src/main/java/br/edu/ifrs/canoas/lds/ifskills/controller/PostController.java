@@ -91,8 +91,8 @@ public class PostController {
 					MessageFormat.format(messageSource.getMessage("post.viewFailed", null, locale), id));
 			return "redirect:/post/list";
 		}
-		model.addAttribute("calculatedRank", postService.getRank(post));
 		model.addAttribute("post", postService.get(id));
+		model.addAttribute("calculatedRank", postService.getRank(post));
 		model.addAttribute("readonly", true);
 		return "/post/form";
 	}
@@ -157,11 +157,6 @@ public class PostController {
 			
 			post.setPostedOn(new Date());
 			post.setAuthor(userProfileService.getPrincipal().getUser());
-			//Adicionado para salvar o rank
-			Rank rank = new Rank();
-			rank.setDocument(post);
-			rank.setRank(0);
-			post.setRank(rank);
 			//rank mantendo o valor 2 no banco. Revisar
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));
