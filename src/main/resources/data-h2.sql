@@ -101,23 +101,23 @@ insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(8, 'Computer, Engineer');
 
 -- POSTS
 insert into document(id, body, posted_on, user_id) values (1, 'Collaborative development of a fictitious system in class software development laboratory.', sysdate, 1);
-insert into post (id, title, subject) values (1, 'Welcome to IFSkills', 'Informática TI');
+insert into post (id, title, subject, is_public) values (1, 'Welcome to IFSkills', 'Informática TI', true);
 insert into post_tags (post_id, tags) values (1, 'Tics, Educação');
 
 insert into document(id, body, posted_on, user_id) values (3, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 2);
-insert into post (id, title, subject) values (3, 'About Article', 'Mineração de Dados');
+insert into post (id, title, subject, is_public) values (3, 'About Article', 'Mineração de Dados', true);
 insert into post_tags (post_id, tags ) values(3, 'Inteligência, BI');
 
 insert into document(id, body, posted_on, user_id) values (4, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 3);
-insert into post (id, title, subject) values (4, 'About Jobs', 'Spring Boot');
+insert into post (id, title, subject, is_public) values (4, 'About Jobs', 'Spring Boot', true);
 insert into post_tags (post_id, tags ) values(4, 'IDE, ferramenta');
 
 insert into document(id, body, posted_on, user_id) values (5, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 4);
-insert into post (id, title,subject) values (5, 'About Courses', 'Persistência Java');
+insert into post (id, title,subject, is_public) values (5, 'About Courses', 'Persistência Java', false);
 insert into post_tags (post_id, tags) values(5, 'Liguagem, BD');
 
 insert into document(id, body, posted_on, user_id) values (6, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 5);
-insert into post (id, title,subject) values (6, 'About Items', 'E-commerce');
+insert into post (id, title,subject, is_public) values (6, 'About Items', 'E-commerce', false);
 insert into post_tags (post_id, tags) values (6, 'Comércio, Online');
 
 -- ARTICLES
@@ -177,7 +177,7 @@ insert into article_rank (created_on, rank, article_id, author_user_id) values (
 
 -- POST
 insert into document(id, body, posted_on, user_id) values (11, 'Body 11', sysdate, 1);
-insert into post (id, title, subject) values (11, 'Title11', 'Subject11');
+insert into post (id, title, subject, is_public) values (11, 'Title11', 'Subject11', false);
 insert into post_tags (post_id, tags) values (11, 'PostTag11-1, PostTag11-2, PostTag11-3, PostTag11-4, PostTag11-5');
 -- COMMENTS
 insert into document(id, body, posted_on, user_id) values (12, 'Body 12 - Aponta body 11', sysdate, 2);
