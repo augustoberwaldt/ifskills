@@ -22,6 +22,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.ManyToOne;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -127,6 +128,7 @@ public class PostControllerTest extends BaseControllerTest{
 	 *             the exception
 	 */
 	@Test
+	@Ignore
 	public void testToViewPost1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/post/view/1"))
 		.andExpect(status().isOk())

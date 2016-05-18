@@ -141,5 +141,30 @@ public class CommentControllerTest extends BaseControllerTest{
 
 	}
 	
+	/**
+	 * @author :Edward Ramos
+	 * @throws Exception 
+	 * @Date : May/18/2016
+	 * @Description: Save a comment in post.
+	 */
+	@Test
+	@WithUserDetails("123@123.123")
+	public void testToSaveCommentInThePost() throws Exception{
+		Long size = commentService.list().spliterator().getExactSizeIfKnown();
+		
+		mockMvc.perform(post("/post/comment/save")
+				.contentType(MediaType.APPLICATION_FORM_URLENCODED)
+                .param("content", "some content")
+                .param("post.id", "1") 
+                .sessionAttr("comment", new Comment())
+        )
+	    .andDo(MockMvcResultHandlers.print())
+	    .andExpect(view().name(containsString("redirect:/post/view/")))
+	    //.andExpect(flash().attributeExists("message"))//>> Does not exists this message in CommentController method.
+	    ;
+		
+		assertThat(commentService.list().spliterator().getExactSizeIfKnown(), is(size + 1L));
+	}
+	
 		
 }
