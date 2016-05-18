@@ -14,8 +14,6 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
  **/
 
 public interface RankRepository extends CrudRepository<Rank, Long> {
-	
-	
 
 	//Rank findByPost(Post post);
 	

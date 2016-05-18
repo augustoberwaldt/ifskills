@@ -60,11 +60,10 @@
 						<div class="container-fluid app-content-a">
 							<div class="container">
 								<div class="row text-center">
-									<div class="col-md-4 col-sm-6" th:each="post:${posts}">
+									<div class="col-md-4 col-sm-6" th:each="post:${post}">
 										<h2 th:href="@{|/post/view/${post.title}|}"	th:text="|${post.title}|" />
 										<div th:field="${calculatedRank}" type="text" class="rating" data-size="sm" />
 										<!--  readonly="true"  -->
-
 										<li class="text-center load-more"><i
 											class="fa fa-refresh"></i> read more..</li>
 									</div>

@@ -20,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 import br.edu.ifrs.canoas.lds.ifskills.domain.Rank;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
-import br.edu.ifrs.canoas.lds.ifskills.service.RankService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 /**
@@ -45,7 +44,7 @@ public class PostController {
 	 * @param messageSource
 	 */
 	@Autowired
-	public PostController(PostService postService, MessageSource messageSource, UserProfileService userProfileService, RankService rankService) {
+	public PostController(PostService postService, MessageSource messageSource, UserProfileService userProfileService) {
 		this.postService = postService;
 		this.messageSource = messageSource;
 		this.userProfileService = userProfileService;
@@ -158,8 +157,12 @@ public class PostController {
 			
 			post.setPostedOn(new Date());
 			post.setAuthor(userProfileService.getPrincipal().getUser());
-			post.setRank(new Rank());
-			
+			//Adicionado para salvar o rank
+			Rank rank = new Rank();
+			rank.setDocument(post);
+			rank.setRank(0);
+			post.setRank(rank);
+			//rank mantendo o valor 2 no banco. Revisar
 			Post savedPost = postService.save(post);
 			redirectAttrs.addFlashAttribute("message", messageSource.getMessage("post.saved", null, locale));
 			return "redirect:/post/view/" + savedPost.getId() + "?success";

@@ -32,7 +32,7 @@ public class Rank {
 	 * @date: 15/05/2016
 	 * @description: modified JPA cascade for merge
 	 */
-	@ManyToOne(cascade = {CascadeType.MERGE})
+	@ManyToOne(cascade = {CascadeType.ALL})//revisar isso
 	@JoinColumn(name = "document_id")
 	//@NotNull
 	private Document document;
