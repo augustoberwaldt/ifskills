@@ -105,6 +105,10 @@ public class PostService {
 	/**
 	 * 01/05/16 - Ricardo - Delete
 	 * @param id
+	 * 
+	 * Modified by Luciane
+	 * @date:18/05/2016
+	 * @description: Alterations for delete Comments and Rank 
 	 */
 	public void delete(Long id) {
 		Post post = postRepository.findOne(id);
