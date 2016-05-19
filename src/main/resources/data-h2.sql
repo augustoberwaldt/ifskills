@@ -215,7 +215,7 @@ insert into document(ID , BODY , POSTED_ON , USER_ID ) values (23, 'Sou corpo do
 
 insert into post (ID , TITLE, SUBJECT , IS_PUBLIC, RANK_ID ,  ) values (23, 'Sou o post  23', 'Assunto qualquer', true, null);
 
-insert into post_tags (POST_ID , TAGS ) values (23, 'PostTag1, PostTag1, PostTag1, PostTag2');
+insert into post_tags (POST_ID , TAGS ) values (23, 'PostTag1, PostTag2');
 
 --primeiro comentário do Post 23 com id=24
 insert into document(ID , BODY , POSTED_ON , USER_ID ) values (24, 'Sou o comentário do post 13', sysdate, 2);
