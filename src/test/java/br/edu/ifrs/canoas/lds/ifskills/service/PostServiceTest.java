@@ -44,7 +44,6 @@ public class PostServiceTest {
 	 *  @description: Test to get post 1 and check title.
 	 */
 	@Test
-	@Ignore
 	public void testToGetPost1AndCheckTitle() {
 		assertThat(postService.get(1L), hasProperty("title", is("Welcome to IFSkills")));
 	}
@@ -53,6 +52,8 @@ public class PostServiceTest {
 	 * @author Luciane
 	 * @date: 15/05/2016
 	 * @description: Test to find  post 1 delete it and check again.
+	 * 
+	 *OBS: O método delete não fuinciona
 	 */
 	@Test  
 	public void testToFindPost1DeleteItAndCheckAgain() {
