@@ -222,6 +222,7 @@ public class PostControlerSeleniumTest extends FluentTest {
 	 * @description Functional Test
 	 */
 	@Test
+	@Ignore
 	public void testToViewOnePostFromHomePage(){
 		goTo("http://localhost:8080");
 		findFirst("h2", withText("WelcomeToIFSkills"));
