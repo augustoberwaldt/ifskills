@@ -11,6 +11,11 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
  */
 public interface PostRepository extends CrudRepository<Post, Long> {
 
+	/**
+	 * @author Felipe
+	 * @param IsPublic
+	 * @return List of public posts
+	 */
 	List<Post> findByIsPublic(boolean IsPublic);
 
 }

@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.edu.ifrs.canoas.lds.ifskills.repository.RankRepository;
 import br.edu.ifrs.canoas.lds.ifskills.service.ArticleService;
 import br.edu.ifrs.canoas.lds.ifskills.service.JobAdService;
 import br.edu.ifrs.canoas.lds.ifskills.service.PostService;
+import br.edu.ifrs.canoas.lds.ifskills.service.RankService;
 import br.edu.ifrs.canoas.lds.ifskills.service.UserProfileService;
 
 // TODO: Auto-generated Javadoc
@@ -25,6 +27,7 @@ public class HomeController {
 	private ArticleService articleService;
 	private JobAdService jobAdService;
 	private PostService postService; 
+	private RankRepository rankRepository;
 
 	/**
 	 * Instantiates a new home controller.
@@ -35,11 +38,12 @@ public class HomeController {
 	 *            the article service
 	 */
 	@Autowired
-	public HomeController(UserProfileService service, ArticleService articleService, JobAdService jobAdService, PostService postService) {
+	public HomeController(UserProfileService service, ArticleService articleService, JobAdService jobAdService, PostService postService, RankRepository rankRepository) {
 		this.userService = service;
 		this.articleService = articleService;
 		this.jobAdService = jobAdService;
 		this.postService = postService;
+		this.rankRepository = rankRepository;
 	}
 
 	/**
@@ -51,6 +55,8 @@ public class HomeController {
 	 * 03/24 - Rodrigo - added auth attribute for template decorator
 	 * 
 	 * 25/04 - Rodrigo - added list jobs on line 61
+	 * 
+	 * 18/05 - Felipe - added posts on line 70 and 75 
 	 */
 	@RequestMapping("/")
 	public String view(Model model, HttpSession session) {
@@ -62,12 +68,12 @@ public class HomeController {
 			model.addAttribute("articles", articleService.findAll());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
 			model.addAttribute("posts", postService.list());
-			
+			model.addAttribute("calculatedRank", new Float(8.0));
 		}else{
 			model.addAttribute("articles", articleService.listPublic());
 			model.addAttribute("jobs", jobAdService.listStatusApproved());
 			model.addAttribute("posts", postService.listIsPublic());
-			model.addAttribute("calculatedRank", new Float(2.5));
+			model.addAttribute("calculatedRank", new Float(4.3));
 		}
 		return "/index";
 	}

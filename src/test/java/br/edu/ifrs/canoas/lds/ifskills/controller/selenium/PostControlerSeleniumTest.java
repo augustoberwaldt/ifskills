@@ -6,6 +6,7 @@ import static org.fluentlenium.core.filter.FilterConstructor.withText;
 import java.util.concurrent.TimeUnit;
 
 import org.fluentlenium.adapter.FluentTest;
+import org.fluentlenium.core.filter.Filter;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -215,5 +216,22 @@ public class PostControlerSeleniumTest extends FluentTest {
 				.until(find("#DataTables_Table_0_info", withText("Showing 1 to 6 of 6 entries")));
 		assertThat(find("#DataTables_Table_0_info").getText()).isEqualTo("Showing 1 to 6 of 6 entries");
 	}
+	/**
+	 * @author Felipe
+	 * @date 18/05/2016
+	 * @description Functional Test
+	 */
+	@Test
+	@Ignore
+	public void testToViewOnePostFromHomePage(){
+		goTo("http://localhost:8080");
+		findFirst("h2", withText("WelcomeToIFSkills"));
+		assertThat(findFirst("h2", withText("WelcomeToIFSkills")).getText().compareToIgnoreCase("WelcomeToIFSkills"));
+		findFirst("a", withText("read more..")).click();
+		assertThat(findFirst("a", withText("read more..")).getText().compareToIgnoreCase("read more.."));
+		assertThat(find("#PostTitle", withText("WelcomeToIFSkills")).getText().equalsIgnoreCase("WelcomeToIFSkills"));
+		assertThat(find("#PostSubject", withText("Informática TI")).getText().equalsIgnoreCase("Informática TI"));
+	}
+
 
 }
