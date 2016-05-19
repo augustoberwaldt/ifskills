@@ -49,11 +49,6 @@ public class PostControllerTest extends BaseControllerTest{
 		mockMvc = getMockMvc(postController);
 	}
 
-	@Test
-	public void testFindResponsibles() {
-		//postController.findResponsibles(null, null);
-		
-	}
 	
 	/**
 	 * @author Luciane
@@ -80,15 +75,15 @@ public class PostControllerTest extends BaseControllerTest{
 	 * @Date: 13/05/2016
 	 * Description: Test to check Post 1, delete it and check again.
 	 *
-	 * @throws Exception
-	 *             the exception
+	 * Observation: O método delete não está funcionando
+	 * acusa restrições com FK do Rank e do Comment
 	 */
 	@Test
 	@WithUserDetails("admin@123.123")
 	public void testToCheckPost1DeleteItAndCheckAgain() throws Exception {
 		
-		/*assertThat(postService.get(1L), is(notNullValue()));
-		assertThat(postService.get(1L).getTitle(), is("Welcome to IFSkills"));
+		/*assertThat(postService.get(23L), is(notNullValue()));
+		assertThat(postService.get(23L).getTitle(), is("Sou o post  23"));
 		
 		this.mockMvc.perform(post("/post/delete/1"))
 			.andExpect(flash().attributeExists("message"))
@@ -123,12 +118,8 @@ public class PostControllerTest extends BaseControllerTest{
 	 * @author Luciane
 	 * @Date: 14/05/2016
 	 * Description: Test to view Post 1 and check atts.
-	 *
-	 * @throws Exception
-	 *             the exception
 	 */
 	@Test
-	@Ignore
 	public void testToViewPost1AndCheckAtts() throws Exception {
 		this.mockMvc.perform(post("/post/view/1"))
 		.andExpect(status().isOk())
