@@ -158,7 +158,7 @@ public class PostControlerSeleniumTest extends FluentTest {
 
 	/**
 	 * @author Luciane
-	 * @date:15/05/016
+	 * @date:15/05/2016
 	 * @description: Functional Test
 	 */
 	@Test
