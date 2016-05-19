@@ -103,22 +103,27 @@ insert into JOB_AD_TAGS  (JOB_AD_ID , tags ) values(8, 'Computer, Engineer');
 insert into document(id, body, posted_on, user_id) values (1, 'Collaborative development of a fictitious system in class software development laboratory.', sysdate, 1);
 insert into post (id, title, subject, is_public) values (1, 'Welcome to IFSkills', 'Informática TI', true);
 insert into post_tags (post_id, tags) values (1, 'Tics, Educação');
+insert into rank (id, rank, document_id) values (1, 2.5, 1);
 
 insert into document(id, body, posted_on, user_id) values (3, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 2);
 insert into post (id, title, subject, is_public) values (3, 'About Article', 'Mineração de Dados', true);
 insert into post_tags (post_id, tags ) values(3, 'Inteligência, BI');
+insert into rank (id, rank, document_id) values (3, 5, 3);
 
 insert into document(id, body, posted_on, user_id) values (4, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 3);
 insert into post (id, title, subject, is_public) values (4, 'About Jobs', 'Spring Boot', true);
 insert into post_tags (post_id, tags ) values(4, 'IDE, ferramenta');
+insert into rank (id, rank, document_id) values (4, 4.2, 4);
 
 insert into document(id, body, posted_on, user_id) values (5, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 4);
 insert into post (id, title,subject, is_public) values (5, 'About Courses', 'Persistência Java', false);
 insert into post_tags (post_id, tags) values(5, 'Liguagem, BD');
+insert into rank (id, rank, document_id) values (5, 3.2, 5);
 
 insert into document(id, body, posted_on, user_id) values (6, 'leo et posuere dolor dolor ipsum interdum rhoncus volutpat saepe tincidunt justo', sysdate, 5);
 insert into post (id, title,subject, is_public) values (6, 'About Items', 'E-commerce', false);
 insert into post_tags (post_id, tags) values (6, 'Comércio, Online');
+insert into rank (id, rank, document_id) values (6, 2.8, 6);
 
 -- ARTICLES
 insert into document(id, body, posted_on, user_id) values (2, 'Biological science these days is all about Big Data. Whether it’s in the form of DNA sequences, photomicrographs, or mass spectra, researchers increasingly need to collect, integrate, manipulate, and interpret enormous pools of information.

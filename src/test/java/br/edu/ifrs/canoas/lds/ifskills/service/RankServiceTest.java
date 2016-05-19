@@ -1,5 +1,9 @@
 package br.edu.ifrs.canoas.lds.ifskills.service;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +17,13 @@ import br.edu.ifrs.canoas.lds.ifskills.domain.Post;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(IFSkillsApplication.class)
 public class RankServiceTest {
-
+/**
+ * @author Felipe
+ * @date 18/05/2016
+ */
 	@Autowired
 	DocumentService docService;
+	PostService postService;
 	
 	@Test
 	public void testToCheckThePostRank() {
@@ -23,5 +31,6 @@ public class RankServiceTest {
 		document.setId(1L);
 		docService.findOne(document);
 	}
-
+		
+	
 }

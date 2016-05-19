@@ -87,8 +87,10 @@ public class PostService {
 	
 	/**
 	 * 01/05/16 - Ricardo - Save
+	 * Modified by: felipe set a new rank for created posts
 	 * @param post
 	 * @return
+	 * 
 	 */
 	public Post save(Post post) {
 		Post savedPost = postRepository.save(post);

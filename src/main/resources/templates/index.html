@@ -54,18 +54,18 @@
 						<div th:if="${message4}" class="alert alert-danger">
 							<p th:text="${message4}" />
 						</div>
-
+						<div></div>
 						<!-- Header to show post on homepage -->
 						<div class="container-fluid app-content-a">
 							<div class="container">
 								<div class="row text-center">
 									<div class="col-md-4 col-sm-6" th:each="post:${posts}" th:if="${post.isPublic}">
-										<h2 th:href="@{|/post/view/${post.title}|}"	th:text="|${post.title}|" />
-										<input id="input-id" value="${calculatedRank}" type="text" class="rating" readonly="true"
+										<h2 th:text="|${post.title}|"/>
+										<input id="input-id" th:field="${calculatedRank}" type="text" class="rating" readonly="true"
 											data-size="sm" />
 										<!--  readonly="true"  -->
 										<li class="text-center load-more"><i
-											class="fa fa-refresh"></i> read more..</li>
+											class="fa fa-refresh"></i><a href="#" th:href="@{|/post/view/${post.id}|}">read more..</a></li>
 									</div>
 								</div>
 							</div>
